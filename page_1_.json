@@ -1,0 +1,776 @@
+{
+    "nombre de vues": "0",
+    "type": [
+        "\npytorchconv-neural-network\n"
+    ],
+    "Pseudo": "Christian Garvin",
+    "info_github": [
+        "\n\r\n        asked 52 secs ago\n\n\n\n\n\nChristian GarvinChristian Garvin\n\n2111 bronze badge\n\n\n"
+    ],
+    "href": "/questions/74710411/pytorch-cnn-incompatible-tensor-shapes",
+    "contenus": [
+        "Here is my pytorch CNN net. The input tensor is torch.Size([4, 1, 128, 128]) that represent images in batch size of 4:class My_Net(nn.Module):    def __init__(self, image_length):        self.image_length = image_length        # Creating the layers here (convolutional, pooling, and linear layers)        super(My_Net, self).__init__()        self.conv1 = nn.Conv2d(in_channels=1, out_channels=64, kernel_size=(5, 5), padding='same')        self.pool1 = nn.MaxPool2d(kernel_size=(10, 10))        self.conv2 = nn.Conv2d(in_channels=64, out_channels=128, kernel_size=(5, 5), padding='same')        self.pool2 = nn.MaxPool2d(kernel_size=(8, 8))        self.lin1 = nn.Linear(128, 50)        self.lin2 = nn.Linear(50, 9)    def forward(self, x):        #x = x.view((self.image_length, self.image_length, 4, 1))  # reshapes the input        x = self.pool1(F.relu(self.conv1(x)))  # first convolution and pooling step with relu activation        x = self.pool2(F.relu(self.conv2(x)))  # second convolution and pooling step with relu activation        print(x.size()) #added this to see the tensor demensions before passing into the view and linear layers        x = x.view((128 * 1 * 1, 4))  # second reshape        x = F.relu(self.lin1(x))  # relu activation function on the first linear layer        x = F.relu(self.lin2(x))  # we want only positive values so relu works best here        return xI'm getting an error in the forward pass that I am having a hard time fixing. I think it comes from a lack of understanding of how the dimensions are changing. The error is as follows:line 51, in forwardx = F.relu(self.lin1(x))line 1102, in _call_implreturn forward_call(*input, **kwargs)line 103, in forwardreturn F.linear(input, self.weight, self.bias)line 1848, in linearreturn torch._C._nn.linear(input, weight, bias)RuntimeError: mat1 and mat2 shapes cannot be multiplied (128x4 and 128x50)My main objective here is to send the images through 2 convolutional and pooling layers, then 2 linear layers ultimately reducing down to a 9 neuron linear layer that will be the output and compared via MSE to a set of 9 growth conditions for a given image. The output of the x.size() call in forward is torch.Size([4, 128, 1, 1])"
+    ],
+    "titre": "Pytorch CNN, incompatible tensor shapes",
+    "number": 1
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\ngoogle-apps-scriptmodulecode-organizationproject-organizationglobal-scope\n"
+    ],
+    "Pseudo": "Journiq Educação",
+    "info_github": [
+        "\n\r\n        asked 2 mins ago\n\n\n\n\n\nJourniq EducaçãoJourniq Educação\n\n1144 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710407/gas-files-how-to-free-global-space-from-polution",
+    "contenus": [
+        "How do I clean up my global space without having to create +1000 lines .gs filesI'm an English Teacher using Google Apps Script to do stuff with some data (CRUD, etc.).The project has been becoming increasingly more complex;The number of GAS files have raised by the dozens.Here follows two photos of some of my files/folders. Mind how low the scroll bar can slide (30+ GAS files) ↓ In Apps Script, .gs files cannot be manually mixed like .js modules, which means I cannot import or export (right?), neither control what will be shown when you serach for completions;Eventually, my globalspace has gotten heavily poluted with tons of Functions;  The scenario is: I usually forget what Functions do, or even that they exist (so many times I coded something that was ready, but lost amongst all other Functions);Of course wrapping similar functions around interfaces would solve it, but with .gs files, it often leads to +1000 lines files and negatively affects the project's readability (believe me, I tried);I've found no Youtube videos, questions in forums or anything like it anywhere on the internet that talks about how to deal with it, so the question is:How do I clean up my global space without having to create +1000 lines .gs filesArticles, blogs, videos etc. are welcome."
+    ],
+    "titre": "GAS files: how to free global space from polution?",
+    "number": 2
+}{
+    "nombre de vues": "2",
+    "type": [
+        "\npythonxmlelementtree\n"
+    ],
+    "Pseudo": "Hani Kamal",
+    "info_github": [
+        "\n\nedited 1 min ago\n\n\n\n\nHani Kamal\n\n\n\n",
+        "\n\r\n        asked 2 mins ago\n\n\n\n\n\nHani KamalHani Kamal\n\n1\n\n\n"
+    ],
+    "href": "/questions/74710406/need-help-to-correct-my-code-to-get-the-co2-and-fuel",
+    "contenus": [
+        "I have this xml how can i get the mean for fuel_abs and co2_abs<tripinfo id=vehicle_3 depart=0.00 departLane=-E11_0 departPos=5.10 departSpeed=0.00 departDelay=0.00 arrival=30.00 arrivalLane=E1_0 arrivalPos=92.80 arrivalSpeed=12.12 duration=30.00 routeLength=189.53 waitingTime=0.00 waitingCount=0 stopTime=0.00 timeLoss=14.02 rerouteNo=0 devices=tripinfo_vehicle_3 emissions_vehicle_3 vType=type_0 speedFactor=0.94 vaporized=>        <emissions CO_abs=2219.290354 CO2_abs=87498.406338 HC_abs=12.109533 PMx_abs=1.438844 NOx_abs=35.498019 fuel_abs=27908.615964 electricity_abs=0/>    </tripinfo>    <tripinfo id=vehicle_4 depart=0.00 departLane=-E8_0 departPos=5.10 departSpeed=0.00 departDelay=0.00 arrival=39.00 arrivalLane=E11_0 arrivalPos=92.80 arrivalSpeed=14.91 duration=39.00 routeLength=394.90 waitingTime=0.00 waitingCount=0 stopTime=0.00 timeLoss=12.32 rerouteNo=0 devices=tripinfo_vehicle_4 emissions_vehicle_4 vType=type_0 speedFactor=1.09 vaporized=>        <emissions CO_abs=1997.757215 CO2_abs=119332.147653 HC_abs=11.498344 PMx_abs=1.640304 NOx_abs=44.809512 fuel_abs=38062.107246 electricity_abs=0/>    </tripinfo>My functions cant get the access to the right data tag(emissions) so it will not calculatedef get_average_CO2():    xtree = et.parse(./scenario/sample.tripinfo.xml)    xroot = xtree.getroot()    rows = []    for node in xroot:        co2_emission = node.attrib.get(CO2_abs)        rows.append({co2_emission: co2_emission})    columns = [co2_emission]    co2_emission = pd.DataFrame(rows, columns=columns).astype(float64)    return co2_emission[co2_emission].mean()def get_average_fuel():    xtree = et.parse(./scenario/sample.tripinfo.xml)    xroot = xtree.getroot()    rows = []    for node in xroot:        fuel_cons = node.attrib.get(fuel_abs)        rows.append({fuel_cons: fuel_cons})    columns = [fuel_cons]    fuel_cons = pd.DataFrame(rows, columns=columns).astype(float64)    return fuel_cons[fuel_cons].mean()"
+    ],
+    "titre": "Need help to correct my code to get the co2 and fuel",
+    "number": 3
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\ngitnpmpm2openlitespeedcyber-panel\n"
+    ],
+    "Pseudo": "Alvin Stefanus",
+    "info_github": [
+        "\n\r\n        asked 3 mins ago\n\n\n\n\n\nAlvin StefanusAlvin Stefanus\n\n1,66111 gold badge2121 silver badges5252 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710403/auto-run-npm-install-after-git-pull",
+    "contenus": [
+        "so I have my own VPS, and I installed CyberPanel to host my website. The problem is that there is no option to do a command after my git is being pulled to the server. So I have to include node_modules in the repository which is a pain. Is there a way to automate the npm i script using anything like pm2 or something else? I have the root access in the VPS so I can install anything."
+    ],
+    "titre": "Auto run npm install after git pull",
+    "number": 4
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\naws-powershell\n"
+    ],
+    "Pseudo": "Roman",
+    "info_github": [
+        "\n\r\n        asked 4 mins ago\n\n\n\n\n\nRomanRoman\n\n32566 silver badges1818 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710400/how-to-set-aws-default-profile-for-aws-tools-for-powershell",
+    "contenus": [
+        "If I am using AWS CLI commands (aws), it works to have it pick up the profile I'm using if I set the environment variable AWS_PROFILE so that I don't have to specify credentials or region for each command.This does not work for the AWS Powershell commands. I have to use -ProfileName to get those to work.Can anyone tell how to make this work so that I don't have to specify profile related stuff in each command line?"
+    ],
+    "titre": "how to set AWS default profile for AWS Tools for Powershell",
+    "number": 5
+}{
+    "nombre de vues": "4",
+    "type": [
+        "\ndockerdocker-compose\n"
+    ],
+    "Pseudo": "devnext",
+    "info_github": [
+        "\n\r\n        asked 4 mins ago\n\n\n\n\n\ndevnextdevnext\n\n84311 gold badge99 silver badges2525 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710397/docker-file-missing-in-volumn",
+    "contenus": [
+        "I now i using github and docker. inside the git repository include docx and xlsx files inapp/media when i push and pull docker image.The file in 'app/media' is missing and media folder in host blank. How i can to solve this?version: '3.8'services:  web:    image: user/myimage:latest    command: gunicorn  --workers=3 --threads=2 --worker-connections=3000 --timeout 300  project.wsgi:application --bind 0.0.0.0:8000    volumes:      - ./static:/usr/src/app/static      - ./media:/usr/src/app/media    ports:      - 8000:8000    env_file:      - ./.env    depends_on:      - db"
+    ],
+    "titre": "Docker file missing in volumn?",
+    "number": 6
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\nexcelvbaheadermacrosword\n"
+    ],
+    "Pseudo": "user20707846",
+    "info_github": [
+        "\n\r\n        asked 5 mins ago\n\n\n\n\n\nuser20707846user20707846\n\n1\n\n\n"
+    ],
+    "href": "/questions/74710394/excel-vba-export-from-excel-to-word-with-header-image-issue",
+    "contenus": [
+        "I'm attempting to create a VBA code in Excel that will export from Excel into Word, with header text and a header image.  The header image should go on the right side of the Word header, with other header text on the left side of the Word header.I can get the code to create a Word document and to create the header table.  The problem is, the image is always pasted into the Word header in column 1, I need that header image in column 2.  You can see in the code I'm telling it to paste the image in column 2 however it always pastes in column 1.  Any help would be greatly appreciated!  Thank you!Sub Export()Dim obj As ObjectDim newobj As ObjectSet obj = CreateObject(Word.Application)obj.Visible = TrueSet newobj = obj.Documents.AddSheets(Sheet1).Cells.Copynewobj.Range.PasteApplication.CutCopyMode = Falseobj.ActivateWith obj    .Visible = True    With newobj        Set wdRng = .Sections(1).Headers(1).Range        Set wdTbl = .Tables.Add(Range:=wdRng, NumRows:=4, NumColumns:=2)        With wdTbl        ThisWorkbook.Sheets(Header_Image).Shapes(1).CopyPicture xlScreen, xlBitmap        .cell(1, 2).Range.PasteSpecial        End With    End WithEnd WithEnd SubI've tried many code variations, modifying the image formats, searching the web, etc."
+    ],
+    "titre": "Excel VBA Export from Excel to Word with Header Image Issue?",
+    "number": 7
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\npythonpandasdatabasedataframerow\n"
+    ],
+    "Pseudo": "Edu2694",
+    "info_github": [
+        "\n\nedited 3 mins ago\n\n\n\n\nEdu2694\n\n\n\n",
+        "\n\r\n        asked 5 mins ago\n\n\n\n\n\nEdu2694Edu2694\n\n322 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710393/python-changing-names-of-rows-if-they-are-repeated",
+    "contenus": [
+        "I wanna change the column Cuenta of my dataframe from the left one to the right table, like I show you in the next picture:entimaer image description hereAs you can see the change depends of the number of repetitions of the value Cuenta over Entidad.df = pd.DataFrame({Entidad:[A,A,A,A,A,A,A,B,B,B,B,B],Cuenta: [Surco,Lima,Miraflores,Lima,SMP,Surco,Lima,Surco,Lima,Miraflores,Lima,SMP],Valor: [12,14,11,7,5,4,22,11,34,21,17,25],})Thank your again for your help."
+    ],
+    "titre": "Python - Changing names of rows if they are repeated",
+    "number": 8
+}{
+    "nombre de vues": "5",
+    "type": [
+        "\nsharepointmicrosoft-graph-api\n"
+    ],
+    "Pseudo": "bart2puck",
+    "info_github": [
+        "\n\r\n        asked 5 mins ago\n\n\n\n\n\nbart2puckbart2puck\n\n2,29833 gold badges2424 silver badges5050 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710392/getting-data-from-sharepoint-permissions-problem",
+    "contenus": [
+        "I am trying to get a list of sites, or a list of drives on a given sharepoint site.  the app that is registered has the below permissions.  I have confirmed that I am using the associated clientid,secret,appid to get my token.When i make my call:$myUrl = https://graph.microsoft.com/v1.0/drives/someDriveId/items/root/children;I get:    [error] => stdClass Object    (        [code] => accessDenied        [message] => Access denied        [innerError] => stdClass ObjectWhat am i missing?"
+    ],
+    "titre": "Getting data from sharepoint permissions problem",
+    "number": 9
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\njavaswing\n"
+    ],
+    "Pseudo": "Abdi",
+    "info_github": [
+        "\n\r\n        asked 5 mins ago\n\n\n\n\n\nAbdiAbdi\n\n1\n\n\n"
+    ],
+    "href": "/questions/74710390/how-to-implement-replay-button-in-sos-game-in-java",
+    "contenus": [
+        "Here is the GUI of my gameI want to create Replay button that works for both Game modes (simple game mode and General game mode)open the image pls. Its an SOS game similar to Tic Tac Toe."
+    ],
+    "titre": "How to implement replay button in SOS game in Java?",
+    "number": 10
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\niosswiftloggingoslog\n"
+    ],
+    "Pseudo": "eemrah",
+    "info_github": [
+        "\n\r\n        asked 6 mins ago\n\n\n\n\n\neemraheemrah\n\n1,46333 gold badges1515 silver badges3434 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710387/how-to-use-private-oslogmessage-in-ios-swift-logger-library",
+    "contenus": [
+        "I was working on Logging on to iOS and decided to learn more about Logger structure in iOS, started with Apple Official Documentation which is quite well, and after watched WWDC 2020 video about Logging, the problem is that I could not achieve to simulate the private logging as the documentation dictate or even in WWDC video did, somehow my application couldn't achieve it. I already examine the logs from the XCode terminal and the Console app with Simulator + Real Device, let me share my piece of code on logging.let logger = Logger(subsystem: com.myname.LogExample, category: ViewController)let appName = LogExamplelet numberToBePrivate = 35logger.notice(Hello, this is default message)logger.notice(Hello again, this is default message with private integer of \\(numberToBePrivate, privacy: .private))logger.log(Hello, my name is \\(appName, privacy: .private))And my logs, the outputs of the XCode terminal2022-12-07 01:30:14.372319+0200 LogExample[62053:2356742] [ViewController] Hello, this is default message2022-12-07 01:30:14.372816+0200 LogExample[62053:2356742] [ViewController] Hello again, this is default message with private integer of 352022-12-07 01:30:14.372921+0200 LogExample[62053:2356742] [ViewController] Hello, my name is LogExampleAnd in the Console appWhat I expect is a total <private> mark on the message of set private privacy sections, which is the expected one.As I know, the output in the Console.app for the second log should be exact like this:Hello again, this is default message with private integer of <private>As I said before, I tried both the simulator + real device and the behavior of the Logger is totally the same. If I am doing anything wrong, I would like to learn it or any idea which useful would be super cool.PS: notice and log function is the same level, notice basically is the default log level, and when you don't describe the level in the log function, it is described as default, so they are basically the same. And they are supposed be persisted.Thanks"
+    ],
+    "titre": "How to use private OSLogMessage in iOS Swift Logger library?",
+    "number": 11
+}{
+    "nombre de vues": "5",
+    "type": [
+        "\n javascripthtmldatabasefirebasereplit\n"
+    ],
+    "Pseudo": "Tech Help For Anyone",
+    "info_github": [
+        "\n\nedited 6 mins ago\n\n\n\n\nTech Help For Anyone\n\n\n\n",
+        "\n\r\n        asked 6 mins ago\n\n\n\n\n\nTech Help For AnyoneTech Help For Anyone\n\n111 bronze badge\n\n\n"
+    ],
+    "href": "/questions/74710386/display-content-from-firebase-database",
+    "contenus": [
+        "This is my database layoutAbove is my database layout. My goal is to display all of the names on a webpage. For example, a page that lists the names in the database. Like below:Example Name 1Example Name 2Example Name 3I have tried looking through tutorials and such, but none actually tell me how. I am using a firebase realtime database.I am looking to do this in HTML and javascript.function InsertData() {            set(ref(db, People/+ enterName.value),{                Name: enterName.value,                Email: enterEmail.value,                Message: enterMessage.value            })            .then(()=>{                alert(Data added successfully);            })            .catch((error)=>{                alert(error);            });        }If needed, the code I use to push data is above."
+    ],
+    "titre": "Display Content From Firebase Database",
+    "number": 12
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\npythonpyscriptbrython\n"
+    ],
+    "Pseudo": "user366312",
+    "info_github": [
+        "\n\r\n        asked 6 mins ago\n\n\n\n\n\nuser366312user366312\n\n16.8k6161 gold badges223223 silver badges436436 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710385/what-is-the-basic-difference-between-brython-and-pyscript",
+    "contenus": [
+        "I was trying to understand the difference between PyScript and Brython. So I read the following post:PyScript vs. Brython — What’s the Difference?and didn't understand anything apart from the following line:Brython converts Python code into native JavaScript, while PyScript is native Python code that is executed via Web Assembly.So, what I understand is Brython is a clientside Python code that could be used instead of JavaScript.However, I am not sure what PyScript is good for. Is it a replacement for PHP or AST.NET or JSP or similar technologies in the Python realm?What is the basic difference between Brython and PyScript?"
+    ],
+    "titre": "What is the basic difference between Brython and PyScript?",
+    "number": 13
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\njavascripthtml\n"
+    ],
+    "Pseudo": "boshao13",
+    "info_github": [
+        "\n\r\n        asked 7 mins ago\n\n\n\n\n\nboshao13boshao13\n\n2333 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710382/how-to-access-uploaded-image-file",
+    "contenus": [
+        "<label>Upload Photos *max 5<br/><input type=file       name=file       multiple />hello I have created a html input of file and upon uploading file and submitting this form I want to push all the images to an array then send a POST request with said images. I am unfamiliar in how html stores these images and what I can do to access and modify the uploaded data. I currently have an onSubmit handler function for the form but am stuck there."
+    ],
+    "titre": "How to access uploaded image file",
+    "number": 14
+}{
+    "nombre de vues": "4",
+    "type": [
+        "\nc#navigationideprocess.start\n"
+    ],
+    "Pseudo": "Mitch Giesbrecht",
+    "info_github": [
+        "\n\r\n        asked 7 mins ago\n\n\n\n\n\nMitch GiesbrechtMitch Giesbrecht\n\n2122 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710381/c-sharp-process-start-programmatically-open-cs-file-and-navigate-to-line-numbe",
+    "contenus": [
+        "I'm curious if there is a way for a .cs file to programmatically open and navigate to a c# line of code (similar to ctrl + g)viapublic static System.Diagnostics.Process Start (string fileName, **string arguments**);Is it possible to use the overload string arguments to accomplish this?I am currently using the single argument Process.Start() to open the .cs file and am copying the line# to clipboard, but the user still need to press ctrl+g && ctrl+v which is what I am trying to eliminate.Clipboard.SetText(dr[Line].ToString());System.Diagnostics.Process.Start(Path.Combine(dr[Folder].ToString(), dr[Filename].ToString()));"
+    ],
+    "titre": "C# Process Start: Programmatically open .cs file and navigate to line number",
+    "number": 15
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\nc++11c++17\n"
+    ],
+    "Pseudo": "Gil Rovero",
+    "info_github": [
+        "\n\r\n        asked 8 mins ago\n\n\n\n\n\nGil RoveroGil Rovero\n\n3555 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710380/compiling-c-with-hpp-in-includes-folder-and-cpp-in-sources-folder-in-vs",
+    "contenus": [
+        "So I'm using Code Runner extension by Jun Han to compile and run my C++ Code in VS Code (in Windows), My workspace folder looks like thisI really want to separate my .hpp files inside subfolder named incldues and also separate my .cpp class files to subfolder named sources to organize my files.My Code Runner executor map - settings.json looks like this and it works fine but only if my .hpp's and .cpp's are also in the workspace main folder.I can use CMake but we have no CMake in our University Computer Lab and our professor is the only one with access to download and install some application in it.I have tried editing my Code Runner executor map - settings.json like this and #include ../includes/ConsoleInterface.hpp in main.cpp and it don't work."
+    ],
+    "titre": "Compiling C++ with `.hpp` in includes folder and `.cpp` in sources folder in VS Code using Code Runner",
+    "number": 16
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\njavaarrayslistarguments\n"
+    ],
+    "Pseudo": "Sanskar W",
+    "info_github": [
+        "\n\r\n        asked 8 mins ago\n\n\n\n\n\nSanskar WSanskar W\n\n133 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710379/java-arrays-combining-array-lists-to-print-results",
+    "contenus": [
+        "Trying to combine elements from two different arrays (in this problem, attaching the right soccer player with their jersey number). So, result should look like:Enter jersey number: 2You have entered jersey number 2, player is insert playerAlso, something when a number not in the array is listedJersey number not enlistedimport java.util.*;class ArrayExample{    public static void main(String[] args)    {        //represent the first 5 football players for USA        [1] GK  Matt Turner        [2] DF  Sergiño Dest            [3] DF  Walker Zimmerman        [4] MF  Tyler Adams        [5] DF  Antonee Robinson            //int [] arr = {1, 2, 3, 4, 5};         String[] player = {Matt Turner, Sergiño Dest, Walker Zimmerman, Tyler Adams, Antonee Robinson};                             Scanner sc = new Scanner(System.in);        System.out.println(Enter jersey number);        int i = sc.nextInt();        System.out.println(You have entered jersey number  + i);                //System.out.println(arr[0]);        System.out.println(player[i-1]);                            }}"
+    ],
+    "titre": "Java Arrays: Combining array lists to print results",
+    "number": 17
+}{
+    "nombre de vues": "5",
+    "type": [
+        "\nhaskellcompiler-errors\n"
+    ],
+    "Pseudo": "trycoder",
+    "info_github": [
+        "\n\r\n        asked 8 mins ago\n\n\n\n\n\ntrycodertrycoder\n\n1144 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710373/how-to-fix-type-error-when-trying-to-compile-a-two-haskell-files",
+    "contenus": [
+        "I'm coding a program in haskell and the file Main.hs calls the file Enigma.hs but when i try to compile Main it outputs an errorMain.hs :import Enigmaenigma1 = (SimpleEnigma rotor1 rotor2 rotor3 reflectorB (0,0,25))plugboard = [('F','T'),('D','U'),('V','A'),('K','W'),('H','Z'),('I','X')] enigma2 = (SteckeredEnigma rotor1 rotor2 rotor3 reflectorB (0,0,25) plugboard)crib1 = WETTERVORHERSAGEBISKAYAmessage1 = RWIVTYRESXBFOGKUHQBAISEcrib2 = TURINGBOMBEHASKELLSIMULATIONSTOPmessage2 = YZCSDCVUFVJAAEMVILWRVSQZFCBPJFVYHUUPHLAPJMTMFNLURRADJFCBRBXBCUSSXVYWAPQIRCUVVNODKELDMNNQHYFEFOZPBUIPWKPXIYPKQHMVOAVXFVDCKMZOULMTQNUFBVHFUSXYCYPWFKBYW{- Function that will print No result! if Maybe type contains Nothing, or the - contents of the Just part otherwise. -}printMaybe = maybe (putStrLn No result!) print{- This is the type of thing that will happen when testing your code. Note - that (1) You must have your code in a module called Enigma. (2) The functions - encodeMessage, longestMenu and breakEnigma are expecting arguments in a - particular format. Make sure you write your types so that they are compatible. - - NOTE: The actual contents of the main function when testing your code will be - different to this. You SHOULD NOT submit this file, only Enigma.hs. -}main = do    print First a test of encodeMessage:     print (encodeMessage Here is a test input string. enigma1)    print And another test of encodeMessage:     print (encodeMessage Here is a test input string. enigma2)Enigma.hs data Enigma = SimpleEnigma Rotor Rotor Rotor Reflector Offsets                | SteckeredEnigma Rotor Rotor Rotor Reflector Offsets Stecker  encodeMessage :: [Char] -> Enigma -> [Char]  encodeMessage [] _ =   encodeMessage (x:xs) (SimpleEnigma lr mr rr rft oft) = encodeLetter x (SimpleEnigma lr mr rr rft oft) : encodeMessage xs (SimpleEnigma lr mr rr rft oft)   encodeMessage (x:xs) (SteckeredEnigma lr mr rr rft oft stecker) = encodeLetter x (SteckeredEnigma lr mr rr rft oft stecker) : encodeMessage xs (SteckeredEnigma lr mr rr rft oft stecker)   enigma.hs works on its own, any ideas ?I tried to run the program and enigma will compile however main won't. Any ideas how to fix this ?Main.hs:14:44: error:    * Ambiguous type variable `a0' arising from a use of `print'      prevents the constraint `(Show a0)' from being solved.      Relevant bindings include        printMaybe :: Maybe a0 -> IO () (bound at Main.hs:14:1)      Probable fix: use a type annotation to specify what `a0' should be.      These potential instances exist:        instance Show Ordering -- Defined in `GHC.Show'        instance Show Integer -- Defined in `GHC.Show'        instance Show a => Show (Maybe a) -- Defined in `GHC.Show'        ...plus 22 others        ...plus 13 instances involving out-of-scope types        (use -fprint-potential-instances to see them all)    * In the second argument of `maybe', namely `print'      In the expression: maybe (putStrLn No result!) print      In an equation for `printMaybe':          printMaybe = maybe (putStrLn No result!) print   |14 | printMaybe = maybe (putStrLn No result!) print   |                                            ^^^^^Failed, one module loaded."
+    ],
+    "titre": "How to fix Type error when trying to compile a two haskell files?",
+    "number": 18
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\njavascriptreactjsreact-hooksmaterial-uiswr\n"
+    ],
+    "Pseudo": "Tini",
+    "info_github": [
+        "\n\r\n        asked 9 mins ago\n\n\n\n\n\nTiniTini\n\n3755 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710372/useswr-is-called-in-function-that-is-niether-a-react-function-component-nor-a-c",
+    "contenus": [
+        "Using useSWR to retrieve data from an endpoint, but I am getting this error:useSWR is called in function `fetchUsers` that is niether a React function component nor a custom React Hook function Error const fetcher = (url) => axios.get(url).then((res) => res.data);  // fetch data  function fetchUsers() {    const { data, error } = useSWR(http://localhost:5000/users, fetcher);    return {      user: data,      isUserLoading: !error && !data,      isUserError: error,    };  }The fetchUsers function is being called here onclick:        <Box>        <Button          onClick={fetchUser}        >          View User        </Button>      </Box>the block of code below should render the retrieved API response         <Typography          >            users? {data} : No User found          </Typography>"
+    ],
+    "titre": "useSWR is called in function that is niether a React function component nor a custom React Hook function Error",
+    "number": 19
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\nrust\n"
+    ],
+    "Pseudo": "Santino",
+    "info_github": [
+        "\n\r\n        asked 9 mins ago\n\n\n\n\n\nSantinoSantino\n\n133 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710371/how-do-i-make-a-lightball-image-out-of-dimensions-and-color",
+    "contenus": [
+        "I'm trying to create a function who creates light ball,like this one,out of dimensions and color.When I try this code which should just create a line in the middle it crashes,the questions are why it crashes and if there's a way to archieve what I mentioned above. Thanks for your attention."
+    ],
+    "titre": "How do I make a lightball image out of dimensions and color?",
+    "number": 20
+}{
+    "nombre de vues": "5",
+    "type": [
+        "\nsqlpostgresqlsumamazon-redshiftwindow-functions\n"
+    ],
+    "Pseudo": "user18042346",
+    "info_github": [
+        "\n\nedited 43 secs ago\n\n\n\n\n\nGMB\n\n202k2323 gold badges7171 silver badges120120 bronze badges\n\n\n",
+        "\n\r\n        asked 11 mins ago\n\n\n\n\n\nuser18042346user18042346\n\n3344 bronze badges\n\n\n",
+        "\n\r\n        answered 1 min ago\n\n\n\n\n\nGMBGMB\n\n202k2323 gold badges7171 silver badges120120 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710367/sql-rolling-sum-giving-an-unexpected-error",
+    "contenus": [
+        "I am trying to find the cumulative sum of a column partitioned by month and ordered by Id.I am getting this error. column amount_paid must appear in the GROUP BY clause or be used in an aggregate functionThe codeselect     month,    Id,    SUM(amount_paid) OVER(PARTITION BY month ORDER BY Id ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS Col2from tablewhere month >= '2022-01-01' and Id between 0 and 12group by month,Idorder by month,IdDatamonth       |  Id  | amount paid2022-01-01  |  1   |  58662022-01-01  |  2   |  84662022-01-01  |  3   |  68162022-02-01  |  1   |  8552022-02-01  |  2   |  98212022-02-01  |  3   |  3755",
+        "I suspect that you  want a cumulative sum of the monthly sums for each id. If so, then you need to use an aggregate function within the window function:select month, id,    SUM(amount_paid) AS amount_paid_this_month_for_this_id,    SUM(SUM(amount_paid)) OVER(PARTITION BY id ORDER BY month) AS amount_paid_so_far_for_this_idfrom tablewhere month >= '2022-01-01' and Id between 0 and 12group by month, idorder by month, id"
+    ],
+    "titre": "SQL rolling sum giving an unexpected error",
+    "number": 21
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\nreactjsreact-hookssetinterval\n"
+    ],
+    "Pseudo": "0brine",
+    "info_github": [
+        "\n\r\n        asked 11 mins ago\n\n\n\n\n\n0brine0brine\n\n43033 silver badges1717 bronze badges\n\n\n",
+        "\n\r\n        answered 4 mins ago\n\n\n\n\n\nAlvinAlvin\n\n53322 silver badges1212 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710366/using-setstate-to-getstate-in-setinterval",
+    "contenus": [
+        "I use this in a setInterval and it feels very illigal xDconst [nonce, setNonce] = useState(0);useEffect(() => {  window.setInterval(() => {    let nonce = 0;    setNonce((prevNonce) => (nonce = prevNonce));    console.log('nonce has the correct value even if got changed:', nonce);  }, 10);}, []);is this something i should not use?",
+        "Nothing is wrong with it, but it needs to be cleaned up to avoid being re-rendered.You have to store the variable and unset it on the return of your useEffect hook.In other words, if you don't do that, every time you change page in your application, you will create an extra interval.This is how you clear your interval:const [nonce, setNonce] = useState(0);useEffect(() => {  const myInterval = setInterval(() => {    let nonce = 0;    setNonce((prevNonce) => (nonce = prevNonce));    console.log('nonce has the correct value even if got changed:', nonce);  }, 10);  return () => clearInterval(myInterval);}, []);"
+    ],
+    "titre": "using setState to getState in setInterval",
+    "number": 22
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\njavahtmlspring-bootjava-ee-6localdate\n"
+    ],
+    "Pseudo": "Momtez Allouch",
+    "info_github": [
+        "\n\nedited 4 mins ago\n\n\n\n\nMomtez Allouch\n\n\n\n",
+        "\n\r\n        asked 11 mins ago\n\n\n\n\n\nMomtez AllouchMomtez Allouch\n\n111 bronze badge\n\n\n"
+    ],
+    "href": "/questions/74710365/please-somebody-help-i-wnat-to-get-the-value-of-date-from-html-formulaire-to-my",
+    "contenus": [
+        "enter image description hereenter image description herethis probleme is keeping showing up :Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.util.Date'; nested exception is org.springframework.core.convert.ConversionFailedException: Failed to convert from type [java.lang.String] to type [java.util.Date] for value '2022-12-07'; nested exception is java.lang.IllegalArgumentException]i tried to parse date from type string to type local date but it doesn't work"
+    ],
+    "titre": "please somebody help, i wnat to get the value of date from html formulaire to my code java with spring boot",
+    "number": 23
+}{
+    "nombre de vues": "6",
+    "type": [
+        "\nmysqlsql\n"
+    ],
+    "Pseudo": "Jenna",
+    "info_github": [
+        "\n\r\n        asked 12 mins ago\n\n\n\n\n\nJennaJenna\n\n1\n\n\n",
+        "\n\r\n        answered 4 mins ago\n\n\n\n\n\nZakZak\n\n6,42222 gold badges2525 silver badges4747 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710362/database-creation-with-data-insertion-using-mysql",
+    "contenus": [
+        "Cannot insert the value NULL into column 'Quantity', table 'UOKA0209.dbo.SalesOrderLine'; column does not allow nulls. INSERT fails.Here is the error message I am getting, can you suggest any fixes? I am new to this and don't have much experience working in with this language.INSERT INTO [SalesOrderLine] ([SOLID],[Quantity],[SQLStatus])VALUES  (1896,default,default),  (1789,default,default),  (3789,default,default),  (4789,default,default),  (5789,default,default);  This is what I have tried.",
+        "You cannot use default if there is no default set in the database for null values.  So instead you can change it to be nothing --> '' which is NOT NULL even though it's empty -- Or set a default for your NOT NULL field (Quantity) using ALTERINSERT INTO UOKA0209.dbo.SalesOrderLine (`SOLID`, `Quantity`, `SQLStatus`) VALUES (1896,'',default),(1789,'',default),(3789,'',default),(4789,'',default),(5789,'',default);Or alter your table: ALTER TABLE UOKA0209.dbo.SalesOrderLine      MODIFY Quantity INT NOT NULL DEFAULT 0;"
+    ],
+    "titre": "Database creation with data insertion using mysql",
+    "number": 24
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\n iosfirebase-realtime-databasefirebase-security\n"
+    ],
+    "Pseudo": "FrankB",
+    "info_github": [
+        "\n\nedited 7 mins ago\n\n\n\n\n\nFrank van Puffelen\n\n532k7272 gold badges788788 silver badges769769 bronze badges\n\n\n",
+        "\n\r\n        asked 12 mins ago\n\n\n\n\n\nFrankBFrankB\n\n133 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710361/how-to-fix-user-permissions",
+    "contenus": [
+        "I am trying to download my user information from firebase database but my user profile appears blank nothing appears but in the debugger I receive this error[FirebaseDatabase][I-RDB038012] updateChildValues: at /users/r2hbXS1ZAHY2OQrjedn1tBAW4Cs2 failed: permission_deniedPermission deniedThis is my firebase database rules{  rules: {    .read: now < 1669442400000,  // 2022-12-31    .write: now < 1669442400000,  // 2022-12-31  }}How do I fix this error to properly get my user information?let user = Auth.auth().currentUserif let user = user {   }self.DisplayName.text = user?.displayNamelet values = [username: self.DisplayName.text as Any] as [String:Any]let ref = Database.database().reference()if let userID = Auth.auth().currentUser?.uid{    ref.child(users).child(userID).observe(.value, with: { (snapshot) in                //create a dictionary of users profile data        let values = snapshot.value as? NSDictionary                self.DisplayName.text = values?[username] as? String"
+    ],
+    "titre": "How to fix user permissions",
+    "number": 25
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\npythonshapely\n"
+    ],
+    "Pseudo": "PBrockmann",
+    "info_github": [
+        "\n\r\n        asked 12 mins ago\n\n\n\n\n\nPBrockmannPBrockmann\n\n42755 silver badges1414 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710358/how-to-detect-inner-polygons-from-a-multipolygon-shapely-object",
+    "contenus": [
+        "I would like to detect inner polygons from a multipolygon shapely object.Great lakes, Black Sea and Caspian sea should be inner polygons and not be filled.How to do this properly with shapefile ?Please find the script bellow for investigating.import matplotlib.pyplot as pltimport cartopy.crs as ccrsfrom shapely import geometryimport randomimport pickle! wget -nc https://thredds-su.ipsl.fr/thredds/fileServer/ipsl_thredds/brocksce/tmp/polys.picklewith open('./polys.pickle', rb) as poly_file:    polygons = pickle.load(poly_file)fig = plt.figure(figsize=(10,5))ax = fig.add_subplot(1, 1, 1, projection=ccrs.Robinson(10))transform = ccrs.Geodetic()for polygon in polygons.geoms:    random_color = #+''.join([random.choice('0123456789ABCDEF') for i in range(6)])    x = polygon.exterior.coords.xy[0]    y = polygon.exterior.coords.xy[1]    ax.fill(x, y, transform=transform, color=random_color, lw=0.5, edgecolor=black)ax.set_global()ax.gridlines()plt.show()"
+    ],
+    "titre": "How to detect inner polygons from a multipolygon shapely object?",
+    "number": 26
+}{
+    "nombre de vues": "3",
+    "type": [
+        "\nentity-framework-corenpgsql\n"
+    ],
+    "Pseudo": "dgxhubbard",
+    "info_github": [
+        "\n\r\n        asked 13 mins ago\n\n\n\n\n\ndgxhubbarddgxhubbard\n\n65122 gold badges77 silver badges1818 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710354/how-to-get-auto-increment-identity-column-working",
+    "contenus": [
+        "We are using EF Core, but we also upgrade pre-ef core databases to the latest version. On Postegres there is a table:CREATE   TABLE DatabaseVersion  (   DatabaseVersionId                 integer                   NOT NULL GENERATED BY DEFAULT AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ) PRIMARY KEY,   Version                               varchar(20) NOT NULL,    VersionDate                           timestamptz NULL DEFAULT Now(),   Description                           varchar(2000)       NULL,   AppliedDate                           timestamptz NULL DEFAULT Now());In PgAdmin, I create a database and this table, then I insert into the table for a test using:INSERT INTO DatabaseVersion    ( Version )     values    ( '1.0.0.0' );and I get the first row entered then I can change the version in the insert statement and insert more rows. Each row has a unique DatabaseVersionId. However, when I run the upgrade and attempt to insert a value using EF Core, I get an exception duplicate key value violates unique constraint.I created a new database to see how EF Core defined the key and it is:GENERATED BY DEFAULT AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ).I added Primary Key to that to avoid adding a lot of primary key constraints to our older scripts.Our update code is shown below (T would be DatabaseVersion).var dbSet = context.Set<T> ();var id = GetKey ( context, item );if ( id == 0 ){    dbSet.Add ( item );}else{    var p = dbSet.Find ( id );    dbSet.Attach ( p );    var a = context.Entry ( p );    if ( a != null )        a.CurrentValues.SetValues ( item );}context.SaveChanges ();What needs to be done to older scripts to make the identity primary key work?Or is that even the problem? I am not a postgres expert. Thank you for anyhelp you can provide."
+    ],
+    "titre": "How to get auto increment identity column working",
+    "number": 27
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\nazure-cosmosdbquarkusvert.xvertx-httpclient\n"
+    ],
+    "Pseudo": "tkb2022",
+    "info_github": [
+        "\n\r\n        asked 14 mins ago\n\n\n\n\n\ntkb2022tkb2022\n\n1\n\n\n"
+    ],
+    "href": "/questions/74710353/is-it-possible-to-use-quarkiverse-azureservices-http-web-client-as-i-would-use-t",
+    "contenus": [
+        "I'm still new at dev with CosmosDB, Quarkus, and Vertx and am seeking some clarification - originally I ran into errors with the Quarkus native build as specified in this GitHub issue and according to the reply, I assumed it referred to the CosmosAsyncClient that we use as the culprit of issues when trying to build the native image. Per the reply, I found this project and used mvn clean install to build locally (couldn't be found in the remote repository?) and added the following dependency for what I think is the extension that was being referred to in my project's pom:<dependency>    <groupId>io.quarkiverse.azureservices</groupId>    <artifactId>quarkus-azure-http-client-vertx</artifactId>    <version>999-SNAPSHOT</version></dependency>But I am currently unsure of how to go from here in order to use the HTTP/Web client to communicate with CosmosDB (e.g. CosmosAsyncClientBuilder uses endpoint() and key() - are there equivalents/how can I use this in the HTTPClient context?) and the specific containers I need to query.So far I've created a Vertx from the QuarkusVertxProvider and then a WebClient from that Vertx but I'm currently stuck with how I would go about sending queries to the database and the specific containers I want to use in CosmosDB without relying on classes from com.azure.cosmos, as later I want to be able to run the native build. Has anyone had success in using Web/HTTPClient instead of CosmosAsyncClient, or is this not possible?If there are different suggestions for any Quarkus extensions I may have missed that is better suited for what I'm trying to do, please let me know. I have briefly worked with the reactive postgreSQL and mongoDB and the tutorials were easy to understand and showed how we could specify the database connection e.g. in our properties file, but I don't know what is the equivalent for this with Cosmos."
+    ],
+    "titre": "Is it possible to use quarkiverse.azureservices HTTP/Web client as I would use the CosmosAsyncClient/CosmosAsyncContainer/CosmosAsyncDatabase?",
+    "number": 28
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\nkotlinkotlin-logging\n"
+    ],
+    "Pseudo": "Danny",
+    "info_github": [
+        "\n\r\n        asked 14 mins ago\n\n\n\n\n\nDannyDanny\n\n18322 silver badges1010 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710352/put-kotlinlogging-logger-call-in-another-file-and-retain-name",
+    "contenus": [
+        "I want to do something like// In Log.ktval logger = KotlinLogging.logger {}// In Main.kt after importing loggerfun main() {  val loggerMain = KotlinLogging.logger {}  loggerMain.info(Hello world)  logger.info(Hello world) // I want the logger name to be the same as the previous line}I want to reduce the amount of unnecessary boiler plate if possible, and having to create a variable containing the logger for every scope that needs it is something I want to avoid.Is this possible?"
+    ],
+    "titre": "Put KotlinLogging Logger call in another file and retain name",
+    "number": 29
+}{
+    "nombre de vues": "4",
+    "type": [
+        "\npythonpandas\n"
+    ],
+    "Pseudo": "Moon Lee",
+    "info_github": [
+        "\n\r\n        asked 14 mins ago\n\n\n\n\n\nMoon LeeMoon Lee\n\n38155 silver badges1717 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710351/how-to-merge-or-group-dataframe",
+    "contenus": [
+        "I have a dataframe likes   City    Age   column1  column20  Texas   20     7        51  Texas   35     8        12  Texas   30     8        2I want to merge the column City with same city into 1 row and centralized, other columns are unchanged. So the output like   City    Age   column1  column20          20     7        51  Texas   35     8        12          30     8        2Is it posible to do it with dataframe on pandas. The final target is that I want to save the dataframe to csv file likes"
+    ],
+    "titre": "How to merge or group dataframe?",
+    "number": 30
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\npython\n"
+    ],
+    "Pseudo": "John",
+    "info_github": [
+        "\n\r\n        asked 14 mins ago\n\n\n\n\n\nJohnJohn\n\n2,22333 gold badges2121 silver badges4747 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710349/is-there-a-shorthand-in-python-for-adding-optional-keys-to-a-dict",
+    "contenus": [
+        "We often have functions like this:def my_func(arg1, arg2, arg3=None, arg4=None):    params = dict(arg1=arg1, arg2=arg2)    if arg3:        params[arg3] = arg3    if arg4:        params[arg4] = arg4    response = requests.post(https://..., data=params)The endpoint being hit will NOT be happy with a key in params set to a value of None. It expects that if arg3 or arg4 isn't required, it won't be present in params at all.Is there a shorthand for constructing the params dict that doesn't require one if-statement per optional param? Something less ugly than:params = (    dict(arg1=arg1, arg2=arg2)    | (dict(arg3=arg3) if arg3 else {})    | (dict(arg4=arg4) if arg4 else {}))"
+    ],
+    "titre": "Is there a shorthand in Python for adding optional keys to a dict?",
+    "number": 31
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\ntypescriptrxjsobservablesubscribemergemap\n"
+    ],
+    "Pseudo": "Anutrix",
+    "info_github": [
+        "\n\nedited 10 mins ago\n\n\n\n\nAnutrix\n\n\n\n",
+        "\n\r\n        asked 15 mins ago\n\n\n\n\n\nAnutrixAnutrix\n\n12733 silver badges77 bronze badges\n\n\n",
+        "\n\r\n        answered 11 mins ago\n\n\n\n\n\nTobias S.Tobias S.\n\n16.8k44 gold badges1818 silver badges3838 bronze badges\n\n\n",
+        "\n\r\n        answered 5 mins ago\n\n\n\n\n\nTorsten BarthelTorsten Barthel\n\n2,7802323 silver badges2222 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710347/how-to-handle-condition-inside-mergemap",
+    "contenus": [
+        "Obs1$.pipe(  mergeMap((data) => {    if (data.condition) {      const generatedStuff = doSomethingFunction(data1);      return generatedStuff.Obs2$;    }    someCleanupAction();    return of(null); // I want to get rid this because I don't want doSomethingElse() to be called when a condition is false happens  })).subscribe(() => {  doSomethingElse();})The above is my current code based on https://stackoverflow.com/a/74552146/5195033.Like my comment above, I just I want doSomethingElse() to be called when the condition is true.Expectedly, commenting out return of(null); gives:Type 'Subject<void> | undefined' is not assignable to type 'ObservableInput<any>'.    Type 'undefined' is not assignable to type 'ObservableInput<any>'.ts(2345)",
+        "You can return EMPTY instead of of(null).import { EMPTY } from 'rxjs';Obs1$.pipe(  mergeMap((data) => {    if (data.condition) {      const generatedStuff = doSomethingFunction(data1);      return generatedStuff.Obs2$;    }    someCleanupAction();    return EMPTY  })).subscribe(() => {  doSomethingElse();})",
+        "You could simply just use kind of local state variable. In merge map its assigned and inside subscription handler its checked:import { EMPTY } from 'rxjs';let cond = falseObs1$.pipe(  mergeMap((data) => {    cond = data.condition            if (data.condition) {      const generatedStuff = doSomethingFunction(data1);      return generatedStuff.Obs2$;    }    someCleanupAction();    return EMPTY  })).subscribe(() => {  if (cond) {      doSomethingElse();  }})"
+    ],
+    "titre": "How to handle condition inside mergeMap?",
+    "number": 32
+}{
+    "nombre de vues": "4",
+    "type": [
+        "\nperlamazon-s3\n"
+    ],
+    "Pseudo": "Timothy R. Butler",
+    "info_github": [
+        "\n\r\n        asked 15 mins ago\n\n\n\n\n\nTimothy R. ButlerTimothy R. Butler\n\n88366 silver badges2020 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710346/delete-an-s3-folder-using-perl",
+    "contenus": [
+        "I'm trying to use Net::Amazon::S3 to manipulate an S3 storage bucket for backup rotation. One thing I need to do is delete folders that contain old backups. But, while I can delete files, I cannot get the code to delete even an empty folder.For example:our $s3 = Net::Amazon::S3->new({    aws_access_key_id  => 'key_id',    aws_secret_access_key => 'access_key',    retry => 1});our $bucket_name = 'bucketName';our $s3Bucket = $s3->bucket($bucket_name);# Assume bucket 'bucketName' has the following key. This works fine:$s3Bucket->delete_key('weeklyTest/test.pdf') or say STDERR 'File delete failed:'  . $s3Bucket->errstr;# Assume bucket 'bucketName' has the following empty key. # This fails to happen, but without reporting any error.$s3Bucket->delete_key('weeklyTest/') or say STDERR 'Folder delete failed:'  . $s3Bucket->errstr;Is there something I'm missing that needs to be done to get a folder key to delete?"
+    ],
+    "titre": "Delete an S3 folder using Perl",
+    "number": 33
+}{
+    "nombre de vues": "-1",
+    "type": [
+        "\nc++c++11factory-pattern\n"
+    ],
+    "Pseudo": "Trailer",
+    "info_github": [
+        "\n\r\n        asked 16 mins ago\n\n\n\n\n\nTrailerTrailer\n\n9188 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710344/extending-factory-method-to-templated-class",
+    "contenus": [
+        "I am learning about the factory method in C++ and currently have the following implementation:#include <iostream>#include <memory>#include <string>#include <map>class car{    public:        car(){}        virtual ~car(){}        virtual void foo() = 0;        double var;};class Factory{    public:    typedef car* (*createObj)(void);    static bool checkIn(const std::string& name, createObj funcCreate)    {        if(storage.find(name) == storage.end())        {             storage[name] = funcCreate;            return true;        }        return false;    }    static car* create(const std::string& name)    {        auto it = storage.find(name);        if (it != storage.end())        {            return it->second();         }                    return nullptr;    }    private:        static std::map<std::string, createObj> storage;};std::map<std::string, Factory::createObj> Factory::storage;class car1:public car{    public:        car1(){}        static car* create()        {             return new car1;        }                static std::string name() { return car1; }        virtual void foo(){std::cout << I am car1  << std::endl;}    private:        static bool checkedIn;};bool car1::checkedIn = Factory::checkIn(car1::name(), car1::create);class car2:public car{    public:        car2(){}        static car* create()        {             return new car2;        }                static std::string name() { return car2; }        virtual void foo(){std::cout << I am car2  << std::endl;}    private:        static bool checkedIn;};bool car2::checkedIn =  Factory::checkIn(car2::name(), car2::create);int main(){    car* obj1 = Factory::create(car1);    obj1->foo();    car* obj2 = Factory::create(car2);    obj2->foo();    delete obj1;    obj1=nullptr;    delete obj2;    obj2=nullptr;    return 0;}The above code uses a registration method for a derived class so that I can things inside a map for lookup convenience.I would like to create the car class with a template parameter (T), and have the variable var take on the same parameter.How can I extend this mock case to a templated class? Would also appreciate comments on the correctness of the implementation (having a map to store a keyword and the corresponding static construction method)The expected end results would be something like:car<double>* obj1 = Factory::create<double>(car1);car<int>* obj2 = Factory::create<int>(car1);Kind regards"
+    ],
+    "titre": "extending factory method to templated class",
+    "number": 34
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\npython-3.x\n"
+    ],
+    "Pseudo": "Zanadukhan",
+    "info_github": [
+        "\n\r\n        asked 16 mins ago\n\n\n\n\n\nZanadukhanZanadukhan\n\n111 bronze badge\n\n\n"
+    ],
+    "href": "/questions/74710342/unable-to-install-libraries-for-google-drive-api-in-pycharm",
+    "contenus": [
+        "I've been following the instructions on the quickstart page for google drive api v3 (I'm learning python and I want to try create a program that involves downloading images from google drive) but I'm unable to install the required packagesit tells me to run this program in terminal to install the librariespip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthliband I'm told that it succeeded (trying to do so again tells me that requirements have already been satisfied) but the red error lines still exist and i'm told that its a unresolved reference"
+    ],
+    "titre": "Unable to install libraries for google drive api? (in pycharm)",
+    "number": 35
+}{
+    "nombre de vues": "5",
+    "type": [
+        "\n node.jsgoogle-app-engineffmpeg\n"
+    ],
+    "Pseudo": "Jon Luc ",
+    "info_github": [
+        "\n\r\n        asked 16 mins ago\n\n\n\n\n\nJon Luc Jon Luc \n\n1\n\n\n"
+    ],
+    "href": "/questions/74710340/ffmpeg-on-google-app-engine-or-other-alternatives",
+    "contenus": [
+        "This isn’t really a problem with any specific bit of code more just a general question about how I would host a ffmpeg function within a severless function like google app engine. Basically I have a block of code that takes every n frame a video and uploads it to google cloud storage. I have tried implementing such a solution with Firebase functions but to no avail. I think the primary problem is really to do with file storage, from my undetnsdjng data should be written to the tmp folder.So if anyone can outline exactly how I could host this on app engine that would be great, please be very specific and don’t assumeI know anything because I’ve only really worked with functions :)Thanks so much//Essentially this but on app engine or any other severless environmenttry {        const process = new ffmpeg('star_wars_film_scene.mp4');        process.then(function(video) {            // Callback mode            video.fnExtractFrameToJPG('helpers/frames/', {                every_n_frames: 500                            }, function(error, files) {                if (error) {                    console.log(error);                    return;                }                ProcessFrames(files);            });        }, function(err) {            console.log(err);        });    } catch (e) {        console.log('Houston, we have a problem')        console.log(e.code);        console.log(e.msg);    }"
+    ],
+    "titre": "ffmpeg on google app engine or other alternatives",
+    "number": 36
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\nnode.jsreactjsbusboy\n"
+    ],
+    "Pseudo": "William Berbet",
+    "info_github": [
+        "\n\r\n        asked 17 mins ago\n\n\n\n\n\nWilliam BerbetWilliam Berbet\n\n111 bronze badge\n\n\n"
+    ],
+    "href": "/questions/74710337/error-unexpected-end-of-multipart-form-in-busboy-file-upload",
+    "contenus": [
+        "I am using busboy to upload file in node/express app. I get error Unexpected end of multipart form and the application crash. Whenever I try the route on insomnia, nothing works. Before it was showing that Busboy is not a constructor, so I changed let to const and deleted new, leaving it as it is in the code.What could be the cause of this error?this is my code:router.post('/', async (req, res) => {    const busboy = Busboy({ headers: req.headers });    busboy.on('finish', async () => {        try {            const { salaoId, servicos } = req.body;            let error = [];            let arquivos = [];            console.log(req.files)            if (req.files && Object.keys(req.files) > 0) {                for (let key of Object.keys(req.files)) {                    const file = req.files[key];                    const nameParts = file.name.split('.');                    const fileName = `${new Date().getTime()}.${nameParts[nameParts.length - 1]                        }`;                    const path = `servicos/${salaoId}/${fileName}`;                    const response = await aws.uploadToS3(file, path);                    if (response.error) {                        error.push({ error: true, message: response.message })                    } else {                        arquivos.push(path)                    }                }            }            if (error.length > 0) {                res.json(error[0]);                return false;            }            //CRIAR SERVIÇO            let jsonServico = JSON.parse(servicos);            const servicoCadastrado = await Servicos(jsonServico).save();            //CRIAR ARQUIVO            arquivos = arquivos.map(arquivo => ({                referenciaId: servicoCadastrado._id,                model: 'Servicos',                caminho: arquivo,            }));            await Arquivo.insertMany(arquivos);            res.json({ servicos: servicoCadastrado, arquivos });        } catch (error) {            res.json({ error: true, message: error.message })        }    });    req.pipe(req.busboy)});module.exports = router;this is error:throw er; // Unhandled 'error' event      ^Error: Unexpected end of form    at Multipart._final (C:\\Users\\Lenovo\\Desktop\\projetos\\meus-projetos\\app-claudiagomes\\ws\\node_modules\\busboy\\lib\\types\\multipart.js:588:17)"
+    ],
+    "titre": "Error Unexpected end of multipart form in busboy file upload",
+    "number": 37
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\nubuntupgadmin-4oracle-cloud-infrastructure\n"
+    ],
+    "Pseudo": "Bala",
+    "info_github": [
+        "\n\r\n        asked 18 mins ago\n\n\n\n\n\nBalaBala\n\n5111 silver badge22 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710336/not-able-to-install-pgadmin4-in-oracle-cloud-with-ubuntu-22-04",
+    "contenus": [
+        "While trying to install the pgadmin4 in Oracle cloud Ubuntu 22.04 am getting below error.The following packages have unmet dependencies:Depends: pgadmin4-server (= 6.17) but it is not installableDepends: pgadmin4-desktop (= 6.17) but it is not installableDepends: pgadmin4-web (= 6.17) but it is not going to be installedE: Unable to correct problems, you have held broken packages.I have installed postgresql successfully and verified the status as well. Used below below link to install Pgadmin4 https://www.pgadmin.org/download/pgadmin-4-apt/Any help much appreciated, thanks"
+    ],
+    "titre": "Not able to install Pgadmin4 in Oracle cloud with Ubuntu 22.04",
+    "number": 38
+}{
+    "nombre de vues": "5",
+    "type": [
+        "\npythonperformancerandom\n"
+    ],
+    "Pseudo": "Alexandru Antochi",
+    "info_github": [
+        "\n\r\n        asked 18 mins ago\n\n\n\n\n\nAlexandru AntochiAlexandru Antochi\n\n1,23622 gold badges1818 silver badges4040 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710335/why-is-python-random-lib-really-fast-for-the-first-10m-calls",
+    "contenus": [
+        "Closed. This question is not reproducible or was caused by typos. It is not currently accepting answers.\r                        \r                     This question was caused by a typo or a problem that can no longer be reproduced. While similar questions may be on-topic here, this one was resolved in a way less likely to help future readers.Closed 7 mins ago.\r                        Improve this question\r                    I have this script that I run:import randomimport sysimport timestart = time.time()random_to_choose = [i for i in range(0, 100)]counter = {i: 0 for i in random_to_choose}def run_sims():    cnt = int(sys.argv[1]) ** 6    while cnt != 0:        counter[random.choice(random_to_choose)] += 1        cnt -= 1    print(counter)run_sims()print(time.time()-start)Result:python .\\random_check.py 100.32193899154663086___________________python .\\random_check.py 2020.77259874343872If the 10M calls complete in 0.3s I would expect 20M to complete in around 0.6s, not 20s."
+    ],
+    "titre": "Why is Python random lib really fast for the first 10M calls [closed]",
+    "number": 39
+}{
+    "nombre de vues": "-1",
+    "type": [
+        "\njavascript\n"
+    ],
+    "Pseudo": "tonho",
+    "info_github": [
+        "\n\r\n        asked 19 mins ago\n\n\n\n\n\ntonhotonho\n\n1\n\n\n"
+    ],
+    "href": "/questions/74710333/porfavor-me-ajudem-a-resolver-esse-problema-do-beecrowd-javascript-estou-em-prov",
+    "contenus": [
+        "Closed. This question needs details or clarity. It is not currently accepting answers.\r                        \r                    Want to improve this question? Add details and clarify the problem by editing this post.Closed 15 mins ago.\r                        Improve this question\r                    Timelimit: 1Escreva um algoritmo para calcular e escrever o valor de S, sendo S dado pela fórmula:S = 1 + 3/2 + 5/4 + 7/8 + ... + 39/?EntradaNão há nenhuma entrada neste problema.SaídaA saída contém um valor correspondente ao valor de S.O valor deve ser impresso com dois dígitos após o ponto decimal.help plsssssssssssss"
+    ],
+    "titre": "porfavor me ajudem a resolver esse problema do beecrowd JAVASCRIPT estou em prova [closed]",
+    "number": 40
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\ncssreactjssuitersuite\n"
+    ],
+    "Pseudo": "KThiseas",
+    "info_github": [
+        "\n\nedited 16 mins ago\n\n\n\n\nKThiseas\n\n\n\n",
+        "\n\r\n        asked 19 mins ago\n\n\n\n\n\nKThiseasKThiseas\n\n111 bronze badge\n\n\n"
+    ],
+    "href": "/questions/74710332/react-suite-rsuitejs-css-conflicts",
+    "contenus": [
+        "(Beginner here) I have a react project created with create-react-app, in a module I am importing rsuite (v5) components and styles as following:import 'rsuite/dist/rsuite.min.css';import { DateRangePicker, InputPicker } from 'rsuite';but rsuite overrides my css globally.I tried to import styles individuallyimport 'rsuite/DateRangePicker/styles/index.less';import 'rsuite/InputPicker/styles/index.less';but nothing happens.How can I prevent rsuite from overriding my css ?"
+    ],
+    "titre": "React Suite (rsuitejs) CSS conflicts",
+    "number": 41
+}{
+    "nombre de vues": "8",
+    "type": [
+        "\namazon-s3boto3\n"
+    ],
+    "Pseudo": "luckybird",
+    "info_github": [
+        "\n\nedited 13 mins ago\n\n\n\n\nluckybird\n\n\n\n",
+        "\n\r\n        asked 19 mins ago\n\n\n\n\n\nluckybirdluckybird\n\n1944 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710331/s3-bucket-size-for-subset-bucket-names",
+    "contenus": [
+        "can get  s3 bucket size cli like belowbut how to use custom list of s3 buckets from local file as sometimes it takes too long for large buckets or different storage class ,not sure sometimes it doesnt show all s3 buckets ?with open('subsetbucketslist.txt') as f:allbuckets = f.read().splitlines()how to use  local file of buckets names as input  boto3.resourcereference one more way but also need make change to use local file buckets subsetStandardStoragebucketslist.txt as inputhttps://www.slsmk.com/getting-the-size-of-an-s3-bucket-using-boto3-for-aws/Your post appears to contain code that is not properly formatted as code. Please indent all code by 4 spaces using the code toolbar button or the CTRL+K keyboard shortcut. For more editing help, click the [?] toolbar icon."
+    ],
+    "titre": "s3 bucket size for subset bucket names",
+    "number": 42
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\ndelphi\n"
+    ],
+    "Pseudo": "SiBrit",
+    "info_github": [
+        "\n\r\n        asked 19 mins ago\n\n\n\n\n\nSiBritSiBrit\n\n1,3591010 silver badges3838 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710330/how-to-define-a-default-indexed-property-for-a-tobject-class-in-delphi",
+    "contenus": [
+        "Given these classes;type TMyItem = class(TObject)private  FReference: String;  FOtherProperty: TObject;public  property Reference: String read FReference write FReference;  property OtherProperty: String read FOtherPropertywrite FOtherProperty;end;type TMyListClass = class(TObjectList<TMyItem>)public  function IndexOf(const AReference: String): Integer; overload;end;function TMyListClass.IndexOf(const AReference: String): Integer;var  I: Integer;begin  Result := -1;  for I := 0 to Count - 1 do    if Items[I].Reference = AReference then    begin      Result := I;      break;    end;end;type TMyClass = class(TObject)private  FList: TObjectList<TOtherClass>;public  property List: TObjectList<TOtherClass> read FList write FList;end;How do I implement a property/function/enumerator on TMyClass so that instead of thisAMyClass.List.Items[AMyClass.List.IndexOf(ARef)].OtherProperty := AOtherObject;I can do thisAMyClass[ARef].OtherProperty := AOtherObject;I thought it would be a matter of making a default property, but you can't pass a parameter to a property like you would a function."
+    ],
+    "titre": "How to define a default indexed property for a TObject class in Delphi",
+    "number": 43
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\nusbhardwaretrackpadinterfacingps2\n"
+    ],
+    "Pseudo": "secretknowledge",
+    "info_github": [
+        "\n\r\n        asked 19 mins ago\n\n\n\n\n\nsecretknowledgesecretknowledge\n\n111 bronze badge\n\n\n"
+    ],
+    "href": "/questions/74710327/how-do-i-interface-this-trackpad-with-my-via-usb-to-my-pc",
+    "contenus": [
+        "Recently I have been working on salvaging parts from an old broken Lenovo IdeaPad. A model S145-14api I believe. I have been working on connecting to its track pad to my computer. I have taken the track pad out of the laptop and identified the solder points for its ribbon cable. They are as follows: (left of connector to the right of connector)PIN 1 | PIN 2 | PIN 3 | PIN 4 | PIN 5 | PIN 6T3     T11     T23     T9      T10     T20(and T30)Now that I have the solder points, I am now working to interface it. I am unsure how to. I expected  it to use a PS/2 type connection, as it has six pins (forgive me as I am not experienced at hardware). Unfortunately, while I identified the +5v and GND pins, I am unsure of the rest. Upon looking at a schematic, none of the pins seem to match up with the PS/2 pinout. Can you help me interface with this track pad?Model # (of track pad): 8SST60V07208PS: the ribbon cable connector of the track pad is broken, but I can solder in a replacement"
+    ],
+    "titre": "How do I interface this trackpad with my via usb to my PC?",
+    "number": 44
+}{
+    "nombre de vues": "10",
+    "type": [
+        "\npythonscikit-learn\n"
+    ],
+    "Pseudo": "Bizbo Nguyen",
+    "info_github": [
+        "\n\r\n        asked 20 mins ago\n\n\n\n\n\nBizbo NguyenBizbo Nguyen\n\n1\n\n\n",
+        "\n\r\n        answered 11 mins ago\n\n\n\n\n\nWaled AhmadWaled Ahmad\n\n1644 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710326/sklearn-cant-run",
+    "contenus": [
+        "ModuleNotFoundError: No module named 'sklearn'it said that there's no wheel or something. the sklearn was installed but it can't run both on my mac and window, I don't know why?",
+        "use pip install scikit-learn rather than pip install sklearnreplace sklearn by scikit-learn in your pip requirements files (requirements.txt,setup.py, setup.cfg, Pipfile, etc ...)-if the sklearn package is used by one of your dependencies it would be great if youtake some time to track which package uses sklearn instead of scikit-learn andreport it to their issue trackeras a last resort, set the environment variableSKLEARN_ALLOW_DEPRECATED_SKLEARN_PACKAGE_INSTALL=True to avoid this error"
+    ],
+    "titre": "Sklearn Can't Run",
+    "number": 45
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\nmathproofturing-machinesformal-languages\n"
+    ],
+    "Pseudo": "Ashman",
+    "info_github": [
+        "\n\r\n        asked 20 mins ago\n\n\n\n\n\nAshmanAshman\n\n4344 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710323/show-that-language-l-m-m-is-a-tm-and-b-%e2%88%a9-lm-%e2%89%a0-%e2%88%85-is-recursively-en",
+    "contenus": [
+        "I'm not sure how to show that the language L = {M | M is a TM and {b}* ∩ L(M) ≠ ∅ } is recursively enumerable. I understand that if there is a TM that can write every string of the Alphabet on a writing tape, it is recursively enumerable. But I dont know how to properly do it, can anyone help?"
+    ],
+    "titre": "Show that Language L = { <M> | M is a TM and {b}* ∩ L(M) ≠ ∅ } is recursively enumerable?",
+    "number": 46
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\nvisual-studiodebuggingazure-devopsnugetsourcelink\n"
+    ],
+    "Pseudo": "SashaArz",
+    "info_github": [
+        "\n\r\n        asked 20 mins ago\n\n\n\n\n\nSashaArzSashaArz\n\n78255 silver badges88 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710319/debugging-a-nuget-package-built-by-azure-devops-doesnt-work",
+    "contenus": [
+        "Let me start by saying if I build the package locally and publish it to a local drive, everything works as expected. If the same steps are done in Azure DevOps and the package is published to our private/company feed, debugging does not work (the code steps through the package code without going in).Here's what I've done to enable debugging.In the class library being packaged, installed Microsoft.SourceLink.GitHub packages to generate source link for GitHub repository (our code is there).In VS, in Options->Debugging unchecked Enable Just My Code.I build a release configuration of the package either using VS build or msbuild (makes no differencce). Then I use Package Manager Console to build the package (i.e., nuget pack [path to project file] -properties configuration=Release). When I add this locally build package, debugging works just fine. My assumption is the above source link package points to the location in the repository. There's no pdb anywhere so, since everything works fine, I'm assuming it's not needed.If the same steps are done on Azure Devops server, the package is published to the company's private feed and added to the consuming project from there, debugging does not work. You'd think with the project file being the same, debugging should work regardless where you built it.I've tried to add Index sources and publish symbols step per these instructions  but it makes no difference. I also tried making the below change to the project file setting DebuggingSymbols=true and DebugType=Full. This didn't make any difference either. <PropertyGroup Condition= '$(Configuration)|$(Platform)' == 'Release|AnyCPU' >    <DebugType>full</DebugType>    <Optimize>true</Optimize>    <OutputPath>bin\\Release\\</OutputPath>    <DefineConstants>TRACE</DefineConstants>    <ErrorReport>prompt</ErrorReport>    <WarningLevel>4</WarningLevel>    <Prefer32Bit>false</Prefer32Bit>    <DebugSymbols>true</DebugSymbols>  </PropertyGroup>Please share your ideas!"
+    ],
+    "titre": "Debugging a nuget package built by Azure Devops doesn't work",
+    "number": 47
+}{
+    "nombre de vues": "7",
+    "type": [
+        "\npandasfor-loopappendconcatenationpandas.excelwriter\n"
+    ],
+    "Pseudo": "Scott Tomlinson",
+    "info_github": [
+        "\n\r\n        asked 20 mins ago\n\n\n\n\n\nScott TomlinsonScott Tomlinson\n\n1\n\n\n"
+    ],
+    "href": "/questions/74710318/excelwriter-in-for-loop",
+    "contenus": [
+        "I am doing a Mann-Kendall analysis in which  am iterating through a list of locations. I am trying to take the output from this analysis (defaults as a list but I convert it to a dataframe) and write it to an Excel Workbook as a unique Sheet (iterate through the locations to assign different sheet names).Here is my code:Note that pt is a dataframe with a time index and columns of concentrations of various metals at unique locations.n=0for x in pt.columns:    mkdata = mk.seasonal_test(pt[pt.columns[n]])#Convert the output list from the Mann-Kendall analysis into a Data Frame    mktab = pd.DataFrame(mkdata)#Renaming the first column from the Mann-Kendal to identify the location it is from    mktab.rename(columns={0:pt.columns[n]},inplace=True)#Rename the Index to the parameters of the test results    mktab.rename(index={0: Trend, 1: h, 2: p, 3: z, 4: Tau, 5: s, 6: var_s, 7: Slope, 8: Intercept},inplace=True)#Write this to Excel: Spoiler alert, this isn't working    with pd.ExcelWriter(oname) as writer:        mktab.to_excel(writer,sheet_name='MK' + pt.columns[n])#Iterate to the next column in the pt data frame    n=n+1The problem is I get an output but it is only the last location in my list (I have 8 locations). Ideally I would like to have all of them as separate sheets. Or...even better, would be to merge them all in one dataframe that keeps increasing as the for loop iterates, but you can't have it all I suppose."
+    ],
+    "titre": "ExcelWriter in for loop",
+    "number": 48
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\nverilog\n"
+    ],
+    "Pseudo": "HDY",
+    "info_github": [
+        "\n\nedited Nov 13 at 11:50\n\n\n\n\n\ntoolic\n\n54.3k1414 gold badges7272 silver badges112112 bronze badges\n\n\n",
+        "\n\r\n        asked Nov 13 at 6:23\n\n\n\n\n\nHDYHDY\n\n722 bronze badges\n\n\n",
+        "\n\nedited Nov 13 at 12:51\n\n\n\n\n\n\n\n",
+        "\n\r\n        answered Nov 13 at 10:34\n\n\n\n\n\ntoolictoolic\n\n54.3k1414 gold badges7272 silver badges112112 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710317/implementing-function-using-parameters-from-sram",
+    "contenus": [
+        "8 Bit CLA Addermodule cla8(a, b, cin, sum, cout);  input [7:0] a;  input [7:0] b;  input cin;    output [7:0] sum;  output cout;    wire p0, g0, p1, g1, p2, g2, p3, g3, p4, g4, p5, g5, p6, g6, p7, g7;  wire c8, c7, c6, c5, c4, c3, c2, c1;    assign p0 = a[0] ^ b[0];  assign p1 = a[1] ^ b[1];  assign p2 = a[2] ^ b[2];    assign p3 = a[3] ^ b[3];    assign p4 = a[4] ^ b[4];  assign p5 = a[5] ^ b[5];  assign p6 = a[6] ^ b[6];  assign p7 = a[7] ^ b[7];    assign g0 = a[0] & b[0];  assign g1 = a[1] & b[1];  assign g2 = a[2] & b[2];  assign g3 = a[3] & b[3];  assign g4 = a[4] & b[4];  assign g5 = a[5] & b[5];  assign g6 = a[6] & b[6];  assign g7 = a[7] & b[7];      assign c0 = cin;    assign c1 = g0|(p0 & c0);     assign c2 = g1|(p1 & g0)|(p1 & p0 & c0);    assign c3 = g2|(p2 & g1)|(p2 & p1 & g0)|(p2 & p1 & p0 & c0);    assign c4 = g3|(p3 & g2)|(p3 & p2 & g1)|(p3 & p2 & p1 & g0)|(p3 & p2 & p1 & p0 & c0);                              assign c5 = g4|(p4 & g3)|(p4 & p3 & g2)|(p4 & p3 & p2 & g1)|(p4 & p3 & p2 & p1 & g0)|                  (p4 & p3 & p2 & p1 & p0 & c0);   assign c6 = g5|(p5 & g4)|(p5 & p4 & g3)|(p5 & p4 & p3 & g2)|(p5 & p4 & p3 & p2 & g1)|                  (p5 & p4 & p3 & p2 & p1 & g0)|(p5 & p4 & p3 & p2 & p1 & p0 & c0);    assign c7 = g6|(p6 & g5)|(p6 & p5 & g4)|(p6 & p5 & p4 & g3)|(p6 & p5 & p4 & p3 & g2)|                   (p6 & p5 & p4 & p3 & p2 & g1)|(p6 & p5 & p4 & p3 & p2 & p1 & g0)|                           (p6 & p5 & p4 & p3 & p2 & p1 & p0 & c0);    assign c8 = g7|(p7 & g6)|(p7 & p6 & g5)|(p7 & p6 & p5 & g4)|(p7 & p6 & p5 & p4 & g3)|                   (p7 & p6 & p5 & p4 & p3 & g2)|(p7 & p6 & p5 & p4 & p3 & p2 & g1)|                           (p7 & p6 & p5 & p4 & p3 & p2 & p1 & g0)|                (p7 & p6 & p5 & p4 & p3 & p2 & p1 & p0 & c0);         assign sum[0]  = p0 ^ c0;  assign sum[1]  = p1 ^ c1;  assign sum[2]  = p2 ^ c2;  assign sum[3]  = p3 ^ c3;  assign sum[4]  = p4 ^ c4;  assign sum[5]  = p5 ^ c5;  assign sum[6]  = p6 ^ c6;  assign sum[7]  = p7 ^ c7;    assign cout = c8;    endmoduleTestBenchmodule cla8bit_testbench;  reg[7:0] a;  reg[7:0] b;  reg cin;  wire [7:0] sum;  wire cout;    cla8 uut(.a(a),           .b(b),           .cin(cin),           .sum(sum),           .cout(cout));    initial begin    $dumpfile(dump.vcd);    $dumpvars(1);        //With Carry    a = 8'b11110000;    b = 8'b11001100;    cin = 0;    $display(In the case involving carry, For A = %8b, B = %8b, and Cin = %1d: the Sum will be %8b and Cout will be %1d., a, b, cin, sum, cout);      #20     $display(In the case without involving carry, For A = %8b, B = %8b, and Cin = %1d: the Sum will be %8b and Cout will be %1d., a, b, cin, sum, cout);       //Without Carry    a = 8'b11110000;    b = 8'b00001101;    cin = 0;    #100;   endendmoduleResults showed# KERNEL: In the case involving carry, For A = xxxxxxxx, B = xxxxxxxx, and Cin = x: the Sum will be xxxxxxxx and Cout will be x.# KERNEL: In the case without involving carry, For A = 11110000, B = 11001100, and Cin = 0: the Sum will be 10111100 and Cout will be 1.However, Results are supposed to show# KERNEL: In the case involving carry, For A = 11110000, B = 11001100, and Cin = 0: the Sum will be 10111100 and Cout will be 1.# KERNEL: In the case without involving carry, For A = 11110000, B = 00001101, and Cin = 0: the Sum will be 11111101 and Cout will be 0.",
+        "The testbench code has a simulation race condition.  The 1st $display statement executes at time 0.  Also at time 0 a, b and cin start with their initial value of x because reg types are initialized to x (the unknown value).  Again at time 0, you change the values of these 3 signals to known values (a = 8'b11110000, etc.).  Since these 3 things occur during the same time step, the result is indeterminate.One way to get the result you want is to add a delay before the 1st $display statement, such as #1.A similar reason applies for the 2nd $display statement; to fix that, also add delay.  Here is modified code that produces the desired result:  initial begin    $dumpfile(dump.vcd);    $dumpvars(1);    //With Carry    a = 8'b11110000;    b = 8'b11001100;    cin = 0;    #1;    $display(In the case involving carry, For A = %8b, B = %8b, and Cin = %1d: the Sum will be %8b and Cout will be %1d., a, b, cin, sum, cout);    #20;    //Without Carry    a = 8'b11110000;    b = 8'b00001101;    cin = 0;    #1;    $display(In the case without involving carry, For A = %8b, B = %8b, and Cin = %1d: the Sum will be %8b and Cout will be %1d., a, b, cin, sum, cout);    #100;  endOutput:In the case involving carry, For A = 11110000, B = 11001100, and Cin = 0: the Sum will be 10111100 and Cout will be 1.In the case without involving carry, For A = 11110000, B = 00001101, and Cin = 0: the Sum will be 11111101 and Cout will be 0.Another approach is to use a single $monitor statement instead of multiple $display statements:  initial begin    $dumpfile(dump.vcd);    $dumpvars(1);    $monitorb(a,, b,, cin,, sum,, cout);    //With Carry    a = 8'b11110000;    b = 8'b11001100;    cin = 0;    #20;    //Without Carry    a = 8'b11110000;    b = 8'b00001101;    cin = 0;    #100;  endOut:11110000 11001100 0 10111100 111110000 00001101 0 11111101 0See also $strobe"
+    ],
+    "titre": "Implementing Function Using Parameters From SRAM [duplicate]",
+    "number": 49
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\njavascripttypescript\n"
+    ],
+    "Pseudo": "TheZodchiy",
+    "info_github": [
+        "\n\r\n        asked 21 mins ago\n\n\n\n\n\nTheZodchiyTheZodchiy\n\n12722 silver badges99 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710316/typescript-date-type-is-not-js-date-type",
+    "contenus": [
+        "I have a model:export class SendModel{periodFrom: Date,periodTo: Date}I have a service:public async Calculate(periodFrom: Date,  periodTo: Date):Promise<SendModel>{let resObj = this.http.get(url, params:{periodFrom: `${periodFrom}`, periodTo: `${periodTo}`}).toPromise();//...another code...//}I receive a SendModel object from api.{periodFrom: '2022-11-24T00-00-00Z',periodTo: '2026-01-01T00-00-00Z'}Ok, I need add 3 month to periodFrom var.let startPayday = receiveObj.periodFrom.setMonth(receiveObj.periodFrom.getMonth()+3); //not working, despite receiveObj.periodFrom has type is Date (what?)let startPayday2 = new Date(new Date(receiveObj.periodFrom).setMonth(new Date(receiveObj.periodFrom).getMonth()+3)); //worsk! okOk, let`s send it to api.this.service.Calculate(startPayday2, receiveObj.periodTo); //error!Wrong api call, status 400, One or more validation errors.Look at the request: api/calculate?periodFrom=Fri Feb 24 2023 03:00:00 GMT 0300 (blablabla)&periodTo=2026-01-01T00-00-00ZMaybe like this?this.service.Calculate(startPayday2.toISOString(), receiveObj.periodTo); //nope, argument is type 'string' bla-bal-bla...startPayday2 has type Date, API expects type Date, but these are different types that are serialized differently?"
+    ],
+    "titre": "TypeScript Date type is not JS Date type?",
+    "number": 50
+}

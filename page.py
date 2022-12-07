@@ -34,17 +34,24 @@ def get(exemple, int):
                 page1 = t.urlopen(href_titre)
                 question = bs(page1,"html.parser")
                 tout = question.find_all('div', {'class': 's-prose js-post-body'})
+                language = question.find_all('div', {'class':'d-flex ps-relative fw-wrap'}) # Languages ?
+                info_compte = question.find_all('div', {'class':'user-info'}) # Languages ?
                 contenu_href = clear_data(tout)
+                language_clear = clear_data(language)
+                compe_ifno_clear = clear_data(info_compte)
                 new_list1 = [s.replace("\n", "") for s in contenu_href]
                 new_list2 = [s.replace("\n", "") for s in titre]
                 new_list3 = [s.replace("\"", "") for s in new_list1]
                 new_list4 = [s.replace("\"", "") for s in new_list2]
-                dictionary = {'Title': new_list4[taille],
-                            'Number': taille + 1,
-                            'Pseudo': new_list[taille],
-                            'Number of views' : Views[taille],
-                            'Href': href,
-                            'Content':new_list3}
+                dictionary = {
+                'nombre de vues' : Views[taille],
+                'type':language_clear,
+                'Pseudo': new_list[taille],
+                'github_score_time':compe_ifno_clear,
+                'href': href,
+                'contenus':new_list3,
+                'titre': new_list4[taille],
+                'number': taille + 1}
                 json.dump(dictionary, f, ensure_ascii=False, indent=4)
     except:
         pass

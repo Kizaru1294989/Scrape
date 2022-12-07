@@ -1,0 +1,792 @@
+{
+    "nombre de vues": "0",
+    "type": [
+        "\nsqlpostgresqldatesql-update\n"
+    ],
+    "Pseudo": "miguel silvestre",
+    "info_github": [
+        "\n\nedited 17 mins ago\n\n\n\n\n\nGMB\n\n202k2323 gold badges7171 silver badges120120 bronze badges\n\n\n",
+        "\n\r\n        asked 21 mins ago\n\n\n\n\n\nmiguel silvestremiguel silvestre\n\n122 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710315/in-psql-how-can-i-insert-a-date-with-year-month-day-hour-minute-and-seconds-in-a",
+    "contenus": [
+        "I have trie this, but is gives ERROR:  invalid value 03/12 for MONupdate verificationcodes set date =TO_DATE('2023-03-12 23:10:25','YYYY-mon-DD hh24:mi:ss') where id = 68;can somebody solve this?i was expecting to work"
+    ],
+    "titre": "In PSQL how can i insert a date with year month day hour minute and seconds in a table",
+    "number": 1
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\nmysql\n"
+    ],
+    "Pseudo": "albertjan",
+    "info_github": [
+        "\n\r\n        asked 21 mins ago\n\n\n\n\n\nalbertjanalbertjan\n\n7,62366 gold badges4444 silver badges7474 bronze badges\n\n\n",
+        "\n\r\n        answered 8 mins ago\n\n\n\n\n\nBill KarwinBill Karwin\n\n519k8484 gold badges649649 silver badges809809 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710314/0000-00-00-000000-date-in-table-when-is-set-to-be-not-null",
+    "contenus": [
+        "Why?In the scheme I have:`date_published` DATETIME NOT NULL,but now when I:mysql> select min(date_published) from articles;+---------------------+| min(date_published) |+---------------------+| 0000-00-00 00:00:00 |+---------------------+1 row in set (5.47 sec)But when I:mysql> select * from articles where date_published = '0000-00-00 00:00:00';ERROR 1525 (HY000): Incorrect DATETIME value: '0000-00-00 00:00:00'I don't understand. How did I insert that?How do I find the rows that have this date?",
+        "You probably inserted the zero date at some time in the past when the MySQL Server configuration allowed it.Zero dates used to be allowed by default, and as of MySQL 5.7, they are not allowed by default. This is considered an improvement, because 0000-00-00 is not a valid date. I.e. it doesn't appear in any calendar.The configuration that determines whether these dates are allowed is the SQL mode NO_ZERO_DATE. When this mode is enabled, an SQL expression that casts '0000-00-00 00:00:00' as a datetime value returns an error.If that data is already stored in your table, you can at least fetch it. But you can't form a new value like that, including the literal value you used in your WHERE clause.To search for that value, you have to change your sql_mode configuration option, at least temporarily in the session where you run that query. I would recommend do not change it globally. It's a good thing to disallow invalid dates.The manual says:Because NO_ZERO_DATE is deprecated; expect it to be removed in a future release of MySQL as a separate mode name and its effect included in the effects of strict SQL mode.So in some future version of MySQL, you might have to disable strict mode to access such date values. I recommend you replace those values now with either some valid datetime value, or else NULL."
+    ],
+    "titre": "0000-00-00 00:00:00 date in table when is set to be NOT NULL",
+    "number": 2
+}{
+    "nombre de vues": "7",
+    "type": [
+        "\nflutterdart\n"
+    ],
+    "Pseudo": "mohamed yassine",
+    "info_github": [
+        "\n\r\n        asked 21 mins ago\n\n\n\n\n\nmohamed yassinemohamed yassine\n\n3755 bronze badges\n\n\n",
+        "\n\r\n        answered 10 mins ago\n\n\n\n\n\ntheemeetheemee\n\n16811 silver badge66 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710313/too-many-positional-arguments-0-expected-but-1-found-flutter",
+    "contenus": [
+        "i have a methode that loaded me the data from server on Json format data , also im using audioPlayer library to play music got it from server , when i want to pass the path inside  audioPlayer.play like that :String Url = _loadedAudio[index]['file'];await audioPlayer.play(Url);it display to me this error  :Too many positional arguments: 0 expected, but 1 found.how can i solve it",
+        "You can try these two options:await player.setSourceUrl(Url);await player.resume();Orawait player.play(UrlSource(Url));"
+    ],
+    "titre": "Too many positional arguments: 0 expected, but 1 found. flutter",
+    "number": 3
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\npythontweepy\n"
+    ],
+    "Pseudo": "0xCAJ",
+    "info_github": [
+        "\n\nedited 18 mins ago\n\n\n\n\n\nWolric\n\n56022 silver badges1212 bronze badges\n\n\n",
+        "\n\r\n        asked 22 mins ago\n\n\n\n\n\n0xCAJ0xCAJ\n\n111 bronze badge\n\n\n",
+        "\n\r\n        answered 16 mins ago\n\n\n\n\n\nWaled AhmadWaled Ahmad\n\n1644 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710310/how-can-i-loop-this-script-every-30-seconds",
+    "contenus": [
+        "I want to loop this script every 30 seconds.tweets = tweepy.Cursor(api.search_tweets, q='safe dev', lang='en', tweet_mode='extended').items(100)print(tweet.full_text, tweet.created_at)I tried while true but it's not showing results.",
+        "import time for index in range(0 , to_numbers_of_loops):    #here you can define the time you want to run the script in your case 30 seconds     time.sleep(30)    tweets = tweepy.Cursor(api.search_tweets, q='safe dev', lang='en', tweet_mode='extended').items(100)    print(tweet.full_text, tweet.created_at)"
+    ],
+    "titre": "How can I loop this script every 30 seconds?",
+    "number": 4
+}{
+    "nombre de vues": "1",
+    "type": [
+        "\nluagame-enginegame-developmentroblox\n"
+    ],
+    "Pseudo": "Coder10101",
+    "info_github": [
+        "\n\r\n        asked 23 mins ago\n\n\n\n\n\nCoder10101Coder10101\n\n522 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710305/weird-npc-distance-chase-bug",
+    "contenus": [
+        "I have a testing studio place where I created Npcs to chase each other and they do that by looping through workspace to find other humanoids besides their own and chasing them. The problem is I use this if statement (fighter.HumanoidRootPart.Position.X. - closestEnemy.HumanoidRootPart.Position.X). Magnitude < 3 that when they are close and less than 3 studs away from each other they will damage one another, but when they are even touching each other, no Damage is happening and when I print that equation into output, I get a high number like 55 or 40. Someone please help! Thank you.`"
+    ],
+    "titre": "Weird, NPC Distance Chase bug",
+    "number": 5
+}{
+    "nombre de vues": "12",
+    "type": [
+        "\nvisual-studio-codevscode-debugger\n"
+    ],
+    "Pseudo": "Loading Zone",
+    "info_github": [
+        "\n\nedited 13 mins ago\n\n\n\n\nLoading Zone\n\n\n\n",
+        "\n\r\n        asked 23 mins ago\n\n\n\n\n\nLoading ZoneLoading Zone\n\n14711 silver badge1212 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710303/how-can-i-get-rid-of-the-vs-code-warning-of-seriverx-disconnected-unexpectedl",
+    "contenus": [
+        "I ran into this warning (see pictures as I run Python multiprocessing to fire up multiple cores (almost all the core available). After I clicked cancel. I will see the second error message which says failed to launch debugger fora child processes.The code will finish running and produce correct results. But VS code will generate multiple warning and laying on top of the entire VS code, which need to be manually click off.Do we know the proper way to prevent this from happening?Some relevent post I found. As I am investigating, I will keep updating this post.https://github.com/microsoft/debugpy/issues/712)"
+    ],
+    "titre": "How can I get rid of the VS Code warning of Seriver[x] disconnected unexpectedly",
+    "number": 6
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\n google-cloud-vertex-ai\n"
+    ],
+    "Pseudo": "jasmine",
+    "info_github": [
+        "\n\r\n        asked 24 mins ago\n\n\n\n\n\njasminejasmine\n\n722 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710302/speeding-up-batch-prediction-in-vertex-ai-on-tabular-data-to-generate-explanatio",
+    "contenus": [
+        "I am trying to run a batch prediction while generating explanations for tabular data with 100 features and 1.7 million rows with storage size 1.4GBI am finding that my batch prediction is taking 20 minutes to run when the generate_explanation flag set to False or I run on 50 rows of data. But can take 15+ hours when set to generate_explanation=True on a full datasetI am using this method herehttps://cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.Model#google_cloud_aiplatform_Model_batch_predictI have tried increasing these parameters from thisstarting_replica_count=20,max_replica_count=20,batch_size=64To this. The job is currently runningstarting_replica_count=40,max_replica_count=40,batch_size=128Are there any suggestions on how to improve the speed?"
+    ],
+    "titre": "Speeding up batch prediction in Vertex AI on Tabular data to generate explanations",
+    "number": 7
+}{
+    "nombre de vues": "1",
+    "type": [
+        "\nhtmlcsssass\n"
+    ],
+    "Pseudo": "anonydude",
+    "info_github": [
+        "\n\nedited 1 min ago\n\n\n\n\n\nChristian\n\n3,70144 gold badges2424 silver badges4242 bronze badges\n\n\n",
+        "\n\r\n        asked 24 mins ago\n\n\n\n\n\nanonydudeanonydude\n\n133 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710300/beginner-at-coding-and-need-help-to-orientate-where-to-find-and-learn-this-type",
+    "contenus": [
+        "Closed. This question does not meet Stack Overflow guidelines. It is not currently accepting answers.\r                        \r                     We don’t allow questions seeking recommendations for books, tools, software libraries, and more. You can edit the question so it can be answered with facts and citations.Closed 20 mins ago.\r                        Improve this question\r                    The school project and picture below show what I have to do, but I have 0 knowledge and I want your help, what I need to google and your help if you add some websites.I cannot orientate and find this problem anywhere."
+    ],
+    "titre": "Beginner at coding and need help to orientate where to find and learn this type of CSS [closed]",
+    "number": 8
+}{
+    "nombre de vues": "13",
+    "type": [
+        "\njava\n"
+    ],
+    "Pseudo": "Jake Peterson",
+    "info_github": [
+        "\n\nedited 23 mins ago\n\n\n\n\n\nDaniel A. White\n\n184k4646 gold badges361361 silver badges436436 bronze badges\n\n\n",
+        "\n\r\n        asked 24 mins ago\n\n\n\n\n\nJake PetersonJake Peterson\n\n1\n\n\n"
+    ],
+    "href": "/questions/74710297/sentient-loop-not-running",
+    "contenus": [
+        "Anyone know why my loop isnt running?`import java.util.*;import java.io.*;public class LeapYear {    public static void main(String[] args) {        // TODO Auto-generated method stub                    Scanner input = new Scanner(System.in);                        String start = y;                                            while (start.equals(y));            {                System.out.println(Enter a year);                int year = input.nextInt();                                if(year < 1582)                {                    System.out.println(please enter another year);                    year = input.nextInt();                }                                 if(year % 4 == 0 && year%100 != 0 )                {                    System.out.println(year +  is a leap year);                }                else if (year % 400 == 0)                    System.out.println(year +  is a leap year);                else                    System.out.println(year+ is not a leap year);                                System.out.println(Continue? y/n);            start = input.next();            }                }}`Supposed to check if a year is a leap year but it won't even run the loop I have no idea what the problem is. I tried switching it to a do while loop but that didn't solve it either"
+    ],
+    "titre": "Sentient loop not running",
+    "number": 9
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\nauthenticationwebsocketauthorization\n"
+    ],
+    "Pseudo": "CHANist",
+    "info_github": [
+        "\n\r\n        asked 24 mins ago\n\n\n\n\n\nCHANistCHANist\n\n1,2131010 silver badges3131 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710296/websocket-token-design",
+    "contenus": [
+        "When we use http, we normally place our token in header, since HTTP is stateless. This makes sense.However when it comes to WebSocket, I notice it is stateful. Should we still send it in every request, or just send it once, until some times has reached or server response expire, then we refresh the token and send it to server again?I have found that public API expects us to send every request through WebSocket to include token, For example, in Deribit APII do not understand the reason why token is needed for every request sent inside WebSocket. and Why such a design is made.Can anyone explain to me, thanks."
+    ],
+    "titre": "Websocket Token Design",
+    "number": 10
+}{
+    "nombre de vues": "1",
+    "type": [
+        "\nrsurvival-analysissurvivalsurvminer\n"
+    ],
+    "Pseudo": "warpspeed86",
+    "info_github": [
+        "\n\r\n        asked 25 mins ago\n\n\n\n\n\nwarpspeed86warpspeed86\n\n1\n\n\n"
+    ],
+    "href": "/questions/74710293/is-there-a-way-to-use-survsplit-to-cut-each-observation-at-a-different-time",
+    "contenus": [
+        "I'm working on the following dataset: https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-datasetI'm trying to conduct a survival analysis on this dataset, but with so many measurements that depend on time after the start of the study, we need to do something about that. So I want to incorporate a recurring events model. I'm wondering if it's possible to set the 'cut' in the survSplit function at variable times, so that I can set something like YearsWithCurrManager as an intermediate event.Obviously, people aren't going to be with their current manager for the same time as other people, so I wanted to cut by row based on how much time they've been with their current manager.So, is it possible to cut at different times for each row? If my understanding of this data is also incorrect I'd be open to suggestions there too.If I do cut= YearsAtCompany - YearsWithCurrManager (or something along those lines) that's just going to create a vector of all of those differences in time, which isn't what I want."
+    ],
+    "titre": "Is there a way to use survSplit to cut each observation at a different time?",
+    "number": 11
+}{
+    "nombre de vues": "26",
+    "type": [
+        "\nsoappaginationfive9\n"
+    ],
+    "Pseudo": "SMN947",
+    "info_github": [
+        "\n\nedited 23 mins ago\n\n\n\n\nSMN947\n\n\n\n",
+        "\n\r\n        asked 25 mins ago\n\n\n\n\n\nSMN947SMN947\n\n144 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710291/how-to-paginate-50000-records-five9-report-fetched-over-api",
+    "contenus": [
+        "I'm fetching data from five9 using the SOAP api however some reports have more than 50000 records per day which is the limit that the method getReportResultCsv have.Five9 Api method usedRight now im sending requests per hour but for some intervals the amount received is to small, so in order to make an optimization and reduce the number of requests send I'd like to know if there's a way to get a pagination when fetching results.This is the documentation that's being used: https://webapps.five9.com/assets/files/for_customers/documentation/apis/config-webservices-api-reference-guide.pdf"
+    ],
+    "titre": "How to paginate +50000 records five9 report fetched over api",
+    "number": 12
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\njavascriptnode.jsapipostpayment\n"
+    ],
+    "Pseudo": "TimH",
+    "info_github": [
+        "\n\r\n        asked Oct 4, 2019 at 6:09\n\n\n\n\n\nAkshay BandeAkshay Bande\n\n2,40822 gold badges1111 silver badges2525 bronze badges\n\n\n",
+        "\n\nedited Oct 4, 2019 at 7:41\n\n\n\n\n\n\n\n",
+        "\n\r\n        answered Oct 4, 2019 at 6:15\n\n\n\n\n\njfriend00jfriend00\n\n661k9191 gold badges939939 silver badges941941 bronze badges\n\n\n",
+        "\n\r\n        answered Oct 4, 2019 at 6:13\n\n\n\n\n\nRandRand\n\n8122 silver badges99 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710288/post-method-not-working-via-javascript-ok-via-form-submission-with-button",
+    "contenus": [
+        "I want to call payment gateway, for that payment gateway is called using form submission with the method as post, Can I call the same gateway using post API call from node js HTTP module, I am confused, that I cannot call gateway using post API cause it won't redirect to new page, and form have method and action which can redirect to new page with post call? ",
+        "There are multiple ways to submit a form from the browser:HTML form, submit button, user presses submit button, no Javascript involved.HTML form in the page, Javascript gets DOM element for the form and calls .submit() method on the form object.Ajax call using the XMLHttpRequest interface with the POST method and manually sending appropriate form data.Ajax Fetch call with the POST method and manually sending appropriate form data.With #1 or #2, the browser sends the form and the browser will pay attention to redirects and will display the form response (whether redirected or not) in the browser.With #3 and #4, the form is sent via Javascript and the response comes back to your Javascript.  #3 does not process redirects.  #4 has an option to process redirects. Here's more info on each of the above options.  #3 and #4 do not affect the browser display is not affected at all unless you program your own Javascript to process the request and affect the browser display (either by inserting content or setting window.location to a new URL. Here's some more info on the above schemes:Programmatic Ajax calls with XMLHttpRequest do not process redirects or the response from the Ajax call in any way.  They just return that response to YOUR Javascript. Keep in mind that a redirect is just one specific type of response you can get back from an Ajax call.  This is different than a browser submitted form POST.Programmatic Ajax calls with the fetch() interface offer an option to follow redirects automatically.  See the redirect option here.  But, even in this case, all the fetch() interface does is get the contents of the redirected URL.  It does not cause the browser page to change.  To so that, you would have to write your own Javascript code to either see the 3xx redirect response and then set window.location to the new redirect URL.  Or, you would have to let the interface follow the redirect automatically and then do something with the new redirected content that it will return to your Javascript.These programmatic requests different than letting the browser submit a form for you.  In the browser submitted case (without using Javascript to submit the form), the browser follows redirects and updates the display in the browser based on whatever content is returned from the form response.When you submit a form via Ajax, the browser does nothing automatically with the server response.  That response goes back to your Javascript and your script decides what to do with it.  If you want your script to follow redirects, then you have to examine the response, see if it's a 3xx status, get the new URL from the appropriate header and set window.location to that new URL. That will then cause the browser to display the redirect page.  But, you have to either program that yourself or find an Ajax library that offers a feature to do it form.  A standard Ajax call just returns the form POST response back to your Javascript - that's all.  Your script has to process that response and decide what to do next.I am confused, that I cannot call gateway using post API cause it won't redirect to new pageYou can.  You just need to write your own Javascript to process the response from the programmatic API call and, if its a 3xx redirect, then set window.location to the new URL to instruct the browser to load the new redirected page.",
+        "Form data is usually sent likeaddress=Stackoverflow&poster=AshkayWhereas a normal post in JSON format will be like{   address: stackoverflow,   poster: Ashkay}You can mimic a form POST request in NodeJS, e.g:const request = require(request);request({  uri: http://www.test.com/payment/gateway.php,  method: POST,  form: {    address: Stackoverflow,    name: Ashkay  }}, function(error, response, body) {  console.log(body);});"
+    ],
+    "titre": "POST method not working via JavaScript (OK, via form submission with button) [duplicate]",
+    "number": 13
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\nlogginglog4jtomcat9\n"
+    ],
+    "Pseudo": "Karl Hill",
+    "info_github": [
+        "\n\nedited 10 mins ago\n\n\n\n\nKarl Hill\n\n\n\n",
+        "\n\r\n        asked 27 mins ago\n\n\n\n\n\nKarl HillKarl Hill\n\n10.9k44 gold badges5454 silver badges8383 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710283/using-log4j-properties-with-tomcat-9",
+    "contenus": [
+        "Can I use log4j.properties with Tomcat 9? Or is logging.properties all I need? Or can I simultaneously use them both in the /usr/local/tomcat/conf directory? Otherwise, what's the best way to customize logging.properties?"
+    ],
+    "titre": "Using log4j.properties with Tomcat 9",
+    "number": 14
+}{
+    "nombre de vues": "7",
+    "type": [
+        "\nmysqlsqlsql-delete\n"
+    ],
+    "Pseudo": "Maria Isabel González Garcia",
+    "info_github": [
+        "\n\nedited 22 mins ago\n\n\n\n\n\nGMB\n\n202k2323 gold badges7171 silver badges120120 bronze badges\n\n\n",
+        "\n\r\n        asked 27 mins ago\n\n\n\n\n\nMaria Isabel González GarciaMaria Isabel González Garcia\n\n1\n\n\n"
+    ],
+    "href": "/questions/74710281/delete-duplicate-rows-in-mysql-workbench",
+    "contenus": [
+        "This question already has answers here:\r                        \r                    Delete all Duplicate Rows except for One in MySQL? [duplicate]\r                                (2 answers)\r                            Remove duplicate rows in MySQL\r                                (26 answers)\r                            Closed 22 mins ago.I'm trying to remove some duplicate values that appear in the Nashville Housing Data for Data Cleaning dataset but my query doesn't work. I am using MySQL Workbench and this is the error I am getting.Error Code: 1093. You can't specify target table 'Tb1' for update in FROM clauseCan someone explain to me how I can solve it?DELETE FROM PortafolioProject.NashvilleHousing AS Tb1WHERE EXISTS (SELECT 1 FROM PortafolioProject.NashvilleHousing AS Tb2              WHERE Tb2.ParcelID = Tb1.ParcelID AND                    Tb2.PropertyAddress = Tb1.PropertyAddress AND                    Tb2.SalePrice = Tb1.SalePrice AND                    Tb2.SaleDate = Tb1.SaleDate AND                    Tb2.LegalReference = Tb1.LegalReference AND                    Tb2.UniqueID < Tb1.UniqueID);"
+    ],
+    "titre": "Delete duplicate rows in MySQL Workbench [duplicate]",
+    "number": 15
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\nrecursionrust\n"
+    ],
+    "Pseudo": "Th0rgal",
+    "info_github": [
+        "\n\nedited 25 mins ago\n\n\n\n\n\nJohn Kugelman\n\n340k6767 gold badges515515 silver badges563563 bronze badges\n\n\n",
+        "\n\r\n        asked 28 mins ago\n\n\n\n\n\nTh0rgalTh0rgal\n\n56177 silver badges2323 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710279/mutable-references-in-recursive-function",
+    "contenus": [
+        "I have a vector of character stacks called crates. Those stacks are represented using VecDeque<char> and thus the vector of those is a Vec<VecDeque<char>>. This data structure isn't really a stack but I'd like to use it as if it were one and just iterate through them from back to front and add elements to the back.I want to move k last chars of a stack to another, but I want to keep them in order.Example:stack_a = [ 1 <- 2 <- 3 <- 4 ]stack_b = [ 5 <- 6 ]# movement from a to b with k=3stack_b = [ 5 <- 6 <- 2 <- 3 <- 4 ]You can notice that this is not something very easy to do with a stack. It would be easy if you had the right to change the order of elements added to the other stack because you could just repeat k times:push(stack_b, pop(stack_a))But here we need to reorder the calls, to pop k times, keep the k values in memory and then push them. This can easily be expressed with a recursive function.This is what my code looks like:// I'm extracting my stack ids from a regex capturelet source_id = usize::from_str(&cap[2]).unwrap() - 1;let target_id = usize::from_str(&cap[3]).unwrap() - 1;// My simple functionfn move_crates_simultaneously(    amount: usize,    source: Rev<Iter<char>>,    target: &mut VecDeque<char>,) {    if amount == 0 {        return;    }    let value = source.next();    move_crates_simultaneously(amount - 1, source, target);    target.push_back(*(value.unwrap()));}// My function callmove_crates_simultaneously(    usize::from_str(&cap[1]).unwrap(),    crates[source_id].iter().rev(),    &crates[target_id],);But there is a problem: &crates[target_id] is &VecDeque<char, Global> while the function needs a &mut VecDeque<char, Global>. From my understanding it doesn't seem to be possible to find a solution because there is now way for the compiler to know that my source and my target are not the same stack and thus to let me create my mutable ref for target. Does that mean it is not possible to solve this kind of problem that way in Rust?"
+    ],
+    "titre": "Mutable references in recursive function",
+    "number": 16
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\nexcelvba\n"
+    ],
+    "Pseudo": "aeso lin",
+    "info_github": [
+        "\n\r\n        asked 28 mins ago\n\n\n\n\n\naeso linaeso lin\n\n1\n\n\n"
+    ],
+    "href": "/questions/74710278/vba-copy-a-range-from-all-workbooks-in-a-folder-to-a-worksheet-in-another-workb",
+    "contenus": [
+        "I want to loop through all the workbooks in a folder, copy data from worksheet Import fil, column A:CZ starting on row 5 and down to the last active row in column A. Then paste the data as values in another workbook TOT_Importfiler.xlsm, sheet Blad1. Data from each new workbook should be pasted on the next empty row in the TOT file. In addition, I want to add the workbook name from each workbook to all the lines from that workbook in column DA in the TOT file so I can track which workbook the data comes from. (Preferably I would want the workbook names in column A and the copied data from the workbooks starting in column B in the TOT file, but adding it at the end works too).I used a code from another post but I don't know how to add the workbook names. Also it pastes formulas and not values which results in errors when there is a link to another workbook that I don't have access to.Can anyone help me out?Sub LoopAllExcelFilesInFolder()Dim wb As WorkbookDim myPath As StringDim myFile As StringDim myExtension As StringDim FldrPicker As FileDialogDim lRow As LongDim lRow2 As LongDim ws2 As WorksheetDim y As Workbook'Optimize Macro SpeedApplication.ScreenUpdating = FalseApplication.EnableEvents = FalseApplication.Calculation = xlCalculationManual'Retrieve Target Folder Path From UserSet FldrPicker = Application.FileDialog(msoFileDialogFolderPicker)With FldrPicker    .Title = C:\\Importfiler test    .AllowMultiSelect = False    If .Show <> -1 Then GoTo NextCode    myPath = .SelectedItems(1) & \\End With'In Case of CancelNextCode:myPath = myPathIf myPath =  Then GoTo ResetSettings'Target File Extension (must include wildcard *)myExtension = *.xlsx*'Target Path with Ending ExtentionmyFile = Dir(myPath & myExtension)Set y = Workbooks.Open(C:\\Importfiler test\\TOT_Importfiler.xlsm)Set ws2 = y.Sheets(Blad1)'Loop through each Excel file in folderDo While myFile <>     'Set variable equal to opened workbook    Set wb = Workbooks.Open(Filename:=myPath & myFile)    'Copy data on SearchCaseResults sheet to Disputes Sheet in other workbook    With wb.Sheets(Import fil)        lRow = .Range(A & Rows.Count).End(xlUp).Row        .Range(A5:CZ & lRow).Copy ws2.Range(A & Rows.Count).End(xlUp)(2)            End With    wb.Close SaveChanges:=True    'Get next file name    myFile = DirLoop'Message Box when tasks are completedMsgBox Task Complete!ResetSettings:'Reset Macro Optimization SettingsApplication.EnableEvents = TrueApplication.Calculation = xlCalculationAutomaticApplication.ScreenUpdating = TrueEnd Sub"
+    ],
+    "titre": "VBA: Copy a range from all workbooks in a folder to a worksheet in another workbook with workbook name from each wb included",
+    "number": 17
+}{
+    "nombre de vues": "10",
+    "type": [
+        "\njavaoopduplicatesextract\n"
+    ],
+    "Pseudo": "Isaac Joh",
+    "info_github": [
+        "\n\r\n        asked 28 mins ago\n\n\n\n\n\nIsaac JohIsaac Joh\n\n1\n\n\n"
+    ],
+    "href": "/questions/74710277/how-can-i-extract-this-method-and-have-it-the-same-name",
+    "contenus": [
+        "I am creating a mortgage calculator, and I'm following a tutorial. I want to extract a method and name it getMonthlyInterest, because there were two instances of a method, and the tutorial originally is able to use getMonthlyInterest for both.annualInterest / PERCENT / MONTHS_IN_YEARThis code was replaced by getMonthlyInterestI typed this a second time:private float getMonthlyInterest() {        return annualInterest / PERCENT / MONTHS_IN_YEAR;    }and the software did not allow me to name the float getMonthlyInterest, saying that the name getMonthlyInterest was already used. I want to use getMonthlyInterest for both of them, how can I do that?Whole Code of Class:public class MortgageCalculator {    public final static byte MONTHS_IN_YEAR = 12;    public final static byte PERCENT = 100;    private int principal;    private float annualInterest;    private byte years;    public MortgageCalculator(int principal, float annualInterest, byte years) {        this.principal = principal;        this.annualInterest = annualInterest;        this.years = years;    }    public double calculateBalance(short numberOfPaymentsMade) {        float monthlyInterest = getMonthlyInterest();        float numberOfPayments = years * MONTHS_IN_YEAR;        double balance = principal                * (Math.pow(1 + monthlyInterest, numberOfPayments) - Math.pow(1 + monthlyInterest, numberOfPaymentsMade))                / (Math.pow(1 + monthlyInterest, numberOfPayments) - 1);        return balance;    }    private float getMonthlyInterest() {        return annualInterest / PERCENT / MONTHS_IN_YEAR;    }    public double calculateMortgage() {        float monthlyInterest = getMonthlyInterest();        float numberOfPayments = years * MONTHS_IN_YEAR;        double mortgage = principal *                (monthlyInterest * Math.pow(1 + monthlyInterest, numberOfPayments))                / (Math.pow(1 + monthlyInterest, numberOfPayments) - 1);        return mortgage;    }    private float getMonthlyInterest() {        return annualInterest / PERCENT / MONTHS_IN_YEAR;    }    public short getYears() {        return years;    }}"
+    ],
+    "titre": "How can I extract this method and have it the same name?",
+    "number": 18
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\nrshinyplotlymapbox\n"
+    ],
+    "Pseudo": "Paulo Marques",
+    "info_github": [
+        "\n\nedited 21 mins ago\n\n\n\n\n\nstefan\n\n64.4k66 gold badges2121 silver badges4343 bronze badges\n\n\n",
+        "\n\r\n        asked 28 mins ago\n\n\n\n\n\nPaulo MarquesPaulo Marques\n\n68944 silver badges1414 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710276/using-custom-colorscale-when-update-the-map",
+    "contenus": [
+        "I would like to update the mailbox choropleth colorscale based on a dropdown menu selection.I found this which was developed in Python, but I would like to do the same for R/Shiny.This was what I tried:global.Rlibrary(dplyr)library(geojsonsf)library(shiny)library(leaflet)library(maps)library(mapboxer)library(plotly)library(purrr)library(rjson)library(sf)MAPBOX_TOKEN <- MY_TOKEN_HERESys.setenv(MAPBOX_TOKEN = MAPBOX_TOKEN)MELBOURNE_MAP <- sf::st_read(geojsonsf::geo_melbourne)places <- as.data.frame(MELBOURNE_MAP) %>% select(SA2_NAME) %>% pull() %>% append(All regions, 0)places_length <- length(places)Names <- as.vector(places[2 : places_length])ColA <- as.vector(sample(1 : 100, size = places_length - 1, replace = TRUE))ColB <- as.vector(sample(1 : 100, size = places_length - 1, replace = TRUE))MELBOURNE_DATA <- data.frame(name = Names, ColA = ColA, ColB = ColB)ui.Rui <- fluidPage(  selectInput(Column, label = Column, choices = c(ColA, ColB)),  h1(Plotly Map),  plotlyOutput(plotlyMap, width = 50%))server.Rserver <- function(input, output, session) {    bbox <- reactive ({    st_bbox(MELBOURNE_MAP$geometry) %>% as.vector()  })  output$plotlyMap <- renderPlotly({    # The line below is only to show how I transformed the map to geojson    # st_write(MELBOURNE_MAP, www/melbourne.geojson)    url <- 'http://127.0.0.1:6764/melbourne.geojson'    geojson <- rjson::fromJSON(file=url)        cnumbers <- c(0, 0.05, 0.10, 0.15, 0.20, 0.25)    ccolors <- c(#EDF8E9, #C7E9C0, #A1D99B, #74C476, #31A354, #006D2C)        fig <- plot_ly()     fig <- fig %>% add_trace(      type=choroplethmapbox,      geojson=geojson,      locations=MELBOURNE_DATA$name,      z=MELBOURNE_DATA$ColA,      #colorscale=Viridis,      colorscale=mapply(c, cnumbers, ccolors, SIMPLIFY = FALSE),    <- This is a CUSTOM colorscale, and it works      featureidkey=properties.SA2_NAME    )    fig <- fig %>% colorbar(title = Numbers)    fig <- fig %>% layout(      mapbox=list(        style=carto-positron,        zoom =9,        center=list(lon=bbox()[1], lat=bbox()[2]))    )    fig  })  myPlotProxy <- plotlyProxy(plotlyMap, session)    update_plotlyMap <- function(column, region) {    cnumbers <- c(0, 0.05, 0.10, 0.15, 0.20, 0.25)    if (column == ColA) {      ccolors <- c(#EDF8E9, #C7E9C0, #A1D99B, #74C476, #31A354, #006D2C)      # cscale <- Viridis    } else {      ccolors <- c(#EFF3FF, #C6DBEF, #9ECAE1, #6BAED6, #3182BD, #08519C)      # cscale <- Cividis    }    cscale <- mapply(c, cnumbers, ccolors, SIMPLIFY = FALSE)    myPlotProxy %>%      plotlyProxyInvoke(update, list(        z = list(MELBOURNE_DATA[[column]]),        colorscale = list(cscale)    # HERE is the issue when I use CUSTOM colorscale      ))  }NOTE: When I pass a named colorscale (eg: Viridis, Cividis) it works. Obviously commenting out the mapply lineI also find this dated 2020. The answer tells exactly what the note above.Based on the first link, it looks like it works for Python. Is there a way to make it works using CUSTOM colorscale in Shiny?"
+    ],
+    "titre": "Using custom colorscale when update the map",
+    "number": 19
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\ncuda\n"
+    ],
+    "Pseudo": "yuggoth19",
+    "info_github": [
+        "\n\nedited 8 mins ago\n\n\n\n\n\ntalonmies\n\n69.7k3434 gold badges188188 silver badges261261 bronze badges\n\n\n",
+        "\n\r\n        asked 30 mins ago\n\n\n\n\n\nyuggoth19yuggoth19\n\n122 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710268/cuda-matrix-x-vector",
+    "contenus": [
+        "I am trying to make a code that multiplies a vector and a matrix run on the gpu with cuda.My problem seems to be with calculating the stride, as the code works perfectly with 1 block and 1 thread: 6,12,18, in this case. But with 3 threads or more the output becomes: 1,4,9. I think the problem is the code runs less the the necessary number of times, since the stride is as big or bigger then the C and L in those cases. The problem is in this part of the code:#define L 3 #define C L__managed__ int A[C][L], x[C];__global__ void multiply(int *b){       int i, j;    int idx = blockIdx.x * blockDim.x + threadIdx.x;     int stride = gridDim.x * blockDim.x;      printf(\\n  stride -> %d  \\n, stride);              for (i = idx; i < L; i+=stride){              for (j = idx; j < C; j+=stride){               printf(\\n  calculating.... at i= %d and j= %d \\n, i, j);               b[i] = b[i] + A[i][j] * x[j];  }          }}The rest of the code runs perfectly well. I tried setting the values in the second loop as(j = 0; j < C; j++)That seems to work, however with this solution every thread is doing the whole work.I cant seem to split the work correctly."
+    ],
+    "titre": "Cuda Matrix x Vector",
+    "number": 20
+}{
+    "nombre de vues": "7",
+    "type": [
+        "\nandroidsensors\n"
+    ],
+    "Pseudo": "Belphegor",
+    "info_github": [
+        "\n\r\n        asked 30 mins ago\n\n\n\n\n\nBelphegorBelphegor\n\n1,60444 gold badges2020 silver badges4141 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710267/android-is-it-possible-to-change-sensor-reporting-modes",
+    "contenus": [
+        "I am interested in using the significant motion sensor, but I realized that this is a one-shot reporting sensor. So after it reports an event once, it no longer reports anymore until I re-register the sensor.My goal is to detect significant motion at all times, for example when a user picks up their phone, shakes it, throws it, etc... Based on that triggered event I will do something.I'm wondering now if there is an alternative or a way to continuously listen for significant motion sensor events.I honestly thought about just continuously re-registering the sensor but I think there are consequences to that approach and it's a hack."
+    ],
+    "titre": "Android: Is it possible to change sensor reporting modes?",
+    "number": 21
+}{
+    "nombre de vues": "-2",
+    "type": [
+        "\njavascriptnode.jsdiscorddiscord.jsbots\n"
+    ],
+    "Pseudo": "stevieboi97",
+    "info_github": [
+        "\n\nedited 24 mins ago\n\n\n\n\nstevieboi97\n\n\n\n",
+        "\n\r\n        asked 30 mins ago\n\n\n\n\n\nstevieboi97stevieboi97\n\n111 bronze badge\n\n\n"
+    ],
+    "href": "/questions/74710266/get-discord-bot-to-join-when-a-user-joins-then-leaves-after-sound-is-played",
+    "contenus": [
+        "I'm trying to get the Discord bot to join when a specific user joins. The bot shows online in the Discord server but isn't joining when I join. Is there a way the username has to be formatted or am I missing something?I thought it was the username missing the # tag for the username but that didn't produce any results.console.log('On');const { Client, GatewayIntentBits } = require('discord.js');const client = new Client({   intents: [    GatewayIntentBits.GuildVoiceStates    ]});client.on('voiceStateUpdate', (oldState, newState) => {// check if the user who joined is the specific user we wantif (newState.member.id === 'SteveT') {// check if the user joined a voice channelif (newState.channel) {// play the specific soundnewState.channel.join().then(connection => {const dispatcher = connection.play('C:\\Users\\storr\\Music\\botsounds');dispatcher.on('finish', () => {// leave the voice channel after the sound is playednewState.channel.leave();});});}}});  client.login('insertbotkey');"
+    ],
+    "titre": "Get Discord bot to join when a user joins then leaves after sound is played",
+    "number": 22
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\nc#json\n"
+    ],
+    "Pseudo": "Furkan Akman",
+    "info_github": [
+        "\n\nedited 4 mins ago\n\n\n\n\n\nEnigmativity\n\n110k1111 gold badges8585 silver badges167167 bronze badges\n\n\n",
+        "\n\r\n        asked 30 mins ago\n\n\n\n\n\nFurkan AkmanFurkan Akman\n\n11\n\n\n",
+        "\n\r\n        answered 26 mins ago\n\n\n\n\n\nbarrett777barrett777\n\n26833 silver badges1414 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710264/how-do-i-get-a-continuously-variable-json-data-in-c",
+    "contenus": [
+        "I have a constantly changing json data, how can I get this json data?{690160211: {bulk_id: ,js_data: 690160211|demo,user_id: 139309,creator: 139309,status: 200,progress: 0.35122666244700007,not_picked_up: false,show_extra_waiting_msg: false}}690160211 this part is constantly changing in incoming data. How can I get the data under this data in C#?I want to retrieve data under json data that is constantly changing.",
+        "With Newtonsoft.Json you can use JObject.Parse instead of deserializing to a class like you normally would.Then with the JObject you can loop through keys and find the randomly generated ones.https://www.newtonsoft.com/json/help/html/ParseJsonObject.htm"
+    ],
+    "titre": "How do I get a continuously variable json data in C#?",
+    "number": 23
+}{
+    "nombre de vues": "13",
+    "type": [
+        "\nandroidkotlin\n"
+    ],
+    "Pseudo": "misfit",
+    "info_github": [
+        "\n\r\n        asked 30 mins ago\n\n\n\n\n\nmisfitmisfit\n\n2333 bronze badges\n\n\n",
+        "\n\nedited 19 mins ago\n\n\n\n\n\n\n\n",
+        "\n\r\n        answered 25 mins ago\n\n\n\n\n\nLouis WassermanLouis Wasserman\n\n187k2525 gold badges331331 silver badges404404 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710263/kotlin-take-within-apply-scope-not-working-in-android",
+    "contenus": [
+        "So, I have a nullable Int that I need to use to truncate a list with take. But when I do this, the list stays the same.Example:var num: Int? = 1var list = listOf(1, 2, 3)// list remains as size 3var newList = list.apply{    num?.let {        this.take(it)    }}",
+        "This is perfectly normal, because take doesn't modify the input list; it returns a new copy of the selected elements.The simplest way to write this code is:val newList = if (num != null) list.take(num) else list"
+    ],
+    "titre": "Kotlin Take within Apply scope not working in android",
+    "number": 24
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\ndjangoapidjango-rest-frameworklong-pollingreal-time-updates\n"
+    ],
+    "Pseudo": "Michael Ibeh",
+    "info_github": [
+        "\n\r\n        asked 31 mins ago\n\n\n\n\n\nMichael IbehMichael Ibeh\n\n111 bronze badge\n\n\n"
+    ],
+    "href": "/questions/74710260/how-can-i-make-a-long-polling-api-with-django-rest-framework",
+    "contenus": [
+        "I have a django backend and i'm using django rest framework for my api's, my application is a grading system application that sees change in grades in real time, I don't want to make too many requests to get updates from my server whenever a data is being updated in my server, so i heard of long polling, I've done my research and I've still not gotten any proper guide to implement long polling with django, even in the django channels documentation, please i really need help for this.i tried using polling at first and i got the  real time updates but it stresses the server with too many requests, till i heard long polling was a better practice."
+    ],
+    "titre": "How can i make a long polling api with django rest framework",
+    "number": 25
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\njenkinsjenkins-pipeline\n"
+    ],
+    "Pseudo": "compsciman",
+    "info_github": [
+        "\n\r\n        asked 31 mins ago\n\n\n\n\n\ncompscimancompsciman\n\n33733 silver badges1616 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710259/is-it-possible-to-trigger-a-multibranch-pipeline-jenkins-build-remotely",
+    "contenus": [
+        "It seems only freestyle has that option. This appears to be outdated.Jenkinsfiles do not appear to be able to read a remote trigger:WorkflowScript: 8: Invalid trigger type RemoteBuildTrigger. Valid trigger types: [upstream, cron, githubPush, pollSCM]"
+    ],
+    "titre": "Is it possible to trigger a multibranch pipeline jenkins build remotely?",
+    "number": 26
+}{
+    "nombre de vues": "18",
+    "type": [
+        "\nvisual-studio-code\n"
+    ],
+    "Pseudo": "SOS",
+    "info_github": [
+        "\n\r\n        asked 31 mins ago\n\n\n\n\n\nSOSSOS\n\n1333 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710257/vscode-keeps-printing-path-to-python-and-cwd-every-time-i-run-a-script",
+    "contenus": [
+        "As title, vscode keeps printing the path to python.exe and cwd every time I run a script. This started happening after I set up a venv and someone on reddit suggested that it was due to the venv. However, it continues to happen outside of the venv.I know that I can do something with code runner but I'd rather understand exactly why this happens and how to stop it without using code runner, as it didn't happen before. Thank you for your time.I tried setting console: internalConsole in launch.json, but it didn't work. I tried setting the interpreter to a different path, no dice."
+    ],
+    "titre": "vscode keeps printing path to python and cwd every time I run a script",
+    "number": 27
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\ndruid\n"
+    ],
+    "Pseudo": "user12331",
+    "info_github": [
+        "\n\r\n        asked 31 mins ago\n\n\n\n\n\nuser12331user12331\n\n53455 silver badges2020 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710256/how-to-properly-write-regexp-extract-in-druid-ingestion-spec",
+    "contenus": [
+        "I am trying to write a transformation spec in druid with regexp_extract. The regexp_extract function works fine in the query itself. The column data looks something like{ID:2,....}SELECTregexp_extract(input, '(?<=\\ID\\:\\)(\\d+)(?=\\,)', 0) AS IDFROM dataWHERE __time >= CURRENT_TIMESTAMP - INTERVAL '5' HOUR ORDER BY __time DESCHowever, I am having trouble in putting it in ingestion spec under transformation spec. I have something like     transformSpec: {        filter: null,        transforms: [          {            type: expression,            name: ID,            expression: regexp_extract(input, '(?<=\\\\\\ID\\\\\\:\\\\\\)(\\\\d+)(?=\\\\\\,)', 0)          }        ]      }2022-12-06T23:38:23,877 INFO [main] org.apache.druid.server.coordination.SegmentLoadDropHandler - Stopped.2022-12-06T23:38:23,877 INFO [main] org.apache.druid.indexing.overlord.SingleTaskBackgroundRunner - Starting graceful shutdown of task[index_kafka_auditLogs_7e8581e66fdf59a_mlabfboa].line 1:22 token recognition error at: ''(?<=\\ID\\:\\)(\\d'line 1:44 no viable alternative at input '+'line 1:47 token recognition error at: '?'line 1:48 token recognition error at: '=\\'line 1:50 token recognition error at: ',)', 0)'line 1:46 extraneous input '(' expecting {<EOF>, '-', '^', '*', '/', '%', '+', '<', '<=', '>', '>=', '==', '!=', '&&', '||'}2022-12-06T23:38:23,878 ERROR [main] org.apache.druid.java.util.common.lifecycle.Lifecycle$AnnotationBasedHandler - Exception when stopping method[public void org.apache.druid.indexing.overlord.SingleTaskBackgroundRunner.stop()] on object[org.apache.druid.indexing.overlord.SingleTaskBackgroundRunner@3d41449a]java.lang.reflect.InvocationTargetException: null    at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]    at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]    at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]    at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]    at org.apache.druid.java.util.common.lifecycle.Lifecycle$AnnotationBasedHandler.stop(Lifecycle.java:465) [druid-core-0.23.0-8.jar:0.23.0-8]    at org.apache.druid.java.util.common.lifecycle.Lifecycle.stop(Lifecycle.java:368) [druid-core-0.23.0-8.jar:0.23.0-8]    at org.apache.druid.cli.CliPeon.run(CliPeon.java:325) [druid-services-0.23.0-8.jar:0.23.0-8]    at org.apache.druid.cli.Main.main(Main.java:114) [druid-services-0.23.0-8.jar:0.23.0-8]Caused by: java.lang.NullPointerException    at org.apache.druid.query.expression.ExprUtils.isStringLiteralThis is what the ingestion spec looks like. Can anyone please help, how I can properly specify the regex expression?"
+    ],
+    "titre": "How to properly write regexp_extract in druid ingestion spec?",
+    "number": 28
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\nsignalsgodot\n"
+    ],
+    "Pseudo": "Ian McCurdy",
+    "info_github": [
+        "\n\r\n        asked 31 mins ago\n\n\n\n\n\nIan McCurdyIan McCurdy\n\n10177 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710255/godot-4-0-b7-attach-mouse-entered-signal-via-code-to-dynamically-generated-coll",
+    "contenus": [
+        "I have an array of dynamically generated 'planets' that need to be able to interact with the mouse. I have been trying to use the new Godot 4 signals format, but no joy yet.The following code works correctly:func _ready():    for planet in planets:        var planet_collision_shape = CollisionShape2D.new()        planet_collision_shape.shape = CircleShape2D.new()        planet_collision_shape.shape.radius = 27.5        planet_collision_shape.position = Vector2(planet._coord[0], planet._coord[1])        add_child(planet_collision_shape)        planet._body = planet_collision_shapeBut attempts to implement a signal with the following code generates an error code of:Invalid get index 'mouse_entered' (on base: 'CircleShape2D').        planet._body.shape.mouse_entered.connect(self._on_mouse_entered)The node tree is nested as follows, with the dynamically generated nodes attaching to the Camera2D.Node2D -> CanvasLayer -> Camera2D"
+    ],
+    "titre": "Godot 4.0.b7: Attach mouse-entered signal via code to dynamically generated CollisionShape2D",
+    "number": 29
+}{
+    "nombre de vues": "8",
+    "type": [
+        "\npython\n"
+    ],
+    "Pseudo": "Guanzheng Yu",
+    "info_github": [
+        "\n\r\n        asked 31 mins ago\n\n\n\n\n\nGuanzheng YuGuanzheng Yu\n\n1\n\n\n"
+    ],
+    "href": "/questions/74710254/i-keep-getting-errors-around-this-section-i-cant-move-the-block-can-someone-h",
+    "contenus": [
+        "code errorKeyError: 2num is 2.the dict numberPosReverse doesn't have a key of '2'But I don't know how to fix it.I'm not sure if the question should appear on numberPosReverse[num] or where.def number_move(number_pos, move_input, score_list):    values = list(number_pos.values())    keys = list(number_pos.keys())    numberPosReverse = dict(zip(values, keys))    newScorelist = score_list.copy()    oldScorelist = {}    while newScorelist != oldScorelist:        oldScorelist = newScorelist.copy()        for num in range(1, 17):            pos = eval(numberPosReverse[num])            x, y = pos[0] + move_input[0], pos[1] + move_input[1]            pos[0] = [x if 1 <= x <= 4 else pos[0]][0]            pos[1] = [y if 1 <= y <= 4 else pos[1]][0]            number = number_pos['{}'.format(pos)]            oldNumberscore = newScorelist[num]            nextNumberscore = newScorelist[number]            syn = list(map(lambda x, y: abs(x) * abs(y), move_input, pos))            # zero value movement            if nextNumberscore == 0:                newScorelist[number] = oldNumberscore                newScorelist[num] = 0            # no movement            elif num == number:                pass            # merge movement            elif oldNumberscore == nextNumberscore and num != number:                newScorelist[number] = 2 * oldNumberscore                newScorelist[num] = 0            # boundary movement            elif oldNumberscore != nextNumberscore and 1 in syn or 4 not in syn:                pass            # non-boundary movement            elif oldNumberscore != nextNumberscore and 1 not in syn and 4 not in syn:                x, y = pos[0] + move_input[0], pos[1] + move_input[1]                next2Numberscore = newScorelist[number_pos['{}'.format([x, y])]]                if next2Numberscore != nextNumberscore:                    pass                elif next2Numberscore == nextNumberscore:                    newScorelist[number_pos['{}'.format([x, y])]] = 2 * next2Numberscore                    newScorelist[number] = oldNumberscore                    newScorelist[num] = 0    return newScorelist"
+    ],
+    "titre": "I keep getting errors around this section, I can't move the block, can someone help me fix it?",
+    "number": 30
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\nxmloracleoracle21c\n"
+    ],
+    "Pseudo": "AhmedK",
+    "info_github": [
+        "\n\r\n        asked 31 mins ago\n\n\n\n\n\nAhmedKAhmedK\n\n133 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710250/ora-22288-file-or-lob-operation-fileopen-failed-access-denied",
+    "contenus": [
+        "I would like to store an xml file in oracle database and I did the following :create table MyTab (filename varchar(64), xml XMLType);create or replace directory XML_DIR as 'C:\\Users\\XXX\\XXX\\Folder\\xml';insert into MyTab VALUES ('file.xml', xmltype(bfilename('XML_DIR','file.xml'),nls_charset_id('AL32UTF8')));However i have this error : ORA-22288: file or LOB operation FILEOPEN failed, access deniedCan someone explain what is wrong, please?"
+    ],
+    "titre": "ORA-22288: file or LOB operation FILEOPEN failed, access denied",
+    "number": 31
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\nflutterapisearch\n"
+    ],
+    "Pseudo": "Matthias Felder",
+    "info_github": [
+        "\n\r\n        asked 32 mins ago\n\n\n\n\n\nMatthias FelderMatthias Felder\n\n1122 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710248/flutter-searchdelegates-buildresults-isna-a-valid-override",
+    "contenus": [
+        "I'm trying to build a networkbased search. It works so far, that I get the results I want from my API. Now I want to build the results but get two error messages I don't know how to resolve.Error 1:The body might complete normally, causing 'null' to be returned, but the return type, 'FutureOr', is a potentially non-nullable type.\\nTry adding either a return or a throw statement at the end.Error 2:FoodSearch.buildResults' ('Future Function(BuildContext)') isn't a valid override of 'SearchDelegate.buildResults' ('Widget Function(BuildContext)').My buildResult:@override  Future<Widget> buildResults(BuildContext context) async {    var split_kat = query.split('|');    String fumiID = split_kat[2];    FutureBuilder<FutterModell>(      future: FumiFibelAPI.getSingleFood(fumiID),      builder: (context, snapshot) {        switch (snapshot.connectionState) {          case ConnectionState.waiting:            return Center(child: CircularProgressIndicator());          default:            if (snapshot.hasError) {              return Container(                color: Colors.black,                alignment: Alignment.center,                child: Text(                  'Something went wrong!',                  style: TextStyle(fontSize: 28, color: Colors.white),                ),              );            } else {              return Container();            }        }      },    );  }The API for the Future-List:static Future<FutterModell> getSingleFood(String futtermittelID) async {    const storage = FlutterSecureStorage();    var token = await storage.read(key: _authToken);    int futtermittel = int.parse(futtermittelID);    var url = Uri.parse('${Constants.BASE_URL}/futtermittel/$futtermittel');    var headers = {      'Content-Type': 'application/json',      'Accept': 'application/json',      'Authorization': 'Bearer $token',    };    var body = {      futtermittel_id: futtermittel,    };    var res = await http.post(url, headers: headers, body: jsonEncode(body));    final result = json.decode(res.body);    return result.map<FutterModell>(FutterModell.fromJson).toList();  }Thanks for the help!"
+    ],
+    "titre": "Flutter SearchDelegates BuildResults isn'a a valid override",
+    "number": 32
+}{
+    "nombre de vues": "10",
+    "type": [
+        "\nsqlcsvcommon-workflow-language\n"
+    ],
+    "Pseudo": "syllogismos",
+    "info_github": [
+        "\n\nedited 31 mins ago\n\n\n\n\nsyllogismos\n\n\n\n",
+        "\n\r\n        asked 32 mins ago\n\n\n\n\n\nsyllogismossyllogismos\n\n59822 gold badges1515 silver badges3838 bronze badges\n\n\n",
+        "\n\r\n        answered 22 mins ago\n\n\n\n\n\nimthemanimtheman\n\n4,62311 gold badge3131 silver badges3030 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710247/sql-query-where-i-get-a-single-column-as-an-array",
+    "contenus": [
+        "Here is my datacustomer_id, user_id, value, yearc1, u1, 100, 2022c1, u2, 200, 2022c1, u3, 300, 2022I want to get values of all the users of customer c1 in an array after a sql query. How do I achieve that?SELECT value FROM table WHERE customer_id=c1 AND year=2022 gives me something like+-------+| value |+-------+|  100  ||  200  ||  300  |I want a query that returns this insteadvalues[100, 200, 300]I tried asking chatgpt this question and it simply asked me to doSELECT ARRAY(SELECT value FROM table WHERE customer_id=c1 AND year=2022) as valuesBut I dont think its correct. But I think chatgpt understood what I was trying to do. Hopefully my question is clear from this fake sql query as well.",
+        "If you are using mySQL, you can do something like this, by using GROUP_CONCAT().SELECT CONCAT('[', GROUP_CONCAT(value SEPARATOR ', '), ']') 'values' FROM table WHERE customer_id=c1 AND year=2022"
+    ],
+    "titre": "SQL query where I get a single column as an array",
+    "number": 33
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\npythonformsflask-wtformsflask-login\n"
+    ],
+    "Pseudo": "Foriwaa",
+    "info_github": [
+        "\n\r\n        asked 35 mins ago\n\n\n\n\n\nForiwaaForiwaa\n\n1\n\n\n"
+    ],
+    "href": "/questions/74710241/flask-wtforms-the-view-function-did-not-return-a-valid-response",
+    "contenus": [
+        "I am having issues with my flask login form. When I run on local host I get this error.TypeError: The view function did not return a valid response. The return type must be a string, dict, list, tuple with headers or status, Response instance, or WSGI callable, but it was a LoginForm.What am I doing wrong? please helpHere is my .py filefrom flask import Flask, render_templatefrom flask_wtf import FlaskFormfrom wtforms import StringField, SubmitFieldfrom wtforms.validators import DataRequired#Create Flask Instanceapp = Flask(__name__)app.config['SECRET_KEY'] = AAAAA#Create route decorator@app.route('/')#Create a Form Classclass LoginForm(FlaskForm):    user = StringField(Enter Your Username, validators=[DataRequired()] )    password = StringField(Enter Your Password, validators=[DataRequired()] )    submit = SubmitField(Submit)#Create Login Page@app.route('/login', methods=['GET', 'POST'])def login():    user = None    password = None    form = LoginForm()    #Validate Form    if form.validate_on_submit():        user = form.user.data        password = form.password.data        form.password.data = ''        form.user.data = ''    return render_template(login.html, user = user, password = password, form = form)if __name__ == '__main__':    app.run(debug=True)And here us my html form<!DOCTYPE html><html>    <head>        <meta charset=utf-8>        <title>Log In page to the zoo</title>    </head>    <body>        <h1>Welcome to our zoo</h1>        <br>        <p>Please fill in your credentials</p>        <form method=POST action=/login.py>            Username: <input type=text name=username required>            Password: <input type=password name=password required>            <input type=submit>        </form>        <a href={{url_for('register')}}>Create a new account</a>    </body></html>"
+    ],
+    "titre": "Flask wtforms 'The view function did not return a valid response'",
+    "number": 34
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\nexcelxmlvba\n"
+    ],
+    "Pseudo": "HiggsBoson",
+    "info_github": [
+        "\n\nedited 23 mins ago\n\n\n\n\n\nScottC\n\n1,96411 gold badge44 silver badges1212 bronze badges\n\n\n",
+        "\n\r\n        asked 35 mins ago\n\n\n\n\n\nHiggsBosonHiggsBoson\n\n122 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710240/how-to-filter-xml-file-with-multiple-criteria",
+    "contenus": [
+        "I am a complete newbie to coding and I'm having a problem with a task that I have where I have to filter multiple XML files based on certain criteria:Filter sheet based on a certain value for Column D -> Filter sheet based on a certain value for Column B -> Find the value in Column C in the same row as the certain value for Column B -> Delete all rows with the value in Column C.I can do the first three steps fairly fast but the problem is with deleting all the rows with the value in Column C. I can only efficiently delete the row with the value of Column B and C.This is what I want to happen:| Column A | Column B | Column C | Column D ||    1     |     A    |     1    |    B     | |    2     |     B    |     1    |    A     ||    3     |     C    |     2    |    B     ||    4     |     D    |     2    |    B     ||    5     |     A    |     3    |    B     ||    6     |     E    |     3    |    A     |First, is to find all rows with a certain value B in Column D:| Column A | Column B | Column C | Column D ||    1     |     A    |     1    |    B     | |    3     |     C    |     2    |    B     ||    4     |     D    |     2    |    B     ||    5     |     A    |     3    |    B     |Second, is to find rows with a certain value A in Column B:| Column A | Column B | Column C | Column D ||    1     |     A    |     1    |    B     | |    5     |     A    |     3    |    B     |Third, is to find the value of the rows in Column C then delete all rows in the whole XML file with the values in Column C as 1 and 3:|    3     |     C    |     2    |    B     ||    4     |     D    |     2    |    B     |It takes me 2 hours to get through one XML file and I have 25 total files to go through so I really need your help."
+    ],
+    "titre": "How to filter XML file with multiple criteria",
+    "number": 35
+}{
+    "nombre de vues": "15",
+    "type": [
+        "\njavaarraylist\n"
+    ],
+    "Pseudo": "JW9639",
+    "info_github": [
+        "\n\r\n        asked 35 mins ago\n\n\n\n\n\nJW9639JW9639\n\n1\n\n\n"
+    ],
+    "href": "/questions/74710237/arraylist-is-returning-duplicate-values-instead-of-listing-out-all-values",
+    "contenus": [
+        "When I run my code its meant to display the playCount of each AudioFile in descending order. it can manage this if all of the playCounts are unique however if two playCounts are the same it will just return the same AudioFile twice instead of the two seperate AudioFilesI am still quite new so i apologize if the mistake is very obvious or i haven't explained properlyThis is for a HomeWork Assignment so for ArrayList i am only limited to get,  add,  size  and  remove  methods as well as i can`t include any external libraries other than Scanner and ArrayListThis is my code which relates to the issueTop 10 Methodpublic String topTen() {        int[] playcount = new int[audioData.size()];        if (audioData.size() <= 0) {            System.out.println(\\nNothing here to display\\n);            return null;        }        for (int index = 0; index < audioData.size(); index++) {            playcount[index] = audioData.get(index).getPlayCount();        }        bubbleSort(playcount, false);        if (audioData != null) {            System.out.println(\\nThese are your top 10 tracks\\n);            if (playcount.length < 10) {                display(playcount);            } else if (playcount.length >= 10) {                display(playcount, 10);            }        }        return null;    }Display for less than 10 AudioFilesprivate void display(int data[]) {        if (data != null && data.length > 0) {            for (int index = 0; index < audioData.size(); index++) {                AudioFile audio = searchPlay(audioData.get(index).getPlayCount());                System.out.println(Code:  + audio.getCode() + ,  + Title:  + audio.getTitle() + ,  + Plays:                         + audio.getPlayCount() + \\n);            }        } else {            System.out.println(No data to display.\\n);        }    }Display for 10 or more AudioFilesprivate void display(int data[], int count) {        if (data != null && data.length > 0 && data.length >= count && count > 0) {            for (int index = 0; index < count; index++) {                AudioFile audio = searchPlay(data[index]);                System.out.println(Code:  + audio.getCode() + ,  + Title:  + audio.getTitle() + ,  + Plays:                         + audio.getPlayCount());            }        } else {            System.out.println(No data to display.\\n);        }    }Sorting playCount in desc orderprivate void bubbleSort(int[] data, boolean ascending) {        int swaps;        do {            swaps = 0;            for (int index = 0; index < data.length - 1; index++) {                if (data[index] > data[index + 1] && ascending || data[index] < data[index + 1] && !ascending) {                    int temp = data[index];                    data[index] = data[index + 1];                    data[index + 1] = temp;                    swaps++;                }            }        } while (swaps > 0);    }private AudioFile searchPlay(int id) {        AudioFile target = null;        for (int index = 0; index < audioData.size(); index++) {            AudioFile audio = audioData.get(index);            if (audio.getPlayCount() == id) {                target = audio;                                break;            }        }        return target;    }    "
+    ],
+    "titre": "ArrayList is returning duplicate values instead of listing out all values",
+    "number": 36
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\nsqlsql-server\n"
+    ],
+    "Pseudo": "Moneim",
+    "info_github": [
+        "\n\nedited 18 mins ago\n\n\n\n\n\nDale K\n\n23.6k1515 gold badges4242 silver badges7171 bronze badges\n\n\n",
+        "\n\r\n        asked 35 mins ago\n\n\n\n\n\nMoneimMoneim\n\n4111 silver badge55 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710235/sql-server-pagination-skip-duplication",
+    "contenus": [
+        "I have query result returned as belowand I want to display the result in a web page like thisMy problem is if I want to display 10 rows but if I use offset and fetch to get 10 rows, it will got wrong number of rows when I display"
+    ],
+    "titre": "SQL Server Pagination skip duplication",
+    "number": 37
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\nnode.jspostgresqlsequelize.jswindows-subsystem-for-linux\n"
+    ],
+    "Pseudo": "rainydaymatt",
+    "info_github": [
+        "\n\nedited 12 mins ago\n\n\n\n\n\nPhil\n\n150k2222 gold badges234234 silver badges235235 bronze badges\n\n\n",
+        "\n\r\n        asked 36 mins ago\n\n\n\n\n\nrainydaymattrainydaymatt\n\n56022 gold badges1010 silver badges2121 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710233/node-express-api-connection-refusal-by-local-postgres",
+    "contenus": [
+        "Trying to diagnose a problem as I build a Sequelize skeleton for my API.I'm using WSL, and I have a Postgres server set up in PGAdmin. Assuming my creds aren't the issue, am I missing something?const app = require(./app);const http = require(http);const server = http.createServer(app);const { Sequelize } = require(sequelize);const sequelize = new Sequelize('postgres://fakeuser:fakepass@localhost:5432/kobold_condominium') // Example for postgresserver.listen(3000);server.on(listening, async () => {    console.log(Server is listening for requests on port 3000.);    try {        await sequelize.authenticate();        console.log(Database connection successful.);    } catch (error) {        console.log(Database connection: + error);    }});I consistently get this output:Database connection:SequelizeConnectionRefusedError: connect ECONNREFUSED 127.0.0.1:5432Am I missing something? I didn't think there would be Windows/WSL issues; any ideas?"
+    ],
+    "titre": "Node/Express API connection refusal by local Postgres",
+    "number": 38
+}{
+    "nombre de vues": "17",
+    "type": [
+        "\njavascript\n"
+    ],
+    "Pseudo": "Jin Yong",
+    "info_github": [
+        "\n\r\n        asked 36 mins ago\n\n\n\n\n\nJin YongJin Yong\n\n41.7k7171 gold badges138138 silver badges183183 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710232/covert-java-string-class-to-array-in-javascript",
+    "contenus": [
+        "I have the following string class return back from a java call as below:[ABC, DEF, GHI, JKL]When I trying to print it out within JavaScript, it's showing me the following code:[Ljava.lang.String;@60d69971I just wandering, will it be possible for me to convert this output to array format in JavaScript? So that I can applied the indexOf() to find out the index of each string within the string class."
+    ],
+    "titre": "Covert Java String Class to array in Javascript",
+    "number": 39
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\npythonlistlist-comprehensionbasic\n"
+    ],
+    "Pseudo": "micheal cay",
+    "info_github": [
+        "\n\r\n        asked 36 mins ago\n\n\n\n\n\nmicheal caymicheal cay\n\n3944 bronze badges\n\n\n",
+        "\n\r\n        answered 29 mins ago\n\n\n\n\n\nJoan Lara GanauJoan Lara Ganau\n\n67133 silver badges1212 bronze badges\n\n\n",
+        "\n\r\n        answered 28 mins ago\n\n\n\n\n\nsupersquiressupersquires\n\n11133 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710231/how-can-i-perform-this-calculation-on-each-nth-item-and-append-it-to-a-list-of",
+    "contenus": [
+        "For example, the following list has x number of items each (2 in the one below, item1 and item2 in each sublist).alist = [[1,2],[4,1],[3,2]...]...I want to get the average of item1 and the average of item2 throughout all sublists.Output should be something like: [('item1', item1's avg), ('item2', item2's avg), … ]I'm having trouble finding out how I can do this with 2 unknowns, the number of items, and the number of sublists. Is there a pythonic way to do this?",
+        "I'm not sure I understood you correctly, is this what you were asking?alist = [[1,2],[4,1],[3,2]] print([(l, sum(l)/len(l)) for l in alist])Output:[([1, 2], 1.5), ([4, 1], 2.5), ([3, 2], 2.5)]",
+        "averages = [sum(sublist)/len(sublist) for sublist in alist]"
+    ],
+    "titre": "How can I perform this calculation on each [nth] item and append it to a list of lists in python?",
+    "number": 40
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\npythonpython-3.xpython-2.7telegram-bot\n"
+    ],
+    "Pseudo": "Thiago Camargo",
+    "info_github": [
+        "\n\r\n        asked 36 mins ago\n\n\n\n\n\nThiago CamargoThiago Camargo\n\n911 bronze badge\n\n\n"
+    ],
+    "href": "/questions/74710226/how-to-restart-a-code-in-the-end-in-python",
+    "contenus": [
+        "I have a python program, I would like it to restart in its entirety at the end, every time it reaches the end, how can I do that?elif tipminermin == int(3):            bot.send_message(chat_id=chat_id, text=Lista Encerrada)            ContadorLoss = int(contadorDeWin) - int(contadordeLoss)               bdnovo.last_enter = 0                                 bot.send_message(chat_id=chat_id, text=f💠 Parciais da lista:Entradas: {qtentradas}WINS: {contadorDeWin} ✅ LOSS: {contadordeLoss} ⛔    SG: {contadorSG}| G1: {contadorG1} | G2: {contadorG2} | ⚪: {contadordeBranco} ,            )            main()        MY END CODE.How to reset this program here?"
+    ],
+    "titre": "How to restart a code in the end in python?",
+    "number": 41
+}{
+    "nombre de vues": "9",
+    "type": [
+        "\ncommand-lineparameter-passingpentahopentaho-spoon\n"
+    ],
+    "Pseudo": "Roland",
+    "info_github": [
+        "\n\r\n        asked 37 mins ago\n\n\n\n\n\nRolandRoland\n\n4,30177 gold badges4444 silver badges7373 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710223/does-pentaho-spoon-support-param",
+    "contenus": [
+        "New to Pentaho, enjoying the spoon gui, but it seems not be possible to import parameters with command line arguments like-param:abc=defI only got this to work with Kitchen, but this does not have the gui.Perhaps because spoon might open multiple jobs and transformations, while kitchen opens just one job, from the command line.Am I missing something?"
+    ],
+    "titre": "Does Pentaho Spoon support -param?",
+    "number": 42
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\ndataframeapache-sparkpysparkapache-spark-sql\n"
+    ],
+    "Pseudo": "veganzombie",
+    "info_github": [
+        "\n\r\n        asked 37 mins ago\n\n\n\n\n\nveganzombieveganzombie\n\n9188 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710222/pyspark-dataframe-merge-column-data",
+    "contenus": [
+        "I have a DataFrame like this ;+---+------+-----+-----+-------+| id|status|Flag1|Flag2|   type|+---+------+-----+-----+-------+|123|   N/A| null|false|Prepaid||123|   N/A| true| null|Prepaid|+---+------+-----+-----+-------+i want to do like this ;+---+------+-----+-----+-------+| id|status|Flag1|Flag2|   type|+---+------+-----+-----+-------+|123|   N/A| true|false|Prepaid|+---+------+-----+-----+-------+How can I do it with Pyspark?"
+    ],
+    "titre": "Pyspark - DataFrame Merge Column data",
+    "number": 43
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\npine-script\n"
+    ],
+    "Pseudo": "shahzaib",
+    "info_github": [
+        "\n\nedited 34 mins ago\n\n\n\n\nshahzaib\n\n\n\n",
+        "\n\r\n        asked 37 mins ago\n\n\n\n\n\nshahzaibshahzaib\n\n522 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710220/to-get-an-alert-when-its-strong-buy-both-on-current-candle-and-last-candle",
+    "contenus": [
+        "it's the technical ratings indicator and I want to find out how can I shoot an alert when it's strong buy on both current candle and last candleI was working with 1 hour chart, and this is what I tried. it kind of worked when I tested it but I'm still bit unsure whether it is accurate or not_lastbar = calcRatingStatusalert(ratingTotal_mtf1hA)[1] == 0_condblb1hsb = _lastbar and calcRatingStatusalert(ratingTotal_mtf1hA) == 0alertcondition(_condblb1hsb, lb sb, 1h sb, lb sb, 1h sb)"
+    ],
+    "titre": "to get an alert when it's strong buy both on current candle and last candle",
+    "number": 44
+}{
+    "nombre de vues": "16",
+    "type": [
+        "\njavascriptangularbuildhostingweb-site-project\n"
+    ],
+    "Pseudo": "Nico999",
+    "info_github": [
+        "\n\r\n        asked 37 mins ago\n\n\n\n\n\nNico999Nico999\n\n1\n\n\n"
+    ],
+    "href": "/questions/74710219/building-an-angular-app-returns-unformatted-and-incorrect-javascript",
+    "contenus": [
+        "I am trying to build an Angular app to be able to host it on my own server afterwards. Using ng build I build my application but my built javascript files in the /dist directory looks horrible.enter image description hereAll the code is written on one line and some styles and features are lost.Thanks for helpingI've also tried WebPack for this, though I'm not sure if this would even be a possible solution to the problem. In any case, it has not changed anything."
+    ],
+    "titre": "Building an Angular app returns unformatted and incorrect javascript",
+    "number": 45
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\ntextshapesvisio\n"
+    ],
+    "Pseudo": "The Frog",
+    "info_github": [
+        "\n\r\n        asked 37 mins ago\n\n\n\n\n\nThe FrogThe Frog\n\n6355 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710218/visio-master-shape-to-update-shape-text-based-on-shape-data-field",
+    "contenus": [
+        "I have a Visio (365) Master Shape I am creating for my work. I have a number of defined shape data fields, such as Type / Status / Display / Category etc... These are defined as defined as shape data and not as shape data set and can be accessed in formulas with the Prop.x notation.I have selected the master shape for editing from the stencil, opened it for editing, selected the shape and then selected from the menu bar / ribbon 'Insert -> Field', and have tried to display shape text by inserting a field with a custom formula:=IF(Prop.Display,IF(Prop.Type <> ,Prop.Type,),)The shape data field 'Display' is Boolean with default set to TRUE. The field 'Type' is a delimited list / dropdown that initially starts out blank.The objective is to have the user select a Type (when they know what it is), and the formula (in theory) should update the shape text to display that selection.The problem is that when I test the shape and make changes to either the Type field or the Display field nothing happens - no text is ever displayed.I'm sure that I am missing something simple here, but I cannot figure out what that is. Can anyone point me in the right direction? Any help greatly appreciated.CheersThe Frog"
+    ],
+    "titre": "Visio Master Shape to update shape text based on shape data field",
+    "number": 46
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\ndockerubuntudocker-composetelegrafinfluxdb-2\n"
+    ],
+    "Pseudo": "yannick",
+    "info_github": [
+        "\n\r\n        asked 38 mins ago\n\n\n\n\n\nyannickyannick\n\n1\n\n\n"
+    ],
+    "href": "/questions/74710217/telegraf-is-sending-incorrect-data-to-influxdb2",
+    "contenus": [
+        "I'm new to telegraf / influxdb2 :)I've made a quick docker setup to monitor a cloud Ubuntu VM. To do so, I've created a default like docker-compose file with telegraf, influxdb2 & grafana. It works just fine on my ubuntu laptop.When I run it on the ubuntu cloud VM, I have very strange numbers for my metrics.For exampleload15 : running top (or uptime) load15 is 0,07, but in influxdb2 I have 21.39uptime: real uptime is like 2hours right now and the value store in influxdb is like 27177833 (44 Weeks ...)Memory used : free -h tells  590Mi, influx has 95025573888 (87Gb, my VM has 3 Gb..)....What is very strange to me is that the docker inputs is working fine :/This is driving me crazy :) did someone has already encounter the same kind of thing ?And again, works just fine on my laptop :)docker-compose.ymlversion: '3.1'services:  grafana:    image: grafana/grafana    container_name: grafana    restart: unless-stopped    depends_on:      - telegraf    volumes:      - ./grafana/provisioning/:/etc/grafana/provisioning/      - ./grafana/dashboards/:/var/lib/grafana/dashboards/      - ./grafana/grafana.ini:/etc/grafana/grafana.ini    ports:      - 3000:3000  influxdb:    image: influxdb:2.5.1    container_name: influxdb    restart: unless-stopped    ports:      - 8086:8086    environment:      - DOCKER_INFLUXDB_INIT_USERNAME=xxxx      - DOCKER_INFLUXDB_INIT_PASSWORD=yyyyy      - DOCKER_INFLUXDB_INIT_ORG=myorg      - DOCKER_INFLUXDB_INIT_BUCKET=mybucket      - DOCKER_INFLUXDB_INIT_RETENTION=3w      - DOCKER_INFLUXDB_INIT_MODE=setup      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=my-token    volumes:      - data-influx:/var/lib/influxdb2   telegraf:    image: telegraf:1.24.3-alpine    container_name: telegraf    restart: unless-stopped    depends_on:      - influxdb    volumes:      - ./telegraf/etc/telegraf.conf:/etc/telegraf/telegraf.conf:ro      - /var/run/docker.sock:/var/run/docker.sock      - /sys:/rootfs/sys:ro      - /proc:/rootfs/proc:ro      - /etc:/rootfs/etc:ro    user: telegraf:999      volumes:  data-influx:telegraf.conf[global_tags][agent]  interval = 10s  round_interval = true  metric_batch_size = 1000  metric_buffer_limit = 10000  flush_buffer_when_full = true  collection_jitter = 0s  flush_interval = 10s  flush_jitter = 0s  debug = false  quiet = false  hostname = LoubVM[[outputs.influxdb_v2]]  urls = [http://influxdb:8086]  token = my-token  organization = myorg  bucket = mybucket[[inputs.statsd]]  protocol = udp  max_tcp_connections = 250  tcp_keep_alive = false  service_address = :8125  delete_gauges = true  delete_counters = true  delete_sets = true  delete_timings = true  percentiles = [90]  metric_separator = _  parse_data_dog_tags = false  allowed_pending_messages = 10000  percentile_limit = 1000[[inputs.cpu]]  percpu = true  totalcpu = true[[inputs.disk]]  mount_points = [/][[inputs.diskio]][[inputs.kernel]][[inputs.mem]][[inputs.processes]][[inputs.swap]][[inputs.system]][[inputs.net]][[inputs.netstat]][[inputs.interrupts]][[inputs.linux_sysctl_fs]][[inputs.docker]]  endpoint = unix:///var/run/docker.sock  gather_services = false  source_tag = false  container_name_include = []  container_name_exclude = []  timeout = 5s  total = false  docker_label_include = []  docker_label_exclude = []"
+    ],
+    "titre": "Telegraf is sending incorrect data to influxdb2?",
+    "number": 47
+}{
+    "nombre de vues": "19",
+    "type": [
+        "\npythondjango\n"
+    ],
+    "Pseudo": "neesam",
+    "info_github": [
+        "\n\nedited 32 mins ago\n\n\n\n\nneesam\n\n\n\n",
+        "\n\r\n        asked 38 mins ago\n\n\n\n\n\nneesamneesam\n\n2122 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710214/why-wont-my-image-save-to-my-media-directory",
+    "contenus": [
+        "I'm using Django. My image is saving when my form is submitted, but it is not saving to my media directory. It is only saving the file. For example, it is saving as file.png but not avatars/file.png. I will note that it is saving as expected from within the admin portal.Here are my files:from django.db import modelsfrom django.contrib.auth import get_user_modelclass Profile(models.Model):    user = models.OneToOneField(get_user_model(), on_delete=models.CASCADE)    avatar = models.ImageField(default='avatars/Screenshot_2022-11-30_at_7.18.28_PM.png', upload_to='avatars/')    header = models.FileField(default='headers/Screenshot_2022-11-30_at_7.18.28_PM.png', upload_to='headers/')    followers = models.ManyToManyField(get_user_model(), related_name='followers', blank=True)from django.shortcuts import render, redirect, HttpResponseRedirectfrom django.contrib.auth import get_user_modelfrom django.views.generic import ListView, DetailView, Viewfrom django.contrib.auth.mixins import LoginRequiredMixinfrom .models import Profiledef updateProf(request):    Profile.objects.filter(user_id=request.POST['user_id']).update(avatar=request.FILES['avatar'])    return HttpResponseRedirect(request.META.get('HTTP_REFERER')){% extends 'base.html' %}{% load crispy_forms_tags %}{% block content %}<div class=signup-form>    <h2>Edit profile</h2>    <form method=post action=/update-prof enctype=multipart/form-data>        {% csrf_token %}        <input type=hidden name=user_id value=2>        <input type=file name=avatar>        <button class=btn btn-success type=submit>Save changes</button>    </form></div>{% endblock %}And my settings/urls file:MEDIA_URL = '/media/'MEDIA_ROOT = BASE_DIR / 'media'] + static(    settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)I thought that adding the enctype field/request.FILES would solve the issue, but it didn't. Anyone know how I can get the file to save to avatars/ ?"
+    ],
+    "titre": "Why won't my image save to my media directory?",
+    "number": 48
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\nrstoryboardodbcdbiflexdashboard\n"
+    ],
+    "Pseudo": "Corina Roca",
+    "info_github": [
+        "\n\r\n        asked 39 mins ago\n\n\n\n\n\nCorina RocaCorina Roca\n\n38644 silver badges1414 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710213/flexdashboard-storyboard-does-not-work-with-odbc-and-temporal-environment-varia",
+    "contenus": [
+        "I am using flexdashboard (0.5.2), ODBC (1.3.3) in R 4.1.0 and IDE RStudio (2021.09.2) on a Server (not in my local machine)I have being building flexdashboard storyboards and I wanted to level up my stories, connecting the data of the stories to the source (postgres database).to do this, I normally:1 - stablish system enviroment variables for password, user, and other parameters.2 - Create a function that is loaded when the page is loaded, that open connection, extract table, close connection, and return dataProblem: when I Knit, it raise the error(Tab Render)Line XX Error: nanodbc/nanodbc.cpp:1021: 00000: [unixODBC][RStudio][PostgreSQL] (10) Error occurred while trying to connect: [SQLState 28000] FATAL:  password authentication failed for user myuserFATAL:  password authentication failed for user myuser Execution halted(Tab Issue)Quitting from lines 63-66 (main_flexdashboard.Rmd) Error: nanodbc/nanodbc.cpp:1021: 00000: [unixODBC][RStudio][PostgreSQL] (10) Error occurred while trying to connect: [SQLState 28000] FATAL:  password authentication failed for user myuserFATAL:  password authentication failed for user myuser Execution haltedCode to reproduce this error:library(DBI)library(odbc)get_db_table <- function(){   #======================================================  # 0. connection:  print(connecting...)  print(connList)  con <- dbConnect(odbc::odbc(),                        Driver = PostgreSQL,                        Database = mydb,                        #encoding = windows-1252,                        #encoding = UTF-16,                        UID = Sys.getenv(myuser),                        PWD = Sys.getenv(mypasswordwithspecialcharacters),                        host = myhost,                        Port = 8888,                        MultipleActiveResultSets = True                        )  #..........  # In a normal case, here some code to get the table of interest ....  #...............  print(connected!)  dbDisconnect(con)  return(done----) #======================================================} # here calling the function myT <- get_db_table ()On the other hand:I ) If I write the string with the password (something NOT recommendable) in the PWD field, it will work fine and smooth.II) Also If I run the chuncks of code manually, instead of Knit the Rmd, it works fine too (it connects and return the table)I already reported this in the flexdashboard repository issues but maybe anybody on this community knows about how to work around this issue.Please let me know (I already tried several approaches, unsuccessfully)"
+    ],
+    "titre": "Flexdashboard: Storyboard does not work with ODBC and temporal environment variables",
+    "number": 49
+}{
+    "nombre de vues": "0",
+    "type": [
+        "\nflutterdart\n"
+    ],
+    "Pseudo": "TYS86",
+    "info_github": [
+        "\n\r\n        asked 39 mins ago\n\n\n\n\n\nTYS86TYS86\n\n133 bronze badges\n\n\n"
+    ],
+    "href": "/questions/74710212/how-do-i-stack-a-ad-widget-on-top",
+    "contenus": [
+        "currently i have image display but when i added the an ad on it , it pushes my image up.i have tried to stack it but i keep getting red wavy line.thanks in adavnceWidget build(BuildContext context) {    return Scaffold(      bottomNavigationBar: _isBottomBannerAdLoaded          ? Container(              height: _bottomBannerAd.size.height.toDouble(),              width: _bottomBannerAd.size.width.toDouble(),              child: AdWidget(ad: _bottomBannerAd),            )          : null,      backgroundColor: Color.fromARGB(255, 247, 246, 246),      body: Center(        child: Container(          height: 600,          width: 600,          color: Colors.black,          child: GestureDetector(            child: Center(              child: Center(child: Image.asset(imagePath)),            ),"
+    ],
+    "titre": "How do i stack a ad widget on top?",
+    "number": 50
+}
