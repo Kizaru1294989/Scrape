@@ -18,7 +18,7 @@ def get(exemple, int):
         source = bs(page, "html.parser")
         V = source.find_all('span', {'class': 's-post-summary--stats-item-number'})  # nombre de vues
         Pseudo = source.find_all('div', {'class': 's-user-card--link d-flex gs4'})   # Pseudo
-        AllTitle = source.find_all('a', {'class': 's-link'})  # titre
+        AllTitle = source.find_all('h3', {'class': 's-post-summary--content-title'})  # titre
         AllTitle.pop(0)    # .pop nous permet de retirer des strings du slice ici on supprime les 2 premiers et le dernier car ils sont vides
         AllTitle.pop(0)
         AllTitle.pop(50)
@@ -28,8 +28,13 @@ def get(exemple, int):
         new_list = [s.replace("\n", "") for s in Nom]  #supprimer les \n du pseudo
         with open('page' + str(int) + '.json', "w", encoding="utf-8") as f:
             for taille, contenus in enumerate(AllTitle):
-                href = contenus['href']   #href du post
-                href_titre = "https://stackoverflow.com" + str(href)
+                paragraph = []
+                print("contenus :"+ str(contenus)) #href du post
+                paragraph.append(str(contenus))
+                a = (str(paragraph).strip('[]'))
+                href = takehref(a)            
+                href_titre = "https://stackoverflow.com" +href
+                #print(toutletitre)
                 page1 = t.urlopen(href_titre)
                 question = bs(page1,"html.parser")
                 tout = question.find_all('div', {'class': 's-prose js-post-body'})
@@ -61,6 +66,7 @@ print("Please Wait.. it will take some time")
 
 
 def scrape(int):
+    #allurl("https://stackoverflow.com/questions?tab=newest&page=1")
     #page = 0
     while int < 10: # nombres de pages a scrap
         int += 1
@@ -80,3 +86,12 @@ def allurl(name):
     urls = []
     for link in soup.find_all('a', href=True):
         print(link.get('href'))
+
+
+def takehref(string):
+    debut = 'href="'
+    fin = '"'
+    x = string.split(" ")
+    lien = x[3]
+    href = (lien.split(debut))[1].split(fin)[0]
+    return href

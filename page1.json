@@ -1,0 +1,753 @@
+{
+    "nombre de vues": "0",
+    "type": [
+        "python"
+    ],
+    "Pseudo": "AthulMuralidhar",
+    "github_score_time": [
+        "        asked 51 secs agoSHAIK MOHAMMED SABEER_12213611SHAIK MOHAMMED SABEER_122136111"
+    ],
+    "href": "/questions/74788987/how-to-give-palindromic-string-using-python",
+    "contenus": [
+        "a=int(input(Enter the alphabets))if (count == x){print(YES);}else{print(NO);}return 0;}`your textI tried for getting a palindromic string in python by there was an error. I was a palindromic string."
+    ],
+    "titre": "How to give palindromic string using python?",
+    "number": "1/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "git-flowsquash"
+    ],
+    "Pseudo": "T Pot",
+    "github_score_time": [
+        "        asked 1 min agoGeorge HastingsGeorge Hastings1333 bronze badges"
+    ],
+    "href": "/questions/74788984/gitflow-squash-merged-and-ado-branch-compare",
+    "contenus": [
+        "We are currently using Git flow as a branching strategy, and we are squashing our feature branches into develop. We are also squashing our release branches into main.The ADO branches page show differences in commits between develop -> main, which I expect, but it also shows major differences in the files, which when doubled checked in git CLI are erroneous.Does anyone know how ADO compares branches? And more importantly can it be configures?Thanks.I was expecting to see commit differences but no file changes."
+    ],
+    "titre": "Gitflow, Squash merged and ADO branch compare",
+    "number": "2/50"
+}{
+    "nombre de vues": "2",
+    "type": [
+        "rdataframetransposedata-wrangling"
+    ],
+    "Pseudo": "SHAIK MOHAMMED SABEER_12213611",
+    "github_score_time": [
+        "        asked 1 min agoGeosphereGeosphere27144 silver badges1414 bronze badges"
+    ],
+    "href": "/questions/74788983/r-transpose-in-order-to-rearrange-a-dataframe",
+    "contenus": [
+        "I have the following dataframe, 1 row and 31 columns and I want to change it to 2 columns and 31 rows. Those represent income per year from 1990 to 2020. Each column is the year 1990, 1991 ...   1990 1991 1992 1993 1994 1995 1996 1997 1998 1999 2000 2001 2002 2003 2004 2005 2006 2007 200833 1420 1540 1730 1950 2180 2390 2600 2810 3000 3210 3450 3710 4020 4400 4820 5340 5980 6800 7410   2009 2010 2011  2012  2013  2014  2015  2016  2017  2018 2019  202033 8070 8890 9680 10.4k 11.1k 11.9k 12.6k 13.4k 14.2k 15.1k  16k 16.3kI'm not happy with the process that I used to rearrange the data. How could I do better using base R?d <- data.frame(t(china_income_30))d$X33 <- as.numeric(gsub(k, e3, d$X33))d$year = rownames(d)colnames(d) <- c('China', 'year')row.names(d) <- NULLhead(d)  China year1  1420 19902  1540 19913  1730 19924  1950 19935  2180 19946  2390 1995"
+    ],
+    "titre": "R transpose in order to rearrange a dataframe?",
+    "number": "3/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "javascriptreactjsreact-hooks"
+    ],
+    "Pseudo": "George Hastings",
+    "github_score_time": [
+        "        asked 1 min agoAnandhu AAnandhu A722 bronze badges"
+    ],
+    "href": "/questions/74788982/how-can-i-convert-this-type-of-api-response-to-array-of-objects-in-reactjs",
+    "contenus": [
+        "So this is the api response i'am getting.[    {        Declaration:[            {                id:111,                emp_name:john,                pan:QWHTERT,                desigination:SDE,                house_loan:0,                car_loan:0            }        ],        Rent:[            {                house_rent:12000,                gym_rent:1500            }        ]    },    {        Declaration:[            {                id:112,                emp_name:emy,                pan:QWHHGTRT,                desigination:HR,                house_loan:10000,                car_loan:2000            }        ],        Rent:[            {                house_rent:12000,                gym_rent:1500            }        ]    },    {        Declaration:[            {                id:114,                emp_name:diya,                pan:QWHHGTRT,                desigination:PM,                house_loan:30000,                car_loan:6000            }        ],        Rent:[]    },    {        Declaration:[            {                id:115,                emp_name:ringu,                pan:AWSDWHHGTRT,                desigination:TL,                house_loan:90000,                car_loan:7000            }        ],        Rent:[            {                house_rent:12000,                gym_rent:1500            }        ]    },    {        Declaration:[            {                id:116,                emp_name:jincy,                pan:LPOWHHGTRT,                desigination:SDE 2,                house_loan:80000,                car_loan:4000            }        ],        Rent:[]    }]i need to convert this response into single array of objects. where Rent array should merge with declaration array. and it should be a single array of object with all the data of rent and declaration. the desired out should look like shown below.{    declaration:[        {            id:115,            emp_name:ringu,            pan:AWSDWHHGTRT,            desigination:TL,            house_loan:90000,            car_loan:7000,            house_rent:12000,            gym_rent:1500        },        {            id:111,            emp_name:john,            pan:QWHTERT,            desigination:SDE,            house_loan:0,            car_loan:0,            house_rent:12000,            gym_rent:1500        },        {            id:112,                emp_name:emy,                pan:QWHHGTRT,                desigination:HR,                house_loan:10000,                car_loan:2000,                house_rent:12000,                gym_rent:1500        }    ]}So it will be easy to list these inside a grid.I have tried my level best. attaching the code that i have tried that didn't workclass App extends React.Component{  constructor() {    super();    this.state({      userDetails:[]    })    }  componentDidMount(){    renderData();  }  renderData(){    instance    .get(/rentdeails/user)    .then((res)=>{      const declarationDetails = [];      const rentDetails = [];      for(let key in res.data){        declarationDetails = res.data[key].Declaration        rentDetails = res.data[key].Rent      }      const mergedArray = [...declarationDetails, ...rentDetails];      this.setState({userDetails:mergedArray});      console.log(mergedArray);    })  }Feel free to ask any queries. Any help will be appreciated."
+    ],
+    "titre": "How can i convert this type of api response to array of objects. in reactjs",
+    "number": "4/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "sqlsnowflake-cloud-data-platformsnowflake-schema"
+    ],
+    "Pseudo": "Geosphere",
+    "github_score_time": [
+        "        asked 1 min agouser3461502user346150223311 silver badge66 bronze badges"
+    ],
+    "href": "/questions/74788977/how-to-check-if-column-follows-an-order",
+    "contenus": [
+        "I would like to check if a set of data follows a specific order.For example:+------------+----------------+--------+| ID (GUID)  |   StartDate    | NumCol |+------------+----------------+--------+| CEE8C17... | 8/17/2019 3:11 |     22 || BB22001... | 8/17/2019 3:33 |     21 || 4D40B12... | 8/17/2019 3:47 |     21 || 3655125... | 8/17/2019 4:06 |     20 || 3456CD1... | 8/17/2019 4:22 |     20 || 38BAF92... | 8/17/2019 4:40 |     19 || E60CBE8... | 8/17/2019 5:09 |     19 || 5F2756B... | 8/17/2019 5:24 |     18 |+------------+----------------+--------+I would like to know if the NumCol has any missing descending number. It is ok if there are duplicated numbers (as above there are multiple 19s), but if there is a missing number, this is what I need to identified.Now, this would be a problem: Since it goes from 22 -> 20 and it's missing 21.+------------+----------------+--------+| ID (GUID)  |   StartDate    | NumCol |+------------+----------------+--------+| CEE8C17... | 8/17/2019 3:11 |     22 ||| 3655125... | 8/17/2019 4:06 |     20 || 3456CD1... | 8/17/2019 4:22 |     20 || 38BAF92... | 8/17/2019 4:40 |     19 || E60CBE8... | 8/17/2019 5:09 |     19 || 5F2756B... | 8/17/2019 5:24 |     18 |+------------+----------------+--------+Is there a way to check this?"
+    ],
+    "titre": "How to check if column follows an order?",
+    "number": "5/50"
+}{
+    "nombre de vues": "2",
+    "type": [
+        "sqlsql-serverdynamic-sql"
+    ],
+    "Pseudo": "Anandhu A",
+    "github_score_time": [
+        "        asked 1 min agoNicolas Al AhmarNicolas Al Ahmar111 bronze badge"
+    ],
+    "href": "/questions/74788976/can-you-cast-a-varchar-as-column-name-in-sql",
+    "contenus": [
+        "I am trying to create an SQL script that takes a table and returns all indexes with their selectivity percentage.and i am able to retrieve every index in the table and get the column the index is based on, but i am having trouble applying the formula of index selectivity on the results i am getting mainly because the column name i am getting is a varchar and when i want to run a subquery it needs to be plain sql.so my approach to this was to write dynamic sql in the select statement field names but i can't run the exec function to run dynamic sql.`select *,*(select cast((select count(distinct column_name) from employee) as float)/(select count( column_name) from employee) * 100.0) as selectivity*from(SELECT distinct OBJECT_NAME(Index_Info.OBJECT_ID) AS TableName  ,Index_Info.name AS IndexName  ,Index_Stat.index_type_desc AS IndexType  ,c.name as column_nameFROM sys.dm_db_index_physical_stats(DB_ID(), NULL, NULL, NULL, NULL) Index_StatINNER JOIN sys.indexes Index_Info ON Index_Info.object_id = Index_Stat.object_id AND Index_Info.index_id = Index_Stat.index_idINNER JOIN sys.index_columns Index_cols ON Index_Info.object_id = Index_cols.object_idINNER JOIN sys.tables t ON t.object_id = Index_Info.object_idINNER JOIN sys.index_columns ic ON ic.object_id = t.object_id AND ic.index_id = Index_Info.index_idINNER JOIN sys.columns c ON c.object_id = t.object_id AND c.column_id = ic.column_idwhere OBJECT_NAME(Index_Info.OBJECT_ID) = 'employee') ix_table`another approach would be to cast the column_name varchar into a column name datatype but i've had little to no luck on both approachesP.S: when i change the <column_name> to the name of a field the query is working 100% but this way it gives me the results of one field stretched out over the whole result i want it to signify the selectivity of the column_name that i retrieved in this result row.Sorry if my wording isn't helpful this is my first question on stackoverflow.Thanks in advance!  "
+    ],
+    "titre": "Can you cast a varchar as column_name in SQL?",
+    "number": "6/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "c#"
+    ],
+    "Pseudo": "user3461502",
+    "github_score_time": [
+        "edited 16 secs agoPaulethe Ramos",
+        "        asked 2 mins agoPaulethe RamosPaulethe Ramos1"
+    ],
+    "href": "/questions/74788975/estoy-haciendo-unos-ejercicos-en-c-necesito-invertir-una-string-se-que-se-uti",
+    "contenus": [
+        "Cuando el usuario ingresa una frase mayor de 20 caracteres, la funcion tiene que hacer varias cosas por ejemplo: darme la longitud de la cadena, pintar la cadena en mayuscula y luego minuscula, luego tiene que que invertir la cadena y es eso es lo que sale malo!Solo he utilizado el metodo reverse."
+    ],
+    "titre": "Estoy haciendo unos ejercicos en c#; necesito invertir una string, se que se utiliza el metodo reverse ¿Pero de que manera lo empleo?",
+    "number": "7/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "pythontypespython-typing"
+    ],
+    "Pseudo": "Nicolas Al Ahmar",
+    "github_score_time": [
+        "edited 10 secs agoWiktor Stribiżew590k3636 gold badges406406 silver badges514514 bronze badges",
+        "        asked 2 mins agoMichael MorenoMichael Moreno62833 silver badges1818 bronze badges"
+    ],
+    "href": "/questions/74788974/python-annotate-type-as-regex-pattern",
+    "contenus": [
+        "I have a dictionary annotationclass OrderDict(TypedDict):    name: str    price: float    time: strThe value of time: will always be formatted as 2022-01-01 00:00:00, or %Y-%m-%d %H:%M:%S. I'd like a way to express this in the type annotationSomething likeclass OrderDict(TypedDict):    name: str    price: float    time: Pattern[%Y-%m-%d %H:%M:%S]WIth the goal of IDE hinting through VSCode Intellisense and Pylance.Are regex-defined type annotations supported?"
+    ],
+    "titre": "Python annotate type as regex pattern",
+    "number": "8/50"
+}{
+    "nombre de vues": "2",
+    "type": [
+        "sharepointcalculated-columns"
+    ],
+    "Pseudo": "Paulethe Ramos",
+    "github_score_time": [
+        "        asked 2 mins agoManivannan SManivannan S1"
+    ],
+    "href": "/questions/74788967/conditional-validation-requirement-by-referring-2-different-column-fields",
+    "contenus": [
+        "I have sharepoint with 3 mandatory fields.Status_1 is with open and closedStatus_2 is with high, low and mediumStatus_3 is opt1, opt2, opt3, opt4I need the column validation formula for when choose Status_3=opt1, it should allow to save the item only when Status_1=open and Status_2=high"
+    ],
+    "titre": "Conditional validation requirement by referring 2 different column fields",
+    "number": "9/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "seleniumautomationgridrpa"
+    ],
+    "Pseudo": "Michael Moreno",
+    "github_score_time": [
+        "        asked 2 mins agosai varmasai varma122 bronze badges"
+    ],
+    "href": "/questions/74788964/is-there-a-way-to-insolate-and-iframe-selenium-grid-to-show-in-my-fe-application",
+    "contenus": [
+        "we are in the process of building RPA toolOne specific requirement isend user should able to interact/See the live bot (test script) executionLooks like selenium grid has a way to interact with test script with is execution in docker containerQuestion :How to insolate a specific execution may be by using session id, later i will use it to iframe in our FE applicationenter image description hereenter image description here.............................."
+    ],
+    "titre": "Is there a way to insolate and iframe selenium grid to show in my FE application",
+    "number": "10/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "reactjsreact-hookshttpresponse"
+    ],
+    "Pseudo": "Manivannan S",
+    "github_score_time": [
+        "        asked 2 mins agoMartineliMartineli8966 bronze badges"
+    ],
+    "href": "/questions/74788963/async-await-doesnt-automatically-update-component",
+    "contenus": [
+        "I have this http request function inside a custom hook that I use to dispatch various requests to the server, the requests themselves work but the component doesn't update automatically with the new information. If I replace the async-await code with fetch it does update, so I'm sure the issue is with this function or something closely related.  const sendRequest = useCallback(    async (url, method, body, reqIdentifier, reqExtra) => {      try {        dispatchHttp({ type: SEND, identifier: reqIdentifier });        const response = await fetch(url, {          method,          body,          headers: {            'Content-Type': 'application/json'          }        });        const responseData = await response.json();        dispatchHttp({          type: RESPONSE,          responseData,          extra: reqExtra        });      } catch (error) {        dispatchHttp({          type: ERROR,          errorMessage: `Something went wrong! ${error.message}`        });      }    },    []  );Other related code:useEffect(() => {    if (!isLoading && !error && reqIdentifier === `REMOVE_INGREDIENT`) {      dispatch({ type: DELETE, id: reqExtra });    } else if (!isLoading && !error && reqIdentifier === `ADD_INGREDIENT`) {      dispatch({        type: ADD,        ingredient: { id: data.name, ...reqExtra }      });    }  }, [data, reqExtra, reqIdentifier, isLoading, error]);Feel free to look at the full project at Stackblitz, though the only relevant pages are http.jsx and ingredients.jsx.I've tried a lot of things but nothing worked so far. I'm really lost at what I have to do."
+    ],
+    "titre": "Async-Await doesn't automatically update component",
+    "number": "11/50"
+}{
+    "nombre de vues": "2",
+    "type": [
+        "mongodbmongodb-queryaggregation-framework"
+    ],
+    "Pseudo": "sai varma",
+    "github_score_time": [
+        "        asked 2 mins agotrytocodetrytocode333 bronze badges"
+    ],
+    "href": "/questions/74788962/to-run-mongodb-query-projections-in-a-file-using-java-code",
+    "contenus": [
+        "I have a scenario where the query(aggregation one) used in mongoBash, can it be stored in a file and be executed using JAVA spring boot application.If possible, can you please share an example.Also is it possible to pass arguments to the query stored in file from JAVA?"
+    ],
+    "titre": "To run mongoDb query projections in a file using java code",
+    "number": "12/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "c++simulationomnet++flora"
+    ],
+    "Pseudo": "Martineli",
+    "github_score_time": [
+        "        asked 2 mins agosusheel kumarsusheel kumar1"
+    ],
+    "href": "/questions/74788961/omnet-flora-c-simulation",
+    "contenus": [
+        "//Can somebody explain the code ?    #ifndef LORA_LORARADIO_H_    #define LORA_LORARADIO_H_    #include inet/physicallayer/wireless/common/base/packetlevel/PhysicalLayerBase.h    #include inet/physicallayer/common/Signal.h    #include inet/physicallayer/wireless/common/contract/packetlevel/IAntenna.h    #include inet/physicallayer/wireless/common/contract/packetlevel/IRadio.h    #include inet/physicallayer/wireless/common/contract/packetlevel/IRadioMedium.h    #include inet/physicallayer/wireless/common/base/packetlevel/FlatRadioBase.h    #include inet/physicallayer/wireless/common/base/packetlevel/NarrowbandRadioBase.h    using namespace inet;    using namespace inet::physicallayer;    namespace flora {    class LoRaRadio : public NarrowbandRadioBase //: public PhysicalLayerBase, public virtual     IRadio    {    public:    static simsignal_t minSNIRSignal;    static simsignal_t packetErrorRateSignal;    static simsignal_t bitErrorRateSignal;What does the code signify?It is LoraRadio.h file. Can somebody explain how does it work?"
+    ],
+    "titre": "omnet++, Flora,C++,Simulation",
+    "number": "13/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "javascript"
+    ],
+    "Pseudo": "trytocode",
+    "github_score_time": [
+        "        asked 3 mins agoChase HudsonChase Hudson311 bronze badge"
+    ],
+    "href": "/questions/74788960/get-an-image-source-from-a-button-click-inside-a-div",
+    "contenus": [
+        "Let's say I have a div that holds a button and an image. However I want to get that images source from a button click of that specific div. Example:    <div class=container>        <div class=inner-container>            <img src=fn4703gr5e alt=>            <button>Get image source from only the image inside of this div</button>        </div>        <div class=inner-container>            <img src=7876jyhygfd alt=>            <button>Get image source from only the image inside of this div</button>        </div>        <div class=inner-container>            <img src=mnbv5433sda alt=>            <button>Get image source from only the image inside of this div</button>        </div>    </div>I have something similar on a project that I am working on and have had a tough time finding a solution."
+    ],
+    "titre": "Get an image source from a button click inside a div?",
+    "number": "14/50"
+}{
+    "nombre de vues": "2",
+    "type": [
+        "bashubuntushgnome"
+    ],
+    "Pseudo": "susheel kumar",
+    "github_score_time": [
+        "        asked 3 mins agoMarcusMarcus1031010 bronze badges"
+    ],
+    "href": "/questions/74788953/two-terminal-windows-open-up-when-i-start-my-ubuntu-app-with-gnome",
+    "contenus": [
+        "I have created a simple terminal application and want to use a simple desktop icon in Ubuntu with GNOME. Currently I have created a .desktop file with the following content:[Desktop Entry]Encoding=UTF-8Version=1.0Type=ApplicationName=My AppIcon=/opt/my-app/icon.pngPath=/opt/my-appExec=x-terminal-emulator --title My App -e bash -c '/opt/my-app/MyApp;$SHELL'StartupNotify=falseX-UnityGenerated=trueTerminal=trueCategories=UtilitySo far, this has worked well for me. I've created this simple shell script to put it in place:APP_NAME=my-appAPP_BINARY=MyAppAPP_INSTALLATION_PATH=/opt/$APP_NAME# create app direcho Creating application directory...sudo mkdir -p $APP_INSTALLATION_PATH# place icon and binaryecho Placing icon in application directory...sudo cp resources/icon.png $APP_INSTALLATION_PATH/icon.pngecho Setting permission for ${APP_INSTALLATION_PATH}/icon.png...sudo chmod 644 $APP_INSTALLATION_PATH/icon.pngecho Placing binary in application directory...sudo cp build/MyApp $APP_INSTALLATION_PATH/$APP_BINARYecho Setting executable permission for ${APP_BINARY}...sudo chmod +x $APP_INSTALLATION_PATH/$APP_BINARYecho Placing desktop icon...cp resources/$APP_NAME.desktop $HOME/.local/share/applications/$APP_NAME.desktopecho Setting executable permission for ${APP_NAME}.desktop...chmod +x $HOME/.local/share/applications/$APP_NAME.desktopecho ${APP_BINARY} is now installed...So what's the problem then? The problem is when I start the application it opens two terminal windows. And both terminals are open in the regular terminal icon with two more dots.What I simply want is to make my icon have one dot appearing there, also that the terminal window shows the title of the app as well. This does not work currently.Any ideas how I can solve this?"
+    ],
+    "titre": "Two terminal windows open up when I start my Ubuntu app with GNOME",
+    "number": "15/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "linuxunixsamba"
+    ],
+    "Pseudo": "Chase Hudson",
+    "github_score_time": [
+        "        asked 3 mins agoStefan TanuwijayaStefan Tanuwijaya1"
+    ],
+    "href": "/questions/74788952/samba-allow-symlink-to-parent-directory",
+    "contenus": [
+        "I would like to create a symlink only to the parent directory of my samba share.I can accomplish this by setting smb.conf[global]allow insecure wide links = yes [sambashare]wide links = yesHowever this will expose the entire filesystem and add a security risk.Is there any setting I can set to only enable symlinks to specific path only? In this case, only to ..?"
+    ],
+    "titre": "Samba allow symlink to parent directory",
+    "number": "16/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "javawindows-installerjpackage"
+    ],
+    "Pseudo": "Marcus",
+    "github_score_time": [
+        "        asked 3 mins agoRafaelRafael111 bronze badge"
+    ],
+    "href": "/questions/74788949/how-to-define-path-where-generated-output-file-is-placed-using-jpackage-windows",
+    "contenus": [
+        "Im trying to create an installer for my java app using jpackage.This is what I have right now:jpackage --type msi --app-version 2.0 --input . --dest . --main-jar .\\FitnessGUI.jar --main-class Main --win-shortcut --win-menu This works fine, but I want to be able to choose where the program will be stored when installed.What I have, according to oracle, defaults to the current working directory.Im not sure what this means.I have no idea where the app will be outputed on another person's computer.I tried to use --dest C:\\ , but i get:Destination directory C:\\ is not writableAlso tried --dest C:\\Program Files, but get the same error."
+    ],
+    "titre": "How to define path where generated output file is placed using jpackage (windows)",
+    "number": "17/50"
+}{
+    "nombre de vues": "9",
+    "type": [
+        "google-colaboratory"
+    ],
+    "Pseudo": "Stefan Tanuwijaya",
+    "github_score_time": [
+        "        asked 3 mins agoVeronica EcheverriaVeronica Echeverria1"
+    ],
+    "href": "/questions/74788948/why-am-i-getting-the-error-internalerror-blas-xgemv-launch-failed",
+    "contenus": [
+        "I have a ColabPro+ subscription and after training a simple model for 40 min, I did a forward pass and got the above error notification.enter image description hereI had to change the runtime type to a normal subscription and then it worked....Nonetheless this is extremely inefficient. I'd like to use the GPUs I payed for.."
+    ],
+    "titre": "Why am I getting the error: InternalError: Blas xGEMV launch failed",
+    "number": "18/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "javascripthtmlweb"
+    ],
+    "Pseudo": "Rafael",
+    "github_score_time": [
+        "        asked 4 mins agoJoao VictorJoao Victor1"
+    ],
+    "href": "/questions/74788944/how-can-i-use-javascript-to-hide-my-html-entire-site",
+    "contenus": [
+        "i work here with digital marketing selling PLR produtcs... and i need to hide my entire website html code from people. So, does exist some javascript or html code to do this ? Thank You so much guys.I did not try anything, because i do not klnow about javascript or html"
+    ],
+    "titre": "How can I use JavaScript to hide my HTML entire site?",
+    "number": "19/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "woocommerceadvanced-custom-fieldsacfpro"
+    ],
+    "Pseudo": "Veronica Echeverria",
+    "github_score_time": [
+        "        asked 4 mins agoVikas MishraVikas Mishra1"
+    ],
+    "href": "/questions/74788943/unable-to-display-acf-values-in-woocommerce-order-page",
+    "contenus": [
+        "I create a custom field Upload Invoice in ACF, having PDF files to upload in woocommerce order page. It working fine when admin upload pdf in order page, but at customer dashboard I am unable to call that PDF uploaded by admin.kindly suggesthttps://xxxxxxxxxx/my-account/view-order/196121629/having code<?php/** * View Order * * Shows the details of a particular order on the account page. * * This template can be overridden by copying it to yourtheme/woocommerce/myaccount/view-order.php. * * HOWEVER, on occasion WooCommerce will need to update template files and you * (the theme developer) will need to copy the new files to your theme to * maintain compatibility. We try to do this as little as possible, but it does * happen. When this occurs the version of the template file will be bumped and * the readme will list any important changes. * * @see     https://docs.woocommerce.com/document/template-structure/ * @package WooCommerce\\Templates * @version 3.0.0 */defined( 'ABSPATH' ) || exit;$notes = $order->get_customer_order_notes();?><p><?phpprintf(    /* translators: 1: order number 2: order date 3: order status */    esc_html__( 'Order #%1$s was placed on %2$s and is currently %3$s.', 'woocommerce' ),    '<mark class=order-number>' . $order->get_order_number() . '</mark>', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped    '<mark class=order-date>' . wc_format_datetime( $order->get_date_created() ) . '</mark>', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped    '<mark class=order-status>' . wc_get_order_status_name( $order->get_status() ) . '</mark>' // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped);?></p><?php if ( $notes ) : ?>    <h2><?php esc_html_e( 'Order updates', 'woocommerce' ); ?></h2>    <ol class=woocommerce-OrderUpdates commentlist notes>        <?php foreach ( $notes as $note ) : ?>        <li class=woocommerce-OrderUpdate comment note>            <div class=woocommerce-OrderUpdate-inner comment_container>                <div class=woocommerce-OrderUpdate-text comment-text>                    <p class=woocommerce-OrderUpdate-meta meta><?php echo date_i18n( esc_html__( 'l jS \\o\\f F Y, h:ia', 'woocommerce' ), strtotime( $note->comment_date ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>                    <div class=woocommerce-OrderUpdate-description description>                        <?php echo wpautop( wptexturize( $note->comment_content ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>                    </div>                                        <div class=clear></div>                </div>                <div class=clear></div>            </div>        </li>        <?php endforeach; ?>    </ol><?php endif; ?><?php do_action( 'woocommerce_view_order', $order_id ); <?php/** * View Order * * Shows the details of a particular order on the account page. * * This template can be overridden by copying it to yourtheme/woocommerce/myaccount/view-order.php. * * HOWEVER, on occasion WooCommerce will need to update template files and you * (the theme developer) will need to copy the new files to your theme to * maintain compatibility. We try to do this as little as possible, but it does * happen. When this occurs the version of the template file will be bumped and * the readme will list any important changes. * * @see     https://docs.woocommerce.com/document/template-structure/ * @package WooCommerce\\Templates * @version 3.0.0 */defined( 'ABSPATH' ) || exit;$notes = $order->get_customer_order_notes();?><p><?phpprintf(    /* translators: 1: order number 2: order date 3: order status */    esc_html__( 'Order #%1$s was placed on %2$s and is currently %3$s.', 'woocommerce' ),    '<mark class=order-number>' . $order->get_order_number() . '</mark>', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped    '<mark class=order-date>' . wc_format_datetime( $order->get_date_created() ) . '</mark>', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped    '<mark class=order-status>' . wc_get_order_status_name( $order->get_status() ) . '</mark>' // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped);?></p><?php if ( $notes ) : ?>    <h2><?php esc_html_e( 'Order updates', 'woocommerce' ); ?></h2>    <ol class=woocommerce-OrderUpdates commentlist notes>        <?php foreach ( $notes as $note ) : ?>        <li class=woocommerce-OrderUpdate comment note>            <div class=woocommerce-OrderUpdate-inner comment_container>                <div class=woocommerce-OrderUpdate-text comment-text>                    <p class=woocommerce-OrderUpdate-meta meta><?php echo date_i18n( esc_html__( 'l jS \\o\\f F Y, h:ia', 'woocommerce' ), strtotime( $note->comment_date ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>                    <div class=woocommerce-OrderUpdate-description description>                        <?php echo wpautop( wptexturize( $note->comment_content ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>                    </div>                                        <div class=clear></div>                </div>                <div class=clear></div>            </div>        </li>        <?php endforeach; ?>    </ol><?php endif; ?><?php do_action( 'woocommerce_view_order', $order_id ); "
+    ],
+    "titre": "unable to display acf values in woocommerce order page",
+    "number": "20/50"
+}{
+    "nombre de vues": "3",
+    "type": [
+        "sqldatabasepostgresqlquery-optimizationdatabase-performance"
+    ],
+    "Pseudo": "Joao Victor",
+    "github_score_time": [
+        "        asked 4 mins agoHamirTImeHamirTIme1"
+    ],
+    "href": "/questions/74788942/postgressql-select-a-row-from-a-table-insert-and-return-if-it-does-not-yet-exi",
+    "contenus": [
+        "I've been creating my own databases for use in personal projects. While the use cases are pretty low load, I want to make sure my SQL queries are as efficient as possible. I would consider myself an intermediate user of SQL.The situation is this: I am using a local app that will send queries to the database. Each query should adhere to its own data contract when returning data. For this one in particular, I want to get a table row based on a UNIQUE ID. If the ID does not yet exist in the table, the query should create a new row and then also return it.The most common solution I've seen is something like thisIF NOT EXISTS( SELECT id FROM table_a WHERE id = my_id)THENINSERT INTO table_a ... RETURNING *ELSESELECT * FROM table_a WHERE id = my_idENDThis seems fine, but I feel like I am performing the same SELECT twice, once to check if the row exists and again to get the row when it does.Then there's thisWITH cte AS (    INSERT INTO table_a ... RETURNING * ON CONFLICT DO NOTHING)// Then do branching logic here depending on the result of cte, also not too clear on how best to perform thatThis also seems good, but 1. It feels weird to catch an error on an INSERT rather than checking beforehand, especially when 2. in my use case the INSERT option would happen 1/10000 times this query runs.I've also seen there can be race conditions that arise with certain methods. At the moment I'm not too concerned with those since again, the INSERT portion will already happen very rarely and the usage of the DB is relatively very light (though I'm sure those more experienced will tell me to build it correctly to begin with). Currently my biggest concern is performance.Any help would be appreciated and I'm happy to go into more depth on my use case if that is relevant. Thanks!"
+    ],
+    "titre": "PostgresSQL: SELECT a row from a table, INSERT and RETURN if it does not yet exist",
+    "number": "21/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "javascriptobjectreference"
+    ],
+    "Pseudo": "Vikas Mishra",
+    "github_score_time": [
+        "        asked 4 mins agoIrvan HilmiIrvan Hilmi32911 gold badge22 silver badges1313 bronze badges"
+    ],
+    "href": "/questions/74788940/the-right-way-to-copy-object-or-array-of-objects-without-passing-reference",
+    "contenus": [
+        "The right way to copy object or array of objects without passing reference? I having an issue with this sample of code.let raw = { rows: [{a: 1, b: 2}, {a: 2, b: 1}] };let rows = new Array();for(let x in raw.rows) {    if(App.isObjectHas(x, raw.rows)) {        rows[App.getLength(rows)] = raw.rows[x];    }}for(let x=0; x<App.getLength(rows); x++) {    (function(row) {        // i modify the rows[x] but raw.rows[x] follow        row.a = 5; console.log(raw.rows[x]);    }.bind(this))(rows[x]);}I want to modify raw.rows but keep its originality for later use (repeating process) so i thougt with the first loop i copying its value not its reference, since both declared differently. Using new Object instead of new Array doesn't effect same as using anonymous function on both loops."
+    ],
+    "titre": "The right way to copy object or array of objects without passing reference?",
+    "number": "22/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "javascripthtmljquerycss"
+    ],
+    "Pseudo": "HamirTIme",
+    "github_score_time": [
+        "        asked 4 mins agoJayPeeJayPee122 bronze badges"
+    ],
+    "href": "/questions/74788939/make-a-onclick-function-to-add-svg-elements-to-a-path",
+    "contenus": [
+        "Hi all I have created a fully interactive SVG chart that has individual paths that are clickable and rewrite a div with info based on the JSON file I have that matches the id of the path. Currently I am writing this in JQuery but I need to have a function that will add circles onto the path that is clicked. The circles will individually have their own id's and fill that div with info from the object in the JSON that matches the id. I have tried the append method to append a SVG element to the SVG that is loaded into the document but it looks like that might not be the correct way to do it.This what a section of the SVG looks like before clickedThis is what the goal is to look like after it is clickedThe code I tried was to add a .append() with a template literal of the circle SVG code to add to the path that was clicked. The function would actually append and add to the SVG but it won't render it. This is an example of the code I was using    function addPath(clickedPath){    $(clickedPath).append(`    <circle cx=50 cy=50 r=50 />    `)}function svgLoad(){    $(#SVG).load(/src/test.svg, function(){        $(#SVG).css(width, 50vw);        $(path).on(click, function(evt) {            addPath($(this));        })    })}Is this even possible with Jquery or would this be better in something like React?"
+    ],
+    "titre": "Make a onclick function to add SVG elements to a path?",
+    "number": "23/50"
+}{
+    "nombre de vues": "2",
+    "type": [
+        "asp.net.nethttpbackend"
+    ],
+    "Pseudo": "Irvan Hilmi",
+    "github_score_time": [
+        "        asked 4 mins agoTavis QuiggleTavis Quiggle1122 bronze badges"
+    ],
+    "href": "/questions/74788936/how-to-deploy-a-backend-with-no-database",
+    "contenus": [
+        "I'm pretty new to programming and am developing a small webpage for my company. Essentially there's a form on the frontend where users will fill in information, then I've written a .NET app that acts as an HTTP server to listen for the requests and store the information in a plain text file (I know this is bad practice, but there is zero sensitive information being sent or stored.)I have it all working so that if I run the backend and webpage locally I can do exactly what I want, but I'm kind of stuck on what I do moving forward. I have a webhost that I have the domain hosted at, but I don't have any idea on what to do with the backend application.? Ideally I'd just want to set the server running as I would on my own machine, but I don't know how this all works in practice.Any help at all would be appreciated, thanks."
+    ],
+    "titre": "How to deploy a backend with no database",
+    "number": "24/50"
+}{
+    "nombre de vues": "-2",
+    "type": [
+        "chart.jsreact-chartjs-2"
+    ],
+    "Pseudo": "JayPee",
+    "github_score_time": [
+        "        asked 4 mins agoVictor SantiagoVictor Santiago1"
+    ],
+    "href": "/questions/74788934/cant-register-a-custom-scale",
+    "contenus": [
+        "Im trying to create a custom scale using ChartJs version 3.9.1, where it says to create a custom scale you just need to create a class that extends Chart.Scale from 'chartjs', well, after create this class they tell you need to set the id property, in order to acess this id in chart options as scales: {y: {type: 'MyScale'}}enter image description herewell, the problem is that the interface of Chart.Scale says that his Id is readonly, so I cant set it.Thats my code so far:``import Chart, { ChartComponentLike, Tick } from 'chart.js';import StringUtils from '../../../lib/string';class PowerFactorScale extends Chart.Scale {  public determineDataLimits() {    const withWorstIndValue = (previousValue: number, nextValue: number) => (nextValue > 0            && nextValue < previousValue      ? nextValue - 0.01      : previousValue);    const toWorstIndValue = (dataset: any) => dataset.data.reduce(withWorstIndValue, 1);    const withWorstCapValue = (previousValue: number, nextValue: number) => (nextValue < 0            && nextValue > previousValue      ? nextValue - 0.01      : previousValue);    const toWorstCapValue = (dataset: any) => dataset.data.reduce(withWorstCapValue, -1);    const worstIndValues: number[] = this.chart.data.datasets.map(toWorstIndValue);    const worstCapValues: number[] = this.chart.data.datasets.map(toWorstCapValue);    worstIndValues.push(0.88);    worstCapValues.push(-0.88);    this.max = Math.min(...worstIndValues);    this.min = Math.max(...worstCapValues);  }  public buildTicks(): Tick[] {    const worstPossibleValue = Math.min(      Math.abs(this.max),      Math.abs(this.min),    );    const interval = (1 - worstPossibleValue) / 3;    const firstInterval = 1 - interval;    const middleInterval = 1 - interval * 2;    const lastInterval = 1 - interval * 3;    // eslint-disable-next-line no-return-assign    return this.ticks = [      lastInterval,      middleInterval,      firstInterval,      1,      -firstInterval,      -middleInterval,      -lastInterval,    ].map(StringUtils.toPowerFactorScale) as unknown as Tick[];  }  public getLabelForIndex(index: number, datasetIndex: number) {    return this.chart.data.datasets[datasetIndex].data[index];  }  public getPixelForTick(index: number) {    const { chartArea } = this.chart;    const chartHeight = chartArea.bottom - chartArea.top;    const tickHeight = chartHeight / (this.ticks.length - 1);    return index * tickHeight + chartArea.top;  }  public getPixelForValue(value: number) {    const { chartArea } = this.chart;    const chartHeight = chartArea.bottom - chartArea.top;    const tickHeight = chartHeight / (this.ticks.length - 1);    // eslint-disable-next-line no-mixed-operators    const chartCenter = tickHeight * (this.ticks.length - 1) / 2 + chartArea.top;    const worstPossibleValue = Math.min(      Math.abs(this.max),      Math.abs(this.min),    );    const interval = (1 - worstPossibleValue) / 3;    const heightPerValue = tickHeight / interval;    if (value === 0) {      return chartCenter;    }    if (value === 1) {      return chartCenter - 0.003 * heightPerValue;    }    if (value > 0) {      return Math.min(chartHeight, chartCenter - (1 - value) * heightPerValue);    }    return Math.min(chartHeight, chartCenter - (-1 - value) * heightPerValue);  }}PowerFactorScale.id = 'power-factor-scale';Chart.registry.addScales(PowerFactorScale as unknown as ChartComponentLike);``I've tried to set the id doing this.id = 'test' but it keeps saying I cant set it because its readonly.[enter image description here](https://i.stack.imgur.com/AHga5.png)"
+    ],
+    "titre": "Can't register a custom scale",
+    "number": "25/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "javascriptglobal-variablesundefinednan"
+    ],
+    "Pseudo": "Tavis Quiggle",
+    "github_score_time": [
+        "        asked 5 mins agoMartinSkrtlMartinSkrtl111 bronze badge"
+    ],
+    "href": "/questions/74788933/issue-with-nan-error-in-javascript-whilst-using-global-variables",
+    "contenus": [
+        "<script type=text/javascript>    //Game Logic goes here    var round = 0;    var score = 0;    function StartRound()    {        round++;        console.log(round);        console.log(score);I am attempting to use the global variables round and score inside of the function StartRound(), but when I attempt to use the variables I am hit with a NaN error if I have attempted to increment the variable (as shown with round) or a undefined error if not. When I try to do any mathematical operations involving round nothing is returned.I've tried to parse the variable using parseInt() and that didnt help so I'm not sure what to do."
+    ],
+    "titre": "Issue with NaN error in JavaScript whilst using global variables",
+    "number": "26/50"
+}{
+    "nombre de vues": "6",
+    "type": [
+        "regexregex-groupregex-greedy"
+    ],
+    "Pseudo": "Victor Santiago",
+    "github_score_time": [
+        "        asked 5 mins agoVimVim1"
+    ],
+    "href": "/questions/74788932/regular-expression",
+    "contenus": [
+        "I would like to exclude the number +7 and the number +375 from matching.^+([0124-689][0-9]|7[0-9]+|3([0-9][012346-9]|7[012346-9][0-9]+)?)$+375 excluded from matching but it also excludes +3*5 (ex:+365)"
+    ],
+    "titre": "regular expression",
+    "number": "27/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "dockernginxsslcloudflare"
+    ],
+    "Pseudo": "MartinSkrtl",
+    "github_score_time": [
+        "edited 4 mins agomaks gang",
+        "        asked 5 mins agomaks gangmaks gang111 bronze badge"
+    ],
+    "href": "/questions/74788928/backend-proxy-server-reqeust-not-secure",
+    "contenus": [
+        "I have exposing container on 5000 port. Also i setting my nginx.conf like that. Fronted app give me blocked (mixed-content) on /api/main request. But ssl is configurednginx.conffronted request"
+    ],
+    "titre": "Backend proxy server reqeust not secure",
+    "number": "28/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "reinforcement-learningstable-baselines"
+    ],
+    "Pseudo": "Vim",
+    "github_score_time": [
+        "        asked 5 mins agomissoumissou1"
+    ],
+    "href": "/questions/74788926/how-can-i-train-an-agent-with-different-environement-parameters",
+    "contenus": [
+        "enter image description hereHello Everyone, Iam trying to use DDPG (stable baseline3) to solve a problem. For every episode Iam changing the parameters of my environment.  My Problem is: how could I change the parameters of my env with every iteration and then ask my agent to learn. I was thinking about putting model=.... inside the loop (see picture) , so for every iteration I change the parameters, but Iam not sure if my agent will learn on the top of last learned model. Thank youI would like to know, how can we change the env parameter with every episode, using stable baseline."
+    ],
+    "titre": "How can I train an agent with different environement parameters",
+    "number": "29/50"
+}{
+    "nombre de vues": "9",
+    "type": [
+        "sqldatabasedatabase-designrelational-database"
+    ],
+    "Pseudo": "maks gang",
+    "github_score_time": [
+        "edited Nov 15, 2021 at 21:18ΩmegaMan27.9k1010 gold badges9696 silver badges113113 bronze badges",
+        "        asked Sep 27, 2014 at 19:46JAXJAX1,46022 gold badges1515 silver badges3232 bronze badges",
+        "edited Sep 27, 2014 at 20:05",
+        "        answered Sep 27, 2014 at 19:58Bill KarwinBill Karwin519k8484 gold badges650650 silver badges809809 bronze badges",
+        "edited Mar 16, 2019 at 11:22cezar11.3k66 gold badges4444 silver badges8181 bronze badges",
+        "        answered Sep 27, 2014 at 20:06Gordon LinoffGordon Linoff1.2m5353 gold badges610610 silver badges757757 bronze badges",
+        "        answered Feb 21, 2017 at 12:10JeromeEJeromeE44144 silver badges66 bronze badges",
+        "edited Dec 29, 2018 at 15:59",
+        "        answered Sep 27, 2014 at 20:08EmanuelEmanuel76155 silver badges1313 bronze badges",
+        "        answered Aug 11 at 3:34sbrbotsbrbot5,88966 gold badges3939 silver badges7171 bronze badges",
+        "edited Dec 30, 2021 at 11:11Alfonso Tienda3,32211 gold badge1717 silver badges3333 bronze badges",
+        "        answered Dec 29, 2021 at 8:14Krzysztof TonnKrzysztof Tonn11"
+    ],
+    "href": "/questions/74788924/should-we-choose-a-composite-primary-key-or-surrogate-integer-primary-key-to-a-t",
+    "contenus": [
+        "Although one can use composite primary keys, for the case below, is it really a bad practice? The consensus on Stackoveflow seems to go both ways on this issue.Why?I want to store payments for the orders in a separate table. The reason is that, an order can have many items which are handled in a separate table in the form of many to many relationship. Now, if I don't use composite primary keys for my payment table, I'll lose my unique PaymentID:[PaymentId] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,[OrderId] INT NOT NULL PRIMARY KEY --Also a Foreign Key--Now, if I just remove the Primary Key for the OrderId, I'll lose my one to one relationship here so Many OrderIds can be associated to many PaymentIds, and I don't want this.This seems to be why other answers on SO have concluded (mostly) that the composite key is a bad idea. If it is bad, what's the best practice then?",
+        "There is no conclusion that composite primary keys are bad.The best practice is to have some column or columns that uniquely identify a row. But in some tables a single column is not enough by itself to uniquely identify a row. SQL (and the relational model) allows a composite primary key. It is a good practice is some cases. Or, another way of looking at it is that it's not a bad practice in all cases.Some people have the opinion that every table should have an integer column that automatically generates unique values, and that should serve as the primary key. Some people also claim that this primary key column should always be called id. But those are conventions, not necessarily best practices. Conventions have some benefit, because it simplifies certain decisions. But conventions are also restrictive.You may have an order with multiple payments because some people purchase on layaway, or else they have multiple sources of payment (two credit cards, for instance), or two different people want to pay for a share of the order (I frequently go to a restaurant with a friend, and we each pay for our own meal, so the staff process half of the order on each of our credit cards).I would design the system you describe as follows:Products  : product_id (PK)Orders    : order_id (PK)LineItems : product_id is (FK) to Products            order_id is (FK) to Orders            (product_id, order_id) is (PK)Payments  : order_id (FK)            payment_id - ordinal for each order_id            (order_id, payment_id) is (PK)This is also related to the concept of identifying relationship. If it's definitional that a payment exists only because an order exist, then make the order part of the primary key.Note the LineItems table also lacks its own auto-increment, single-column primary key. A many-to-many table is a classic example of a good use of a composite primary key.",
+        "This question is dangerously close to asking for opinions, which can generate religious wars.  As someone who is highly biased toward having auto-increasing integer primary keys in my tables (called something like TablenameId, not Id), there is one situation where it is optional. I think the other answers address why you want primary keys.One very important reason is for reference purposes.  In a relational database, any entity could -- in theory -- be referenced by another entity via foreign key relationships.  For foreign keys, you definitely want one column to uniquely define a row.  Otherwise, you have to deal with multiple columns in different tables that align with each other.  This is possible, but cumbersome.The table you are referring to is not an entity table it is a junction table.  It is a relational database construct for handling many-to-many relationships.  Because it doesn't really represent an entity, it should not have foreign key relationships.  Hence, a composite primary key is reasonable.  There are some situations, such as when you are concerned about database size, where leaving out an artificial primary key is even desirable.",
+        "Disk space is cheap, so a primary key clustered on an int identity(1,1) named after a convention (like pk + table name) is a good practice. It will make queries, joins, indexes and other constraints easy to manage. However there's one good reason to no do that (in MS SQL Server at least): if you want to manage the physical sorting of your data in the underlying storage system.The primary key clustered determines the physical sorting order. If you do it on an identity column, the physical sorting order is basically the insert order. However, this may not be the best, especially if you always query the table the same way. On very large tables, getting the right physical sorting order makes queries a lot faster. For example you may want the clustered index on a composite of two columns. ",
+        "Best practices are helpful at best, but blinding at worst. Going against a best practice isn't a sin. Just be sure you know what kind of trade-off you are making.Database engines can be very complicated things. Without knowing what particular optimizations are made by a given engine, it will be difficult to determine what kinds of constructs will yield the best performance (because I assume that the issue we are talking about here is performance). Composite keys may be problematic for large tables in one kind of database, but not have any noticeable impact for another.A useful practice I've learned is to always strive for having my applications as simple as possible. Do using composite keys save you from having to perform lookups before insertions, or some other nuisance? Use them. If you, however, notice that using them makes your application no longer satisfy some significant performance requirement, consider a solution without them.",
+        "From internal database engine point of view there is no obstacle to using complex primary keys. Indexing will work fine, integrity constraints will work fine, there's no performance drawback etc.In theory they are fine, but in practice there are some things (possible issues) that one should take into account:Foreign keys (FK) in related table must have multiple columns as PK. If one had simple PK, relational consistency would be easier to maintain.Many times in (web) application customer needs to select/pick up some data (retrieved from DB table). Behind each record is always PK which leads to some action. If these records are represented as web links - that is easier to maintain as links with multiple URL parameters. But if data should be selected from drop-down list, then it could be challenging to implement transfer of more parameters for PK since HTML form drop-down lists generally use only one key parameter.Generally when you deal with complex PK (multiple columns) your code should be multiplied for this columns (getters/setters), parameter transfer in application, intrusion checks etc. Finally during application development you come to conclusion that maybe it is easier to have simple PK although during DB modeling that was not an issue.",
+        "If your table with a composite primary key is expected to have millions of rows, the index controlling the composite key can grow up to a point where CRUD operation performance is very degraded. In that case, it is a lot better to use a simple integer ID primary key whose index will be compact enough and establish the necessary DBE constraints to maintain uniqueness.Source:https://www.toptal.com/database/database-design-bad-practices"
+    ],
+    "titre": "Should we choose a composite primary key or surrogate integer primary key to a table? [duplicate]",
+    "number": "30/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "pythontensorflow"
+    ],
+    "Pseudo": "missou",
+    "github_score_time": [
+        "edited 51 secs agoCCZ23",
+        "        asked 5 mins agoCCZ23CCZ231511212 bronze badges"
+    ],
+    "href": "/questions/74788923/dot-product-function-but-exclude-every-mth-row",
+    "contenus": [
+        "The code below calculates the dot product in tf of s components in a matrix. But i want to modify it, so it calculates the dot product of r points, where r>s, excluding every kth row.For example, instead of dot product of first 10 rows , we do dot product of first 15  rows, but removing every 3rd row.i.e. say we have x = [1,2, 3, 4, 5,6,7,8,9,10,11,12,13,14,15]. We remove every 3rd point and take the sum of [1,2 ,4,5,7,8,10,11,13,14]. But i'm not sure how to do this!def dot(x, y):    return tf.matmul(x, y)"
+    ],
+    "titre": "Dot product function but exclude every mth row",
+    "number": "31/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "pythonhtmlmysqlconnectioncoding-style"
+    ],
+    "Pseudo": "Collector",
+    "github_score_time": [
+        "        asked 6 mins agoAshray Vasu 12210086Ashray Vasu 122100861"
+    ],
+    "href": "/questions/74788921/how-to-connect-python-and-mysql",
+    "contenus": [
+        "I have learnt about python and mysql but i am unable to connect both with the help of mysql connector.I tried using connection modules like connect and other functions."
+    ],
+    "titre": "How to connect python and mysql?",
+    "number": "32/50"
+}{
+    "nombre de vues": "3",
+    "type": [
+        "vue.jsnuxt.jsnuxtjs3"
+    ],
+    "Pseudo": "CCZ23",
+    "github_score_time": [
+        "edited 4 mins agokazaki",
+        "        asked 6 mins agokazakikazaki322 bronze badges"
+    ],
+    "href": "/questions/74788919/nuxt3-how-do-i-use-usefetch-in-onmounted",
+    "contenus": [
+        "This code does not work reactivity.It is a hassle to copy the return value of useFetch().How can I somehow use the Destructuring assignment syntax to enable reactivity?<script lang=ts setup>    const a = ref<boolean>(false)    const b = ref<FetchError|null>()    const c = ref<any[]>([])    onMounted(async () => {        const { pending: a, error: b, data: c} = toRefs(            await useLazyFetch<any[]>(            http://localhost:3178/posts            )        )    })</script><template>    <div>{{ a }}</div>    <div>{{ b }}</div>    <div>{{ c }}</div></template>"
+    ],
+    "titre": "Nuxt3: How do I use useFetch() in onMounted()?",
+    "number": "33/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "gocompilationfaviconico"
+    ],
+    "Pseudo": "Ashray Vasu 12210086",
+    "github_score_time": [
+        "        asked 6 mins agoBob SfogBob Sfog10588 bronze badges"
+    ],
+    "href": "/questions/74788918/golang-favicon-from-binary-without-ico-file",
+    "contenus": [
+        "I would like to have a favicon handled using: app.Use(favicon.New()), but I can't just have an .ico file as my users download the binary only. is there a way to convert the icon into bytes and load it from a .go file?"
+    ],
+    "titre": "golang favicon from binary without .ico file",
+    "number": "34/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "pythonpytorchanacondacudaconv-neural-network"
+    ],
+    "Pseudo": "kazaki",
+    "github_score_time": [
+        "        asked 6 mins agoGio SfatGio Sfat1"
+    ],
+    "href": "/questions/74788917/cant-use-cuda-in-anaconda-environment",
+    "contenus": [
+        "I started using my Anaconda Environment without having a GPU in my system but only a CPU with integrated graphics. So after a long time I managed to install a GPU to my system to train a CNN for Image Classification.But, anaconda cannot recognize my GPU and I can't use cuda cores.Is there a solution for that?Thanks in advance.I thought to uninstall and install again anaconda but I am afraid that I am gonna lose all my installed libraries. Also, I tried also to create a new environment but nothing changed."
+    ],
+    "titre": "Can't use cuda in Anaconda Environment",
+    "number": "35/50"
+}{
+    "nombre de vues": "3",
+    "type": [
+        "verilogfpgaspartan"
+    ],
+    "Pseudo": "Bob Sfog",
+    "github_score_time": [
+        "        asked 6 mins ago홍준성홍준성1"
+    ],
+    "href": "/questions/74788916/synthesizable-way-to-load-initial-values-in-verilog",
+    "contenus": [
+        "Writing code for uart communication.This is the code for controlling the LCD of Spartan 7 fpga. The problem I'm experiencing is setting the initial values of reg state, regclk_500hz, integer i,k,j.module LCD_CONTROL(    input clk, // 50Mhz    input rst,    input [7:0] in_data,    input flag,    output lcd_rs, lcd_rw, lcd_e,    output [7:0] lcd_data    );parameter power_on = 4'b0000,           function_set = 4'b0001,           entry_mode = 4'b0010,           disp_onoff = 4'b0011,           busy_flag = 4'b0101,           delay = 4'b0110,           shift_l = 4'b0111,           shift_r = 4'b1000,           blink_off = 4'b1001,           blink_on = 4'b1010;reg [3:0] state = 1'b1;//reg clk_500hz = 0; //reg [9:0] data;integer i = 0; //integer k=0;integer j=0;integer ii;integer t=0 ;reg Ctrl_B;reg Ctrl_R;reg Ctrl_L;reg flag_save;reg [7:0] keep_data;reg initial_rst;assign {lcd_rs, lcd_rw, lcd_data} = data;assign lcd_e = clk_500hz;//clock divideralways @(posedge clk or posedge rst) begin    if (rst) begin        i <= 0;        clk_500hz <= 0;    end    else if (i == 50000) begin            clk_500hz <= ~clk_500hz;            i <= 0;        end        else i <= i + 1;end//flag savealways @(posedge clk or posedge rst) begin    if (rst)        flag_save <=0;    else if (flag) begin        flag_save <= 1;        ii <= 0;    end    else if (ii == 100000) begin        flag_save <= 0;        ii <= 0;    end    else ii <= ii+1;end//in_data keep goingalways @(posedge clk or posedge rst) begin    if (flag)       keep_data <= in_data;    else if (rst) keep_data <= 0;end//state machinealways @(posedge clk_500hz or posedge rst) begin    if (rst) begin        k <= 0;        j <= 0;        state <= function_set;    end    else begin            case(state)                power_on : state <= function_set;                function_set : state <= disp_onoff;                disp_onoff : state <= entry_mode;                entry_mode : state <= busy_flag;                blink_on : begin                    if (Ctrl_B) begin                        if (k == 500) begin                            state <= busy_flag;                            k <= 0;                        end                        else k <= k+1;                    end                    else begin                        state <= busy_flag;                                           end                end                    shift_r : begin                    if (Ctrl_R) state <= delay;                    else state <= busy_flag;                end                shift_l : begin                    if (Ctrl_L) state <= delay;                    else state <= busy_flag;                end                delay : begin                    if (Ctrl_R) begin                        if (j == 250) begin                            state <= busy_flag;                            j <= 0;                        end                        else j <= j+1;                    end                    else if (Ctrl_L) begin                        if (j == 250) begin                            state <= busy_flag;                            j <= 0;                        end                        else j <= j+1;                    end                    else begin                        state <= busy_flag;                    end                end                      busy_flag : begin                    if (flag_save) begin                        if (Ctrl_B) begin                            if (k == 500) begin                                state <= blink_on;                                k <= 0;                            end                            else k <= k+1;                        end                        else if (Ctrl_R)                            state <= delay;                        else if (Ctrl_L)                            state <= delay;                        else                            state <= busy_flag;                    end                    else if (!flag_save) state <= busy_flag;                end                default : begin                    state <= power_on;                end            endcase        endendalways @(posedge clk or posedge rst) begin    if (rst == 1) begin        Ctrl_B <= 0;        Ctrl_R <= 0;        Ctrl_L <= 0;    end    else if (in_data == 8'h02) begin        Ctrl_B <= 1;        Ctrl_R <= 0;        Ctrl_L <= 0;    end    else if (in_data == 8'h12) begin        Ctrl_B <= 0;        Ctrl_R <= 1;        Ctrl_L <= 0;;    end    else if (in_data == 8'h0C) begin        Ctrl_B <= 0;        Ctrl_R <= 0;        Ctrl_L <= 1;    end    else begin        if (flag_save) begin            Ctrl_B <= 0;            Ctrl_R <= 0;            Ctrl_L <= 0;        end    endend     //operation on each statealways @(posedge clk_500hz or posedge rst) begin    if (rst) data <= {2'b00, 8'b0000_0001};    else begin            case (state)                function_set : data <= {2'b00, 8'b0011_1000};                disp_onoff : data <= {2'b00, 8'b0000_1110};                entry_mode : data <= {2'b00, 8'b0000_0110};                busy_flag :                    if (flag_save) begin                        if (in_data >= 8'h20)                            data <= {2'b10, in_data};                        else if (in_data < 8'h20) begin                            if (keep_data == 8'h12)                                data <= {2'b00, 8'b0001_1000}; // Ctrl-R                            else if (keep_data == 8'h0c)                                data <= {2'b00, 8'b0001_1100}; // Ctrl-L                            else if (keep_data == 8'h02)                                data <= {2'b00, 8'b0000_1000}; // blink_off of Ctrl-B                            else begin                                case (in_data)                                    8'h0D : data <= {2'b00, 8'b1100_0000}; // enter                                    8'h08 : data <= {2'b00, 8'b0001_0100}; //back space                                    8'h11 : data <= {2'b00, 8'b0010_0000}; // Ctrl-Q                                    8'h01 : data <= {2'b00, 8'b0001_0010}; // Ctrl-A                                    8'h03 : data <= {2'b00, 8'b0000_0001}; // Ctrl-C                                    8'h0E : data <= {2'b00, 8'b0000_1100}; // Ctrl-N                                    8'h0E : data <= {2'b00, 8'b0000_1110}; // Ctrl-U                                    8'h06 : data <= {2'b00, 8'b0000_1000}; // Ctrl-F                                    8'h1B : data <= {2'b01, 8'b0000_0000}; // esc                                    default : data <= {2'b00, 8'b00000000};                                endcase                            end                        end                    end                    else if (!flag_save) data <= {2'b01, 8'b0000_0000};                delay : data <= {2'b01, 8'b00000000};                blink_on : data <= {2'b00, 8'b0000_1100};                default : data <= {2'b01, 8'b00000000};            endcase     end // 115     // else 90end // always 87                              endmoduleThe simulation works well when writing it like this, but the operation of the LCD equipment usingthe Tera term does not work.First of all, I wonder how to put the initial values of reg and integer in one always block.Second, I wonder if the integrer data type is also not allowed to be used in multiple always blocks, such as reg"
+    ],
+    "titre": "synthesizable way to load initial values in verilog",
+    "number": "36/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "iosswiftperformancerenderingcadisplaylink"
+    ],
+    "Pseudo": "Gio Sfat",
+    "github_score_time": [
+        "        asked 6 mins agoPaul E.Paul E.1,86911 gold badge1212 silver badges1515 bronze badges"
+    ],
+    "href": "/questions/74788914/what-the-cadisplaylinks-timestamp-actually-is",
+    "contenus": [
+        "I've been playing with functionality of CADisplayLink to programmatically monitor rendering performance in an iOS app. Also spent quite some time in Instruments, of course, but curious of what it looks like in the field and for specific screens in the app.The documentation says that a CADisplayLink timer objectallows your app to synchronize its drawing to the refresh rate of the display.which makes me expect that the provided selector is called somewhat close to vsync events emitted by the underlying hardware. Also, the timestamp property is defined as follows:The time interval that represents when the last frame displayed.So I just use the two successive callbacks to figure out the on-screen duration of the frame and decide if there was a hitch or not, like so:@objc private func handleDisplayUpdate(_ displayLink: CADisplayLink) {    defer { cachedTimestamp = displayLink.timestamp }    guard let cachedTimestamp = cachedTimestamp else { return }    let frameTime = displayLink.timestamp - cachedTimestamp    if frameTime > aThreshold {      // do something lightweight    }}By using CACurrentMediaTime() call I can see that the handler is called pretty close to what the latest timestamp holds, so it is 1ms-ish behind the recent frame update. However the frameTime intervals are not always a multiple of 16.67ms (assuming the device renders @60fps): while scrolling I can observe the numbers being e.g. 25ms or 43ms.Given that frames are swapped onto the display at vsync points in time only, does the above mean that the timestamp property actually represents something else in the whole render loop?"
+    ],
+    "titre": "What the CADisplayLink's timestamp actually is?",
+    "number": "37/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "google-sheets"
+    ],
+    "Pseudo": "홍준성",
+    "github_score_time": [
+        "        asked 6 mins agoBTR NaiduBTR Naidu1,04233 gold badges1616 silver badges4242 bronze badges"
+    ],
+    "href": "/questions/74788913/populate-list-of-values-from-a-range-of-cells-based-on-certain-value-in-google-s",
+    "contenus": [
+        "I have a google sheet like thisI have xlookup formula like this in another sheet.=xlookup(1,F5:F10,E5:E10)With this formula, I can get the first total amount of sales rep id 1.What I want is that the sheet to have list of all total amounts who has sales rep id as 1.How to modify the formula such that it will reflect this?  With the current formula, if I paste in other cells, it always gives the first match which is $12.24."
+    ],
+    "titre": "Populate list of values from a range of cells based on certain value in google sheets",
+    "number": "38/50"
+}{
+    "nombre de vues": "8",
+    "type": [
+        "javascriptnode.jsreactjs"
+    ],
+    "Pseudo": "Paul E.",
+    "github_score_time": [
+        "        asked 6 mins agoAndrea Lopez BravoAndrea Lopez Bravo8722 gold badges22 silver badges99 bronze badges"
+    ],
+    "href": "/questions/74788912/problems-with-pagination-links-and-routs-with-version-6-of-node-js",
+    "contenus": [
+        "I am making a board gaming app and when I aztualized it with the last version of node , the links and routs stopped working. I saw an example here with the last version but it didn't work and search but I found examples of pagination with older versions. Can anybody told me what am I doing wrong? Thanks a lot!import ./App.css;//import { getAllCategories } from ./utils/api.js;// import { getUsername } from ./utils/api.js;//import { useState, useEffect } from react;import { Home } from ./pages/home/home.js;import { Reviews } from ./pages/review.js;import { About } from ./pages/aboutUs;import { Router, Routes, Route } from react-router-dom;import React from react;import { StyledLink } from ./styles;function App() {  return (    <section className=App>      <Router>        <Routes>          <StyledLink to=/>Home</StyledLink>          <StyledLink to=/aboutUs>About us</StyledLink>          <StyledLink to=/review>Review</StyledLink>          <Route path=/ element={<Home />} />          <Route path=aboutUs element={<About />} />          <Route path=review elemnent={<Reviews />} />        </Routes>      </Router>    </section>  );}export default App;"
+    ],
+    "titre": "Problems with pagination links and routs with version 6 of node.js",
+    "number": "39/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        " reactjsreact-hooksmaterial-uitwilio"
+    ],
+    "Pseudo": "BTR Naidu",
+    "github_score_time": [
+        "edited 4 mins agoNui",
+        "        asked 6 mins agoNuiNui111 bronze badge"
+    ],
+    "href": "/questions/74788911/how-to-use-material-ui-in-react-version-16-5-2",
+    "contenus": [
+        "I am trying to use Material UI select in react version 16.5.2 However I am unable to use useState since that hook can only be used by react 16.8.0 and above.Is there any way to use Material UI select in 16.5.2 without using useState?`import React, { useEffect, useState } from react;import { withTaskContext } from @twilio/flex-ui;import { selectCurrentEntity } from ../helpers/channelIntegrationFramework;import ./styles.css;import TextField from @material-ui/core/TextField;import FormControl from @material-ui/core/FormControl;import InputLabel from @material-ui/core/InputLabel;import MenuItem from @material-ui/core/MenuItem;class VoiceCallComponent extends React.Component {  constructor(props) {    super(props);    this.state = {      functionsBaseUrl: this.props.functionsBaseUrl,      settingsBaseUrl: this.props.settingsBaseUrl,    };        this.init();  }  init = () => {    console.log(      `Connector: -- VoiceCallComponent -- functionsBaseUrl: ${this.state.functionsBaseUrl} -- settingsBaseUrl: ${this.state.settingsBaseUrl}`    );  };  render() {    console.log(Connector: ====== render ========);    const [disposition, setDisposition] = useState();    console.log(disposition :- , { disposition });    const { task } = this.props;    return (      <div class=Twilio-TaskInfoPanel-default css-18ljn0d>        <span class=Twilio />        <h1>Notes:</h1>        <ul>          <TextField            style={{              textAlign: left,              margin: 0px,              width: 250px,              height: 55px,            }}            hintText=Message Field            floatingLabelText=Note            multiline            rows={2}            maxRows={5}            value={this.state.callnotes}            onChange={this.handleChange}          />          <p style={{ marginTop: 5px }}></p>          <label style={{ fontWeight: 700 }}>Disposition*: </label>          <FormControl fullWidth>            <InputLabel id=disposition-label>Disposition*:</InputLabel>            <select              labelId=disposition-label              id=disposition-select-label              value={disposition}              onChange={handleSelectChange}              fullWidth            >              <MenuItem value={11}>Contacted</MenuItem>              <MenuItem value={22}>Bad Number</MenuItem>              <MenuItem value={33}>Hung up on Call</MenuItem>            </select>          </FormControl></div>);}}export default withTaskContext(VoiceCallComponent);`Above code is throwing error since I am not using react version 16.8.0."
+    ],
+    "titre": "How to use Material UI in react version 16.5.2",
+    "number": "40/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "functionruntime-errorundefined"
+    ],
+    "Pseudo": "Andrea Lopez Bravo",
+    "github_score_time": [
+        "        asked 7 mins agoMike_aMike_a1"
+    ],
+    "href": "/questions/74788908/getting-an-undefinded-function-error-when-calling-file-get-contents-using-php",
+    "contenus": [
+        "Not much more to report?? I am trying to read/write a simple one line file. I can use file_put_contents() in a similar program and it works but when I try to use file_get_contents() it gives me an undefined function error?? I get the the error on the hosting site which uses php version 7.4.33 and on the localhost xamp that reports using 7.3.5.code snippetsYour system doesn't allow me to enter my code?? It gives me an error about improperly formatted code??Where is the toolbar for tabbing by 4 spaces?```Tried to read one line file with file_get_contents() and got an 'undefined function' error."
+    ],
+    "titre": "Getting an undefinded function error when calling file_get_contents() using php version 7.4.33",
+    "number": "41/50"
+}{
+    "nombre de vues": "3",
+    "type": [
+        "rdataframedata-science"
+    ],
+    "Pseudo": "Nui",
+    "github_score_time": [
+        "edited 5 mins agoAndrew Gustar16.3k11 gold badge2121 silver badges3131 bronze badges",
+        "        asked 7 mins agohighclefhighclef4755 bronze badges",
+        "        answered 3 mins agoakrunakrun837k3434 gold badges501501 silver badges619619 bronze badges",
+        "        answered 3 mins agoAllan CameronAllan Cameron121k66 gold badges3535 silver badges6666 bronze badges",
+        "        answered 31 secs agochris judechris jude35122 silver badges88 bronze badges"
+    ],
+    "href": "/questions/74788905/how-to-collapse-levels-in-a-categorical-variable-in-r",
+    "contenus": [
+        "I have various categorical variable with more than 5 levels each, I want a function that can collapse them into just two levelscolumn1<- c(bad,good,nice,fair,great,bad,bad,good,nice,            fair,great,bad)column2<- c(john,ben,cook,seth,brian,deph,omar,mary,            frank,boss,kate,sall)df<- data.frame(column1,column2)So for the data frame above, in the column1, I want to convert all bad to bad and other levels to others with a function. I have no idea how to do that.Thanks",
+        "Use an ifelse or case_whenlibrary(dplyr)df <- df %>%    mutate(column1 = case_when(column1 != bad ~ others, TRUE ~ column1))Also, as there is only a single change, we can just dodf1$column1[df1$column1 != bad] <- others",
+        "A simple way to do this in base R is with indexing:c('others', 'bad')[(df$column1 == 'bad') + 1]#> [1] bad    others others others others bad    bad   #> [8] others others others others bad  ",
+        "df<- data.frame(factor=as.factor(column1),column2)levels(df$factor)<-c(bad,rep(other,4))or"
+    ],
+    "titre": "How to collapse levels in a categorical variable in R",
+    "number": "42/50"
+}{
+    "nombre de vues": "-1",
+    "type": [
+        "pythonpandasdataframegroup-by"
+    ],
+    "Pseudo": "Mike_a",
+    "github_score_time": [
+        "edited 4 mins agoMatheus Eidi",
+        "        asked 8 mins agoMatheus EidiMatheus Eidi111 bronze badge"
+    ],
+    "href": "/questions/74788900/how-to-group-a-dataframe-and-divide-rows",
+    "contenus": [
+        "I need to group a dataframe by Day and divide the values from column Count (Clicked/Delivered)DayStatusChannelCount2022-11-08DeliveredSMS2883222022-11-08ClickedSMS11322022-11-13DeliveredSMS2462032022-11-13ClickedSMS46842022-11-19DeliveredSMS1548722022-11-19ClickedSMS12222022-11-20DeliveredSMS2537162022-11-20ClickedSMS2384I used pandas .groupby() to group by Day, but i don´t know how to specify to divide Count. Like if I needed to sum values I'd use .sum(), but there isn´t a .divide() unfortunally."
+    ],
+    "titre": "How to group a DataFrame and divide rows?",
+    "number": "43/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "javacasting"
+    ],
+    "Pseudo": "highclef",
+    "github_score_time": [
+        "edited 5 mins agoDave Newton158k2424 gold badges254254 silver badges301301 bronze badges",
+        "        asked 8 mins agoKowa FuumaKowa Fuuma1"
+    ],
+    "href": "/questions/74788899/ive-been-having-a-trouble-understanding-casting-in-java",
+    "contenus": [
+        "I'm still new in java and have struggling to solve this problem regarding casting(my friend told me), what i wanted to do was a binary search and it was to answer a test questionpublic static void searchCookies(ArrayList cookiesAL, double search){            int firstIndex = 0, lastIndex = cookiesAL.size()-1, middle;     boolean enable = false;      while (lastIndex>=firstIndex)     {     middle = (firstIndex+lastIndex)/2;     if(cookiesAL.get(middle).equals(search))     {     enable = true;     break;     }          if (((PracticalDec222)cookiesAL.get(middle))<=search)     lastIndex=middle-1;     else     firstIndex=middle+1;     }     if(enable)     System.out.println(name+search+was found at index+middle);     else      System.out.print(search elemenent was not found);   }enter image description here"
+    ],
+    "titre": "I've been having a trouble understanding casting in Java",
+    "number": "44/50"
+}{
+    "nombre de vues": "7",
+    "type": [
+        "javadata-structures"
+    ],
+    "Pseudo": "Matheus Eidi",
+    "github_score_time": [
+        "        asked 8 mins agoTheJoJoTheJoJo1"
+    ],
+    "href": "/questions/74788898/hash-table-word-count",
+    "contenus": [
+        "At the following code is the wordCountpublic List<Link<String, Integer>> countWords(String filename) throws IOException {        List<String> lines = readFile(filename);        for(String line : lines) {            line = removePunctuation(line);            List<String> words = splitLineIntoWords(line);            for(String word : words) {                // lowercase the word to count all capitalization as same word                word = word.toLowerCase().trim();                if(word.isBlank()) {                    continue;                }                // TODO implement                // Does this word exist in the hash table?                // If not, create a new entry with the word as the key                // and the data is the integer 1 (to represent one instance of the word)                // If the value does exist, update the node's data to add 1 to the count                // because another instance of the word has been found                Link<String, Integer> wordLink = wordMap.find(word);                if (wordLink != null) {                    // If the word exists, update the value to add 1 to the count                    wordMap.insert(word, wordMap.hashFunc(word) + 1);                } else {                    // If the word doesn't exist, add the word as a new key with a value of 1                    wordMap.insert(word, 1);                }            }        }When I run the test file it failed the results shows :Expected:4428Actual: 32304The actual results is wordCount number is too big it goes to 32304, even though when add uniqueword method the wordCount still too big not close to the expected number"
+    ],
+    "titre": "Hash table word count",
+    "number": "45/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "pythonrecursion"
+    ],
+    "Pseudo": "Kowa Fuuma",
+    "github_score_time": [
+        "        asked 8 mins agoLyric CrayonLyric Crayon1544 bronze badges"
+    ],
+    "href": "/questions/74788897/import-game-files-into-a-dictionary",
+    "contenus": [
+        "I am trying to create a game and I am trying to organize my pictures and sounds into a dictionary.The expected format is as follows:Media = {Images: {Backgrounds: ['EarthGround.png', 'MarsGround.png', ...], Sprites: [...]}, Sounds: [click.wav, ...]} is an image of the folder format.I have written the following code:`Media = {}def sortFiles(directory):    for x in os.listdir(directory):        if os.path.isdir(f'{directory}/{x}'):            Media[x] = sortFiles(f'{directory}/{x}')        elif os.path.isfile(f'{directory}/{x}'):            return [file for file in os.listdir(directory) if os.path.isfile(f'{directory}/{file}')]sortFiles(Media)print(Media)`And the following is the output:{'Backgrounds': ['EarthGround.png', 'MarsGround.png'], 'Buttons': None, 'Icons': ['selectionBar.png'], 'Main': ['base.png'], 'Planets': None, 'Sprites': None}As shown, the keys Backgrounds and Sprites aren't in Images as expected (Images: {Backgrounds: ..., Sprites: ...}).How can I fix this?"
+    ],
+    "titre": "Import game files into a dictionary",
+    "number": "46/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "pythonpython-3.xpip"
+    ],
+    "Pseudo": "TheJoJo",
+    "github_score_time": [
+        "        asked 8 mins agouser14354511user143545114355 bronze badges"
+    ],
+    "href": "/questions/74788896/how-do-i-fix-pip-after-updating-python",
+    "contenus": [
+        "I used to use python 3.9, but I recently updated to 3.11, but pip was acting up. When I entered pip install <the library I wanted to install> it gave me an error saying:Fatal error in launcher: Unable to create process using 'C:\\Program Files\\Python39\\python.exe  C:\\Program Files\\Python39\\Scripts\\pip.exe install keyboard': The system cannot find the file specified.I searched on chrome but there was no answer I could use.How do I fix this error? Thanks!"
+    ],
+    "titre": "How do I fix pip after updating python?",
+    "number": "47/50"
+}{
+    "nombre de vues": "9",
+    "type": [
+        "pythontelegramtelethonpy-telegram-bot-api"
+    ],
+    "Pseudo": "Lyric Crayon",
+    "github_score_time": [
+        "        asked 8 mins agoShwanShwan311 silver badge44 bronze badges"
+    ],
+    "href": "/questions/74788894/how-to-get-the-telegram-group-name-by-group-id",
+    "contenus": [
+        "I have a list of telegram groups IDs that I want to get the equivalent group names (link would be good too) to those IDs. Any Suggestions?"
+    ],
+    "titre": "How to get the telegram group name by group id",
+    "number": "48/50"
+}

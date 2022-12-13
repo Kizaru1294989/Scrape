@@ -1,0 +1,800 @@
+{
+    "nombre de vues": "0",
+    "type": [
+        "sqlsql-server"
+    ],
+    "Pseudo": "LeoSucksAtCoding",
+    "github_score_time": [
+        "edited 4 mins agoJohn Cappelletti76k66 gold badges4343 silver badges6565 bronze badges",
+        "        asked 9 mins agoDeterDeter1133 bronze badges",
+        "        answered 35 secs agoJohn CappellettiJohn Cappelletti76k66 gold badges4343 silver badges6565 bronze badges"
+    ],
+    "href": "/questions/74788888/sql-converting-columns-into-row",
+    "contenus": [
+        "Can some please help to write a query which gives me the desired output as shown in Table2? Table 1 will always display one record (row)Table 1: Current output| ColumnA | ColumnB |ColumnC |ColumnD|| Cell 1   | Cell 2   | Cell 3   | Cell 4   |Table 2: Desired Output| NewColumn1 | NewColumn2|| -------- | -------- || ColumnA  | Cell 1  || ColumnB  | Cell 2 || ColumnC  | Cell 3  || ColumnD| Cell 4 |Unpivot didn't work for me",
+        "If the source will always be one record Select [Key]       ,[Value]  From  OpenJson(  (Select * From YourTable For JSON Path,Without_Array_Wrapper )  ) ResultsKey     ValueColumnA Cell 1ColumnB Cell 2ColumnC Cell 3ColumnD Cell 4"
+    ],
+    "titre": "SQL: Converting columns into row",
+    "number": "1/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        " google-cloud-platformterraformterraform-provider-gcpgoogle-secret-manager"
+    ],
+    "Pseudo": "Alex",
+    "github_score_time": [
+        "        asked 9 mins agoJohnJohn133 bronze badges"
+    ],
+    "href": "/questions/74788887/terraform-deletes-google-secrets-version",
+    "contenus": [
+        "My code is as below:# Enable API for Secret Managerresource google_project_service secret_manager {  project            = buoyant-valve-34  service            = secretmanager.googleapis.com  disable_on_destroy = true}resource google_secret_manager_secret secret-basic {  secret_id = new-secret-by-me  project   = buoyant-valve-34  replication {    automatic = true  }}resource google_secret_manager_secret_version secret-version-basic {  secret      = google_secret_manager_secret.secret-basic.id  secret_data = very-secret}The problem is when I change the secret_data (say very-secret2) the terraform destroys the previous version instead of keeping it as it is.I have also tried adding the below lifecycle block but no help it shows Error: Instance cannot be destroyedlifecycle {    prevent_destroy = true  }How to avoid this issue ?(In image please ignore version 6 I have created it manually)enter image description here"
+    ],
+    "titre": "Terraform deletes google secrets version",
+    "number": "2/50"
+}{
+    "nombre de vues": "13",
+    "type": [
+        "javascripthtmlfrontend"
+    ],
+    "Pseudo": "Deter",
+    "github_score_time": [
+        "        asked 9 mins agoTahirTahir122 bronze badges"
+    ],
+    "href": "/questions/74788884/how-can-i-associate-text-box-with-radio-button-group",
+    "contenus": [
+        "I am trying to prepare a simple form. My form has 3 radio buttons and 1 text/numeric input box.This is supposed work like this, user can choose to click on radio 1,2 or 3 that is alright, but if the user chooses to click radio 4, it reveals a text box where user can input text. So saying this simple, the user input from radio 1 or 2 or 3 or text box only is collected. But i am not able to do this....phew....and i can collect user input upon form submission but don't have any idea how to restrict user only to choose 1 option out of these 4.<div class=panel-group id=accordion>    <div class=panel panel-default>      <div class=panel-heading>        <h4 class=panel-title>          <a data-toggle=collapse data-parent=#accordion href=#collapse1>Present</a>        </h4>      </div>      <div id=collapse1 class=panel-collapse collapse in>        <div class=panel-body><input class=form-control input-lg text-left name=1 id=1 type=text></div>      </div>    </div>    <div class=panel panel-default>      <div class=panel-heading>        <h4 class=panel-title>          <a data-toggle=collapse data-parent=#accordion href=#collapse2>Absent</a>        </h4>      </div>      <div id=collapse2 class=panel-collapse collapse>        <div class=panel-body><input type=radio id=Absent name=jan1 value=Absent></div>      </div>    </div>    <div class=panel panel-default>      <div class=panel-heading>        <h4 class=panel-title>          <a data-toggle=collapse data-parent=#accordion href=#collapse3>Holiday</a>        </h4>      </div>      <div id=collapse3 class=panel-collapse collapse>        <div class=panel-body><input type=radio id=Holiday name=jan1 value=Holiday></div>      </div>    </div>  </div> "
+    ],
+    "titre": "How can I associate text box with radio button group",
+    "number": "3/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "swiftsvg"
+    ],
+    "Pseudo": "John",
+    "github_score_time": [
+        "        asked 9 mins agomartin wottermanmartin wotterman10566 bronze badges"
+    ],
+    "href": "/questions/74788883/svg-html-string-to-uiimage",
+    "contenus": [
+        "I have a svg html sting, it looks like that:   let svg =             <svg aria-hidden=true class=pre-logo-svg focusable=false viewbox=0 0 24 24 role=img width=60px height=60px fill=none>             <path fill=currentColor fill-rule=evenodd d=M21 8.719L7.836 14.303C6.74 14.768 5.818 15 5.075 15c-.836 0-1.445-.295-1.819-.884-.485-.76-.273-1.982.559-3.272.494-.754 1.122-1.446 1.734-2.108-.144.234-1.415 2.349-.025 3.345.275.2.666.298 1.147.298.386 0 .829-.063 1.316-.19L21 8.719z clip-rule=evenodd></path> </svg>            I want to load it into an UIImageView. So I convert it to data and use it in an UIImage let data = Data(svg.utf8) imageView.image = UIImage(data: data)but UIImage(data: data) is nil, so I use SVGKitlibrary to do that let data = Data(svg.utf8) let svgImage = SVGKImage(data: data) imageView.image = svgImage?.uiImageBut it's same, could anyone help me on itThanks"
+    ],
+    "titre": "svg html string to UIImage",
+    "number": "4/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "javascriptangularangular-cli"
+    ],
+    "Pseudo": "Tahir",
+    "github_score_time": [
+        "        asked 9 mins agoSizorSizor522 bronze badges"
+    ],
+    "href": "/questions/74788882/angular-javascript-imported-but-they-do-nothing",
+    "contenus": [
+        "I am trying import some js files into my new angular project, this is my angular.json:assets: [          src/favicon.ico,          src/assets,          src/assets/js        ],        styles: [          src/styles.css,          src/assets/css/theme.bundle.css,          src/assets/css/libs.bundle.css,          src/assets/css/theme-sans-serif.bundle.css        ],        scripts: [          src/assets/js/demo.bundle.js,          src/assets/js/theme.bundle.js,          src/assets/js/vendor.bundle.js        ]console don't write any path errors, so they should be imported, but they do nothing, css import works.And i don't even see scripts in f12scriptsWhat I am doing wrong? Thanks!"
+    ],
+    "titre": "Angular javascript imported but they do nothing",
+    "number": "5/50"
+}{
+    "nombre de vues": "4",
+    "type": [
+        "pythonnumpyhdf5"
+    ],
+    "Pseudo": "martin wotterman",
+    "github_score_time": [
+        "        asked 10 mins agoadeljalalyousifadeljalalyousif13211 silver badge66 bronze badges"
+    ],
+    "href": "/questions/74788877/how-to-create-hdf5-file-from-numpy-dataset-files",
+    "contenus": [
+        "I have 1970 .npy files as features for MSVD dataset. I want to create one .hdf5 file from these numpy files."
+    ],
+    "titre": "how to create hdf5 file from numpy dataset files",
+    "number": "6/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "azure-sql-databasealways-encrypted"
+    ],
+    "Pseudo": "Sizor",
+    "github_score_time": [
+        "        asked 10 mins agozenzen4511 silver badge77 bronze badges"
+    ],
+    "href": "/questions/74788874/always-but-always-encrypted-azure-sql-database-how-to-achieve",
+    "contenus": [
+        "Is there a way to have an always encrypted database?I mean no system admin, no one to be able to read the data. Once encrypted the data to stay encrypted forever.This is a database for an application with many customers (authentication done via email/password).Could this be achieved with a PIN that the customer has to enter besides their credentials?The data is encrypted with the PIN and that's it, only if they enter the PIN will customers be able to see their data un-encrypted.If they lose the PIN that's it, the data is un-recoverable."
+    ],
+    "titre": "Always, but Always, Encrypted Azure SQL Database, how to achieve",
+    "number": "7/50"
+}{
+    "nombre de vues": "1",
+    "type": [
+        "pythonmatplotlibpython-dateutil"
+    ],
+    "Pseudo": "adeljalalyousif",
+    "github_score_time": [
+        "        asked 11 mins agoGila LinzerGila Linzer1",
+        "        answered 8 mins agoeemamedoeemamedo30811 gold badge55 silver badges1313 bronze badges"
+    ],
+    "href": "/questions/74788872/how-to-fix-upgrade-import-error-from-dateutil-on-matplotlib",
+    "contenus": [
+        "Traceback (most recent call last):File /Users/gilalinzer/Desktop/linux/combineData.py, line 4, in import matplotlib.pyplot as pltFile /Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/matplotlib/init.py, line 214, in _check_versions()File /Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/matplotlib/init.py, line 210, in _check_versionsraise ImportError(fMatplotlib requires {modname}>={minver}; ImportError: Matplotlib requires dateutil>=2.7; you have 2.2I do have dateutil installed and when I try to reinstall it my terminal says requirement already satisfied. It doesn't seem like there's a way I can get the newer version.",
+        "You can uninstall dateutil and then re-install it. That will install the correct version.Another option is to do pip install without uninstalling dateutil first. Requirement satisfied is for a part of the package but not for entire one. After you install, run pip list | grep dateutil to see the version."
+    ],
+    "titre": "how to fix upgrade import error from dateutil on matplotlib",
+    "number": "8/50"
+}{
+    "nombre de vues": "15",
+    "type": [
+        "godotgdscript"
+    ],
+    "Pseudo": "zen",
+    "github_score_time": [
+        "edited 5 mins agoMarco Mulgado",
+        "        asked 11 mins agoMarco MulgadoMarco Mulgado111 bronze badge"
+    ],
+    "href": "/questions/74788870/invalid-get-index-0-on-base-array",
+    "contenus": [
+        "Iam doing a game in godot and i dont know why appears me that error, is just for save some costs in an array to next choose the most cheap.The error is commented, is almoust in the bottom of the code. I did a little changes in the 2D screen and the error started to appears me#Algoritmo de busqueda A*extends KinematicBody2Donready var position_pacman = get_parent().get_node(Pacman)onready var paredes = get_parent().get_node(Paredes)var pos_fantasma_rojo = Vector2() #Almacena la posicion xy del fantasmavar pos_player = Vector2() #Almacena la posicion xy del jugador var posible_celda_expansion = Vector2() #Casilla a comprobar expansionesvar hijo = Vector2() #Nodo que almacena una posicion de la expansionvar celdas = []var comprobar_hijos = Vector2()var primer_elemento = Vector2()var lista_hijos = []var celda_actual = []var funcionvar timer var lista_costos = [] var costo_minimo var indice_costo_minimo var valor_heuristicavar zero = 0func hijo_abajo():    comprobar_hijos = Vector2(0,0)    comprobar_hijos.x = ((posible_celda_expansion.x-4)/8)    comprobar_hijos.y = ((posible_celda_expansion.y-4)/8)+1    hijo = posible_celda_expansion#   print(Comprobar hijos abajo:, comprobar_hijos)    if comprobar_hijos in celdas:        hijo.y += 8        funcion = distancia_Manhattan(hijo) + heuristica(hijo)        lista_costos.append(funcion)        lista_hijos.append(hijo)func evaluacion():#   print(Costos:, lista_costos)    costo_minimo = lista_costos[zero] #THERE IS THE PROBLEM! !!!!!!!!!!!!!#   print(Costo minimo:, costo_minimo)    for i in range(1, len(lista_costos)):        if lista_costos[i] < costo_minimo:            costo_minimo = lista_costos[i]    indice_costo_minimo = lista_costos.find(costo_minimo, 0)#   print(Indice costo minimo:, indice_costo_minimo)func astar():#   print(Celda actual:, celda_actual)    if len(celda_actual) > 1:        primer_elemento = celda_actual[indice_costo_minimo]#       print(Primer elemento if:, primer_elemento)    else:        primer_elemento = celda_actual[0]#       print(Primer elemento else:, primer_elemento)    posible_celda_expansion = primer_elemento#   print(Posible celda expansion:, posible_celda_expansion)    hijo_arriba()    hijo_izquierda()    hijo_abajo()    hijo_derecha()        I have to tried, change the '0' for a var with value 0 but it do not worked"
+    ],
+    "titre": "invalid get index '0' on base array",
+    "number": "9/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "python"
+    ],
+    "Pseudo": "Gila Linzer",
+    "github_score_time": [
+        "edited 4 mins agoRandom Davis6,21633 gold badges1313 silver badges2424 bronze badges",
+        "        asked 11 mins agoPriyanka SharmaPriyanka Sharma1"
+    ],
+    "href": "/questions/74788867/need-help-for-this-python-programs",
+    "contenus": [
+        "Closed. This question needs to be more focused. It is not currently accepting answers.\r                        \r                    Want to improve this question? Update the question so it focuses on one problem only by editing this post.Closed 7 mins ago.\r                        Improve this question\r                    Problem statement: Implement a class Point that has three properties and a method. All these attributes (properties and methods) should be public. This problem can be broken down into two tasks: Task 1: 👉 Implement a constructor to initialize the values of three properties: x, y, and z. Task 2: 👉 Implement a method, sqSum(), in the Point class which squares x, y, and z and returns their sum. Sample properties 1, 3, 5 Sample method output 35 Coding exercise Create a class Point with three properties: x, y, and z. class Point:   def __init__(self):       self.x = x       self.y = y       self.z = z   def sqSum(self):       passImplement the complete Student class by completing the tasks below Task 👉 Implement the following properties as private: • name • rollNumber 👉 Include the following methods to get and set the private properties above: • getName() • setName() • getRollNumber() • setRollNumber() 👉 Implement this class according to the rules of encapsulation. Input - Checking all the properties and methods Output - Expecting perfectly defined fields and getter/setters Note: Do not use initializers to initialize the properties. Use the set methods to do so. If the setter is not defined properly, the corresponding getter will also generate an error even if the getter is defined properly. Coding exercise class Student:   def setName(self):       pass   def getName(self):       pass   def setRollNumber(self):       pass   def getRollNumber(self):       pass3)Implement the basic structure of a parent class, Account, and a child class, SavingsAccount. Task 1 👉 Implement properties as instance variables, and set them to None or 0. Account has the following properties: • title • Balance SavingsAccount has the following properties: • interestRate Task 2 Create an initializer for Account class. The order of parameters should be the following, where Ashish is the title, and 5000 is the account balance: Account(Ashish, 5000) Task 3 Implement properties as instance variables, and set them to None or 0. Create an initializer for the SavingsAccount class using the initializer of the Account class in the order below: Account(Ashish, 5000, 5) Here, Ashish is the title and 5000 is the balance and 5 is the interestRate. Coding exercise class Account:   def __init__(self):       # write your code here       passclass SavingsAccount():   def __init__(self):       # write your code here       Pass4)Problem statement In this challenge, we will be extending the previous challenge and implementing methods in the parent class and its corresponding child class. The initializers for both classes have been defined for you. Task 1 In the Account class, implement the getBalance() method that returns balance. Task 2 In the Account class, implement the deposit(amount) method that adds amount to the balance. It does not return anything. Sample input balance = 2000 deposit(500) getbalance() Sample output 2500 Task 3 In the Account class, implement the withdrawal(amount) method that subtracts the amount from the balance. It does not return anything. Sample input balance = 2000 withdrawal(500) getbalance() Sample output 1500 Task 4 In the SavingsAccount class, implement an interestAmount() method that returns the interest amount of the current balance. Below is the formula for calculating the interest amount: Interest rate = interest rate *balance/100 Sample input balance = 2000 interestRate = 5 interestAmount() Sample output Note: A new SavingsClass object is initialized at the end of the code and test results will be based on it. class Account:   def __init__(self, title=None, balance=0):       self.title = title       self.balance = balance   def withdrawal(self, amount):       # write code here       pass   def deposit(self, amount):       # write code here       pass   def getBalance(self):       # write code here       passclass SavingsAccount(Account):   def __init__(self, title=None, balance=0, interestRate=0):           super().__init__(title, balance)           self.interestRate = interestRate    <br>   def interestAmount(self):       # write code here       pass#code to test - do not edit this <br>demo1 = SavingsAccount(Ashish, 2000, 5) # initializing a SavingsAccount object <br>Can anybody please help me in that"
+    ],
+    "titre": "Need help for this python programs [closed]",
+    "number": "10/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "phpstan"
+    ],
+    "Pseudo": "Marco Mulgado",
+    "github_score_time": [
+        "        asked 11 mins agoThomas BaierThomas Baier40633 silver badges88 bronze badges"
+    ],
+    "href": "/questions/74788865/parameter-1-object-of-method-expects-x-given-y-abstract-entities",
+    "contenus": [
+        "I have a abstract class User:abstract class Userand a child of User, Administrator:class Administrator extends UserWhen i create a new Administrator and want to persist with this signature:public function persist(Administrator $object): void$this->repo->persist(new Administrator())PHPSTAN is complaining:Parameter #1 $object of method AdministratorRepository::persist() expects Administrator, User givenWhy it thinks it's User where i am instantiating an new Administrator directly?I think its about Covariance and Contravariance but cant figure out how to tell PHPSTAN correctly?I checked the https://phpstan.org/blog/whats-up-with-template-covariant but did not get a solution to work properly."
+    ],
+    "titre": "Parameter #1 $object of method expects x given y - abstract entities",
+    "number": "11/50"
+}{
+    "nombre de vues": "4",
+    "type": [
+        "react-nativetooltipreact-native-cli"
+    ],
+    "Pseudo": "Priyanka Sharma",
+    "github_score_time": [
+        "        asked 11 mins agoNauman ZafarNauman Zafar1,0531414 silver badges3939 bronze badges"
+    ],
+    "href": "/questions/74788863/getting-top-left-of-a-text-component",
+    "contenus": [
+        "I am looking to find the top/left position of each Text component. This will sound a bit odd but I tried this and it was giving me left & top keys for each Text component. I was testing it on a Snack.A few hours later, I try this again & now the top & left are missing from this. Checked the documentation as well. They don't mention top & left for onLayout callback.Actually I need to show a tooltip & need to position it. Any pointers, please<View style={{ flexDirection: 'row', flexWrap: 'wrap'}}> {textArr.map((text, idx) => {   return (    <Text      onLayout={event => {        // this was giving me x,y,width,height,top,left values        console.log(event.nativeLayout.layout);      }}    >      {text}    </Text>   ); })}</View>"
+    ],
+    "titre": "Getting Top/Left of a Text Component",
+    "number": "12/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "node.jstypescriptnestjspapertrail-appnest-winston"
+    ],
+    "Pseudo": "Thomas Baier",
+    "github_score_time": [
+        "        asked 12 mins agonb_nb_nbnb_nb_nb1,05999 silver badges2727 bronze badges"
+    ],
+    "href": "/questions/74788861/simple-task-scheduling-app-using-nestjs-not-returning-log",
+    "contenus": [
+        "I am trying to do a simple task schedule and want to get papertrail logs. But before that, all I am trying to set up is a simple scheduling app.My code: app.module.tsimport { Module } from '@nestjs/common';// import { AppController } from './app.controller';import { AppService } from './app.service';import { ScheduleModule } from '@nestjs/schedule';@Module({  imports: [    ScheduleModule.forRoot()    ],  // controllers: [AppController],  providers: [AppService],})export class AppModule {}app.controller.tsimport { Controller, Inject, Get, Injectable, Logger } from '@nestjs/common';import { AppService } from './app.service';// import { WINSTON_MODULE_PROVIDER } from 'nest-winston';// import { Logger } from 'winston';import { Cron, CronExpression } from '@nestjs/schedule';@Injectable()export class TasksService {  private readonly logger = new Logger(TasksService.name);  @Cron(CronExpression.EVERY_5_SECONDS)  handleCron() {    this.logger.log('Called when the current second is 5');  }}My app is running but I am not seeing a log every 5 seconds. Am I supposed to add something other files (app.controller.spec.ts, app.service.ts)? I am very new to Typescript programming."
+    ],
+    "titre": "Simple task scheduling app using Nestjs not returning log",
+    "number": "13/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "javascriptbigcommerce"
+    ],
+    "Pseudo": "Nauman Zafar",
+    "github_score_time": [
+        "        asked 12 mins agoBueller CBueller C1"
+    ],
+    "href": "/questions/74788859/i-have-a-button-that-i-would-only-like-to-display-up-to-90days-after-the-order-d",
+    "contenus": [
+        "I use BigCommerce, and would like to only show a Return button on the order page 2 days after, up until 90days after an order is placed.The Order Date format is like this: 2022 Nov 22ndOrder date is generated by {{order.date}}The code for the Return button is: {{lang 'account.orders.details.return'}}I have tried modifying a countdown code I use for banners, but I don't understand how to process the date format that is given by BigCommerce."
+    ],
+    "titre": "I have a button that I would only like to display up to 90days after the order date, and then it should not be shown",
+    "number": "14/50"
+}{
+    "nombre de vues": "11",
+    "type": [
+        "pipcv2pydroid"
+    ],
+    "Pseudo": "nb_nb_nb",
+    "github_score_time": [
+        "edited 11 mins agoحمزة",
+        "        asked 12 mins agoحمزةحمزة111 bronze badge"
+    ],
+    "href": "/questions/74788858/i-have-pydroid-pro-but-when-i-tried-to-download-the-cv2-library-it-didnt-accept",
+    "contenus": [
+        "I have pydroid pro but when I tried to download the cv2 library it didn't accept the download and it gives me this errorenter image description hereI downloaded it via the terminal and it didn't work either"
+    ],
+    "titre": "I have pydroid pro but when I tried to download the cv2 library it didn't accept the download and it gives me this error",
+    "number": "15/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "pythonpandasnumpyscipypeak-detection"
+    ],
+    "Pseudo": "Bueller C",
+    "github_score_time": [
+        "        asked 12 mins agoAparna AppuAparna Appu10577 bronze badges"
+    ],
+    "href": "/questions/74788854/peak-finding-algorithm-using-python-and-scipy",
+    "contenus": [
+        "I have vehicle data of speed vs time where y axis is speed and x axis is the time. I need to count the number of accelerations of a vehicle. the peaks has to be detected where peak lower values is in between 0 to 13 and peak upper value is in between 20 to 25 how to detect thisthis is the code i usedimport numpy as npfrom scipy.signal import find_peaks, find_peaks_cwtimport matplotlib.pyplot as pltx=np.array([ 0, 14,  9,  0,  0,  7,  0,  0, 12, 16, 15, 11,  7, 20, 24, 13, 13,       14, 19, 13, 12, 10,  7,  3,  3,  3, 25, 14, 14, 14,  7, 24, 20, 20,       21, 20, 20, 20, 20, 20, 21, 16, 11, 11, 18, 22, 22, 20, 19, 19, 18,       15, 20, 23, 21, 23, 24, 15, 16, 19, 25, 24,  0, 20, 23, 24, 23, 22,       21, 23, 25, 28, 24, 23, 23, 17,  7, 11, 21, 25, 25, 25, 25, 25, 25,       15, 13,  9,  0, 21, 10, 18, 25, 25, 26, 23, 25, 23, 25, 27, 25, 12,        0,  0,  0, 19, 22, 24, 25, 25, 24, 24, 23, 23, 16, 19, 23, 24, 24,       17,  8,  0,  9,  7, 11, 18, 20, 23, 23, 24, 25, 25, 25, 17, 24, 24])zero_locs = np.where(x<13 ) # find zeros in xsearch_lims = np.append(zero_locs, len(x)) # limits for search areadiff_x = np.diff(x) # find the derivative of xdiff_x_mapped = diff_x >13   # find the max's of x (zero crossover peak_locs = []for i in range(len(search_lims)-2):    peak_loc = search_lims[i] + np.where(diff_x_mapped[search_lims[i]:search_lims[i+1]]==0)[0][0]    if x[peak_loc] > 20 and x[peak_loc] <25:        peak_locs.append(peak_loc)fig= plt.figure(figsize=(19,5))plt.plot(x)plt.xlim(0,100)plt.plot(np.array(peak_locs), x[np.array(peak_locs)], x, color = 'r'above code I used but not able to find the peaks properly.this is my out expected out put marked I am new to the python I don't know where I am missing thanks in advance"
+    ],
+    "titre": "Peak finding algorithm using python and SciPy",
+    "number": "16/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "javascriptredirectdns"
+    ],
+    "Pseudo": "حمزة",
+    "github_score_time": [
+        "edited 7 mins agoMasood Alam",
+        "        asked 12 mins agoMasood AlamMasood Alam32155 silver badges1313 bronze badges",
+        "        answered 6 mins agofk07500fk075004911 silver badge33 bronze badges"
+    ],
+    "href": "/questions/74788853/check-if-a-port-is-open-on-an-ip-address",
+    "contenus": [
+        "I'm hosting a website on Godaddy and I've create an A record to my WiFi router's IP address like (000.00.46.22)|Name|Type|Value|TTL||----|----|-----|---||beta|A   |000.00.46.22|60|and I've created a Virtual server on my router to my Computer's IP address. So, when any web application run on 192.168.0.100:3000, then app will be accessible using the IP address of my router over internet like http://beta.example.com.But, when port 3000 is closed browser loads for almost 30 seconds then shows the message This site can't be reached.So, I want to create a Javascript server which will run on another domain or sub-domain then it will check if that IP address is online then redirect the Application running on it and if it is offline then show an static webpage.",
+        "To create a javascript server that runs on another domain or subdomain and checks if an IP address is online, you can use the Node.js http module to create a server that listens for HTTP requests and responds accordingly. Here is an example of how you might implement this:const http = require('http');const dns = require('dns');// Replace with the IP address you want to checkconst targetIP = '1.2.3.4';http.createServer((req, res) => {  // Check if the target IP address is online  dns.lookup(targetIP, (err, address) => {    if (err) {      // If the IP address is offline, show a static webpage      res.writeHead(200, {'Content-Type': 'text/html'});      res.write('<h1>Sorry, the target IP address is offline</h1>');      res.end();    } else {      // If the IP address is online, redirect to the application running on it      res.writeHead(302, {Location: `http://${targetIP}`});      res.end();    }  });}).listen(80); // Listen for HTTP requests on port 80This server listens for HTTP requests on port 80, and checks if the target IP address is online using the dns.lookup() function. If the IP address is online, the server sends a redirect response to the browser, pointing it to the application running on the target IP address. If the IP address is offline, the server sends a response with a static HTML page that informs the user that the target IP address is offline.Note that this server will only work if the target IP address is running a web server that is accessible from the internet. You may also need to configure your DNS settings and/or firewall to allow incoming traffic to the server."
+    ],
+    "titre": "Check if a port is open on an IP address",
+    "number": "17/50"
+}{
+    "nombre de vues": "7",
+    "type": [
+        "pythondictionary"
+    ],
+    "Pseudo": "Aparna Appu",
+    "github_score_time": [
+        "        asked 12 mins agoDivya SharmaDivya Sharma1"
+    ],
+    "href": "/questions/74788852/how-to-create-repository-using-with-open-function",
+    "contenus": [
+        "It's a simple question I'm able to did it using dict() function but not getting result using with open() function.I'm expecting results using with open() function."
+    ],
+    "titre": "How to create repository using with open function",
+    "number": "18/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "pythonfile-writingcodio"
+    ],
+    "Pseudo": "Masood Alam",
+    "github_score_time": [
+        "        asked 12 mins agoJerry JonesJerry Jones111 bronze badge"
+    ],
+    "href": "/questions/74788851/im-a-beginner-looking-for-some-advice-on-my-code-any-information-would-be-grea",
+    "contenus": [
+        "Closed. This question needs to be more focused. It is not currently accepting answers.\r                        \r                    Want to improve this question? Update the question so it focuses on one problem only by editing this post.Closed 3 mins ago.\r                        Improve this question\r                    I've been working on this code for sometime now but I'm still off just barely from getting my desired output. The following is the output I'm going for followed by the output I keep getting stuck on.Desired output:Code outputMy output:Code output 2As you can see it seems to stop working after printing the two Presidential Parties. I've debugged and gone over my code countless times and I can't quite figure out what's going wrong.Here is my code so you can see my process. Again I've just started coding so if you see anything bad I'm happy to hear it so I can fix up my program.def mr_president(file_1):    '''    Description: Takes a file object and makes dictionaries for the years the    president served, and one for the party the president belonged to    Requires: File Object    Returns: Two dictionaries    '''    president = {}    parties = {}    for line in file_1:        line = line.strip()        tmp_list = line.split(',')        parties[tmp_list[0]] = tmp_list[1]        slice_1 = tmp_list[2: ]        for i in slice_1:            president[int(i)] = tmp_list[0]    return president, partiesdef parse_data(file_1):    '''    Description: Takes a file object and makes a list of lists, containing all the data values as strings    Requires:File object    Returns:List of lists or raw data    '''    data = []    line_num = 1    for line in file_1:        if line_num > 12:            line = line.strip()            tmp_list = line.split(',')            data.append(tmp_list)            line_num += 1    return datadef get_totals(data, presidents):    '''    Description: Takes a list of raw data, and a dictionary of years and the associated president.    It then creates an output list, with the total jobs and their associated president    Requires: List data, Dictionary presidents    Returns: List output    '''    output = []    pre_output = {}    for i in data:        i[0] = int(i[0])        try:            pre_output[presidents[i[0] - 1]].append(i[1])            pre_output[presidents[i[0]]].extend(i[1: ])        except KeyError:            pre_output[presidents[i[0]]] = []            pre_output[presidents[i[0]]].extend(i[1: ])    #for i in pre_output:    for i,k in pre_output.items():        i = pre_output[k]        tmp_list = [k]        before = int(k[0])        total = 0        j = _        #for j in k:        if j == '':            continue        j = int(j)        total += j - before        before = j        tmp_list.append(total)        output.append(tmp_list)    return outputdef print_output(output, parties):    '''    Description: Takes the number of jobs each president has created or destroyed as a list of lists.    It also takes a dictionary, parties so the presidents may be separated    Requires: List output, and Dictionary parties    Returns: None, but prints output to the console.    '''    with open ('conslusions.md', 'w') as book:        rep_total = 0        dem_total = 0        book.write(Republicans:)        for i in output:            if parties[i[0]] == Republican:                rep_total += i[1]                if i[1] > 0:                    print(i[0], :, abs(round(i[1] / 1000, 1)), Million created jobs)                else :                    print(i[0], :, abs(round(i[1] / 1000, 1)), Million lost jobs)        book.write(\\nTotal jobs created: + str(abs(round(rep_total / 1000, 1))) + Million jobs)        book.write(\\n----------\\n)        book.write(Democrats:)        for i in output:            if parties[i[0]] == Democrat:                dem_total += i[1]                if i[1] > 0:                    book.write(i[0], :, abs(round(i[1] / 1000, 1)), Million created jobs)                else:                    book.write(i[0], :, abs(round(i[1] / 1000, 1)), Million lost jobs)                    book.write(\\nTotal jobs created:, abs(round(dem_total / 1000, 1)), Million jobs)                    book.write(\\n----------\\n)                    book.write(The numbers overall are accurate but the individual numbers are off because of terms ending too soon.)                    book.write(This data show that while president clinton's numbers were off, his point still stands.)def main():    '''    Description: Main function that calls everything    Requires: None    Returns: None'''    with open('presidents.txt', 'r') as president_file:        with open('BLS_private.csv', 'r') as data_file:            presidents, parties = mr_president(president_file)            data = parse_data(data_file)            output = get_totals(data, presidents)            print_output(output, parties)            president_file.close()            data_file.close()if __name__ == __main__:    main()"
+    ],
+    "titre": "I'm a beginner looking for some advice on my code. Any information would be greatly appreciated [closed]",
+    "number": "19/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "dockerportainerlocal-network"
+    ],
+    "Pseudo": "Divya Sharma",
+    "github_score_time": [
+        "edited 9 mins agoRitZz",
+        "        asked 12 mins agoRitZzRitZz922 bronze badges"
+    ],
+    "href": "/questions/74788850/docker-container-refused-to-connect",
+    "contenus": [
+        "I installed Ubuntu on a home server today and then installed docker on it. I tried installing portainer and is exposed to port 8000 on local network. docker imagesHowever, Whenever I try to go to http://192.168.1.11:8000 (which is my server ip) I get connection refused. refused to connectI tried to check all the ufw rules and allowed port 8000 and 9000 already. Not sure what is causing this problemEdit: Here are my docker logs docker logs"
+    ],
+    "titre": "Docker container refused to connect",
+    "number": "20/50"
+}{
+    "nombre de vues": "8",
+    "type": [
+        "pythonpandasdataframeloopsduplicates"
+    ],
+    "Pseudo": "Jerry Jones",
+    "github_score_time": [
+        "        asked 12 mins agoAAAAAA12911 silver badge1010 bronze badges"
+    ],
+    "href": "/questions/74788849/replace-the-duplicated-sentences-with-word-same",
+    "contenus": [
+        "I would like to change the repeated comments with word same but keep the original ones and change the ID like below. However, some comments are not matched exactly such as the last three.df = {'Key': ['111', '111','111', '222*1','222*2', '333*1','333*2', '333*3','444','444', '444'],      'id' : ['', '','', '1','2', '1','2', '3','', '','',],        'comment': ['wrong sentence', 'wrong sentence','wrong sentence', 'M','M', 'F','F', 'F','wrong sentence used in the topic', 'wrong sentence used','wrong sentence use']}  # Create DataFramedf = pd.DataFrame(df)print(df)the input :Desired output  :This code works if the comments matched exactly# replace duplicated words per groupdf.loc[df[['Key', 'comment']].duplicated(), 'comment'] = 'same'# update id/Keym = df['id'].eq('')df.loc[m, 'id'] = df.groupby('Key').cumcount().add(1)df.loc[m, 'Key'] += '*'+df['id'].astype(str)"
+    ],
+    "titre": "replace the duplicated sentences with word same",
+    "number": "21/50"
+}{
+    "nombre de vues": "1",
+    "type": [
+        "pythondjangocookiespaypalcsrf-token"
+    ],
+    "Pseudo": "RitZz",
+    "github_score_time": [
+        "        asked 13 mins agoEbY VargheseEbY Varghese111 bronze badge"
+    ],
+    "href": "/questions/74788847/getcookiename-in-django-for-paypal-integration",
+    "contenus": [
+        "`I am trying to integrate paypal payment in one website. I need paypal payment id and status response. I have a paypal button integrated already using paypal.Buttons function.The problem I face is if I use csrf token, the paypal button disappears from the page. If I am not using the csrf then the function will work, but with errors Forbidden (CSRF token missing.):. If I remove   'X-CSRFToken': 'csrftoken'   from function sendData() and var csrftoken = getCookie('csrftoken'); then the paypal button will appear again.var csrftoken = getCookie('csrftoken');var url = {% url 'payments' %}     // payments is a custom namevar orderID = {{ order.order_number }}  var payment_method =  PayPalfunction getCookie(name) {        let cookieValue = null;        if (document.cookie && document.cookie !== '') {            const cookies = document.cookie.split(';');            for (let i = 0; i < cookies.length; i++) {                const cookie = cookies[i].trim();                if (cookie.substring(0, name.length + 1) === (name + '=')) {                    cookieValue = docodeURIComponent(cookie.substring(name.length + 1));                    break;                }            }        }        return cookieValue;    }function sendData() {                    fetch(url, {                        method: 'POST',                        headers: {                            'Content-Type': 'application/json',                            'X-CSRFToken': 'csrftoken',                        },                        body: JSON.stringify({                            orderID: orderID,                               transID: details.id,   // from paypal response                            payment_method: payment_method,                            status: details.status,  // from paypal response                        }),                    })                }I have tried with multiple getCookie function. The error is with the csrftoken for sure. Expecting a support for this issue. Thanks in advance. `"
+    ],
+    "titre": "getCookie(name) in django for paypal integration",
+    "number": "22/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "visual-studio-codeterminal"
+    ],
+    "Pseudo": "AAA",
+    "github_score_time": [
+        "        asked 13 mins agomelv3223melv32233744 bronze badges"
+    ],
+    "href": "/questions/74788845/vs-code-terminal-not-working-no-fix-found",
+    "contenus": [
+        "I recently updated Powershell and since my integrated terminal is VS Code has not been working (not just PS but also WSL and others). Therefore I do not believe that is the culprit. I looked online for fixes and even re-installed VS Code to no avail. How can I get my terminal back up and running?Here is my settings.json:{    security.workspace.trust.untrustedFiles: open,    terminal.integrated.sendKeybindingsToShell: true,    files.autoSave: afterDelay,    editor.fontSize: 12,    sonarlint.ls.javaHome: C:\\\\Program Files\\\\Java\\\\jdk-18.0.1,    redhat.telemetry.enabled: true,    explorer.confirmDelete: false,    java.configuration.runtimes: [        {            name: JavaSE-18,            path: C:\\\\Program Files\\\\Java\\\\jdk-18.0.1,            default: true        }    ],    liveServer.settings.donotShowInfoMsg: true,    explorer.confirmDragAndDrop: false,    editor.bracketPairColorization.enabled: true,    editor.guides.bracketPairs: active,    prettier.bracketSpacing: false,    prettier.semi: false,    prettier.useTabs: true,    prettier.withNodeModules: true,    color-highlight.matchRgbWithNoFunction: true,    color-highlight.matchWords: true,    terminal.integrated.defaultProfile.windows: Ubuntu (WSL),    terminal.integrated.automationProfile.windows: {},    [dart]: {        editor.formatOnSave: true,        editor.formatOnType: true,        editor.rulers: [80],        editor.selectionHighlight: false,        editor.suggest.snippetsPreventQuickSuggestions: false,        editor.suggestSelection: first,        editor.tabCompletion: onlySnippets,        editor.wordBasedSuggestions: false    },    javascript.updateImportsOnFileMove.enabled: always,    editor.tabSize: 2,    window.zoomLevel: 1,    terminal.integrated.defaultProfile.linux: ,    editor.formatOnSave: true,    prettier.singleQuote: true,    jshint.config: ,    jshint.options: {        esversion: 9    },    vs-kubernetes: {        vs-kubernetes.namespace: ,        vs-kubernetes.kubectl-path: ,        vs-kubernetes.helm-path: ,        vs-kubernetes.minikube-path: ,        vs-kubernetes.kubectlVersioning: user-provided,        vs-kubernetes.outputFormat: yaml,        vs-kubernetes.kubeconfig: ,        vs-kubernetes.knownKubeconfigs: [],        vs-kubernetes.autoCleanupOnDebugTerminate: false,        vs-kubernetes.nodejs-autodetect-remote-root: true,        vs-kubernetes.nodejs-remote-root: ,        vs-kubernetes.nodejs-debug-port: 9229,        vs-kubernetes.dotnet-vsdbg-path: ~/vsdbg/vsdbg,        vs-kubernetes.local-tunnel-debug-provider: ,        checkForMinikubeUpgrade: true,        imageBuildTool: Docker,        disable-linters: [resource-limits]    },    terminal.integrated.env.linux: {},    [javascript]: {        editor.defaultFormatter: esbenp.prettier-vscode    },    rsp-ui.enableStartServerOnActivation: [        {            id: redhat.vscode-community-server-connector,            name: Community Server Connector,            startOnActivation: true        }    ],    [typescript]: {        editor.defaultFormatter: vscode.typescript-language-features    },    editor.accessibilitySupport: off}"
+    ],
+    "titre": "VS Code Terminal Not Working - no fix found",
+    "number": "23/50"
+}{
+    "nombre de vues": "10",
+    "type": [
+        "c++templatesspecialization"
+    ],
+    "Pseudo": "EbY Varghese",
+    "github_score_time": [
+        "        asked 13 mins agoJade KimJade Kim1"
+    ],
+    "href": "/questions/74788840/c-template-specialization-of-template-container",
+    "contenus": [
+        "what i would do is like ...template < template <typename ... > typename __Container, typename ... __Args >ostream& operator<<(ostream& os, __Container<__Args ...> const& rhs){  stringstream ss;  int i = 0;  for (const auto& it : rhs)     ss << idx[ << i << ]  << it << \\n;  return os << ss.str();}/// /// ... and something template specialization code/// int main (){  std::vector<int> vec_data = { ... };  std::cout << vec_data << std::endl;   std::deque<int> dq_data = { ... };  std::cout << dq_data << std::endl;   std::map<std::string, double> map_data = { {}, {}, {}, ... };  std::cout << map_data << std::endl;   return 0;}in this example, deque and vector are not a problem, but when i tried to struggle to specialize std::map i dumped it. is there any possible way to do it?"
+    ],
+    "titre": "c++ template specialization of template container",
+    "number": "24/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "javaarraysexceptionarrayindexoutofboundsexception"
+    ],
+    "Pseudo": "melv3223",
+    "github_score_time": [
+        "edited May 7 at 11:54Alexander Ivanchenko22.3k55 gold badges1010 silver badges3636 bronze badges",
+        "        asked Apr 5, 2011 at 15:54AaronAaron10.9k1818 gold badges5757 silver badges7373 bronze badges",
+        "edited Oct 16, 2015 at 21:38Makoto102k2727 gold badges187187 silver badges223223 bronze badges",
+        "        answered Apr 5, 2011 at 15:57Jon SkeetJon Skeet1.4m845845 gold badges90179017 silver badges91209120 bronze badges",
+        "edited Jan 30, 2019 at 11:02deHaar16.4k1010 gold badges3838 silver badges4848 bronze badges",
+        "        answered Apr 5, 2011 at 15:59BalusCBalusC1.1m367367 gold badges35813581 silver badges35323532 bronze badges",
+        "edited Oct 8, 2019 at 16:02",
+        "        answered Apr 5, 2011 at 16:15aioobeaioobe406k110110 gold badges802802 silver badges823823 bronze badges",
+        "edited Apr 5, 2011 at 16:01",
+        "        answered Apr 5, 2011 at 15:55Octavian DamieanOctavian Damiean39.3k1919 gold badges9797 silver badges102102 bronze badges",
+        "edited Feb 3, 2017 at 13:20",
+        "        answered Jan 19, 2016 at 16:55TobbTobb11.6k66 gold badges5656 silver badges7575 bronze badges",
+        "edited Oct 19, 2015 at 11:00Lundin182k3939 gold badges245245 silver badges380380 bronze badges",
+        "        answered Oct 16, 2015 at 21:45MakotoMakoto102k2727 gold badges187187 silver badges223223 bronze badges",
+        "edited Nov 24, 2020 at 11:18",
+        "        answered Jun 21, 2017 at 4:57Madhusudan chowdaryMadhusudan chowdary5131313 silver badges2020 bronze badges",
+        "        answered Jan 16, 2018 at 12:13nIKHILnIKHIL10811 silver badge88 bronze badges",
+        "        answered Oct 25, 2017 at 7:38Satyendra KumarSatyendra Kumar34722 silver badges1313 bronze badges",
+        "edited Dec 17, 2017 at 9:54Peter Mortensen30.8k2121 gold badges104104 silver badges125125 bronze badges",
+        "        answered Apr 5, 2011 at 16:06Kyri SarantakosKyri Sarantakos95899 silver badges1515 bronze badges",
+        "edited Dec 17, 2017 at 10:00Peter Mortensen30.8k2121 gold badges104104 silver badges125125 bronze badges",
+        "        answered Mar 6, 2017 at 9:00roottravellerroottraveller7,56477 gold badges5757 silver badges6565 bronze badges",
+        "edited Dec 17, 2017 at 10:02Peter Mortensen30.8k2121 gold badges104104 silver badges125125 bronze badges",
+        "        answered Mar 8, 2017 at 12:56JohnyJohny31544 silver badges99 bronze badges",
+        "        answered Jun 12, 2018 at 19:41Bill the LizardBill the Lizard393k207207 gold badges558558 silver badges869869 bronze badges",
+        "edited Dec 17, 2017 at 9:58Peter Mortensen30.8k2121 gold badges104104 silver badges125125 bronze badges",
+        "        answered Nov 11, 2016 at 8:21MohitMohit88599 silver badges77 bronze badges",
+        "        answered Sep 15, 2018 at 10:29sgrpwrsgrpwr42133 silver badges1212 bronze badges",
+        "edited Dec 14, 2018 at 0:56",
+        "        answered Dec 14, 2018 at 0:08        user10486861user10486861",
+        "        answered Nov 30, 2017 at 16:41adn.911adn.9111,21622 gold badges1616 silver badges3030 bronze badges",
+        "edited Mar 26, 2018 at 10:16",
+        "        answered Mar 26, 2018 at 8:08Abhishek AgarwalAbhishek Agarwal5399 bronze badges",
+        "        answered Oct 18, 2018 at 9:24ZiadMZiadM37422 silver badges66 bronze badges",
+        "        answered Nov 13, 2018 at 18:08John CzukkermannJohn Czukkermann50011 gold badge44 silver badges1313 bronze badges",
+        "edited Apr 12, 2019 at 3:59CryptoFool20.5k55 gold badges2525 silver badges4242 bronze badges",
+        "        answered Apr 12, 2019 at 2:43Sachithra DilshanSachithra Dilshan36822 silver badges1010 bronze badges",
+        "edited May 17, 2018 at 3:46Stephen Rauch♦46.2k3131 gold badges107107 silver badges128128 bronze badges",
+        "        answered May 17, 2018 at 3:27Madhusudan SharmaMadhusudan Sharma6211 bronze badge",
+        "        answered Jul 17, 2018 at 3:03GT_hashGT_hash16522 silver badges55 bronze badges",
+        "        answered Sep 17, 2019 at 12:16Andrey LavrukhinAndrey Lavrukhin9944 bronze badges",
+        "        answered Feb 16, 2021 at 8:04Ashwani Kumar KushwahaAshwani Kumar Kushwaha15111 silver badge44 bronze badges",
+        "edited Dec 17, 2017 at 9:55Peter Mortensen30.8k2121 gold badges104104 silver badges125125 bronze badges",
+        "        answered Jan 19, 2016 at 16:26Kevin7Kevin761311 gold badge66 silver badges1313 bronze badges"
+    ],
+    "href": "/questions/74788833/what-causes-a-java-lang-arrayindexoutofboundsexception-and-how-do-i-prevent-it",
+    "contenus": [
+        "What does ArrayIndexOutOfBoundsException mean and how do I get rid of it? Here is a code sample that triggers the exception:String[] names = { tom, bob, harry };for (int i = 0; i <= names.length; i++) {    System.out.println(names[i]);}",
+        "Your first port of call should be the documentation which explains it reasonably clearly:Thrown to indicate that an array has been accessed with an illegal index. The index is either negative or greater than or equal to the size of the array.So for example:int[] array = new int[5];int boom = array[10]; // Throws the exceptionAs for how to avoid it... um, don't do that. Be careful with your array indexes.One problem people sometimes run into is thinking that arrays are 1-indexed, e.g.int[] array = new int[5];// ... populate the array here ...for (int index = 1; index <= array.length; index++){    System.out.println(array[index]);}That will miss out the first element (index 0) and throw an exception when index is 5. The valid indexes here are 0-4 inclusive. The correct, idiomatic for statement here would be:for (int index = 0; index < array.length; index++)(That's assuming you need the index, of course. If you can use the enhanced for loop instead, do so.)",
+        "if (index < 0 || index >= array.length) {    // Don't use this index. This is out of bounds (borders, limits, whatever).} else {    // Yes, you can safely use this index. The index is present in the array.    Object element = array[index];}See also:The Java Tutorials - Language Basics - ArraysUpdate: as per your code snippet, for (int i = 0; i<=name.length; i++) {The index is inclusive the array's length. This is out of bounds. You need to replace <= by <.for (int i = 0; i < name.length; i++) {",
+        "From this excellent article: ArrayIndexOutOfBoundsException in for loopTo put it briefly:In the last iteration offor (int i = 0; i <= name.length; i++) {i will equal name.length which is an illegal index, since array indices are zero-based.Your code should readfor (int i = 0; i < name.length; i++)                   ^",
+        "It means that you are trying to access an index of an array which is not valid as it is not in between the bounds.For example this would initialize a primitive integer array with the upper bound 4.int intArray[] = new int[5];Programmers count from zero. So this for example would throw an ArrayIndexOutOfBoundsException as the upper bound is 4 and not 5.intArray[5];",
+        "What causes ArrayIndexOutOfBoundsException?If you think of a variable as a box where you can place a value, then an array is a series of boxes placed next to eachother, where the number of boxes is a finite and explicit integer.Creating an array like this:final int[] myArray = new int[5]creates a row of 5 boxes, each holding an int. Each of the boxes have an index, a position in the series of boxes. This index starts at 0, and ends at N-1, where N is the size of the array (the number of boxes).To retrieve one of the values from this series of boxes, you can refer to it through its index, like this:myArray[3]Which will give you the value of the 4th box in the series (since the first box has index 0).An ArrayIndexOutOfBoundsException is caused by trying to retrive a box that does not exist, by passing an index that is higher than the index of last box, or negative.With my running example, these code snippets would produce such an exception:myArray[5] //tries to retrieve the 6th box when there is only 5myArray[-1] //just makes no sensemyArray[1337] //waay to highHow to avoid ArrayIndexOutOfBoundsExceptionIn order to prevent ArrayIndexOutOfBoundsException, there are some key points to consider:LoopingWhen looping through an array, always make sure that the index you are retrieving is strictly smaller than the length of the array (the number of boxes). For instance:for (int i = 0; i < myArray.length; i++) {Notice the <, never mix a = in there..You might want to be tempted to do something like this:for (int i = 1; i <= myArray.length; i++) {    final int someint = myArray[i - 1]Just don't. Stick to the one above (if you need to use the index) and it will save you a lot of pain.Where possible, use foreach:for (int value : myArray) {This way you won't have to think about indexes at all.When looping, whatever you do, NEVER change the value of the loop iterator (here: i). The only place this should change value is to keep the loop going. Changing it otherwise is just risking an exception, and is in most cases not neccessary.Retrieval/updateWhen retrieving an arbitrary element of the array, always check that it is a valid index against the length of the array:public Integer getArrayElement(final int index) {    if (index < 0 || index >= myArray.length) {        return null; //although I would much prefer an actual exception being thrown when this happens.    }    return myArray[index];}",
+        "To avoid an array index out-of-bounds exception, one should use the enhanced-for statement where and when they can.The primary motivation (and use case) is when you are iterating and you do not require any complicated iteration steps.  You would not be able to use an enhanced-for to move backwards in an array or only iterate on every other element.You're guaranteed not to run out of elements to iterate over when doing this, and your [corrected] example is easily converted over.The code below:String[] name = {tom, dick, harry};for(int i = 0; i< name.length; i++) {    System.out.print(name[i] + \\n);}...is equivalent to this:String[] name = {tom, dick, harry};for(String firstName : name) {    System.out.println(firstName + \\n);}",
+        "In your code you have accessed the elements from index 0 to the length of the string array. name.length gives the number of string objects in your array of string objects i.e. 3, but you can access only up to index 2 name[2],because the array can be accessed from index 0 to name.length - 1 where you get name.length number of objects.Even while using a for loop you have started with index zero and you should end with name.length - 1. In an array a[n] you can access form a[0] to a[n-1].For example:String[] a={str1, str2, str3 ..., strn};for(int i=0; i<a.length(); i++)    System.out.println(a[i]);In your case:String[] name = {tom, dick, harry};for(int i = 0; i<=name.length; i++) {    System.out.print(name[i] +'\\n');}",
+        "For your given array the length of the array is 3(i.e. name.length = 3). But as it stores element starting from index 0, it has max index 2.So, instead of  'i**<=name.length' you should write 'i<**name.length' to avoid 'ArrayIndexOutOfBoundsException'.",
+        "So much for this simple question, but I just wanted to highlight a new feature in Java which will avoid all confusions around indexing in arrays even for beginners. Java-8 has abstracted the task of iterating for you.int[] array = new int[5];//If you need just the itemsArrays.stream(array).forEach(item -> { println(item); });//If you need the index as wellIntStream.range(0, array.length).forEach(index -> { println(array[index]); })What's the benefit? Well, one thing is the readability like English. Second, you need not worry about the ArrayIndexOutOfBoundsException",
+        "The most common case I've seen for seemingly mysterious ArrayIndexOutOfBoundsExceptions, i.e. apparently not caused by your own array handling code, is the concurrent use of SimpleDateFormat. Particularly in a servlet or controller:public class MyController {  SimpleDateFormat dateFormat = new SimpleDateFormat(MM/dd/yyyy);  public void handleRequest(ServletRequest req, ServletResponse res) {    Date date = dateFormat.parse(req.getParameter(date));  }}If two threads enter the SimplateDateFormat.parse() method together you will likely see an ArrayIndexOutOfBoundsException. Note the synchronization section of the class javadoc for SimpleDateFormat.Make sure there is no place in your code that are accessing thread unsafe classes like SimpleDateFormat in a concurrent manner like in a servlet or controller. Check all instance variables of your servlets and controllers for likely suspects.",
+        "You are getting ArrayIndexOutOfBoundsException due to i<=name.length part. name.length return the length of the string name, which is 3. Hence when you try to access name[3], it's illegal and throws an exception.Resolved code:String[] name = {tom, dick, harry};for(int i = 0; i < name.length; i++) { //use < insteadof <=  System.out.print(name[i] +'\\n');}It's defined in the Java language specification:The public final field length, which contains the number of components  of the array. length may be positive or zero.",
+        "That's how this type of exception looks when thrown in Eclipse. The number in red signifies the index you tried to access. So the code would look like this:myArray[5]The error is thrown when you try to access an index which doesn't exist in that array. If an array has a length of 3,int[] intArray = new int[3];then the only valid indexes are:intArray[0]intArray[1]intArray[2]If an array has a length of 1,int[] intArray = new int[1];then the only valid index is:intArray[0]Any integer equal to the length of the array, or bigger than it: is out of bounds.Any integer less than 0: is out of bounds;P.S.: If you look to have a better understanding of arrays and do some practical exercises, there's a video here: tutorial on arrays in Java",
+        "For multidimensional arrays, it can be tricky to make sure you access the length property of the right dimension. Take the following code for example:int [][][] a  = new int [2][3][4];for(int i = 0; i < a.length; i++){    for(int j = 0; j < a[i].length; j++){        for(int k = 0; k < a[j].length; k++){            System.out.print(a[i][j][k]);        }        System.out.println();    }    System.out.println();}Each dimension has a different length, so the subtle bug is that the middle and inner loops use the length property of the same dimension (because a[i].length is the same as a[j].length).Instead, the inner loop should use a[i][j].length (or a[0][0].length, for simplicity).",
+        "For any array of length n, elements of the array will have an index from 0 to n-1.If your program is trying to access any element (or memory) having array index greater than n-1, then Java will throw ArrayIndexOutOfBoundsExceptionSo here are two solutions that we can use in a programMaintaining count:for(int count = 0; count < array.length; count++) {    System.out.println(array[count]);}Or some other looping statement likeint count = 0;while(count < array.length) {    System.out.println(array[count]);    count++;}A better way go with a for each loop, in this method a programmer has no need to bother about the number of elements in the array.for(String str : array) {    System.out.println(str);}",
+        "ArrayIndexOutOfBoundsException whenever this exception is coming it mean you are trying to use an index of array which is out of its bounds or in lay man terms you are requesting more than than you have initialised.To prevent this always make sure that you are not requesting a index which is not present in array i.e. if array length is 10 then your index must range between 0 to 9",
+        "ArrayIndexOutOfBounds means you are trying to index a position within an array that is not allocated.In this case:String[] name = { tom, dick, harry };for (int i = 0; i <= name.length; i++) {    System.out.println(name[i]);}name.length is 3 since the array has been defined with 3 String objects.When accessing the contents of an array, position starts from 0. Since there are 3 items, it would mean name[0]=tom, name[1]=dick and name[2]=harryWhen you loop, since i can be less than or equal to name.length, you are trying to access name[3] which is not available.To get around this... In your for loop, you can do i < name.length. This would prevent looping to name[3] and would instead stop at name[2]for(int i = 0; i<name.length; i++)Use a for each loopString[] name = { tom, dick, harry };for(String n : name) {    System.out.println(n);}Use list.forEach(Consumer action) (requires Java8)String[] name = { tom, dick, harry };Arrays.asList(name).forEach(System.out::println);Convert array to stream - this is a good option if you want to perform additional 'operations' to your array e.g. filter, transform the text, convert to a map etc (requires Java8)String[] name = { tom, dick, harry };---  Arrays.asList(name).stream().forEach(System.out::println);---  Stream.of(name).forEach(System.out::println);",
+        "ArrayIndexOutOfBoundsException means that you are trying to access an index of the array that does not exist or out of the bound of this array. Array indexes start from 0 and end at length - 1. In your case for(int i = 0; i<=name.length; i++) {    System.out.print(name[i] +'\\n'); // i goes from 0 to length, Not correct}ArrayIndexOutOfBoundsException happens when you are trying to access the name.length indexed element which does not exist (array index ends at  length -1). just replacing <= with < would solve this problem. for(int i = 0; i < name.length; i++) {    System.out.print(name[i] +'\\n');  // i goes from 0 to length - 1, Correct}",
+        "According to your Code :String[] name = {tom, dick, harry};for(int i = 0; i<=name.length; i++) {  System.out.print(name[i] +'\\n');}If You checkSystem.out.print(name.length);you will get 3;that mean your name length is 3your loop is running from 0 to 3 which should be running either 0 to 2 or 1 to 3AnswerString[] name = {tom, dick, harry};for(int i = 0; i<name.length; i++) {  System.out.print(name[i] +'\\n');}",
+        "Each item in an array is called an element, and each element is accessed by its numerical index. As shown in the preceding illustration, numbering begins with 0. The 9th element, for example, would therefore be accessed at index 8.IndexOutOfBoundsException is thrown to indicate that an index of some sort (such as to an array, to a string, or to a vector) is out of range.Any array X, can be accessed from [0 to (X.length - 1)]",
+        "I see all the answers here explaining how to work with arrays and how to avoid the index out of bounds exceptions.  I personally avoid arrays at all costs.  I use the Collections classes, which avoids all the silliness of having to deal with array indices entirely.  The looping constructs work beautifully with collections supporting code that is both easier to write, understand and maintain.",
+        "If you use an array's length to control iteration of a for loop, always remember that the index of the first item in an array is 0. So the index of the last element in an array is one less than the array's length.",
+        "ArrayIndexOutOfBoundsException name itself explains that If you trying to access the value at the index which is out of the scope of Array size then such kind of exception occur. In your case, You can just remove equal sign from your for loop.for(int i = 0; i<name.length; i++)The better option is to iterate an array: for(String i : name )      System.out.println(i);",
+        "This error is occurs at runs loop  overlimit times.Let's consider simple example like this,class demo{  public static void main(String a[]){    int[] numberArray={4,8,2,3,89,5};    int i;    for(i=0;i<numberArray.length;i++){        System.out.print(numberArray[i+1]+  );    }}At first, I have initialized an array as 'numberArray'. then , some array elements are printed using for loop. When loop is running 'i' time , print the (numberArray[i+1] element..(when i value is 1, numberArray[i+1] element is printed.)..Suppose that, when i=(numberArray.length-2), last element of array is printed..When 'i' value goes to (numberArray.length-1) , no value for printing..In that point , 'ArrayIndexOutOfBoundsException' is occur.I hope to you could get idea.thank you !",
+        "You can use Optional in functional style to avoid NullPointerException and ArrayIndexOutOfBoundsException :String[] array = new String[]{aaa, null, ccc};for (int i = 0; i < 4; i++) {    String result = Optional.ofNullable(array.length > i ? array[i] : null)            .map(x -> x.toUpperCase()) //some operation here            .orElse(NO_DATA);    System.out.println(result);}Output:AAANO_DATACCCNO_DATA",
+        "In most of the programming language indexes is start from 0.So you must have to write i<names.length or i<=names.length-1 instead of i<=names.length.",
+        "You could not iterate or store more data than the length of your array. In this case you could do like this:for (int i = 0; i <= name.length - 1; i++) {    // ....}Or this:for (int i = 0; i < name.length; i++) {    // ...}"
+    ],
+    "titre": "What causes a java.lang.ArrayIndexOutOfBoundsException and how do I prevent it? [duplicate]",
+    "number": "25/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "pandasregexdataframereplacezipcode"
+    ],
+    "Pseudo": "Jade Kim",
+    "github_score_time": [
+        "        asked 14 mins agoPetePete2133 bronze badges"
+    ],
+    "href": "/questions/74788832/converting-zip4-to-zip-python",
+    "contenus": [
+        "I am looking to convert zip+4 codes into zip codes in a pandas dataframe. I want it to identify that a zip 4 code exists and keep just the first 5 digits. I effectively want to do the below code (although this doesn't work in this format):df.replace('^(\\d{5}-?\\d{4})', group(0), regex=True)The following code does the same procedure for a list, I'm looking to do the same thing in the dataframe.my_input = ['01234-5678', '012345678', '01234', 'A1A 1A1', 'A1A1A1']expression = re.compile(r'^(\\d{5})-?(\\d{4})?$')my_output = []for string in my_input:     if m := re.match(expression, string):         my_output.append(re.match(expression, string).group(1))     else:         my_output.append(string)"
+    ],
+    "titre": "Converting zip+4 to zip python",
+    "number": "26/50"
+}{
+    "nombre de vues": "7",
+    "type": [
+        "javascriptminify"
+    ],
+    "Pseudo": "Anon",
+    "github_score_time": [
+        "        asked 14 mins agoBob KaufmanBob Kaufman12.7k1616 gold badges8383 silver badges106106 bronze badges"
+    ],
+    "href": "/questions/74788831/is-there-a-replacement-for-or-alternative-to-microsoft-aspnet-web-optimization",
+    "contenus": [
+        "In my .cshtml file, I have the following:@Scripts.Render(~/js/all)I am seeing errors like this when I click the link that corresponds to the code, above, on my page:/* Minification failed. Returning unminified contents.(14662,36-37): run-time error JS1195: Expected expression: )(14662,39-40): run-time error JS1195: Expected expression: >(14667,31-32): run-time error JS1004: Expected ';': )[truncated for clarity](14850,34-35): run-time error JS1197: Too many errors. The file might not be a JavaScript file: ([truncated for clarity] */The line numbers correspond to JavaScript code that includes the => operator. From what I can see, => was introduced in ES6 (June 17, 2015) which is a year after the last revision of Microsoft.AspNet.Web.Optimization (Feb 20, 2014). I have searched and not found a solution. Is there a new Bundler/Minifier library that should be used instead?"
+    ],
+    "titre": "Is there a Replacement for or Alternative to Microsoft.AspNet.Web.Optimization (System.Web.Optimization)?",
+    "number": "27/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "javafile"
+    ],
+    "Pseudo": "Pete",
+    "github_score_time": [
+        "        asked 14 mins agoHari HaranHari Haran1"
+    ],
+    "href": "/questions/74788830/how-can-i-modify-a-particular-line-in-a-file-without-deleting-the-existing-data",
+    "contenus": [
+        "I need to change the values in a file which has more than 30 lines and each line has a data like:ENABLE_TLS=truePSWD_MIN_LENGTH=8Here, let us consider this as a key and value pair, and I needed to change only the value for the 2nd line alone, without deleting the 1st line. Can someone help me how can I do this??I have tried bufferedwriter, but it is replacing all the lines.My expectation is:I need to modify only a particular key's value and the remaining lines should not get deleted"
+    ],
+    "titre": "How can I modify a particular line in a file without deleting the existing data using Java?",
+    "number": "28/50"
+}{
+    "nombre de vues": "1",
+    "type": [
+        "python"
+    ],
+    "Pseudo": "Bob Kaufman",
+    "github_score_time": [
+        "edited 13 mins agosandra6000",
+        "        asked 14 mins agosandra6000sandra6000111 bronze badge",
+        "        answered 3 mins agoAndroz2091Androz20912,72011 gold badge88 silver badges2525 bronze badges"
+    ],
+    "href": "/questions/74788829/how-to-post-in-the-same-message-from-discord-bot-command-with-python",
+    "contenus": [
+        "How to post in the same message from discord bot command with pythonI am programming a discord bot something simple but I have a small problem and it is that I need to post ..This👇:image: https://i.imgur.com/AciRHfD.pngIn the same message and I don't know how to do it, the code I'm using adds it to me separately and I would like to be able to do it in the same messageThe code I'm using is the following:code:headers = {'Authorization': 'Client-ID ',}    params = {'image': base64.b64encode(open('cosmetico.png', 'rb').read())}    r = requests.post(f'https://api.imgur.com/3/image', headers=headers, data=params)        data = r.json()    for i in data[data]:        await ctx.send(fLink directo:\\n```{i['link']}```)        await ctx.send(fBBCode(Para foros):\\n```[img]{i['link']}[/img]```) Thank you very much in advance!Could someone help me, thank you very much!",
+        "You should simply use a \\n character to create a new line, and use the same ctx#send() method.headers = {'Authorization': 'Client-ID ',}    params = {'image': base64.b64encode(open('cosmetico.png', 'rb').read())}    r = requests.post(f'https://api.imgur.com/3/image', headers=headers, data=params)        data = r.json()    for i in data[data]:        await ctx.send(fLink directo:\\n```{i['link']}```\\nBBCode(Para foros):\\n```[img]{i['link']}[/img]```)"
+    ],
+    "titre": "How to post in the same message from discord bot command with python",
+    "number": "29/50"
+}{
+    "nombre de vues": "8",
+    "type": [
+        "c#xamarin.formsxamarin.iosnsurl"
+    ],
+    "Pseudo": "Hari Haran",
+    "github_score_time": [
+        "        asked 15 mins agoXamarinXamarin1333 bronze badges"
+    ],
+    "href": "/questions/74788828/how-to-convert-imagesourse-to-nsurl-or-cgimage-in-xamarin-ios",
+    "contenus": [
+        "I want to convert the ImageSource or image byte array to Xamarin.ios NSUrl or CGImage. How  to implement this. I am generating the byte Array from LayoutView like below. So after getting the the byte array I need to convert it to NSUrl or CGImage for printing that layout. From the below code I will get the bytearray.public byte[] LayoutToImage()    {        var view = UIApplication.SharedApplication.KeyWindow;       UIGraphics.BeginImageContext(view.Frame.Size);        view.DrawViewHierarchy(view.Frame, true);        var image = UIGraphics.GetImageFromCurrentImageContext();        UIGraphics.EndImageContext();       using (var imageData = image.AsPNG())        {            var bytes = new byte[imageData.Length];            System.Runtime.InteropServices.Marshal.Copy(imageData.Bytes, bytes, 0, Convert.ToInt32(imageData.Length));            return bytes;        }I am able to print the image on the iOS project resource file, like that I need to print the layout view also. string fileName = SampleImg.png;                 string localDocUrl = Path.Combine(NSBundle.MainBundle.BundlePath, fileName);var Error = Driver.PrintImageWithURL(new NSUrl(localDocUrl), pSettings);  "
+    ],
+    "titre": "How to convert ImageSourse to NSUrl or CGImage in xamarin ios",
+    "number": "30/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "audioaudio-streaming"
+    ],
+    "Pseudo": "sandra6000",
+    "github_score_time": [
+        "        asked 15 mins agoSreekesh GiriSreekesh Giri1"
+    ],
+    "href": "/questions/74788827/how-do-i-record-audio-using-a-microphone-and-play-it-in-a-speaker-simultaneously",
+    "contenus": [
+        "I am now working on a Audio algorithm which need 256 samples of audio from a micro phone and i need to process this 256 samples and result should get played  on a speaker. I have done it using two wave file which is already on the file, now i need to do it in the real time.Need a solution for this"
+    ],
+    "titre": "How do I record audio using a microphone and play it in a speaker simultaneously by only storing one sec of Audio in LINUX",
+    "number": "31/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "javaspring-bootswaggerswagger-ui"
+    ],
+    "Pseudo": "Xamarin",
+    "github_score_time": [
+        "edited 14 mins agohadiki8872",
+        "        asked 15 mins agohadiki8872hadiki8872111 bronze badge"
+    ],
+    "href": "/questions/74788826/error-calling-jakarta-validation-validationbuilddefaultvalidatorfactory",
+    "contenus": [
+        "When I add springdoc-openapi-ui dependency to my pom.xml and run the application I get the exception in the title. When I remove this dependency everything works. Spring Boot version is 3.0.0 and springdoc-openapi-ui is 1.6.13. I have 2 simple rest api endpoints. When I remove swagger dependency from pom.xml application doesn't throw any exception. I listed the exception stack down below. I also wrote pom.xml.jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.    at jakarta.validation.Validation$GenericBootstrapImpl.configure(Validation.java:291) ~[jakarta.validation-api-3.0.2.jar:na]    at jakarta.validation.Validation.buildDefaultValidatorFactory(Validation.java:103) ~[jakarta.validation-api-3.0.2.jar:na]    at org.hibernate.cfg.beanvalidation.TypeSafeActivator.getValidatorFactory(TypeSafeActivator.java:479) ~[hibernate-core-6.1.5.Final.jar:6.1.5.Final]    at org.hibernate.cfg.beanvalidation.TypeSafeActivator.activate(TypeSafeActivator.java:82) ~[hibernate-core-6.1.5.Final.jar:6.1.5.Final]    at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]    at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]    at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]    at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]    at org.hibernate.cfg.beanvalidation.BeanValidationIntegrator.integrate(BeanValidationIntegrator.java:137) ~[hibernate-core-6.1.5.Final.jar:6.1.5.Final]    at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:285) ~[hibernate-core-6.1.5.Final.jar:6.1.5.Final]    at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:415) ~[hibernate-core-6.1.5.Final.jar:6.1.5.Final]    at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1425) ~[hibernate-core-6.1.5.Final.jar:6.1.5.Final]    at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66) ~[spring-orm-6.0.2.jar:6.0.2]    at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376) ~[spring-orm-6.0.2.jar:6.0.2]    at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-6.0.2.jar:6.0.2]    at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-6.0.2.jar:6.0.2]    at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352) ~[spring-orm-6.0.2.jar:6.0.2]    at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1797) ~[spring-beans-6.0.2.jar:6.0.2]    at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1747) ~[spring-beans-6.0.2.jar:6.0.2]    at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599) ~[spring-beans-6.0.2.jar:6.0.2]    at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521) ~[spring-beans-6.0.2.jar:6.0.2]    at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.0.2.jar:6.0.2]    at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.0.2.jar:6.0.2]    at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.0.2.jar:6.0.2]    at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.0.2.jar:6.0.2]    at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1130) ~[spring-context-6.0.2.jar:6.0.2]    at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:905) ~[spring-context-6.0.2.jar:6.0.2]    at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584) ~[spring-context-6.0.2.jar:6.0.2]    at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.0.0.jar:3.0.0]    at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730) ~[spring-boot-3.0.0.jar:3.0.0]    at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:432) ~[spring-boot-3.0.0.jar:3.0.0]    at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-3.0.0.jar:3.0.0]    at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302) ~[spring-boot-3.0.0.jar:3.0.0]    at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291) ~[spring-boot-3.0.0.jar:3.0.0]    at app.TextShareApplication.main(TextShareApplication.java:10) ~[classes/:na]2022-12-13T20:32:20.998+03:00  INFO 8076 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]2022-12-13T20:32:21.016+03:00  INFO 8076 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'2022-12-13T20:32:22.614+03:00  WARN 8076 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning<project xmlns=http://maven.apache.org/POM/4.0.0 xmlns:xsi=http://www.w3.org/2001/XMLSchema-instance   xsi:schemaLocation=http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd>   <modelVersion>4.0.0</modelVersion>   <parent>      <groupId>org.springframework.boot</groupId>      <artifactId>spring-boot-starter-parent</artifactId>      <version>3.0.0</version>      <relativePath/> <!-- lookup parent from repository -->   </parent>   <groupId>com.example</groupId>   <artifactId>app</artifactId>   <version>0.0.1-SNAPSHOT</version>   <name>app</name>   <description>App</description>   <properties>      <java.version>17</java.version>   </properties>   <dependencies>      <dependency>         <groupId>org.springframework.boot</groupId>         <artifactId>spring-boot-starter-data-jpa</artifactId>      </dependency>      <dependency>         <groupId>org.springframework.boot</groupId>         <artifactId>spring-boot-starter-web</artifactId>      </dependency>      <dependency>         <groupId>org.postgresql</groupId>         <artifactId>postgresql</artifactId>         <scope>runtime</scope>      </dependency>      <dependency>         <groupId>org.springdoc</groupId>         <artifactId>springdoc-openapi-ui</artifactId>         <version>1.6.13</version>      </dependency>      <dependency>         <groupId>org.springframework.boot</groupId>         <artifactId>spring-boot-starter-test</artifactId>         <scope>test</scope>      </dependency>   </dependencies>   <build>      <plugins>         <plugin>            <groupId>org.springframework.boot</groupId>            <artifactId>spring-boot-maven-plugin</artifactId>         </plugin>      </plugins>   </build></project>`I tried changing the version but the result was still the same"
+    ],
+    "titre": "Error calling `jakarta.validation.Validation#buildDefaultValidatorFactory`",
+    "number": "32/50"
+}{
+    "nombre de vues": "12",
+    "type": [
+        "pythonscrapy"
+    ],
+    "Pseudo": "Sreekesh Giri",
+    "github_score_time": [
+        "        asked 15 mins agoInSadlyInSadly111 bronze badge"
+    ],
+    "href": "/questions/74788822/scrapy-python-only-collecting-75-of-target-web-pages-how-to-improve",
+    "contenus": [
+        "I'm using Scrapy to collect about 150 attributes for Cloud Services listed on the UK Gov Digital Marketplace (G-Cloud). The catalogue holds details of about 40,000 services accessed through summary pages with 30 products to a page (1,355 pages). Things have been going fine for 5 or 6 years. Now the catalogue has been moved to a new URL. I have repaired all the Xpaths and tested and I am getting all the data I need when a product is hit.But comparing my downloaded product count to the total on the catalogue, I am getting only 30,000 products - missing 25%.custom_settings includes 'AUTOTHROTTLE_START_DELAY': .5,'AUTOTHROTTLE_MAX_DELAY': 60,Would changing these settings improve my harvest?What else can you suggest may be impacting my low yield?For completeness, here is the pagination function, which seems to work effectively, so I don't think the fault lies here:    def parse(self, response):        for link in response.xpath('//h2/a/@href').getall():            yield scrapy.Request(response.urljoin(link), callback=self.parse_item)        next_page = response.xpath('//li[@class=dm-pagination__item dm-pagination__item--next]/a/@href').get()        if next_page:            yield scrapy.Request(response.urljoin(next_page), callback=self.parse)Historically, I never get the full product count as a small number are suspended for editing or deletion. But this would be less then 1%. The script takes roughly 15 hours to run from my desktop. I am running the script repeatedly to see if the outcome is consistent and if the missing products are always the same ones. Due to the long run-time it will be a week or so before I have sufficient data to draw a conclusion.As you can tell, I'm a novice with Scrapy. The original script was written for me but the author is no longer contactable. So I have kluged the script to get good test results but for this one problem of a low yield.Thanks for your helpInSadly"
+    ],
+    "titre": "Scrapy (python) only collecting 75% of target web pages - how to improve",
+    "number": "33/50"
+}{
+    "nombre de vues": "-4",
+    "type": [
+        "javascriptnode.jsdiscord.js"
+    ],
+    "Pseudo": "hadiki8872",
+    "github_score_time": [
+        "        asked 15 mins agoBluBlu1"
+    ],
+    "href": "/questions/74788819/problems-with-import-in-es6-when-import-in-code-block",
+    "contenus": [
+        "enter image description heretried everything like reading docs but ... u know I can't get my answer"
+    ],
+    "titre": "problems with import in ES6 when import in code block",
+    "number": "34/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "angularsmartcontractshardhaterc721"
+    ],
+    "Pseudo": "InSadly",
+    "github_score_time": [
+        "        asked 15 mins agoMOUAD EL HAOUSMOUAD EL HAOUS1"
+    ],
+    "href": "/questions/74788818/make-a-communication-between-angular-and-hardhat",
+    "contenus": [
+        "I imported into an Angular service a .json file of a smart contract created by Hardhat and now I want to call the method of the smart contracts (these functions are already predefined in the ERC721 standard)..I find an error in the name() method which is already predefined in ERC721// contracts/NonFunToken.sol// SPDX-License-Identifier: MITpragma solidity ^0.8.17;import { ERC721 } from ../node_modules/@openzeppelin/contracts/token/ERC721/ERC721.sol;import ../node_modules/@openzeppelin/contracts/access/Ownable.sol;contract NonFunToken is ERC721, Ownable {    // Constructor will be called on contract creation    constructor() ERC721(NonFunToken, NONFUN) {}    // Allows minting of a new NFT     function mintCollectionNFT(address collector, uint256 tokenId) public onlyOwner() {        _safeMint(collector, tokenId);     }}import {Inject, Injectable} from '@angular/core';import { ethers } from ethers;import { getDefaultProvider } from 'ethers';declare let require: any;const tokenAbi = require('../../../HadhatNft/artifacts/contracts/NonFunToken.sol/NonFunToken.json');declare let window: any;@Injectable({  providedIn: 'root'})export class ContractService {  constructor( ) {      }//----------------------------------------------get the name of collection-------------------------------------------  async collectionName(){    const contractAddress = '0x5FbDB2315678afecb367f032d93F642f64180aa3';    const provider = new ethers.providers.Web3Provider(window.ethereum);    const mycont = new ethers.Contract(contractAddress, tokenAbi, provider.getSigner());    const name = await mycont.name();    return name;  }}"
+    ],
+    "titre": "make a communication between angular and hardhat",
+    "number": "35/50"
+}{
+    "nombre de vues": "22",
+    "type": [
+        "pytorchnlpclassificationbert-language-model"
+    ],
+    "Pseudo": "Blu",
+    "github_score_time": [
+        "        asked 16 mins agoMortyMorty2777 bronze badges"
+    ],
+    "href": "/questions/74788816/text-classification-with-a-language-model-lm-with-class-labels-existing-in-tex",
+    "contenus": [
+        "I have a multi-label text classification task. The train data labels are categories that might exist as tokens in the training data texts. For instance, some observations look like the following:Train=[[input: Dogs are animals. Dogs  ove humans., class: [dog]],       [input: Cats are running in the street., class: [cat]],       [input: Cats and dogs live with humans., class: [cat, dog]],       [input: These animals don't each chocolate., class: [dog]]]I want to train a classifier by fine-tuning a language model using  Pytorch. My question is if I must ensure that the class labels are masked in the training input text? If not, will the classifier overfit or lose generalizability?If I must mask the labels in the inputs, how can I do it using Pytorch?"
+    ],
+    "titre": "Text classification with a Language Model (LM) with class labels existing in text tokens",
+    "number": "36/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "phpsymfonydependency-injectiondoctrinephpunit"
+    ],
+    "Pseudo": "MOUAD EL HAOUS",
+    "github_score_time": [
+        "        asked 16 mins agouser1032531user103253123.8k6363 gold badges208208 silver badges367367 bronze badges"
+    ],
+    "href": "/questions/74788815/how-to-use-autowired-services-when-using-phpunit",
+    "contenus": [
+        "Was testing an application and was repeatable getting the infamous new entity not configured to cascade persist error.  I was surprised since I wasn't even creating new entities, and after digging into it, it appears to be relate to using different instances of the EntityManager object (I have confirmed that they are working with the same database, however) which I guess makes sense since each test will have a transaction applied.  The only way I was able to get rid of the errors was to use the entityManager in the container instead of the autowired ones.  While it works, it is a bit of a kludge and I would like to know the right way of doing this.  Thank younamespace App\\Tests;use ApiPlatform\\Symfony\\Bundle\\Test\\ApiTestCase;class MyTest extends ApiTestCase{    /**     * @dataProvider getData     */    public function testWhichDoesNotWork(int $id, string $class)    {        $service = static::getContainer()->get(MyService::class);        $user = $service->getUser();        $randomEntity = $service->getRandomEntity($user->getTenant(), $class);         $randomEntity->setSomething('something');        $service->saveEntity($randomEntity);    }    /**     * @dataProvider getData     */    public function testWhichWorks(int $id, string $class)    {        $service = static::getContainer()->get(MyService::class);        $em = static::getContainer()->get(EntityManagerInterface::class);        $user = $service->getUser();        $randomId = $service->getRandomEntityId($user->getTenant(), $class);         $randomEntity = $em->getRepository($class)->find($randomId);        $randomEntity->setSomething('something');        $em->persist($randomEntity);        $em->flush();    }    /**     * @dataProvider getData     */    public function testAnotherWhichWorks(int $id, string $class)    {        $service = static::getContainer()->get(MyService::class);        $service->setNewEntityManager(static::getContainer()->get(EntityManagerInterface::class));        $user = $service->getUser();        $randomEntity = $service->getRandomEntity($user->getTenant(), $class);         $randomEntity->setSomething('something');        $service->saveEntity($randomEntity);    }    public function getData(): array    {        return [            [123, SomeClass::class]        ];    }}namespace App\\Test\\Service;final class MyService{    public function __construct(private EntityManagerInterface $entityManager)    {}    public function setNewEntityManager(EntityManagerInterface $entityManager):self    {        $this->entityManager = $entityManager;        return $this;    }    public function getDatabase():string    {        return $this->entityManager->getConnection()->getDatabase();    }    public function getUser(int $id):User    {        return $this->entityManager->getRepository(User::class)->find($id);    }    public function getRandomId(Tenant $tenant, string $class):int    {        $meta = $this->entityManager->getClassMetadata($class);        $_sql = 'SELECT %s FROM public.%s WHERE tenant_id=? OFFSET floor(random() * (SELECT COUNT(*) FROM public.%s WHERE tenant_id=?)) LIMIT 1;';        $sql = sprintf($_sql, $meta->getSingleIdentifierFieldName(), $meta->getTableName(), $meta->getTableName());        return $this->entityManager->getConnection()->prepare($sql)->execute([$tenant->getId(), $tenant->getId()])->fetchOne();    }    public function getRandomEntity(Tenant $tenant, string $class):object    {        return $this->entityManager->getRepository($class)->find($this->getRandomId($tenant, $class));    }    public function saveEntity(object $entity):self    {        $this->entityManager->persist($entity);        $this->flush();        return $this;    }}services:    app.test.my.service:        alias: App\\Test\\Service\\MyService        public: true"
+    ],
+    "titre": "How to use autowired services when using PhpUnit?",
+    "number": "37/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "pythonhtmlexcelvbaget"
+    ],
+    "Pseudo": "Morty",
+    "github_score_time": [
+        "edited 12 mins agoTomaTifucio",
+        "        asked 16 mins agoTomaTifucioTomaTifucio111 bronze badge"
+    ],
+    "href": "/questions/74788812/how-to-get-an-input-html-information-using-vba-or-an-online-ide-python",
+    "contenus": [
+        "Closed. This question needs to be more focused. It is not currently accepting answers.\r                        \r                    Want to improve this question? Update the question so it focuses on one problem only by editing this post.Closed 3 mins ago.\r                        Improve this question\r                    I'm trying to extract a content embedded in a line of a web site. I'm trying to convert this line in to a table (could be thru VBA or Python [https://www.online-python.com/], which are the ones that I have access in an enterprise PC).The extraction point it's in a long HTML code like:<input type=hidden name=name-here value='[{id:0,nome:NAME,area:Z,site:https:\\/\\/www.a-site-here.com\\/en\\/index.html,logo:https:\\/\\/www.another-site-here.com\\/wp-content\\/uploads\\/2022\\/02\\/image-GetFileAttachment1.png},{...}]'/>I have no idea how to do that and already tried:Retrieving values from input elements in a table in HTMLHow to extract data from website with VBA Excel?Fetch specific table only from website into ExcelExtract Data from a Web Page - using VBAWithout success.So, I would like to have something like:| id | nome | area |  site            |  logo                          || ---| ---- | ---- | ---------------- | ------------------------------ || 0  | NAME | Z    | htt...index.html | https:\\/\\/www.another-... .png || 1  | ...  | ...  |       ...        |               ...              || 2  | ...  | ...  |       ...        |               ...              || 3  | ...  | ...  |       ...        |               ...              |...I appreciate all help,"
+    ],
+    "titre": "How to get an input HTML information using VBA or an online IDE Python? [closed]",
+    "number": "38/50"
+}{
+    "nombre de vues": "2",
+    "type": [
+        "pythonpygame"
+    ],
+    "Pseudo": "user1032531",
+    "github_score_time": [
+        "        asked 16 mins agoTrí VũTrí Vũ1",
+        "        answered 12 mins agoRabbid76Rabbid76192k2525 gold badges115115 silver badges161161 bronze badges"
+    ],
+    "href": "/questions/74788811/typeerror-pygame-sprite-sprite-add-argument-after-must-be-an-iterable-not",
+    "contenus": [
+        "I have a problem with my code, after running, it said that  pygame.sprite.Sprite.add() argument after * must be an iterable, not int in the line charS1=CharS(100,100,50,50)i was expecting a red rect in my window after, but i had those problemhere my code, and yes, almost copy from Youtube, but it went wrongimport pygame, os , sys , math from os import listdirfrom os.path import isfile, joinpygame.init()pygame.display.set_caption(Group 5: Female house from Ẻuope)icon = pygame.image.load(join(img,good-icon.png))pygame.display.set_icon(icon) WIDTH, HEIGHT = 1000, 600FPS = 40PLAYER_VEL = 3window=pygame.display.set_mode((WIDTH, HEIGHT))def get_background(name): background = pygame.image.load(join(img,name))  return backgroundclass CharS(pygame.sprite.Sprite):    COLOR = (255,0,0)def __init__(self,x,y, width, heigth):    self.rect=pygame.Rect(x,y,width,heigth)    self.x_vel=0    self.y_vel=0    self.mask= None    self.direction= right    self.animation_count = 0def move (self, dx, dy):    self.rect.x += dx    self.rect.y += dydef move_right(self, vel):    self.x_vel = vel    if self.direction != left:       self.direction = left       self.animation_count= 0def loop(self, fps):    self.move( self.x_vel, self.y_vel)    def draw(self, win):    pygame.draw.rect(win, self.COLOR, self.rect)def draw(window, background,char):    window.blit(background, (0,0))    char.draw(window)    pygame.display.update() def main(window):    clock = pygame.time.Clock()    background= get_background(backgrd.png)    charS1=CharS(100,100,50,50) #the problem went here    run= True    while run:          clock.tick(FPS)        for event in pygame.event.get():            if event.type == pygame.QUIT:                 run = False                break        draw(window, background, charS1)        pygame.quit()    quit()                                  if __name__ == '__main__' :    main(window)   how can i fix that?",
+        "You get this error, because the base class pygame.sprite.Sprite is not initialized. You didn't invoke the constructor of the base class of (super().__init__() ). Also see class super.class CharS(pygame.sprite.Sprite):    COLOR = (255,0,0)    def __init__(self,x,y, width, heigth):        super().__init__()                          # <---           self.rect=pygame.Rect(x,y,width,heigth)        # [...]"
+    ],
+    "titre": "TypeError: pygame.sprite.Sprite.add() argument after * must be an iterable, not int",
+    "number": "39/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "postgresqljoin"
+    ],
+    "Pseudo": "TomaTifucio",
+    "github_score_time": [
+        "        asked 16 mins agoHannibalHannibal111 bronze badge"
+    ],
+    "href": "/questions/74788809/double-join-in-postgresql-takes-lot-of-time",
+    "contenus": [
+        "I have a few experience in Postgresql. I have this Postgresql query which takes so much time to execute that I cancel it:SELECT designation, last_trip, groupe, taxi, active, last_input2_true FROM (SELECT MAX(ts016.trajet_taxi.date_deb) as last_trip, ts016.entite.groupe as groupe, ts016.entite.taxi as taxi, ts016.entite.active as active, (SELECT MAX(ts016.trame.date) WHERE ts016.trame.input2 = 't') as last_input2_true, ts016.entite.designation     FROM ts016.entite     FULL JOIN ts016.trajet_taxi ON ts016.entite.id = ts016.trajet_taxi.entite     FULL JOIN ts016.trame ON ts016.entite.id = ts016.trame.entite     WHERE ts016.trajet_taxi.date_deb < now() and ts016.trame.date < now()    GROUP BY ts016.entite.designation, ts016.entite.groupe, ts016.entite.taxi, ts016.entite.active, ts016.trame.input2) as Tmp WHERE groupe = 1 and taxi = 't' and active = 't' and last_trip < now() - interval '30 hour' and last_input2_true > now() - interval '30 hour';Could you please help? Thanks in advance"
+    ],
+    "titre": "Double join in Postgresql takes lot of time",
+    "number": "40/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "javascriptlogic"
+    ],
+    "Pseudo": "Trí Vũ",
+    "github_score_time": [
+        "        asked 16 mins agoLelouchLelouch89266 silver badges1919 bronze badges",
+        "        answered 4 mins agoRitesh KumarRitesh Kumar1133 bronze badges",
+        "        answered 3 mins agouser2212559user22125595133 bronze badges"
+    ],
+    "href": "/questions/74788804/distribute-an-array-of-values-to-another-array-of-values",
+    "contenus": [
+        "I have a logic problem. I need to distribute a value of arrays evenly to another array of values. To illustrate:const colors = ['green', 'yellow', 'red']const plots = [0, 10, 40, 90, 150, 230, 250]const withColors = plots.map(e => ({  value: e, color: ???}))/* expected output:[{value: 0, color: 'green'},{value: 10, color: 'green'},{value: 40, color: 'yellow'},{value: 90, color: 'yellow'},{value: 150, color: 'red'},{value: 230, color: 'red'},{value: 250, color: 'red'},]*/current solution, I definitely have no idea yet, and I will update my question as I am currently brainstorming how to solve this.",
+        "Can't see any logic behind this how this pattern will grow in future, but certainly you can try something like below.// const colors = ['green', 'yellow', 'red']const plots = [0, 10, 40, 90, 150, 230, 250]function getColors(val) {     if(val >= 230 && val <=150) return red;     if(val >= 40 && val <= 90) return yellow;     return green}const withColors = plots.map(e => ({  value: e, color: getColors(e)}))",
+        "Here's a brute force method where I iterate through the array and give each third of the plots a color.Another way would be to write a helper function that handles turning the values of i/plots.length into 0, 1, or 2 and return that.const colors = ['green', 'yellow', 'red'];const plots = [0, 10, 40, 90, 150, 230, 250];const result = {};for (var i=0; i<plots.length; i++) {  var thisPlot = plots[i];  if (i / plots.length < 1/3.0) {    result[thisPlot] = colors[0];  }  else if (i / plots.length < 2/3.0) {    result[thisPlot] = colors[1];  }  else {    result[thisPlot] = colors[2];  }}console.log(result);"
+    ],
+    "titre": "Distribute an array of values to another array of values",
+    "number": "41/50"
+}{
+    "nombre de vues": "3",
+    "type": [
+        "rggplot2bar-chart"
+    ],
+    "Pseudo": "Hannibal",
+    "github_score_time": [
+        "edited 2 mins agoIan Campbell22.5k1313 gold badges3030 silver badges5454 bronze badges",
+        "        asked 17 mins agomxidmxid11"
+    ],
+    "href": "/questions/74788799/irregular-bar-spacing-in-barplot-using-ggplot2",
+    "contenus": [
+        "I want to make a barplot in using ggplot2 where all of values in the data get their own bar on the x-axis. However, I get irregular spacing between the bars.This is my code:library(plyr)dataTable <- count(player_data, dpi)ggplot(dataTable, aes(x = dpi, y = freq, fill = dpi)) +    geom_bar(stat = identity, width = 20)And this is the output:Instead of plotting on a range of x values, I want to plot for the specific values of 'x' like a base R barplot does, like this:"
+    ],
+    "titre": "Irregular bar spacing in barplot using ggplot2",
+    "number": "42/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "phplaravel"
+    ],
+    "Pseudo": "Lelouch",
+    "github_score_time": [
+        "edited 10 mins agoTilda Mendozae",
+        "        asked 17 mins agoTilda MendozaeTilda Mendozae322 bronze badges"
+    ],
+    "href": "/questions/74788797/methodnotallowedhttpexception-redirect-to-404-laravel-9",
+    "contenus": [
+        "So when a user randomly types a URL on a route that exists, they get an error message:Symfony\\Component\\HttpKernel\\Exception\\MethodNotAllowedHttpExceptionThe GET method is not supported for this route. Supported methods: POST.After doing some searching, all the posts I can find suggest to change the render function inside of App\\Exceptions\\Handler and change it to this: public function render($request, Exception $exception) {    if($exception instanceof \\Symfony\\Component\\HttpKernel\\Exception\\MethodNotAllowedHttpException){      return abort('404');    }    return parent::render($request, $exception); }However, with the newer version of Laravel this no longer exists. One post mentioned to add this in routes\\web.php:Route::fallback( function () {    abort( 404 );} );This works fine but I'm not sure if this is the best approach/right place to have it? Is there are any other alternative way?I have also attempted to change the register function inside of App\\Exceptions\\Handler to this per the Laravel Doc (https://laravel.com/docs/9.x/errors#rendering-exceptions):use Illuminate\\Foundation\\Exceptions\\Handler as ExceptionHandler;use Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException; public function register()    {        $this->renderable(function (NotFoundHttpException $e, $request) {            if ($request->is('api/*')) {                return response()->json([                    'message' => 'Record not found.'                ], 404);            }        });    }but it does not work"
+    ],
+    "titre": "MethodNotAllowedHttpException, redirect to 404 Laravel 9",
+    "number": "43/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "cshelljobsexecvpwaitpid"
+    ],
+    "Pseudo": "mxid",
+    "github_score_time": [
+        "        asked 17 mins agoamoghamogh1"
+    ],
+    "href": "/questions/74788794/how-to-prevent-background-jobs-from-printing-next-to-prompt",
+    "contenus": [
+        "I am trying to implement my own shell and am experimenting with background jobs with using WNOHANG option in waitpid. But whenever I run a command in shell it just prints the output next to my prompt like this:user@hostmachine:/.../$: [output]Where am I going wrong?`    while (1) {      int childPid, status;      // Display prompt and read input      char *buffer = print_prompt();      char *input = readline(buffer);      check_and_free(buffer)//    add input to readline history.      add_history(input);      time_t t;      time(&t);      add_history_time(ctime(&t));      // Check for EOF.      if (!input)         break;      parseInfo *result = parse(input);      if (result == NULL) {         goto free;      }      print_info(result);      commandType *input_command = &result->CommArray[0];//    execute builtin command in parent process      int commType = isBuiltInCommand(input_command->command);      if (commType == EXIT) {         free_info(result);         check_and_free(input)         exit(0);      }      else if (commType != NO_SUCH_BUILTIN) {         executeBuiltInCommand(input_command, commType, history_get_history_state());      } else {//       create a child process to execute command         childPid = fork();         if (childPid == 0) {//          calls execvp            printf(Executing child process...\\n\\n);            executeCommand(input_command, result);         } else {            waitpid(childPid, &status, WNOHANG);            if (status != 0) {               printf(Error! Child exited with error code %d\\n, WEXITSTATUS(status));            }         }      }      // Free buffer that was allocated by readline      free:      free_info(result);      check_and_free(input)   }   return 0;}`I tried to execute a job in background and for quick ones like ls it just prints the output next to my prompt!"
+    ],
+    "titre": "How to prevent background jobs from printing next to prompt?",
+    "number": "44/50"
+}{
+    "nombre de vues": "3",
+    "type": [
+        "python-3.xanacondaenvironment"
+    ],
+    "Pseudo": "Tilda Mendozae",
+    "github_score_time": [
+        "        asked 17 mins agodaviddavid1"
+    ],
+    "href": "/questions/74788793/error-trying-to-crrate-new-enviroment-with-anaconda-you-probably-need-to-delete",
+    "contenus": [
+        "I am trying to create a new enviroment in anaconda using the following command:conda create --name=labelme python=3And i am getting the next error:InvalidArchiveError(Error with archive C:\\\\Users\\\\ttt\\\\.conda\\\\pkgs\\\\xz-5.2.8-h8cc25b3_0\\\\.cph_tmpv91fk9n9\\\\info-xz-5.2.8-h8cc25b3_0.tar.zst.  You probably need to delete and re-download or re-create this file.  Message from libarchive was:\\n\\nFailed to open 'C:\\\\Users\\\\tt\\\\.conda\\\\pkgs\\\\xz-5.2.8-h8cc25b3_0\\\\.cph_tmpv91fk9n9\\\\info-xz-5.2.8-h8cc25b3_0.tar.zst')I have tryed eliminating the file but it appears again. Does anybody know how can I resolve the problem?conda clean --all"
+    ],
+    "titre": "Error trying to crrate new enviroment with anaconda: You probably need to delete and re-download or re-create this file",
+    "number": "45/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "flutterdarttable-calendar"
+    ],
+    "Pseudo": "amogh",
+    "github_score_time": [
+        "        asked 17 mins agoDianaDiana67055 silver badges2020 bronze badges"
+    ],
+    "href": "/questions/74788792/tablecalendar-only-shows-dots-on-selected-day",
+    "contenus": [
+        "I have a calendar like thisTableCalendar<Task>(                onDaySelected: (date, date2) {          onDateChanged!(date2);        },        selectedDayPredicate: (day) => isSameDay(dateSelected, day),        calendarStyle: const CalendarStyle(          markersAlignment: Alignment.bottomRight,        ),        eventLoader: (day) => _getEventsForDay(day),        headerStyle: const HeaderStyle(          formatButtonVisible: false,        ),        calendarFormat: CalendarFormat.month,        currentDay: dateSelected,        focusedDay: dateSelected,        startingDayOfWeek: StartingDayOfWeek.monday,        firstDay: DateTime.utc(2010, 10, 16),        // registered on        lastDay: DateTime.now().add(const Duration(days: 1000)),      ),And the problem is, it only shows the dots for the events, when i selected that date.I want the dots to be visible for all the days of the month event if they are note selected,"
+    ],
+    "titre": "TableCalendar only shows dots on selected day",
+    "number": "46/50"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "pythonpipgoogle-auth-library"
+    ],
+    "Pseudo": "david",
+    "github_score_time": [
+        "        asked 18 mins agoBackgroundChecker1994BackgroundChecker19941"
+    ],
+    "href": "/questions/74788791/pip-error-could-not-find-a-version-that-matches-google-auth",
+    "contenus": [
+        "I been trying to resolve dependencies for my project.Here is the version error I am getting for google auth.<2.0dev,<3.0dev,==1.35.0,>=1.24.0,>=2.14.1I tried the pipenv graph and have my requirements set to 1.35 version for google-auth.Can you please tell me which version should help here?"
+    ],
+    "titre": "PIP error: Could not find a version that matches google-auth",
+    "number": "47/50"
+}
