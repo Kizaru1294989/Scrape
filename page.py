@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup as bs
 import pandas as pd
 import urllib.request as t
 import json
+import psycopg2
 
 
 def clear_data(str): # avoir la data sans les html tags 
@@ -21,7 +22,7 @@ def get(exemple, int):
         AllTitle = source.find_all('h3', {'class': 's-post-summary--content-title'})  # titre
         AllTitle.pop(0)    # .pop nous permet de retirer des strings du slice ici on supprime les 2 premiers et le dernier car ils sont vides
         AllTitle.pop(0)
-        AllTitle.pop(50)
+       # AllTitle.pop(51)
         Views = clear_data(V)
         titre = clear_data(AllTitle)
         Nom = clear_data(Pseudo)
@@ -29,7 +30,7 @@ def get(exemple, int):
         with open('page' + str(int) + '.json', "w", encoding="utf-8") as f:
             for taille, contenus in enumerate(AllTitle):
                 paragraph = []
-                print("contenus :"+ str(contenus)) #href du post
+               # print("contenus :"+ str(contenus)) #href du post
                 paragraph.append(str(contenus))
                 a = (str(paragraph).strip('[]'))
                 href = takehref(a)            
@@ -50,17 +51,27 @@ def get(exemple, int):
                 new_list5 = [s.replace("\n", "") for s in language_clear]
                 new_list6 = [s.replace("\n", "") for s in compe_ifno_clear]
                 new_list7 = [s.replace("\r", "") for s in new_list6]
-                dictionary = {
-                'nombre de vues' : Views[taille],
-                'type':new_list5,
-                'Pseudo': new_list[taille],
-                'github_score_time':new_list7,
-                'href': href,
-                'contenus':new_list3,
-                'titre': new_list4[taille],
-                'number': str(taille+1) + "/50"}
-                json.dump(dictionary, f, ensure_ascii=False, indent=4)
-    
+     #           'nombre de vues' : Views[taille],
+    #            'type':new_list5,
+   #             'Pseudo': new_list[taille],
+  #              'github_score_time':new_list7,
+ #               'href': href,
+#                'contenus':new_list3,
+#                'titre': new_list4[taille],
+#                'number': str(taille+1) + "/50"}
+                db_host="localhost"
+                db_name="ryan"
+                db_user="ryan"
+                db_password="ryan"
+                conn = psycopg2.connect(dbname=db_name, user=db_name,password=db_password,host=db_host)
+                cur = conn.cursor()
+                cur.execute("INSERT INTO scrape VALUES(%s,%s,%s,%s,%s,%s,%s)", (str(Views[taille]),str(new_list5),str(new_list[taille]),str(new_list7),str(href_titre),str(new_list3),str(new_list4[taille])))
+                conn.commit()
+#print(cur.fetchall())
+#cur.execute("SELECT * FROM scrape")
+#print(cur.fetchall())
+                cur.close()
+
 
 print("Please Wait.. it will take some time")
 
