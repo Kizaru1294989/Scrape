@@ -5,93 +5,77 @@ import pandas as pd
 import urllib.request as t
 import json
 
+def clear_data(data): 
+    # extraire les données sans les tags html
+    clear_data = []
+    for element in data:
+        clear_data.append(element.text)
+    return clear_data
 
-def clear_data(str): # avoir la data sans les html tags 
-    clear_projet = []
-    for e, projet in enumerate(str):
-        clear_projet.append(str[e].text)
-    return clear_projet
-
-
-def get(exemple, int):
-        page = t.urlopen(exemple)
-        source = bs(page, "html.parser")
-        V = source.find_all('span', {'class': 's-post-summary--stats-item-number'})  # nombre de vues
-        Pseudo = source.find_all('div', {'class': 's-user-card--link d-flex gs4'})   # Pseudo
-        AllTitle = source.find_all('h3', {'class': 's-post-summary--content-title'})  # titre
-        AllTitle.pop(0)    # .pop nous permet de retirer des strings du slice ici on supprime les 2 premiers et le dernier car ils sont vides
-        AllTitle.pop(0)
-        AllTitle.pop(50)
-        Views = clear_data(V)
-        titre = clear_data(AllTitle)
-        Nom = clear_data(Pseudo)
-        new_list = [s.replace("\n", "") for s in Nom]  #supprimer les \n du pseudo
-        with open('page' + str(int) + '.json', "w", encoding="utf-8") as f:
-            for taille, contenus in enumerate(AllTitle):
-                paragraph = []
-                print("contenus :"+ str(contenus)) #href du post
-                paragraph.append(str(contenus))
-                a = (str(paragraph).strip('[]'))
-                href = takehref(a)            
-                href_titre = "https://stackoverflow.com" +href
-                #print(toutletitre)
-                page1 = t.urlopen(href_titre)
-                question = bs(page1,"html.parser")
-                tout = question.find_all('div', {'class': 's-prose js-post-body'})
-                language = question.find_all('div', {'class':'d-flex ps-relative fw-wrap'}) # Languages ?
-                info_compte = question.find_all('div', {'class':'user-info'}) # Languages ?
-                contenu_href = clear_data(tout)
-                language_clear = clear_data(language)
-                compe_ifno_clear = clear_data(info_compte)
-                new_list1 = [s.replace("\n", "") for s in contenu_href]
-                new_list2 = [s.replace("\n", "") for s in titre]
-                new_list3 = [s.replace("\"", "") for s in new_list1]
-                new_list4 = [s.replace("\"", "") for s in new_list2]
-                new_list5 = [s.replace("\n", "") for s in language_clear]
-                new_list6 = [s.replace("\n", "") for s in compe_ifno_clear]
-                new_list7 = [s.replace("\r", "") for s in new_list6]
-                dictionary = {
-                'nombre de vues' : Views[taille],
-                'type':new_list5,
-                'Pseudo': new_list[taille],
-                'github_score_time':new_list7,
-                'href': href,
-                'contenus':new_list3,
-                'titre': new_list4[taille],
-                'number': str(taille+1) + "/50"}
-                json.dump(dictionary, f, ensure_ascii=False, indent=4)
-    
-
-print("Please Wait.. it will take some time")
-
-
-def scrape(int):
-    #allurl("https://stackoverflow.com/questions?tab=newest&page=1")
-    #page = 0
-    while int < 10: # nombres de pages a scrap
-        int += 1
-        print(str(int)+"/"+str(10))
-        link = "https://stackoverflow.com/questions?tab=newest&page=" + str(int)
-        print(link)
-        get(link, int)
-        if int == 10:
-            print("Scrap_Over")
-            exit()
-
-
-def allurl(name):
-    reqs = requests.get(name)
-    soup = bs(reqs.text, 'html.parser')
-
-    urls = []
-    for link in soup.find_all('a', href=True):
-        print(link.get('href'))
-
-
-def takehref(string):
+def extract_href(string):
+    # extraire le href du string
     debut = 'href="'
     fin = '"'
-    x = string.split(" ")
-    lien = x[3]
+    split_string = string.split(" ")
+    lien = split_string[3]
     href = (lien.split(debut))[1].split(fin)[0]
     return href
+
+def extract_content(href_titre):
+    # collection des données
+    page = t.urlopen(href_titre)
+    soup = bs(page, "html.parser")
+    content_div = soup.find_all('div', {'class': 's-prose js-post-body'})
+    language_div = soup.find_all('div', {'class':'d-flex ps-relative fw-wrap'})
+    account_info_div = soup.find_all('div', {'class':'user-info'})
+    content = clear_data(content_div)
+    language = clear_data(language_div)
+    account_info = clear_data(account_info_div)
+    content = [s.replace("\n", "") for s in content]
+    content = [s.replace("\"", "") for s in content]
+    language = [s.replace("\n", "") for s in language]
+    account_info = [s.replace("\n", "") for s in account_info]
+    account_info = [s.replace("\r", "") for s in account_info]
+    return content, language, account_info
+
+
+def save_to_json(page_number, Views, Names, Titles, Hrefs):
+    # mettre toutes les donnés dans des arbres JSON
+    with open('page-' + str(page_number) + '.json', "w", encoding="utf-8") as f:
+        for index, title in enumerate(Titles):
+            href_titre = "https://stackoverflow.com" + Hrefs[index]
+            print(" NUMBER = "+str(index + 1) + "/48  HREF = " + href_titre)
+            content, language, account_info = extract_content(href_titre)
+            dictionary = {
+                'number': str(index + 1) + "/48",
+                'Pseudo': Names[index],
+                'titre': title,
+                'href': Hrefs[index],
+                'nombre de vues' : Views[index],
+                'type': language,
+                'github_score_time': account_info,
+                'contenus': content,
+            }
+            json.dump(dictionary, f, ensure_ascii=False, indent=4)
+
+def scrape():
+    # function principale qui servira de loop pour scraper toutes les pages et leur contenus
+    page_number = 0
+    while page_number < 10: # nombres de pages à scraper
+        page_number += 1
+        print("Page " + str(page_number) + "/10")
+        link = "https://stackoverflow.com/questions?tab=newest&page=" + str(page_number)
+        page = t.urlopen(link)
+        soup = bs(page, "html.parser")
+        views_span = soup.find_all('span', {'class': 's-post-summary--stats-item-number'})
+        pseudo_div = soup.find_all('div', {'class': 's-user-card--link d-flex gs4'})
+        titles_h3 = soup.find_all('h3', {'class': 's-post-summary--content-title'})
+        titles_h3.pop(0)
+        titles_h3.pop(0)
+        views = clear_data(views_span)
+        titles = clear_data(titles_h3)
+        names = clear_data(pseudo_div)
+        names = [s.replace("\n", "") for s in names]
+        hrefs = [extract_href(str(title)) for title in titles_h3]
+        save_to_json(page_number, views, names, titles, hrefs)
+    print("Scrap over")

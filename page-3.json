@@ -1,0 +1,607 @@
+{
+    "nombre de vues": "0",
+    "type": [
+        "pythondjangobackend"
+    ],
+    "Pseudo": "WebStormer",
+    "github_score_time": [
+        "edited 1 hour agoM Z4,50111 gold badge1212 silver badges2626 bronze badges",
+        "        asked 1 hour agoMatheusFCSMatheusFCS1"
+    ],
+    "href": "/questions/76139163/get-object-or-404-handler404-http404-response-how-do-these-things-works",
+    "contenus": [
+        "Could you help me with something in Django, please?I would like to understand the sequence of execution of 404 page not found errorLet me put the code here...url.py -----------file from django projectfrom django.contrib import adminfrom django.urls import path, includefrom django.conf.urls import handler404, handler500from core import viewsurlpatterns = [    path('admin/', admin.site.urls),    path('', include('core.urls')),]handler404 = views.error404handler500 = views.error500url.py -----------file from django appfrom django.urls import pathfrom .views import indexfrom .views import contactfrom .views import producturlpatterns = [    path('', index, name='index'),    path('contact', contato, name='contact'),    path('product/<int:pk>', produto, name='product'),]view.pydef produto(request, pk):    print(f'PK: {pk}')        prod = get_object_or_404(Product, id=pk)    context = {        'product': prod    }    return render(request, 'product.html', context)def error404(request, exception):    template = loader.get_template('404.html')    return HttpResponse(content=template.render(), content_type='text/html; charset=utf8', status=404)def error500(request):    template = loader.get_template('500.html')    return HttpResponse(content=template.render(), content_type='text/html; charset=utf8', status=500)I would like to understand the following:Let's suppose that in the table 'Product' there are only 5 instances...so for the 5th instance, the URL is http://127.0.0.1:8000/product/5 ok?Let's suppose that I try to get the 10th instance in the table that does not exist, so the line of code prod = get_object_or_404(Product, id=pk) will return the instance or return an error 404, in this case will return an error 404, ok?So, when I enter the url http://127.0.0.1:8000/product/10, this will hit the url patter path('product/<int:pk>', produto, name='product'), calling the view def produto(request, pk):Inside that view, the instance will not be retrieved and the error 404 will be released.So, how that error404 is sent to the url.py file for this code handler404 = views.error404 to be executed and call the view for this error def error404(request, exception):?I didn't understand how the flow of execution works...Could someone explain it to me?I already described the context."
+    ],
+    "titre": "\nget_object_or_404(), handler404, Http404 response. How do these things works?\n",
+    "number": "1/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "pythonsocketsclient-serverraw-socketsosi"
+    ],
+    "Pseudo": "Anıl",
+    "github_score_time": [
+        "        asked 1 hour agoCD1210CD12101"
+    ],
+    "href": "/questions/76139161/how-do-i-get-complete-layer-2-layer-7-data-from-a-python-socket",
+    "contenus": [
+        "I'm trying to write a simple python server that accepts a connection from whatever and digests the entire frame, down to the ethernet headers. The server will not maintain a connection or care about the client once it receives the frame. I'm sort of going for a frame visualizer, think wireshark, but the server creates that visualization, which isn't a part of this question.If I use a traditional AF_INET/SOCK_STREAM socket for this server, the only data I receive from clients will be the data payload itself. With an AF_INET/SOCK_RAW socket, I will get Layer 3 headers, Layer 4 headers, and the data. See this question for a better explanation on that.With an AF_PACKET/SOCK_RAW socket, I would in theory get all the rest of the goodies down to the ethernet headers and be able to receive those, and digest them to my heart's content. The problem, I think, is that when using SOCK_RAW you're essentially telling your NIC that you don't want to handle any of the setup of the connection. This is a problem because I want a client to be able to send TCP data / open a connection (or UDP or whatever else), have the server capture that request(s), and then do whatever with the ethernet headers the client sends to be used in a visualization. For now I'm content with one frame at a time, but I'd like to be able to do multiple in a series at a later date, which means I need connections to work.Here's the issue: With a SOCK_RAW, the server would also need to handle the entire TCP handshake, or any other process that happens. That's out of scope for this project and I really just want to capture the entire frame of a request, I'm not trying to reinvent the wheel. Is AF_PACKET/SOCK_RAW what I'm actually looking for, or is there another way to capture the entire L2->L7 request?Here's an example of a would-be client.py, sending basic data over a TCP socket:import socketHOST = '192.168.0.95'PORT = 5000with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:    s.connect((HOST, PORT))    s.sendall(b'Hello, world')Predictably, this works for a normal echo server. Here's the server.py, which I've been toying with and is otherwise garbage code. I would like to get the whole OSI onion from the client above, for example.server.pyimport socketPORT = 5000ETH_P_ALL = 3ETH_P_IP = 0x800 # These two were stolen from some other answer, not sures = socket.socket(socket.AF_PACKET, socket.SOCK_RAW, socket.htons(ETH_P_ALL))s.bind(('wlp0s20f3', 5000)) # Bind RAW socket to this specific interface, I guess# Since raw sockets bind on an interface and not an address# Note: Loopback (lo) usually gave me broken pipe / connection refused errors,# this one seems to work (read: not break)while True:    print(s.recvfrom(4096))The server sits patiently and waits for incoming data, which it never receives. The client, upon executing, gets a ConnectionRefusedError: [Errno 111] Connection refused.I have tried getting some data on the wire with a client AF_PACKET/SOCK_RAW socket instead of a TCP socket, and while it does get on the wire and is visible with wireshark (unlike the simple client above), the server still doesn't see the data or receive anything at all."
+    ],
+    "titre": "\nHow do I get complete Layer 2 -> Layer 7 data from a Python socket?\n",
+    "number": "2/48"
+}{
+    "nombre de vues": "7",
+    "type": [
+        "cronscrapy"
+    ],
+    "Pseudo": "MatheusFCS",
+    "github_score_time": [
+        "        asked 1 hour agobogdan_zakbogdan_zak111 bronze badge"
+    ],
+    "href": "/questions/76139160/scrapy-with-cronjob-in-ubuntu",
+    "contenus": [
+        "I'm trying to run my spider named seo_filter_pages from the crontab, but apparently nothing works. I work in Ubuntu. I created a virtual environment.The path to scrapy is /home/scrapy/venvScrapy/bin/scrapy and python and python3 are also there. Path to spider: /home/scrapy/tufelka/tufelka/spiders/Tried with and without PATH, but nothing starts. Here is an example of what I tried to write to the crontab.What am I doing wrong? How can I check if it works or not?05 00 * * * PATH=/home/scrapy/venvScrapy/bin && cd /home/scrapy/tufelka && scrapy crawl seo_filter_pages >> /home/scrapy/spider.log 2>&105 00 * * * * cd /home/scrapy/tufelka && /home/scrapy/venvScrapy/bin/scrapy crawl seo_filter_pages >> /home/scrapy/spider.log 2>&1At the end I add a log file to record the actions, but it doesn't show up, which means the cron didn't work. The time is given as an example. In debugging I correct the time to check.I don't want to use bush files."
+    ],
+    "titre": "\nScrapy with cronjob in Ubuntu\n",
+    "number": "3/48"
+}{
+    "nombre de vues": "1",
+    "type": [
+        "phplinuxsystemd"
+    ],
+    "Pseudo": "CD1210",
+    "github_score_time": [
+        "        asked 1 hour agoАнь КаирриАнь Каирри5166 bronze badges"
+    ],
+    "href": "/questions/76139159/systemd-launched-php-process",
+    "contenus": [
+        "I'm running Fedora 38 system (upgraded from Fedora 37).Every shutdown is very slow, and I see a warning about waiting for php shutdown while I have no php installed.And, if I run ps I see running php process, launched by systemd:[root@amphimachairodus var]# ps -aux | grep phpsystemd+    5309  0.0  0.0 203932 22620 ?        Ss   03:00   0:00 php -S [::]:8080 -t /var/www/htmlroot        9225  0.0  0.0 222544  2432 pts/1    S+   03:16   0:00 grep --color=auto phpHowever, even /var/www/html directory is not exist.What is happening? Why systemd launching php? Am I hacked?"
+    ],
+    "titre": "\nsystemd launched php process\n",
+    "number": "4/48"
+}{
+    "nombre de vues": "1",
+    "type": [
+        "javascriptperformanceuser-interfacein-memorytext-rendering"
+    ],
+    "Pseudo": "bogdan_zak",
+    "github_score_time": [
+        "        asked 1 hour agomindoverflowmindoverflow70044 silver badges1111 bronze badges"
+    ],
+    "href": "/questions/76139158/efiiciency-of-editable-text-rendering-on-gui-and-modern-browser-textareas",
+    "contenus": [
+        "Rendering text to screen such that it is editable seems to me to be a delicate operation.Usually this is not a big deal for good text editors with small amounts of text upto even 8MB as modern processors have gotten faster and more efficient. However, this starts posing a problem the moment a huge amount of text warrants rendering.Case in point, the classic Windows Notepad perhaps does not implement chunk by chunk loading and tries to load the entire file text content and send it to render all at once, causing GUI thread block even on moderately sized files.If one were to read file via a buffer, and on each read send that text to render and clear the buffer itself for the next read, it becomes noticably faster, and RAM efficient - and if the process is run on another thread, the GUI won't even block and the whole thing is much smoother.I would think to enter some text in the middle of a bunch of text in some GUI textarea of some sort, the under the hood implementation would be some form of memmove to shift the right side content to make space while only updating the visible section on the screen. Is this somewhat a correct idea?In case of HTML and JavaScript though (for example in a textarea), some people usually perform a string division, append the content to the first part, then append in the last part and set the entire resulting string = to textarea.value which seems heavily inefficient on the surface.Is this process for browser text updates as inefficient as it appears to me? Do browsers implement these direct assigning to internal HTML internally?"
+    ],
+    "titre": "\nEfiiciency of Editable Text Rendering on GUI and Modern Browser Textareas\n",
+    "number": "5/48"
+}{
+    "nombre de vues": "33",
+    "type": [
+        "php"
+    ],
+    "Pseudo": "Ань Каирри",
+    "github_score_time": [
+        "edited 3 mins agorovert.cro533 bronze badges",
+        "        asked 1 hour agolasilvialasilvia2133 bronze badges"
+    ],
+    "href": "/questions/76139157/how-do-you-convert-a-snowflake-discord-userid-into-a-date-using-php",
+    "contenus": [
+        "I'm looking for a way to convert discord user id to date, but I haven't figured out how to do it yetI have this little code created in phpi need to get real date of user by idI also need to remove the randint<?phperror_reporting(0);$id = (string) ((time() << 22) | (rand(-16, 15) <<17) | (rand(0, 31) <<12))   | (rand(0, 4095));echo date(F j, Y, g:i a, ($id >>22));?>But it's not workingCould someone help me, thank you very much!"
+    ],
+    "titre": "\nHow do you convert a Snowflake Discord userid into a date using php?\n",
+    "number": "6/48"
+}{
+    "nombre de vues": "-1",
+    "type": [
+        "swiftswiftui"
+    ],
+    "Pseudo": "mindoverflow",
+    "github_score_time": [
+        "        asked 1 hour agoDerDer5911 silver badge66 bronze badges"
+    ],
+    "href": "/questions/76139155/how-to-dismiss-a-swiftui-colorpicker-popover-programmatically",
+    "contenus": [
+        "Unlike developer-created Popovers that have @Bindings to display/dismiss them, ColorPicker Popover is created by iPadOS itself. Take a look:struct ContentView: View {    @State private var myColor = Color.red    var body: some View {        VStack {            ColorPicker(Label text, selection: $myColor)            Spacer()        }    }}And it is a usual Popover:How can I dismiss it programmatically?PS If you are wondering why I need that. I need to display an Alert at some point, and this Popover might be opened by the user. As Alerts and Popovers can't be shown simultaneously — I must close the Popover first."
+    ],
+    "titre": "\nHow to dismiss a SwiftUI ColorPicker Popover programmatically\n",
+    "number": "7/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "htmlpositionrssembed"
+    ],
+    "Pseudo": "lasilvia",
+    "github_score_time": [
+        "        asked 2 hours agoDimitri SahaDimitri Saha1",
+        "        answered 16 mins agoDanilo FagundesDanilo Fagundes31177 bronze badges"
+    ],
+    "href": "/questions/76139154/embed-positioning",
+    "contenus": [
+        "I am currently attempting to center an embed between an image and the center of the screen. To achieve this, I utilized https://rss.app/ to embed the NBA portion of Google News into my website. If you require the CSS file, please don't hesitate to ask. I have been struggling for a while and would appreciate any help you can provide.<html lang=en><head>  <meta charset=UTF-8>  <meta name=viewport content=width=device-width, initial-scale=1.0>  <title></title>  <link rel=stylesheet href=style.css>  <link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css /></head><body>  <nav class=navbar>    <div class=content>      <div class=logo>        <a href=home.html>Home</a>      </div>      <ul class=menu-list>        <div class=icon cancel-btn>          <i class=fas fa-times></i>        </div>        <li><a href=home.html>Home</a></li>        <li><a href=news.html>News</a></li>        <li><a href=records.html>Records</a></li>        <li><a href=games.html>Games</a></li>        <li><a href=images.html>Images</a></li>      </ul>      <div class=icon menu-btn>        <i class=fas fa-bars></i>      </div>    </div>  </nav>  <div class=banner>    <div style=margin-top: 1000;>      <rssapp-carousel id=8ywhL4ZjvQvQv5Zz></rssapp-carousel>      <script src=https://widget.rss.app/v1/carousel.js type=text/javascript async></script>    </div>  </div>  <div class=about>    <script>      const body = document.querySelector(body);      const navbar = document.querySelector(.navbar);      const bannerTitle = document.querySelector(.bannerTitle);      const menuBtn = document.querySelector(.menu-btn);      const cancelBtn = document.querySelector(.cancel-btn);      menuBtn.onclick = () => {        navbar.classList.add(show);        menuBtn.classList.add(hide);        body.classList.add(disabled);      }      cancelBtn.onclick = () => {        body.classList.remove(disabled);        navbar.classList.remove(show);        menuBtn.classList.remove(hide);      }      window.onscroll = () => {        this.scrollY > 20 ? navbar.classList.add(sticky) : navbar.classList.remove(sticky);        this.scrollY > 20 ? bannerTitle.classList.add(sticky) : bannerTitle.classList.remove(sticky);      }    </script></body></html>```",
+        "If I understand correctly, is this the behavior you want?https://jsfiddle.net/u2qtnLkv/   <html lang=en><head>  <meta charset=UTF-8>  <meta name=viewport content=width=device-width, initial-scale=1.0>  <title></title>  <link rel=stylesheet href=style.css>  <link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css /></head><body>  <nav class=navbar>    <div class=content>      <div class=logo>        <a href=home.html>Home</a>      </div>      <ul class=menu-list>        <div class=icon cancel-btn>          <i class=fas fa-times></i>        </div>        <li><a href=home.html>Home</a></li>        <li><a href=news.html>News</a></li>        <li><a href=records.html>Records</a></li>        <li><a href=games.html>Games</a></li>        <li><a href=images.html>Images</a></li>      </ul>      <div class=icon menu-btn>        <i class=fas fa-bars></i>      </div>    </div>  </nav>  <div class=banner bannerTitle>    <div style=margin-top: 1000;>      <rssapp-carousel id=8ywhL4ZjvQvQv5Zz></rssapp-carousel>      <script src=https://widget.rss.app/v1/carousel.js type=text/javascript async></script>    </div>  </div>  <div class=about>    <script>      const body = document.querySelector(body);      const navbar = document.querySelector(.navbar);      const bannerTitle = document.querySelector(.bannerTitle);      const menuBtn = document.querySelector(.menu-btn);      const cancelBtn = document.querySelector(.cancel-btn);      menuBtn.onclick = () => {        navbar.classList.add(show);        menuBtn.classList.add(hide);        body.classList.add(disabled);      }      cancelBtn.onclick = () => {        body.classList.remove(disabled);        navbar.classList.remove(show);        menuBtn.classList.remove(hide);      }      window.onscroll = () => {        this.scrollY > 20 ? navbar.classList.add(sticky) : navbar.classList.remove(sticky);        this.scrollY > 20 ? bannerTitle.classList.add(sticky) : bannerTitle.classList.remove(sticky);      }    </script>    </div></body></html>css:rssapp-carousel {  display: flex;  justify-content: center;  align-items: center;  height: 100vh; /* ajuste a altura conforme necessário */}"
+    ],
+    "titre": "\nEmbed Positioning\n",
+    "number": "8/48"
+}{
+    "nombre de vues": "8",
+    "type": [
+        "postgresqlubuntuubuntu-22.04"
+    ],
+    "Pseudo": "Der",
+    "github_score_time": [
+        "edited 1 hour agoMainland",
+        "        asked 2 hours agoMainlandMainland3,80433 gold badges2121 silver badges4646 bronze badges"
+    ],
+    "href": "/questions/76139152/ubuntu-postgresql-psql-error-connection-to-server-on-socket-var-run-postgre",
+    "contenus": [
+        "I have quite an exciting and bit frustrating situation.Postgresql -server (on a desktop Ubuntu):# I have successfully installed it# I am trying to start the server but I am not seeing the terminal # change from Kia@office ubuntu >> to the postgresql ## Here is response for various codes: kia@officeUbuntu:~$ sudo systemctl start postgresqlkia@officeUbuntu:~$ psqlpsql: error: connection to server on socket /var/run/postgresql/.s.PGSQL.5432 failed: FATAL:  role manju_fsec_ems does not existkia@officeUbuntu:~$ kia@officeUbuntu:~$ pg_lsclustersVer Cluster Port Status Owner    Data directory              Log file14  main    5432 online postgres /var/lib/postgresql/14/main /var/log/postgresql/postgresql-14-main.log15  main    5433 online postgres /var/lib/postgresql/15/main /var/log/postgresql/postgresql-15-main.logPostgresql-Client (on a raspberry Pi):pi@raspberrypi:~ $ psql --host 10.173.65.37 --username postgres --passwordPassword: psql (13.9 (Raspbian 13.9-0+deb11u1), server 14.7 (Ubuntu 14.7-1.pgdg22.04+1))WARNING: psql major version 13, server major version 14.         Some psql features might not work.SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)Type help for help.postgres=# \\dtDid not find any relations. # This means there are no tables in the database yet# Above response implies that we are able to establish remote connection with the postgresql server. Also, terminal `pi@raspberry:` changed to the `postgres=#`My question:As you can see above, I am not able to active and enter inside the Postgresql server on the very computer it is installed but I am able to make a successful remote connection from another Raspberry pi device. This is atleast a good news for me but not able to activate Postgresql on the server itself is troubling me. I don't know why? I have seen many Q&A with same situation. I tried few but did not work.Update: Based on the @Zac Anger comment below:kia@MMofficeUbuntu:~$ sudo -u postgres -i[sudo] password for kia: postgres@MMofficeUbuntu:~$ \\dtdt: command not foundpostgres@MMofficeUbuntu:~$ psqlpsql (15.2 (Ubuntu 15.2-1.pgdg22.04+1), server 14.7 (Ubuntu 14.7-1.pgdg22.04+1))Type help for help.postgres=# \\dtDid not find any relations.postgres=# "
+    ],
+    "titre": "\nUbuntu Postgresql: psql: error: connection to server on socket \"/var/run/postgresql/.s.PGSQL.5432\" failed\n",
+    "number": "9/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "functionassemblymipsfibonacci"
+    ],
+    "Pseudo": "Dimitri Saha",
+    "github_score_time": [
+        "        asked 2 hours agoronnyronny4177 bronze badges"
+    ],
+    "href": "/questions/76139150/i-have-this-mips-code-for-a-fibonacci-function-how-can-i-extend-the-code-for-pr",
+    "contenus": [
+        "I have this MIPS code for a Fibonacci function,one pass a natural number in terminal and the program returns the Fibonacci number in that position, but it's not working, how can I modify the code to do so? I almost got it, but need some help :)This the current code i got:.data     ask4num: .asciiz Enter a number:     printNum: .asciiz \\nThe number on the Lucas Sucession is:     .text    .globl mainmain:    # print text    addi $v0, $zero, 4    la $a0, ask4num    syscall        # get number    addi $v0, $zero, 5    syscall        # store number in $t0    addi $t0, $v0, 0        # prit text    addi $v0, $zero, 4    la $a0, printNum    syscall        jal Fib        addi $v0, $zero, 1    addi $a0, $v1, 0    syscall        addi $v0, $zero, 10    syscall    Fib:    addi $sp, $sp, -12    sw $ra, 0($sp)    sw $a0, 4($sp)    sw $s0, 8($sp)        beq $a0, $zero, ReturnZero    addiu $t0, $zero, 0    slti $t0, $a0, 2    bne $t0, $zero, ReturnOne        addi $a0, $a0, -1    jal Fib        move $s0, $v0    lw $a0, 4($sp)    addi $a0, $a0, -2    jal Fib        add $v0, $v0, $s0        lw $s0, 8($sp)    lw $ra, 0($sp)    addiu $sp, $sp, 12    jr $ra        ReturnZero:    lw $s0, 8($sp)    lw $ra, 0($sp)    addiu $sp, $sp, 12    li $v0, 0    jr $ra    ReturnOne:    lw $s0, 8($sp)    lw $ra, 0($sp)    addi $sp, $sp, 12    li $v0, 1    jr $raThe program is almost done just need some help to fix it, its probably easy to do. Thanks in advance!!!!"
+    ],
+    "titre": "\nI have this MIPS code for a Fibonacci Function. How can I extend the code for printing the given position in terminal?\n",
+    "number": "10/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "phphtmlmysqldatabaseweb"
+    ],
+    "Pseudo": "Mainland",
+    "github_score_time": [
+        "        asked 2 hours agoanalyticstaganalyticstag7966 bronze badges"
+    ],
+    "href": "/questions/76139148/why-cant-i-open-my-php-file-on-localhost",
+    "contenus": [
+        "This is my code:    <!DOCTYPE html><html><head>    <title>Retreat Reservation System</title>    <link rel=stylesheet type=text/css href=style.css></head><body>    <header>        <h1>Retreat Reservation System</h1>    </header>    <nav>        <ul>            <li><a href=#>Home</a></li>            <li><a href=#>Branches</a></li>            <li><a href=#>Rooms</a></li>            <li><a href=#>Bookings</a></li>            <li><a href=#>Suppliers</a></li>            <li><a href=#>Login</a></li>        </ul>    </nav>    <main>        <h2>Branches</h2>        <ul>            <li><?php// Database credentials$dbhost = 'localhost';$dbuser = 'root';$dbpass = '';$dbname = 'easeltd';// Connect to database$connection = new mysqli($dbhost, $dbuser, $dbpass, $dbname);// Check connectionif (!$connection->connect_error) {    die(Connection failed:  . !$connection->connect_error);}//read all rows$sql= SELECT * FROM branch;$result = $connection->query($sql);if (!$result){die(Invalid query: . $connection->error);}//read data of each rowwhile($row = $result->fetch_assoc()){echo <tr><td> . $row[branch_id] . </td><td> . $row[branch_name] . </td><td> . $row[adderess] . </td><td> . $row[phone_number] . </td><td> . $row[branch_id] . </td></tr>;}?>            </li>            <li><a href=#>Branch 2</a></li>            <li><a href=#>Branch 3</a></li>        </ul>        <h2>Rooms</h2>        <ul>            <li><a href=#>Room 1</a></li>            <li><a href=#>Room 2</a></li>            <li><a href=#>Room 3</a></li>        </ul>        <h2>Bookings</h2>        <ul>            <li><a href=#>Booking 1</a></li>            <li><a href=#>Booking 2</a></li>            <li><a href=#>Booking 3</a></li>        </ul>        <h2>Suppliers</h2>        <ul>            <li><a href=#>Supplier 1</a></li>            <li><a href=#>Supplier 2</a></li>            <li><a href=#>Supplier 3</a></li>        </ul>        <h2>Login</h2>        <form action= method=post>            <label for=username>Username:</label>            <input type=text id=username name=username required>            <label for=password>Password:</label>            <input type=password id=password name=password required>            <input type=submit value=Submit>        </form>    </main>    <footer>        <p>&copy; 2023 Retreat Reservation System</p>    </footer>    <script src=script.js></script></body></html>this is a php file, and I am using using xampp server. when I type localhost/easeltd in the url box i get this error:these are my database details:I want to see details of my 'branch' table:does someone here understand the situation and help me change the code or do some kind of tweaking to get my code running? thanks?"
+    ],
+    "titre": "\nwhy can;t I open my php file on localhost?\n",
+    "number": "11/48"
+}{
+    "nombre de vues": "7",
+    "type": [
+        "exceptionassemblyx86stackmasm"
+    ],
+    "Pseudo": "ronny",
+    "github_score_time": [
+        "edited 2 hours agocrispycalvin",
+        "        asked 2 hours agocrispycalvincrispycalvin1322 bronze badges"
+    ],
+    "href": "/questions/76139144/exception-thrown-exception-unhandled-in-visual-studio-2019",
+    "contenus": [
+        "I keep getting a message saying Exception thrown at 0x007B1D3C in HWProject4.exe: 0xC0000005: Access violation reading location 0x00000068. at the line that says ret 20. I assume it is because I am incorrectly accessing my stack but I do not know how (I drew the stack on paper and do not know what I am doing incorrectly).The guidelines for the project are:My Code:include Irvine32.incExitProcess Proto, dwexitcode: DWORD.data    num1    DWORD   1h    num2    DWORD   2h    num3    DWORD   3h    num4    DWORD   4h    num5    DWORD   5h    numofVar    BYTE    5    title1  BYTE    System Parameters on Stack,0    titledivider    BYTE    ---------------------------,0    addresstxt  BYTE    Address: ,0    arrow   BYTE     => ,0    contenttxt  BYTE    Content: ,0.codemdisplayText MACRO text, newLine:=<0>    mov edx, OFFSET text    call WriteString    COMMENT !    cmp newline, 0    jz done    mov ecx, newLineL1:    call crlf    loop L1    !    IF (newLine GT 0)        mov ecx, newLine    L1:        call crlf        loop L1    ELSE            ENDIF;done:    ;retENDMrunLevelTwo PROC ;,    ;numbofVars:BYTE        push ebp     mov ebp, esp    pushad    mov esi, ebp    add esi, 8    mov eax, 0    mov eax, esi    ;movzx ecx, numbofVars    mov ecx, 5displaying:    mdisplayText addresstxt    call WriteHex    mdisplayText 'h'    mdisplayText arrow    mdisplayText contenttxt    mov eax, [esi]    call WriteHex    mdisplayText 'h'    call crlf    add esi, type DWORD    mov eax, esi    loop displaying    popad    pop ebp    ret runLevelTwo ENDP    runLevelOne PROC    push num5    push num4    push num3    push num2    push num1        call runLevelTwo ;numofVar    ret 20runLevelOne ENDPmain PROC    mdisplayText title1, 1    mov edx, OFFSET titledivider    call WriteString    call crlf    call runLevelOne        exitmain ENDPEND main"
+    ],
+    "titre": "\nException Thrown/Exception Unhandled in Visual Studio 2019\n",
+    "number": "12/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "drive"
+    ],
+    "Pseudo": "analyticstag",
+    "github_score_time": [
+        "edited 1 hour agoDavid Makogon69k2121 gold badges144144 silver badges187187 bronze badges",
+        "        asked 2 hours agoTKB987TKB987111 bronze badge"
+    ],
+    "href": "/questions/76139143/how-to-change-your-matildas",
+    "contenus": [
+        "Closed. This question needs details or clarity. It is not currently accepting answers.                    Want to improve this question? Add details and clarify the problem by editing this post.Closed 1 hour ago.\r                        Improve this question\r                    I thought I had made some new dir but when I put ls in, they are not there. That is when I saw that my Matilda was a / and not ~.  Why did this happen and how to it get ~ back?"
+    ],
+    "titre": "\nHow to change your Matilda's [closed]\n",
+    "number": "13/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "terraform"
+    ],
+    "Pseudo": "crispycalvin",
+    "github_score_time": [
+        "        asked 2 hours agostk1234stk123499633 gold badges1111 silver badges2727 bronze badges",
+        "        answered 1 hour agocallbackcallback3,88811 gold badge3232 silver badges5353 bronze badges"
+    ],
+    "href": "/questions/76139140/terraform-loops-not-running",
+    "contenus": [
+        "I want something like the following in Terraform. How do I construct this? I've tried a few variants and none of it seems to run :(repo_names_list = [repo1, repo2, ...]resource github_repository repo1 {name = repo1 # <- look through names herevisibility = private <- all other settings the same}",
+        "Something like this should do the trickvariable repo_names_list {  type = list(string)  default = [repo1, repo2, ...]}resource github_repository repositories {  for_each = { for name in var.repo_names_list : name => name }  name = each.value  visibility = private  # Add other settings as needed}"
+    ],
+    "titre": "\nTerraform Loops Not Running\n",
+    "number": "14/48"
+}{
+    "nombre de vues": "7",
+    "type": [
+        "javafx"
+    ],
+    "Pseudo": "TKB987",
+    "github_score_time": [
+        "        asked Apr 30, 2020 at 19:32James_DJames_D198k1616 gold badges287287 silver badges319319 bronze badges",
+        "edited Dec 31, 2022 at 14:26",
+        "            community wiki                15 revs, 3 users 84%James_D"
+    ],
+    "href": "/questions/76139138/vscode-relative-path-returning-invalid-url-for-sampleimage-jpg-line",
+    "contenus": [
+        "My JavaFX application needs to be able to find the FXML files to load them with the FXMLLoader, as well as stylesheets (CSS files) and images. When I try to load these, I often get errors, or the item I'm trying to load simply doesn't load at runtime.For FXML files, the error message I see includesCaused by: java.lang.NullPointerException: location is not setFor images, the stack trace includesCaused by: java.lang.IllegalArgumentException: Invalid URL: Invalid URL or resource not foundHow do I figure out the correct resource path for these resources?",
+        "Short version of answer:Use getClass().getResource(...) or SomeOtherClass.class.getResource(...) to create a URL to the resourcePass either an absolute path (with a leading /) or a relative path (without a leading /) to the getResource(...) method. The path is the package containing the resource, with . replaced with /.Do not use .. in the resource path. If and when the application is bundled as a jar file, this will not work. If the resource is not in the same package or in a subpackage of the class, use an absolute path.For FXML files, pass the URL directly to the FXMLLoader.For images and stylesheets, call toExternalForm() on the URL to generate the String to pass to the Image or ImageView constructor, or to add to the stylesheets list.To troubleshoot, examine the content of your build folder (or jar file), not your source folder.Placing src in the path when you get a resource is always wrong. The src directory is only available at development and build time, not at deployment and runtime.Full AnswerContentsScope of this answerResources are loaded at runtimeJavaFX uses URLs to load resourcesRules for resource namesCreating a resource URL with getClass().getResource(...)Organizing code and resourcesMaven (and similar) standard layoutsTroubleshootingScope of this answerNote that this answer only addresses loading resources (for example FXML files, images, and stylesheets) that are part of the application, and bundled with it. So, for example, loading images that the user chooses from the file system on the machine on which the application is running would require different techniques that are not covered here.Resources are loaded at runtimeThe first thing to understand about loading resources is that they, of course, are loaded at runtime. Typically, during development, an application is run from the file system: that is, the class files and resources required to run it are individual files on the file system. However, once the application is built, it is usually executed from a jar file. In this case, the resources such as FXML files, stylesheets, and images, are no longer individual files on the filesystem but are entries in the jar file. Therefore:Code cannot use File, FileInputStream, or file: URLs to load a resourceJavaFX uses URLs to load resourcesJavaFX loads FXML, Images, and CSS stylesheets using URLs.The FXMLLoader explicitly expects a java.net.URL object to be passed to it (either to the static FXMLLoader.load(...) method, to the FXMLLoader constructor, or to the setLocation() method).Both Image and Scene.getStylesheets().add(...) expect Strings that represent URLs. If URLs are passed without a scheme, they are interpreted relative to the classpath. These strings can be created from a URL in a robust way by calling toExternalForm() on the URL.The recommended mechanism for creating the correct URL for a resource is to use Class.getResource(...), which is called on an appropriate Class instance. Such a class instance can be obtained by calling getClass() (which gives the class of the current object), or ClassName.class. The Class.getResource(...) method takes a String representing the resource name.Rules for resource namesResource names are /-separated path names. Each component represents a package or sub-package name component.Resource names are case-sensitive.The individual components in the resource name must be valid Java identifiersThe last point has an important consequence:. and .. are not valid Java identifiers, so they cannot be used in resource names.These may actually work when the application is running from the filesystem, though this is really more of an accident of the implementation of getResource(). They will fail when the application is bundled as a jar file.Similarly, if you are running on an operating system that does not distinguish between filenames that differ only by case, then using the wrong case in a resource name might work while running from the filesystem, but will fail when running from a jar file.Resource names beginning with a leading / are absolute: in other words they are interpreted relative to the classpath. Resource names without a leading / are interpreted relative to the class on which getResource() was called.A slight variation on this is to use getClass().getClassLoader().getResource(...). The path supplied to ClassLoader.getResource(...) must not begin with a / and is always absolute, i.e. it is relative to the classpath. It should also be noted that in modular applications, access to resources using ClassLoader.getResource() is, under some circumstances, subject to rules of strong encapsulation, and additionally the package containing the resource must be opened unconditionally. See the documentation for details.Creating a resource URL with getClass().getResource()To create a resource URL, use someClass.getResource(...). Usually, someClass represents the class of the current object, and is obtained using getClass(). However, this doesn't have to be the case, as described in the next section.If the resource is in the same package as the current class, or in a subpackage of that class, use a relative path to the resource: // FXML file in the same package as the current class: URL fxmlURL = getClass().getResource(MyFile.fxml); Parent root = FXMLLoader.load(fxmlURL); // FXML file in a subpackage called `fxml`: URL fxmlURL2 = getClass().getResource(fxml/MyFile.fxml); Parent root2 = FXMLLoader.load(fxmlURL2); // Similarly for images: URL imageURL = getClass().getResource(myimages/image.png); Image image = new Image(imageURL.toExternalForm());If the resource is in a package that is not a subpackage of the current class, use an absolute path. For example, if the current class is in the package org.jamesd.examples.view, and we need to load a CSS file style.css which is in the package org.jamesd.examples.css, we have to use an absolute path: URL cssURL = getClass().getResource(/org/jamesd/examples/css/style.css); scene.getStylesheets().add(cssURL.toExternalForm());It's worth re-emphasizing for this example that the path ../css/style.css does not contain valid Java resource names, and will not work if the application is bundled as a jar file.Organizing code and resourcesI recommend organizing your code and resources into packages determined by the part of the UI they are associated with. The following source layout in Eclipse gives an example of this organization:Using this structure, each resource has a class in the same package, so it is easy to generate the correct URL for any resource:FXMLLoader editorLoader = new FXMLLoader(EditorController.class.getResource(Editor.fxml));Parent editor = editorLoader.load();FXMLLoader sidebarLoader = new FXMLLoader(SidebarController.class.getResource(Sidebar.fxml));Parent sidebar = sidebarLoader.load();ImageView logo = new ImageView();logo.setImage(newImage(SidebarController.class.getResource(logo.png).toExternalForm()));mainScene.getStylesheets().add(App.class.getResource(style.css).toExternalForm());If you have a package with only resources and no classes, for example, the images package in the layout belowyou can even consider creating a marker interface solely for the purposes of looking up the resource names:package org.jamesd.examples.sample.images ;public interface ImageLocation { }which now lets you find these resources easily:Image clubs = new Image(ImageLocation.class.getResource(clubs.png).toExternalForm());Loading resources from a subpackage of a class is also reasonably straightforward. Given the following layout:we can load resources in the App class as follows:package org.jamesd.examples.resourcedemo;import java.net.URL;import javafx.application.Application;import javafx.fxml.FXMLLoader;import javafx.scene.Parent;import javafx.scene.Scene;import javafx.stage.Stage;public class App extends Application {    @Override    public void start(Stage primaryStage) throws Exception {                        URL fxmlResource = getClass().getResource(fxml/MainView.fxml);                Parent root = FXMLLoader.load(fxmlResource);        Scene scene = new Scene(root);        scene.getStylesheets().add(getClass().getResource(style/main-style.css).toExternalForm());        primaryStage.setScene(scene);        primaryStage.show();    }        public static void main(String[] args) {        Application.launch(args);    }}To load resources which are not in the same package, or a subpackage, of the class from which you're loading them, you need to use the absolute path:    URL fxmlResource = getClass().getResource(/org/jamesd/examples/resourcedemo/fxml/MainView.fxml);Maven (and similar) standard layoutsMaven and other dependency management and build tools recommend a source folder layout in which resources are separated from Java source files, as per the Maven Standard Directory Layout. The Maven layout version of the previous example looks like:It is important to understand how this is built to assemble the application:*.java files in the source folder src/main/java are compiled to class files, which are deployed to the build folder or jar file.Resources in the resource folder src/main/resources are copied to the build folder or jar file.In this example, because the resources are in folders that correspond to subpackages of the packages where the source code is defined, the resulting build (which, by default with Maven, is in target/classes) consists of a single structure.Note that both src/main/java and src/main/resources are considered the root for the corresponding structure in the build, so only their content, not the folders themselves, are part of the build. In other words, there is no resources folder available at runtime. The build structure is shown below in the troubleshooting section.Notice that the IDE in this case (Eclipse) displays the src/main/java source folder differently from the src/main/resources folder; in the first case it displays packages, but for the resource folder it displays folders. Make sure you know if you are creating packages (whose names are .-delimited) or folders (whose names must not contain ., or any other character not valid in a Java identifier) in your IDE.If you are using Maven and decide that for ease of maintenance you'd rather keep your .fxml files next to the .java files that reference them (instead of sticking strictly to the Maven Standard Directory Layout), you can do so. Just tell Maven to copy these files to the same folder in your output directory that it will place the class files generated from those source files into, by including something like the following in your pom.xml file:    <build>        ...        <resource>            <directory>src/main/java</directory>            <includes>                <include>**/*.fxml</include>                <include>**/*.css</include>            </includes>        </resource>        ...    </build>If you do this, you can then use an approach like FXMLLoader.load(getClass().getResource(MyFile.fxml)) to have your classes load .fxml resources from the directory which contains their own .class files.TroubleshootingIf you get errors you do not expect, first check the following:Make sure you are not using invalid names for your resources. This includes using . or .. in the resource path.Make sure you are using relative paths where expected, and absolute paths where expected. for Class.getResource(...) the path is absolute if it has a leading /, and relative otherwise. For ClassLoader.getResource(...), the path is always absolute, and must not start with a /.Remember that absolute paths are defined relative to the classpath. Typically the root of the classpath is the union of all source and resource folders in your IDE.If all this seems correct, and you still see errors, check the build or deployment folder. The exact location of this folder will vary by IDE and build tool. If you are using Maven, by default it is target/classes. Other build tools and IDEs will deploy to folders named bin, classes, build, or out.Often, your IDE will not show the build folder, so you may need to check it with the system file explorer.The combined source and build structure  for the Maven example above isIf you are generating a jar file, some IDEs may allow you to expand the jar file in a tree view to inspect its contents. You can also check the contents from the command line with jar tf file.jar:$ jar -tf resource-demo-0.0.1-SNAPSHOT.jar META-INF/META-INF/MANIFEST.MForg/org/jamesd/org/jamesd/examples/org/jamesd/examples/resourcedemo/org/jamesd/examples/resourcedemo/images/org/jamesd/examples/resourcedemo/style/org/jamesd/examples/resourcedemo/fxml/org/jamesd/examples/resourcedemo/images/so-logo.pngorg/jamesd/examples/resourcedemo/style/main-style.cssorg/jamesd/examples/resourcedemo/Controller.classorg/jamesd/examples/resourcedemo/fxml/MainView.fxmlorg/jamesd/examples/resourcedemo/App.classmodule-info.classMETA-INF/maven/META-INF/maven/org.jamesd.examples/META-INF/maven/org.jamesd.examples/resource-demo/META-INF/maven/org.jamesd.examples/resource-demo/pom.xmlMETA-INF/maven/org.jamesd.examples/resource-demo/pom.properties$ If the resources are not being deployed, or are being deployed to an unexpected location, check the configuration of your build tool or IDE.Example image loading troubleshooting codeThis code is deliberately more verbose than is strictly necessarily to facilitate adding additional debugging information for the image loading process.  It also uses System.out rather than a logger for easier portability.String resourcePathString = /img/wumpus.png;Image image = loadImage(resourcePathString);// ...private Image loadImage(String resourcePathString) {    System.out.println(Attempting to load an image from the resourcePath:  + resourcePathString);    URL resource = HelloApplication.class.getResource(resourcePathString);    if (resource == null) {        System.out.println(Resource does not exist:  + resourcePathString);        return null;    }    String path = resource.toExternalForm();    System.out.println(Image path:  + path);    Image image = new Image(path);    System.out.println(Image load error?   + image.isError());    System.out.println(Image load exception?  + image.getException());    if (!image.isError()) {        System.out.println(Successfully loaded an image from  + resourcePathString);    }    return image;}External Tutorial ReferenceA useful external tutorial for resource location is Eden coding's tutorial:Where to put resource files in JavaFX.The nice thing about the Eden coding tutorial is that it is comprehensive.  In addition to covering the information on lookups from Java code which is in this question.  The Eden tutorial covers topics such as locating resources that are encoded as urls in CSS, or resource references in FXML using an @ specifier or fx:include element (which are topics currently not directly covered in this answer)."
+    ],
+    "titre": "\nVSCode relative path returning invalid URL For SampleImage.jpg Line [duplicate]\n",
+    "number": "15/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "reactjsreact-native"
+    ],
+    "Pseudo": "stk1234",
+    "github_score_time": [
+        "        asked 2 hours agoExpert wanna beExpert wanna be10.1k2525 gold badges105105 silver badges156156 bronze badges"
+    ],
+    "href": "/questions/76139137/react-native-how-to-toggle-view-smoothly-in-list-view",
+    "contenus": [
+        "I have a hidden View in each item View of the list view. And I want to display or hide(Toggling) the hidden view by clicking the item View.I tried with State, storing the opened id list in the state like the example code below. It works with less than 30 items, but with more than 50, or 100, it reacts slowly and blinks when the screen update.Is there a better way for implementing a toggle view that reacts fast and without blinks?This is the code How I'm doing,const [openIds, setOpenIds] = useState([]);const toggleOpenToggleView = (id) => {    let idx = openIds.indexOf(id)    if (idx === -1) {        // if id is not in openIds, add it        setOpenIds([...openIds, id])    } else {        // if id is in openIds, remove it        let pre = [...openIds]        pre.splice(idx, 1)        setOpenIds(pre)    }}const ListItemView = ({item}) => (    <View style={[styles.row, styles.item]}>        <TouchableOpacity onPress={() => toggleOpenToggleView(item.id)}>            <View style={{flexDirection: 'row', justifyContent: 'space-between',}}>                <Text style={styles.itemName}>{item.itemName}</Text>            </View>        </TouchableOpacity>        {openIds.indexOf(item.id) > -1 &&            <View style={[styles.row, styles.toggleContent]}>                <Text>{item.toggleContent}</Text>            </View>        }    </View>)<SwipeListView data={data} renderItem={({item}) => <ListItemView item={item}/>}                           keyExtractor={item => item.id}                           The is the version that I'm usingreact: 18.2.0,react-native: 0.71.7,"
+    ],
+    "titre": "\nReact Native, how to toggle view smoothly in list view\n",
+    "number": "16/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "gitgit-filter-repo"
+    ],
+    "Pseudo": "Jacob",
+    "github_score_time": [
+        "        asked 2 hours agoJose GómezJose Gómez3,10022 gold badges3232 silver badges5454 bronze badges"
+    ],
+    "href": "/questions/76139134/delete-a-file-from-git-history-only-after-a-certain-commit",
+    "contenus": [
+        "There are tools, such as git filter-repo, to delete a file from the whole git history, as if it never existed.Is it possible to delete a file from the git history, but only after a certain commit? Let's say I want to keep the initial 100 versions of the file, but from version 101-200 I want it deleted from the repo."
+    ],
+    "titre": "\nDelete a file from git history only after a certain commit\n",
+    "number": "17/48"
+}{
+    "nombre de vues": "7",
+    "type": [
+        "c++cmake"
+    ],
+    "Pseudo": "Expert wanna be",
+    "github_score_time": [
+        "edited 1 hour ago273K26.4k99 gold badges4040 silver badges5858 bronze badges",
+        "        asked 2 hours agoRomektBoiRomektBoi1"
+    ],
+    "href": "/questions/76139133/problems-opening-window-cmake",
+    "contenus": [
+        "I'm following this tutorial for cross-platform game dev, which is exactly what I want to do. However, I am not able to open a window.My code structure:buildexternal    engine        external            glfw            glm        include            template_engine                platform                    window.h                engine.h                service_locator.h        src            platform                glfw_window.h                glfw_window.cpp            engine.cpp        CMakeLists.txtsrc    main.cppCMakeLists.txtwindow.h:#pragma onceclass Window{public:    virtual void OpenWindow() = 0;    virtual bool Update() = 0;};engine.h:#pragma oncestruct TemplateEngine{    static void Init();};service_locator.h (slightly modified from the tutorial, should still work):#pragma once#include <memory>#include <template_engine/platform/window.h>class ServiceLocator{public:    static inline const std::unique_ptr<Window>& GetWindow() { return _window; }    static inline void Provide(Window* window)    {        if(_window == nullptr)        {            _window = std::unique_ptr<Window>(window);        }    }private:    static inline std::unique_ptr<Window> _window = nullptr;}glfw_window.h:#pragma once#include <template_engine/platform/window.h>#include <GLFW/glfw3.h>class CustomWindow : public Window{public:    CustomWindow();    virtual void OpenWindow() override;    virtual bool Update() override;private:    GLFWwindow* _window;};glfw_window.cpp:#include glfw_window.hCustomWindow::CustomWindow(){    _window = nullptr;}void CustomWindow::OpenWindow(){    glfwInit();    _window = glfwCreateWindow(800, 600, template engine window, nullptr, nullptr);}bool CustomWindow::Update(){    glfwPollEvents();    return glfwWindowShouldClose(_window);}engine.cpp:#include <template_engine/engine.h>#include <iostream>#include <GLFW/glfw3.h>#include <glm/glm.hpp>#include <template_engine/service_locator.h>#include platform/glfw_window.hvoid TemplateEngine::Init(){    std::cout << Initializing window << std::endl;        ServiceLocator::Provide(new CustomWindow());}external/engine/CMakeLists.txt:cmake_minimum_required(VERSION 3.26)project(template_cpp_engine VERSION 0.0.1 LANGUAGES CXX)set(CMAKE_CXX_STANDARD 23)# add external librariesadd_subdirectory(external/glm)add_subdirectory(external/glfw)add_library(${PROJECT_NAME}             src/engine.cpp             src/platform/glfw_window.cpp            src/platform/glfw_window.h)target_include_directories(${PROJECT_NAME}    PUBLIC        $<INSTALL_INTERFACE:include>        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>        glm    PRIVATE        glfw    )target_link_libraries(${PROJECT_NAME}    PUBLIC        glm    PRIVATE        glfw    )main.cpp:#include <iostream>#include <template_engine/engine.h>#include <glm/glm.hpp>#include <template_engine/service_locator.h>int main(int argc, char** argv){    std::cout << Hello, world!\\n;        TemplateEngine::Init();    ServiceLocator::GetWindow()->OpenWindow();    while(!ServiceLocator::GetWindow()->Update())    {            }}CMakeLists.txt:cmake_minimum_required(VERSION 3.26)project(template_cpp_application VERSION 0.0.1 LANGUAGES CXX)set(CMAKE_CXX_STANDARD 23)add_subdirectory(external/engine)# template_cpp_application.exeadd_executable(${PROJECT_NAME} src/main.cpp)target_link_libraries(${PROJECT_NAME} template_cpp_engine)target_include_directories(${PROJECT_NAME} PRIVATE template_cpp_engine)I'm still fairly inexperienced, but this looks like it should work to me, and it worked in the tutorial. However, I get some errors whenever I try to build this program:[{    resource: /D:/Dev/CMake Template/external/engine/src/engine.cpp,    owner: cmake-build-diags,    code: C2061,    severity: 8,    message: syntax error: identifier 'CustomWindow' [D:\\\\Dev\\\\CMake Template\\\\build\\\\external\\\\engine\\\\template_cpp_engine.vcxproj],    source: MSVC,    startLineNumber: 13,    startColumn: 33,    endLineNumber: 13,    endColumn: 33}][{    resource: /d:/Dev/CMake Template/external/engine/src/platform/glfw_window.h,    owner: cmake-build-diags,    code: C2236,    severity: 8,    message: unexpected token 'class'. Did you forget a ';'? [D:\\\\Dev\\\\CMake Template\\\\build\\\\external\\\\engine\\\\template_cpp_engine.vcxproj],    source: MSVC,    startLineNumber: 6,    startColumn: 1,    endLineNumber: 6,    endColumn: 1}][{    resource: /d:/Dev/CMake Template/external/engine/src/platform/glfw_window.h,    owner: cmake-build-diags,    code: C2059,    severity: 8,    message: syntax error: ':' [D:\\\\Dev\\\\CMake Template\\\\build\\\\external\\\\engine\\\\template_cpp_engine.vcxproj],    source: MSVC,    startLineNumber: 6,    startColumn: 20,    endLineNumber: 6,    endColumn: 20}][{    resource: /d:/Dev/CMake Template/external/engine/src/platform/glfw_window.h,    owner: cmake-build-diags,    code: C2059,    severity: 8,    message: syntax error: 'public' [D:\\\\Dev\\\\CMake Template\\\\build\\\\external\\\\engine\\\\template_cpp_engine.vcxproj],    source: MSVC,    startLineNumber: 6,    startColumn: 22,    endLineNumber: 6,    endColumn: 22}][{    resource: /d:/Dev/CMake Template/external/engine/src/platform/glfw_window.h,    owner: cmake-build-diags,    code: C2143,    severity: 8,    message: syntax error: missing ';' before '{' [D:\\\\Dev\\\\CMake Template\\\\build\\\\external\\\\engine\\\\template_cpp_engine.vcxproj],    source: MSVC,    startLineNumber: 7,    startColumn: 1,    endLineNumber: 7,    endColumn: 1}][{    resource: /d:/Dev/CMake Template/external/engine/src/platform/glfw_window.h,    owner: cmake-build-diags,    code: C2447,    severity: 8,    message: '{': missing function header (old-style formal list?) [D:\\\\Dev\\\\CMake Template\\\\build\\\\external\\\\engine\\\\template_cpp_engine.vcxproj],    source: MSVC,    startLineNumber: 7,    startColumn: 1,    endLineNumber: 7,    endColumn: 1}]I've already checked all the obvious problems, and was able to solve some problems in  service_locator.h using Phind, but I can't figure out how to fix these errors, which all seem to be related. if it's any help, here's my tasks.json:{    tasks: [        {            type: cppbuild,            label: C/C++: g++.exe build active file,            command: C:\\\\msys64\\\\mingw64\\\\bin\\\\g++.exe,            args: [                -fdiagnostics-color=always,                -g,                -std=c++23,                ${file},                -o,                ${fileDirname}\\\\${fileBasenameNoExtension}.exe            ],            options: {                cwd: ${fileDirname}            },            problemMatcher: [                $gcc            ],            group: {                kind: build,                isDefault: true            },            detail: Task generated by Debugger.        }    ],    version: 2.0.0}and my c_cpp_properties.json:{    configurations: [        {            name: Win32,            includePath: [                ${workspaceFolder}/**            ],            defines: [                _DEBUG,                UNICODE,                _UNICODE            ],            windowsSdkVersion: 10.0.22000.0,            compilerPath: cl.exe,            cStandard: c23,            cppStandard: c++23,            intelliSenseMode: windows-msvc-x64,            configurationProvider: ms-vscode.cmake-tools        }    ],    version: 4}Any help would be greatly appreciated"
+    ],
+    "titre": "\nProblems opening window CMake\n",
+    "number": "18/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "next.js"
+    ],
+    "Pseudo": "Jose Gómez",
+    "github_score_time": [
+        "        asked 2 hours agoRuss MadrigalRuss Madrigal2388 bronze badges",
+        "        answered 51 mins agoYilmazYilmaz29.6k1010 gold badges144144 silver badges176176 bronze badges"
+    ],
+    "href": "/questions/76139132/module-not-found-cant-resolve-nextjs",
+    "contenus": [
+        "I'm trying to deploy a Next.js website on Vercel, but this error comes up. This is a web created with GraphQL CMS.I have placed the Deployment environments, but still not working.[18:57:48.058] Running build in San Francisco, USA (West) – sfo1[18:57:48.122] Cloning github.com/rusbenmadrigal/taxes-hub (Branch: main, Commit: d77d23b)[18:57:48.130] Skipping build cache, deployment was triggered without cache.[18:57:48.917] Cloning completed: 794.466ms[18:57:49.111] Running vercel build[18:57:49.687] Vercel CLI 29.0.1[18:57:50.002] Installing dependencies...[18:58:01.885] [18:58:01.885] added 344 packages in 11s[18:58:01.885] [18:58:01.886] 122 packages are looking for funding[18:58:01.886]   run `npm fund` for details[18:58:01.908] Detected Next.js version: 13.3.2-canary.14[18:58:01.912] Detected `package-lock.json` generated by npm 7+...[18:58:01.913] Running npm run build[18:58:02.303] [18:58:02.304] > blog@0.1.0 build[18:58:02.304] > next build[18:58:02.304] [18:58:02.688] info  - Loaded env from /vercel/path0/.env[18:58:02.874] Attention: Next.js now collects completely anonymous telemetry regarding usage.[18:58:02.874] This information is used to shape Next.js' roadmap and prioritize features.[18:58:02.875] You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:[18:58:02.875] https://nextjs.org/telemetry[18:58:02.875] [18:58:03.035] info  - Linting and checking validity of types...[18:58:05.064] [18:58:05.064] ./components/PostCard.jsx[18:58:05.065] 10:11  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element[18:58:05.065] 23:11  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element[18:58:05.065] [18:58:05.065] ./components/PostDetail.jsx[18:58:05.068] 50:11  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element[18:58:05.068] 67:11  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element[18:58:05.068] 76:15  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element[18:58:05.069] info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules[18:58:05.083] info  - Creating an optimized production build...[18:58:08.703] Failed to compile.[18:58:08.703] [18:58:08.703] ./components/Categories.jsx[18:58:08.703] Module not found: Can't resolve '../services'[18:58:08.703] [18:58:08.704] https://nextjs.org/docs/messages/module-not-found[18:58:08.704] [18:58:08.704] Import trace for requested module:[18:58:08.704] ./components/index.js[18:58:08.704] ./pages/post/[slug].js[18:58:08.704] [18:58:08.704] ./components/Header.jsx[18:58:08.705] Module not found: Can't resolve '../services'[18:58:08.705] [18:58:08.705] https://nextjs.org/docs/messages/module-not-found[18:58:08.705] [18:58:08.705] Import trace for requested module:[18:58:08.705] ./components/index.js[18:58:08.705] ./pages/post/[slug].js[18:58:08.705] [18:58:08.705] ./components/PostWidget.jsx[18:58:08.705] Module not found: Can't resolve '../services'[18:58:08.705] [18:58:08.706] https://nextjs.org/docs/messages/module-not-found[18:58:08.706] [18:58:08.706] Import trace for requested module:[18:58:08.706] ./components/index.js[18:58:08.706] ./pages/post/[slug].js[18:58:08.706] [18:58:08.706] ./pages/category/[slug].js[18:58:08.706] Module not found: Can't resolve '../../services'[18:58:08.706] [18:58:08.706] https://nextjs.org/docs/messages/module-not-found[18:58:08.707] [18:58:08.707] ./pages/index.js[18:58:08.707] Module not found: Can't resolve '../services'[18:58:08.708] [18:58:08.709] https://nextjs.org/docs/messages/module-not-found[18:58:08.709] [18:58:08.709] [18:58:08.709] > Build failed because of webpack errors[18:58:08.746] Error: Command npm run build exited with 1[18:58:09.108] Deployment completed[18:58:09.069] BUILD_UTILS_SPAWN_1: Command npm run build exited with 1This is my GitHub Repo: https://github.com/rusbenmadrigal/taxes-hubThe web is loading fine in local, but I can deploy it into Vercel.Thank you!",
+        "the name of the folders and files are incorrect. I do not understant how it works locallyIn many locations you import from ../services; but name of the file is Services. should be from ../Services;in components/index.js,you haveexport { default as Categories } from ./CateGories;but the name of the file is Categories"
+    ],
+    "titre": "\nModule not found: Can't resolve NextJS\n",
+    "number": "19/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "regexpcre"
+    ],
+    "Pseudo": "RomektBoi",
+    "github_score_time": [
+        "        asked 2 hours agoFuzzybearFuzzybear933 bronze badges",
+        "edited 36 mins ago",
+        "        answered 1 hour agojubilatious1jubilatious11,56288 silver badges1616 bronze badges"
+    ],
+    "href": "/questions/76139129/how-to-convert-a-duration-in-mins-to-hours-mins",
+    "contenus": [
+        "I am have losing serious quantities of hair over this problem.I have an input characterstring that varies from 1 to 999.This value represents the runtime of video-footage in minutes.I need to convert the string to the same duration expressed in hours and mins.So for example:    97 needs to become 1h 37m    123 needs to become 2h 3m    231 needs to become 3h 51mI need to implement this with a regular expression (PCRE in PHP 7.4).Unfortunately, I cannot program this in PHP so I restricted to regex patterns.I got as far as coding: (\\d+) for the input characterstring matching part.Then it hit me that regex manipulate characterstrings and AFAIK cannot compareagainst numerical values. Otherwise I could have solved this (in pseudo code) with:    int( [input var] / 60 ) = [hours]    [input var] modulus 60 = [mins]    print [hours]h [mins]mSince I cannot use this I have no clou as what to specify as replacement pattern of the regular expression.Please, help.",
+        "Using Raku (formerly known as Perl_6)Note I can't solve your question in PHP, but maybe this Raku code can provide some guidance?~$ raku -pe 's/ ^ \\ <( \\d+ )> /{ (($/.Int / 60).Int, h , $/.Int % 60, m).join }/;' file#OR~$ raku -pe 's/ ^ \\ <( \\d+ )> /{($/.Int / 60).Int}h {$/.Int % 60}m/;'  fileBasically, you write a one-liner that goes through your file -pe line-by-line with autoprinting. The traditional s/// substitution operator is used (for multiple replacements, use s:g/// i.e. :global).Search for \\d+ atomsDrop any matches outside with <( ... )>Use a { ...} codeblock to compute a replacement.Coerce the $/ capture to Int, divide by 60, take the Int of thatUse Raku's % modulo operator to get the remainderAdd h and m at appropriate locations, join to remove spaces (if necessary).Sample Input:97 needs to become 1h 37m123 needs to become 2h 3m231 needs to become 3h 51mSample Output:1h 37m needs to become 1h 37m2h 3m needs to become 2h 3m3h 51m needs to become 3h 51mHTH.https://docs.raku.orghttps://raku.org"
+    ],
+    "titre": "\nHow to convert a duration in mins to hours + mins\n",
+    "number": "20/48"
+}{
+    "nombre de vues": "8",
+    "type": [
+        "wordpresspleskpermalinks"
+    ],
+    "Pseudo": "Russ Madrigal",
+    "github_score_time": [
+        "        asked 2 hours agoUsman AbbasiUsman Abbasi1"
+    ],
+    "href": "/questions/76139128/issue-with-category-name-type-only-showing-404-for-posts-inside-that-categor",
+    "contenus": [
+        "I have a website that has a strange issue. Website is on WordPressPermalink Structure to currently keep is: /%category%/%postname%/if i keep this structure and make a category named  type  then any post inside that category will show a 404 page.so this link suppose /type/test-post/will start showing a 404 page.But if we have any other categories added it will work fine.I have checked all database, pages, posts, theme post types, turned on health check. disabled everything and only kept default theme and still the issue is there.i have also tried default htaccess. but nothing is working. will really be grateful if someone has this same error or has some idea on how to solve this out.Thank you"
+    ],
+    "titre": "\nIssue with Category Name \" type \" only showing 404 for posts inside that category\n",
+    "number": "21/48"
+}{
+    "nombre de vues": "2",
+    "type": [
+        "pythonpython-3.xselenium-webdriverselenium-chromedriver"
+    ],
+    "Pseudo": "Fuzzybear",
+    "github_score_time": [
+        "edited 42 mins agofarhan jatt",
+        "        asked 2 hours agofarhan jattfarhan jatt37911 gold badge77 silver badges2525 bronze badges"
+    ],
+    "href": "/questions/76139126/selenium-cannot-send-keys-to-google-map-input-selenium",
+    "contenus": [
+        "I am trying to send keys to google maps to perform search, but Google Maps only accepts keys when the browser screen is in focus. I have tried input_box click, maximizing the window, action chain, and scrolling into view. The following is the code.import timefrom undetected_chromedriver import Chrome, ChromeOptionsfrom selenium.webdriver.chrome.service import Servicefrom webdriver_manager.chrome import ChromeDriverManagerfrom selenium.webdriver.common.by import ByInitialize and return the driverschrome_options = ChromeOptions()chrome_options.add_argument('--incognito')chrome_options.add_argument(    --disable-blink-features=AutomationControlled)chrome_options.add_argument('--no-sandbox')chrome_options.add_argument(--mute-audio)chrome_options.add_argument(--window-size=1400,1000)chrome_options.add_argument(    'user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36')driver_installation = ChromeDriverManager().install()service = Service(driver_installation)service.service_args = chrome_optionsdriver = Chrome(service=service)driver.get(https://maps.google.com)time.sleep(3)address = Rett Syndrome Research Trust Inc67 Under Cliff RdTrumbull, CT 6611map_input = driver.find_element(By.ID, searchboxinput)driver.maximize_window()driver.execute_script(arguments[0].scrollIntoView(false);, map_input)driver.execute_script(arguments[0].click(), map_input)map_input.send_keys(address)actions = ActionChains(driver)actions.click(map_input).send_keys(address).perform()driver.quit()None of the above works. Thanks for any help in advance"
+    ],
+    "titre": "\nSelenium cannot send keys to google map input selenium\n",
+    "number": "22/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "automationautomated-testskarateweb-api-testing"
+    ],
+    "Pseudo": "Usman Abbasi",
+    "github_score_time": [
+        "        asked 2 hours agosarathsarath42511 gold badge1111 silver badges2626 bronze badges"
+    ],
+    "href": "/questions/76139125/karate-framework-not-getting-value-return-from-another-feature-file",
+    "contenus": [
+        "I am trying to make a call to another feature file for generating Bearer token and then return that value, My token is getting generated and its printing but i am getting null value returned. I saw similar post and i am doing whats explained in that and also in Karate tutorial,   Please suggest me what is wrong here,thankshere is the codetoken generator feature file Given path '/as/token.oauth2'And header Content-Type = 'application/json'* params { client_id: 'TestScopeClient', response_type: 'token', grant_type: 'client_credentials',client_secret: '2Federate', scope: 'enr.dipor.enr.r clgn.tdw.clgn.r'}When method PostThen status 200* def authToken = responsei am calling from below codeScenario: get all users and then get the first user by iddef t = call read('classpath:ReUsableFunctions/AuthToken.feature')print 'token return value is '+tdef token = t.tokenprint 'token return value is '+tokenconsole out put is belowSecure{access_token:token is generated and printing here,token_type:Bearer,expires_in:35999}19:46:24.787 [main] INFO  com.intuit.karate - [print] token return value is [object Object]19:46:24.797 [main] INFO  com.intuit.karate - [print] token return value is nullas you can see when i print the token return in the feature file i am getting nullplease guide me whats wrong here"
+    ],
+    "titre": "\nKarate framework not getting value return from another feature file\n",
+    "number": "23/48"
+}{
+    "nombre de vues": "14",
+    "type": [
+        "c#visual-studio-codesdkoutput"
+    ],
+    "Pseudo": "farhan jatt",
+    "github_score_time": [
+        "edited 1 hour agolilbosshoss",
+        "        asked 2 hours agolilbosshosslilbosshoss111 bronze badge"
+    ],
+    "href": "/questions/76139123/no-output-on-visual",
+    "contenus": [
+        "I downloaded microsoft .Net sdk 7.0.203 and i copy pasted a few different sets of  code from Bro Code on youtube but i am not getting an output window. Just this morning the entire output section was missing from my visual studio code.I tried redownloading the sdk and shutting down then booting up the pc again but the output is still missing"
+    ],
+    "titre": "\nNo output on visual\n",
+    "number": "24/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        " firebasecommon-expression-language"
+    ],
+    "Pseudo": "sarath",
+    "github_score_time": [
+        "        asked 2 hours agoNader FarrNader Farr1"
+    ],
+    "href": "/questions/76139122/writing-firebase-rules",
+    "contenus": [
+        "I am a novice using Firebase for first time and received an email regarding my information in database is completely open in internet and vulnerable to attackers and need to write a rule.  But the rule I have published is not what I am after.  I am after a strong Security Rules that allow my app to function while appropriately protecting my data. Any advice and preferably a code to copy paste to rules is highly appreciated.I am a novice coder and have no idea how to write Common Expression Language (CEL) code. I read how to write the rules and copy pasted a sample rule and published."
+    ],
+    "titre": "\nwriting Firebase rules\n",
+    "number": "25/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "javascripthtmlcss"
+    ],
+    "Pseudo": "lilbosshoss",
+    "github_score_time": [
+        "edited 2 hours agoMike",
+        "        asked 2 hours agoMikeMike1133 bronze badges",
+        "        answered 1 hour agoThomas FrankThomas Frank13333 bronze badges",
+        "        answered 1 hour agoSahil AtaharSahil Atahar4061010 bronze badges",
+        "        answered 1 hour agoAngYCAngYC2,49155 silver badges1818 bronze badges"
+    ],
+    "href": "/questions/76139120/how-to-keep-hover-generated-icon-positioned-over-image-after-scroll",
+    "contenus": [
+        "I've created a simple chrome extension to place a download button over any image that you hover your mouse over. The problem is the positioning of this icon is based on the location of the hovered image at the time of mouseover, so if you scroll and your cursor stays hovered on the image as the scroll happens, the icon stays visible but does not follow the scroll because it's position is just static until you stop hovering and it goes away. I made a picture to more easily explain. I'm trying to have the icon follow the corresponding image if you scroll while keeping your cursor hovered.Hover before and after scrollThe problem is that I cannot just give it position: absolute because ideally I can use this on any website and I cannot always account for the parent div attributes. So I position based on the location on the page at the time hover.    let left= img.get(0).getBoundingClientRect().left+10,         top= img.get(0).getBoundingClientRect().top+10;    $('body').prepend(`            <img id=ext-emp-download src=${chrome.runtime.getURL(img/down.png)} style=width:45px !important;height:45px !important;position:fixed;z-index:123456789;border-radius:20px;margin-top:${top}px;left:${left}px>`)        any suggestions on what I can add to this to make it function better or  have the icon follow the image with the scroll?",
+        "Stop using margin-top, use top instead and use position:absolute instead of fixed, also since it seems you are already using jQuery (?), use jQuery:s offset-method to calculate the placement rather than getBoundingClientRect:let left = img.offset().left + 10, top = img.offset().top + 10;  $('body').prepend(`  <img id=ext-emp-download src=${chrome.runtime.getURL(img/down.png)} style=width:45px !important;height:45px !important;position:absolute;z-index:123456789;border-radius:20px;top:${top}px;left:${left}px>`)",
+        "Use position: absolute; and make parent position: relative; then icon will folow parent.",
+        "I don't think there's a good solution for this especially if you want to account for all possible scenarios of the parent element.However, instead of appending your element to the body element, you can choose to append to the .scrollParent() of the img tag instead. This makes sure the position of it is dependent on the element that is scrolling. In addition, position: fixed is probably not what you want given that once the user scroll, you have to manually update its position.An alternative approach is you can make use of context menu instead: https://developer.chrome.com/docs/extensions/reference/contextMenus/, this allow user to right-click and select your extension for Download for instance."
+    ],
+    "titre": "\nHow to keep hover-generated icon positioned over image after scroll\n",
+    "number": "26/48"
+}{
+    "nombre de vues": "11",
+    "type": [
+        "c++vectorwininet"
+    ],
+    "Pseudo": "Nader Farr",
+    "github_score_time": [
+        "edited 2 hours agoJohn Kugelman346k6767 gold badges523523 silver badges571571 bronze badges",
+        "        asked 2 hours agoKriegerKrieger122 bronze badges"
+    ],
+    "href": "/questions/76139119/wininet-internetreadfile-get-lines-out-of-buffer-n-and-insert-to-vector",
+    "contenus": [
+        "I'm looking for a good solution to split buffer content into lines (searching for \\n) and insert line by line into a Vector. I tried it with the str.find and str.substr.I'm afraid that once it reads again new stuff from the web (because buffer was filled out and now it reads again content from the web) it might loose the last bit of content of the last read. Someone the incomplete line of the last read must be stick at the front of the next read.I tried something like this, however, it doesn't actually work as well as I would need it to.I'm looking forward to anyone having a good solution to split the buffer content into lines to insert the lines into a vector.std::vector<string> szLines;dwKeepReading = true;dwBytesRead = -1;while(dwKeepReading && dwBytesRead != 0){    dwKeepReading = InternetReadFile(_RequestFunction_Here_, _Buffer_Here_, 16384, &dwBytesRead);    if(dwBytesRead)    {        size_t szPos = 0;        size_t szPrev = 0;        while((szPos = string(_Buffer_Here_).find(\\n, szPrev)) != string::npos)        {            szLines.push_back(string(_Buffer_Here_).substr(szPrev, szPos));            szPrev = szPos + 1;        }        //Save somehow remaining content of buffer (if there ist any?) -> Add if at the front of the next Read to complete the line.        szLines.push_back(string(_Buffer_Here_).substr(szPrev)); //This line might be incomplete -> Save and set on front of next read.    }    else    {        //Somehow check if there was anything remaining from the last Read to insert into the Vector.    }}At the moment I got a dirty workaround by simply writing the buffer to a cache file and afterwards reading the file line per line into the Vector. However, I wish to directly split the buffer into lines and insert into the Vector without need to write a file."
+    ],
+    "titre": "\nWinInet InternetReadFile get lines out of buffer (\\n) and insert to vector\n",
+    "number": "27/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "javascripttypescriptsolid-js"
+    ],
+    "Pseudo": "Mike",
+    "github_score_time": [
+        "edited 39 mins agosnnsnn9,12644 gold badges3939 silver badges4343 bronze badges",
+        "        asked 2 hours agoRyan PrentissRyan Prentiss1,41022 gold badges2323 silver badges4444 bronze badges",
+        "edited 31 mins ago",
+        "        answered 1 hour agosnnsnnsnnsnn9,12644 gold badges3939 silver badges4343 bronze badges"
+    ],
+    "href": "/questions/76139118/solidjs-how-to-update-an-prop-referenced-by-component-id",
+    "contenus": [
+        "Using SolidJS and Zod, how can I update a series of props (props.error) based upon the component ID matching the error path value? Currently, the prop will not update -- it remains blank.Specifically, I want to pass the Zod error message to the InputCustom component to be displayed under each input form element.Form (Parent Component)const handleSubmit = () => {    try {        // USING ZOD FOR FORM VALIDATION        validateForm.parse(form)    } catch (error: unknown) {        const { errors } = error as ZodError        errors.forEach(err => {            console.log(err)            // CURRENT LOGIC            document.getElementById(err.path[0] as string)?.setAttribute('error', err.message)        })    }}return (    <form>        <InputCustom            type='email'            id='email'            name='email'            value={form.email}            onInput={...}            class={styles.email}        >            Email        </InputCustom>        ... // MORE INPUTS    </form>)InputCustom (Child Component)const InputCustom: Component<ComponentProps<'input'> & { error?: string }> = props => {    // DESTRUCTURING PROPS FOR CLEANLINESS.    const { class: className, children, error, ...rest } = props    return (        <div class={`${styles.field} ${className ? className : ''}`}>            <label for={props.id}>{children}</label>            <input {...rest} class='sanded' />            // DIRECTLY ACCESSING ERROR PROP FOR REACTIVE PROPERTIES            <small textContent={props.error} />        </div>    )}Example Error{    code: too_small,    minimum: 3,    type: string,    inclusive: true,    exact: false,    message: String must contain at least 3 character(s),    path: [        username    ]}",
+        "Solid needs to chain function calls to preserve reactivity from parent to child. When you destructure props you will be assigning values to static variables hence removing reactivity. So, in your child component you need to use property access like so: pros.id.Only reactive values get updated, so you need to use a store or signal to store values that changes over time and pass them as props.https://www.solidjs.com/tutorial/introduction_signalshttps://www.solidjs.com/tutorial/props_defaultsMaking sure you pass reactive values as props.Once you done that you can use the destructuring utility from @solid-primitives library that relays values through proxy object as an alternative to property access:https://www.npmjs.com/package/@solid-primitives/destructureAnother alternative would be using a babel plugin that undoes the object destructuring during transpilation process. There is one experimental project but I could not remember the name at the moment."
+    ],
+    "titre": "\nSolidJS - How to update an prop referenced by component ID?\n",
+    "number": "28/48"
+}{
+    "nombre de vues": "1",
+    "type": [
+        "phptransactionsauthorize.net"
+    ],
+    "Pseudo": "Krieger",
+    "github_score_time": [
+        "        asked 2 hours agoJosh needs helpJosh needs help1"
+    ],
+    "href": "/questions/76139116/getting-the-transaction-id-in-authorize-net-to-be-displayed-in-my-system-receipt",
+    "contenus": [
+        "How could I get the transaction ID in the unsettled transactions in Authorize.net? I was hoping to include and display every transaction ID for each receipt of each transaction done along the with the system, `<h2>Cashout Receipt</h2>  <div class=snipcart-item block>  <div class=w3agile_description>  <div id=printableArea>  <table id=datatable  class=table table-striped table-bordered dataTable cellspacing=0 width=100%            role=grid aria-describedby=example_info style=width: 100%; >           <tr>   <th colspan=3><center>Online Bidding Reciept</center></th>      </tr>   <tr>   <td colspan=3><center><b>User :</b> <?php echo $rspayment['user_name']; ?></td>   </tr>    <tr>        <td><b>Bill No.</b> <?php echo $rspayment['billing_id']; ?> </td>        <td><b>Date</b>  <?php echo $rspayment['purchase_date']; ?></td>    </tr>        <tr>        <th><b>Paid amount</b></th>        <td>₱ <?php echo $rspayment['purchase_amount']; ?>        </td>        </tr>    <tr>    <tr>    </tr>   </table>   </div>`Not particularly familiar with processes in the authorize.net and tried understanding the Authorize.net Documentations"
+    ],
+    "titre": "\nGetting the Transaction ID in Authorize.net to be displayed in my system receipt/\n",
+    "number": "29/48"
+}{
+    "nombre de vues": "11",
+    "type": [
+        " rlinear-regression"
+    ],
+    "Pseudo": "Ryan Prentiss",
+    "github_score_time": [
+        "        asked 2 hours agotetra4892tetra48921122 bronze badges"
+    ],
+    "href": "/questions/76139114/running-a-regression-model-in-r-error-message",
+    "contenus": [
+        "Closed. This question is not reproducible or was caused by typos. It is not currently accepting answers.                     This question was caused by a typo or a problem that can no longer be reproduced. While similar questions may be on-topic here, this one was resolved in a way less likely to help future readers.Closed 20 mins ago.\r                        Improve this question\r                    I am running a analysis on the stats of every NBA MVP in R right now. I want to see which stats impact win share the most, so I wanted to do a regression. I have the following codemvp.lm <-lm(WS ~ TRB + PTS,data = mvp)summary(mvp.lm)I am getting this in the summary:And here is a snippet of the data frame for reference.The first thing I need help with is the all residuals issue. Also in the coefficients, why is each individual point showing up, is that right, or a way to get rid of that?"
+    ],
+    "titre": "\nRunning a regression model in R, error message [closed]\n",
+    "number": "30/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "javaspringtomcattomcat8"
+    ],
+    "Pseudo": "Josh needs help",
+    "github_score_time": [
+        "        asked 2 hours agojn0826jn0826111 bronze badge"
+    ],
+    "href": "/questions/76139108/web-xml-configuration-is-broken-when-upgrading-to-tomcat-8-5-and-spring-5-1",
+    "contenus": [
+        "I'm upgrading from Tomcat 8.0 to 8.5.87, while upgrading Spring to 5.1.20.RELEASE and it broke my OSGi application. It works if I just downgrade to Tomcat 8.0It's erroring out when parsing <listener-class> org.springframework.web.context.ContextLoaderListener</Listener>. Any I verified that spring-web-5.1.20.RELEASE.jar is in the classpath.Here's the error that and the web.xmlApr 29, 2023 5:41:32 PM org.apache.catalina.core.ApplicationContext logINFO: No Spring WebApplicationInitializer types detected on classpathApr 29, 2023 5:41:32 PM org.apache.catalina.core.ApplicationContext logINFO: Initializing Spring root WebApplicationContextApr 29, 2023 5:41:32 PM org.apache.catalina.core.StandardContext listenerStartSEVERE: Exception sending context initialized event to listener instance of class [org.springframework.web.context.ContextLoaderListener]java.lang.NullPointerException    at org.apache.catalina.loader.WebappClassLoaderBase$CombinedEnumeration.inc(WebappClassLoaderBase.java:2775)    at org.apache.catalina.loader.WebappClassLoaderBase$CombinedEnumeration.hasMoreElements(WebappClassLoaderBase.java:2760)    at org.apache.commons.logging.LogFactory.getConfigurationFile(LogFactory.java:1366)    at org.apache.commons.logging.LogFactory.getFactory(LogFactory.java:453)    at org.apache.commons.logging.LogFactory.getLog(LogFactory.java:655)    at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:269)    at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:103)    at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4492)    at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4950)    at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)    at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:711)    at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:688)    at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:661)    at org.cg.dao.webcontainer.tomcat.TomcatWrapper.startWebApp(TomcatWrapper.java:187)    at org.cg.dao.webcontainer.tomcat.TomcatWrapper.prepareAllWebApps(TomcatWrapper.java:141)    at org.cg.dao.webcontainer.tomcat.TomcatWrapper.startServer(TomcatWrapper.java:208)    at org.cg.dao.webcontainer.tomcat.Application.start(Application.java:30)    at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)    at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)    at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)    at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)    at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)    at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)    at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)    at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)    at java.base/java.lang.reflect.Method.invoke(Method.java:566)    at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)    at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)    at org.eclipse.equinox.launcher.Main.run(Main.java:1467)    at org.eclipse.equinox.launcher.Main.main(Main.java:1440)Here's the web.xml<web-app xmlns:xsi=http://www.w3.org/2001/XMLSchema-instance          xmlns=http://xmlns.jcp.org/xml/ns/javaee          xsi:schemaLocation=http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd          version=3.1>             <display-name>App Services</display-name>    <context-param>        <param-name>contextConfigLocation</param-name>        <param-value>WEB-INF/application-context.xml,WEB-INF/application-context-websocket.xml</param-value>    </context-param>    <absolute-ordering />    <filter>        <filter-name>ExecutionTimeFilter</filter-name>        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>                <async-supported>true</async-supported>                <init-param>            <param-name>targetBeanName</param-name>            <param-value>executionTimeFilter</param-value>        </init-param>    </filter>    <filter-mapping>        <filter-name>ExecutionTimeFilter</filter-name>        <url-pattern>/*</url-pattern>    </filter-mapping>    <listener>        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>    </listener>    <servlet>        <servlet-name>RESTServices</servlet-name>        <servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>        <init-param>            <param-name>contextConfigLocation</param-name>            <param-value>WEB-INF/application-context.xml</param-value>        </init-param>        <init-param>            <param-name>disable-address-updates</param-name>            <param-value>true</param-value>        </init-param>        <load-on-startup>1</load-on-startup>    </servlet>    <servlet>        <servlet-name>WebSockets</servlet-name>        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>        <init-param>            <param-name>contextConfigLocation</param-name>            <param-value>WEB-INF/application-context-websocket.xml</param-value>        </init-param>        <load-on-startup>2</load-on-startup>        <async-supported>true</async-supported>    </servlet>    <servlet-mapping>        <servlet-name>RESTServices</servlet-name>        <url-pattern>/services/*</url-pattern>        <url-pattern>/services-internal/*</url-pattern>    </servlet-mapping>    <servlet-mapping>        <servlet-name>WebSockets</servlet-name>        <url-pattern>/websockets/*</url-pattern>    </servlet-mapping></web-app>If I comment out <listener> then the error is thrown...Apr 29, 2023 5:46:23 PM org.apache.catalina.core.ApplicationContext logINFO: No Spring WebApplicationInitializer types detected on classpathApr 29, 2023 5:46:23 PM org.apache.catalina.core.StandardContext filterStartSEVERE: Exception starting filter [ExecutionTimeFilter]java.lang.NullPointerException    at org.apache.catalina.loader.WebappClassLoaderBase$CombinedEnumeration.inc(WebappClassLoaderBase.java:2775)    at org.apache.catalina.loader.WebappClassLoaderBase$CombinedEnumeration.hasMoreElements(WebappClassLoaderBase.java:2760)    at org.apache.commons.logging.LogFactory.getConfigurationFile(LogFactory.java:1366)    at org.apache.commons.logging.LogFactory.getFactory(LogFactory.java:453)    at org.apache.commons.logging.LogFactory.getLog(LogFactory.java:655)    at org.springframework.web.filter.GenericFilterBean.<init>(GenericFilterBean.java:86)    at org.springframework.web.filter.DelegatingFilterProxy.<init>(DelegatingFilterProxy.java:107)    at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)    at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)    at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)    at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)    at org.apache.catalina.core.DefaultInstanceManager.newInstance(DefaultInstanceManager.java:142)    at org.apache.catalina.core.ApplicationFilterConfig.getFilter(ApplicationFilterConfig.java:252)    at org.apache.catalina.core.ApplicationFilterConfig.<init>(ApplicationFilterConfig.java:100)    at org.apache.catalina.core.StandardContext.filterStart(StandardContext.java:4343)    at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4976)    at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)    at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:711)    at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:688)    at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:661)    at org.cg.dao.webcontainer.tomcat.TomcatWrapper.startWebApp(TomcatWrapper.java:187)    at org.cg.dao.webcontainer.tomcat.TomcatWrapper.prepareAllWebApps(TomcatWrapper.java:141)    at org.cg.dao.webcontainer.tomcat.TomcatWrapper.startServer(TomcatWrapper.java:208)    at org.cg.dao.webcontainer.tomcat.Application.start(Application.java:30)    at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)    at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)    at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)    at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)    at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)    at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)    at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)    at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)    at java.base/java.lang.reflect.Method.invoke(Method.java:566)    at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)    at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)    at org.eclipse.equinox.launcher.Main.run(Main.java:1467)    at org.eclipse.equinox.launcher.Main.main(Main.java:1440)"
+    ],
+    "titre": "\nWeb.xml configuration is broken when upgrading to Tomcat 8.5 and Spring 5.1\n",
+    "number": "31/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "excelgoogle-sheets"
+    ],
+    "Pseudo": "tetra4892",
+    "github_score_time": [
+        "        asked 2 hours agoFoxseizFoxseiz28011 gold badge66 silver badges2020 bronze badges",
+        "        answered 2 hours agoAngYCAngYC2,49155 silver badges1818 bronze badges",
+        "        answered 1 hour agoRon RosenfeldRon Rosenfeld52.2k77 gold badges2828 silver badges5959 bronze badges"
+    ],
+    "href": "/questions/76139106/formula-is-not-count-it-correctly-based-on-the-date",
+    "contenus": [
+        "I have a spreadsheet that has opening and closing checklist. Basically, I want the T3 to count all missed openings and U3 to count all missed closings up to the current date. For some reason, the opening is working fine but closing is counting the future dates.Currently, the date is April 29.E1:R1 is the range of the datesE3:R3 is the range of the checkboxesThe formula I have for T3 is: =SUMPRODUCT((E3:R3=FALSE)(MOD(COLUMN(E3:R3)-COLUMN(E1),2)=0)($E$1:$R$1<=TODAY()))While this is what I have for U3: =SUMPRODUCT((E3:R3=FALSE)(MOD(COLUMN(E3:R3)-COLUMN(E1),2)=1)($E$1:$R$1<=TODAY()))",
+        "The problem lies between merged cell header for your date. Merged cells only store the actual value in the top left cell: https://support.google.com/docs/thread/135735079/merged-cells-only-have-a-value-on-first-cell-rest-of-the-cells-act-as-if-they-were-emptyTherefore, when you are comparing with $E$1:$R$1<=TODAY(), those alternative cells (eg. F1, H1, J1, L1, N1, P1, R1) actually has no values (default to 0), that's why <= TODAY() condition will always return true.One workaround you can apply is, create a new row and hide it, then refer to that row instead, for example:|   |     A      |     B      |     C      |     D      || 1 |        2023-04-28       |        2023-04-28       || 2 | 2023-04-28 | 2023-04-28 | 2023-04-29 | 2023-04-29 |Formula for your row 2 could be:| 2 | =A1        | =A2        | =B1        | =B2        |After that, you refer to this row 2 for checking of date instead:$A$2:$D$2<=TODAY(), since unmerged cells will ensure all cells have the values specified.",
+        "In Excel try:T3: =SUM((INDEX($E3:$R3,SEQUENCE(,COLUMNS($E3:$R3)/2,1,2))=FALSE)*(INDEX($E$1:$R$1,SEQUENCE(,COLUMNS($E$1:$R$1)/2,1,2))<=TODAY()))U3: =SUM((INDEX($E3:$R3,SEQUENCE(,COLUMNS($E3:$R3)/2,2,2))=FALSE)*(INDEX($E$1:$R$1,SEQUENCE(,COLUMNS($E$1:$R$1)/2,1,2))<=TODAY()))Note that the portion of the formula that refers to the Date always refers to the left hand cell of the Merged cell.The difference between the two formulas is in the first SEQUENCE function."
+    ],
+    "titre": "\nFormula is not count it correctly based on the date\n",
+    "number": "32/48"
+}{
+    "nombre de vues": "11",
+    "type": [
+        "reactjs"
+    ],
+    "Pseudo": "jn0826",
+    "github_score_time": [
+        "        asked 2 hours agoCarlaCarla733 bronze badges"
+    ],
+    "href": "/questions/76139103/nothing-appears-on-the-screen-even-if-is-working",
+    "contenus": [
+        "I have all of my code working fine, but my screen is white.I already restarted vs code and the server but it did not work"
+    ],
+    "titre": "\nNothing appears on the screen even if is working\n",
+    "number": "33/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "pythonlistwordle-game"
+    ],
+    "Pseudo": "Foxseiz",
+    "github_score_time": [
+        "edited 2 hours agoM Z4,50111 gold badge1212 silver badges2626 bronze badges",
+        "        asked 2 hours agoHamzaHamza3344 bronze badges",
+        "        answered 1 hour agoSaxtheowlSaxtheowl2,71344 gold badges2222 silver badges3131 bronze badges"
+    ],
+    "href": "/questions/76139101/wordle-copy-having-trouble-with-duplicate-letters-python",
+    "contenus": [
+        "I’m trying to make a copy of the game Wordle but I’m having trouble dealing with duplicate letters. Here’s my code and I explain my logic a bit below.# a portion of the code, the logical bit #def minigame(): # wordle    global wordGuess    delay_print([f'You have 6 chances to guess the 5 letter word. Heres the coloring guide: \\n', colored('W', on_color='on_red') + ': The letter is wrong\\n', colored('W', on_color='on_yellow') + ': The letter is right but in the wrong spot\\n', colored('W', on_color='on_green') + ': The letter is right and in the correct spot\\n'], 0.03)    with open('valid-wordle-words.txt', 'r') as f:        listWords = [line.strip() for line in f]    with open('validWords.txt', 'r') as f:        listValid = [line.strip() for line in f]    wordGuess = random.choice(listWords)    counter = 0        while counter <= 5:        guess = input('\\n> ')        if len(guess) != 5:            delay_print(Your guess should be 5 letters long.)        else:            if guess in listValid or guess in listWords:                counter += 1                userGuess(guess, wordGuess)            else:                delay_print(Your guess is not valid.)    if guess != wordGuess:        delay_print('You lost :(. The word was {}\\n'.format(wordGuess))        retry(minigame)def userGuess(guess: str, correct: str):    if guess == correct:        for x in correct:            print(colored(x, on_color='on_green'), end='')        delay_print(\\nYou win!)        exit()    else:        for index, (guess_letter, correct_letter) in enumerate(zip(guess, correct)):            if guess.count(guess_letter) >= 2:                numCor = 0                if guess_letter == correct_letter:                    print(colored(guess_letter, on_color='on_green'), end='')                    correct = correct.replace(guess_letter, '-', 1)                    numCor += 1                elif guess_letter in correct and numCor != guess.count(guess_letter):                    print(colored(guess_letter, on_color='on_yellow'), end='')                    correct = correct.replace(guess_letter, '-', 1)                else:                    print(colored(guess_letter, on_color='on_red'), end='')                            else:                if guess_letter == correct_letter:                    print(colored(guess_letter, on_color='on_green'), end='')                    correct = correct.replace(guess_letter, '-', 1)                elif guess_letter in correct:                    print(colored(guess_letter, on_color='on_yellow'), end='')                    correct = correct.replace(guess_letter, '-', 1)                elif guess_letter not in correct:                    print(colored(guess_letter, on_color='on_red'), end='')I explain the rules of Wordle (kinda) in the code, so go there if you aren’t aware of what the rules are. Anyways, here’s my logic. Let’s assume that the word I’m trying to guess is STOLE. Basically for each letter, I first check to see if there are two or more instances of the same letter in the guess (this is the problem of duplicates that I’ve been trying to solve, my logic is probably flawed though but this is what I came up with). I thought this would be a good idea since if there are two of the same letters in the guess like the T in LATTE, I would check the first T, giving it the green highlight, and then preventing the second T from getting a yellow highlight. Here’s the code in action:Here’s an instance of where it doesn’t seem to go as planned:<- the problem is with my guess trees. The code is saying that there are two E’s in the final word, but if you look at the end, OFTEN only has one E.Any help would be appreciated. Thank you!This code is my attempt at trying to account for duplicates. I tried integrating a counter but that doesn’t seem to work. I think the error lies in the fundamentals of my logic but I can’t pinpoint where exactly.",
+        "You dont handle the duplicate letters properly, the same letter can be counted multiple times as a correct letter in the wrong position.we can create a separate function to compare the guess and correct word and return the colored output for each letter.def userGuess(guess: str, correct: str):    if guess == correct:        for x in correct:            print(colored(x, on_color='on_green'), end='')        delay_print(\\nYou win!)        exit()    else:        output = compare_guess_and_correct(guess, correct)        for letter_color in output:            print(letter_color, end='')        print()def compare_guess_and_correct(guess, correct):    output = []    correct_matched_positions = []    yellow_count = {}    for i, g in enumerate(guess):        if g == correct[i]:            output.append(colored(g, on_color='on_green'))            correct_matched_positions.append(i)        else:            yellow_count[g] = yellow_count.get(g, 0) + 1    for i, g in enumerate(guess):        if i not in correct_matched_positions and g in correct:            if yellow_count[g] > 0:                output.append(colored(g, on_color='on_yellow'))                correct = correct.replace(g, '', 1)                yellow_count[g] -= 1            else:                output.append(colored(g, on_color='on_red'))        elif i not in correct_matched_positions:            output.append(colored(g, on_color='on_red'))    return output"
+    ],
+    "titre": "\nWordle copy having trouble with duplicate letters. (Python)\n",
+    "number": "34/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "prologswi-prolog"
+    ],
+    "Pseudo": "Carla",
+    "github_score_time": [
+        "        asked 2 hours agoHarryHarry1"
+    ],
+    "href": "/questions/76139099/prolog-rule-keeps-returning-false",
+    "contenus": [
+        "I am really new to Prolog and I am working on this project. I have data on the british monarchy and I am working on a heir rule that finds the heir to the throne or tells me if my input is the valid heir to the throne.I have this data regarding the british monarchy:male(georgeIII).male(georgeIV).male(frederick).male(williamIV).male(edward).male(ernest_augustus).male(augustus).male(adolphus).male(george1).male(francis).male(albert).male(edwardVII).male(alfred).male(leopold).male(albert_victor).male(georgeV).male(edwardVIII).male(georgeVI).male(henry).male(george2).male(john).female(charlotte).female(mary).female(caroline).female(charlotte1).female(victoria).female(victoriaI).female(augusta).female(mary_adelaide).female(mary1).female(victora1).female(alexandra).female(alice).female(helena).female(beatrice).female(louise_victoria).female(maud).female(mary2).born(georgeIII, 1738).born(georgeIV, 1762).born(frederick, 1763).born(williamIV, 1765).born(edward, 1767).born(ernest_augustus, 1771).born(augustus, 1773).born(adolphus, 1774).born(george1, 1819).born(albert, 1819).born(francis, 1837).born(edwardVII, 1841).born(alfred, 1844).born(leopold, 1853).born(albert_victor, 1864).born(georgeV, 1865).born(edwardVIII, 1894).born(georgeVI, 1895).born(henry, 1900).born(george2, 1902).born(john, 1905).born(charlotte, 1744).born(caroline, 1768).born(mary, 1776).born(victoria, 1786).born(charlotte1, 1796).born(augusta, 1797).born(victoriaI, 1819).born(victora1, 1819).born(mary_adelaide, 1833).born(alice, 1843).born(alexandra, 1844).born(helena, 1844).born(beatrice, 1857).born(mary1, 1867).born(louise_victoria, 1867).born(maud, 1869).born(mary2, 1897).parents(edwardVII, alexandra, albert_victor).parents(edwardVII, alexandra, georgeV).parents(edwardVII, alexandra, louise_victoria).parents(edwardVII, alexandra, maud).parents(albert, victoriaI, victoria1).parents(albert, victoriaI, edwardVII).parents(albert, victoriaI, alice).parents(albert, victoriaI, alfred).parents(albert, victoriaI, helena).parents(albert, victoriaI, arthur).parents(albert, victoriaI, leopold).parents(albert, victoriaI, beatrice).parents(francis, mary_adelaide, mary1).parents(edward, victoria, victoriaI).parents(georgeIV, caroline, charlotte1).parents(georgeIII, charlotte, georgeIV).parents(georgeIII, charlotte, frederick).parents(georgeIII, charlotte, williamIV).parents(georgeIII, charlotte, edward).parents(georgeIII, charlotte, ernest_augustus).parents(georgeIII, charlotte, augustus).parents(georgeIII, charlotte, adolphus).parents(georgeIII, charlotte, mary).parents(adolphus, augusta, george1).parents(adolphus, augusta, mary_adelaide).parents(georgeV, mary1, edwardVIII).parents(georgeV, mary1, georgeVI).parents(georgeV, mary1, mary2).parents(georgeV, mary1, henry).parents(georgeV, mary1, george2).parents(georgeV, mary1, john).year(1780).I am working on a Prolog rule called heir that is defined as follows: heir(<valid heir>, <heirs parent>, <sequence law type>, <gender law type>)The gender and sequence rules regarding the monarchy are as follows:%gender law:%  strict_agnatic:%    primary - only males of the parents dynasty may inherit%    secondary - if no valid primary heirs, only males of parents children may inherit%  strict_enatic%    primary - only females of the parents dynasty may inherit%    secondary - if no valid primary heirs, only females of parents children may inherit%  agnatic_cognatic%    primary - males of the parents dynasty may inherit%    secondary - if no valid primary heirs, females of parents dynasty may inherit%              - female heirs with male children are preferred%  enatic_cognatic%    primary - females of the parents dynasty may inherit%    secondary - if no valid primary heirs, males of parents dynasty may inherit%              - male heirs with female children are preferred%sequence law:%  primogeniture: oldest eligible successor is heir%  ultimogenture: youngest eligible successor is heirThis is the current code I have for the heir rule:age(NAME, Z):- born(NAME, X), year(Y), Z is Y-X.child_of(X, Y):- parents(Y,_,X);parents(_,Y,X).is_older(A, B):- age(A, AG), age(B, AG0), \\+(A = B), AG > AG0.is_younger(A, B):- age(A, AG), age(B, AG0), \\+(A = B), AG < AG0.elder_child(PAR, CHD0, CHD1):- child_of(CHD0, PAR),child_of(CHD1, PAR),                CHD0 \\= CHD1,is_older(CHD0, CHD1).eldest_child(PAR, CHD):- child_of(CHD, PAR),\\+elder_child(PAR, _, CHD).younger_child(PAR, CHD0, CHD1):- child_of(CHD0, PAR),child_of(CHD1, PAR),                CHD0 \\= CHD1,is_younger(CHD0, CHD1).youngest_child(PAR, CHD):- child_of(CHD, PAR),\\+younger_child(PAR, _, CHD).% this is the code I am working on:heir(HEIR, PARENT, strict_agnatic, primogeniture) :-    male(HEIR),    child_of(HEIR, PARENT),    eldest_child(PARENT, HEIR).heir(HEIR, PARENT, strict_agnatic, ultimogeniture) :-    male(HEIR),    child_of(HEIR, PARENT),    youngest_child(PARENT, HEIR).heir(HEIR, PARENT, strict_enatic, primogeniture) :-    female(HEIR),    child_of(HEIR, PARENT),    eldest_child(PARENT, HEIR).heir(HEIR, PARENT, strict_enatic, ultimogeniture) :-    female(HEIR),    child_of(HEIR, PARENT),    youngest_child(PARENT, HEIR).heir(HEIR, PARENT, agnatic_cognatic, primogeniture) :-    male(HEIR),    child_of(HEIR, PARENT),    eldest_child(PARENT, HEIR).heir(HEIR, PARENT, agnatic_cognatic, primogeniture) :-    female(HEIR),    child_of(HEIR, PARENT),    \\+ heir(_, PARENT, agnatic_cognatic, primogeniture),    eldest_child(PARENT, CHILD), male(CHILD).Now, when I try to test this with the input heir(X, georgeIII, ultimogeniture, strict_enatic). I get false instead of getting X = mary. I do not how to fix this.I tried multiple test cases and they all fail:the first line is the input and the following line is the expected result. I keep getting false and it never tells me what X should be.%testcases:%    heir(georgeIV, georgeIII, primogeniture, agnatic_cognatic).%    true ?%%    heir(georgeIV, georgeIII, ultimogeniture, agnatic_cognatic).%    no%%    heir(X, georgeIII, primogeniture, strict_enatic).%    X = mary%        yes%%    heir(X, georgeIII, ultimogeniture, strict_enatic).%    X = mary%        yes%%   (if you comment out mary from female, born and parents):%    heir(X, georgeIII, ultimogeniture, strict_enatic).%    X = charlotte1 ? ;%    X = victoriaI ? ;%    X = mary_adelaide ? ;%    no%%   heir(X, georgeIII, ultimogeniture, enatic_cognatic).%   X = adolphus ? ;%   no%%   heir(X, georgeIII, primogeniture, enatic_cognatic).%   X = georgeIV ? ;%   no"
+    ],
+    "titre": "\nProlog rule keeps returning false\n",
+    "number": "35/48"
+}{
+    "nombre de vues": "10",
+    "type": [
+        "androiddjango-rest-frameworkvagrant"
+    ],
+    "Pseudo": "Hamza",
+    "github_score_time": [
+        "        asked 2 hours agoSunnatbek AmirovSunnatbek Amirov1"
+    ],
+    "href": "/questions/76139095/how-to-fix-bash-vagrant-command-not-found-error-when-running-vagrant-vers",
+    "contenus": [
+        "There is an error message that I encountered when trying to run the vagrant --version command in my terminal: bash: vagrant: command not found. This error message indicates that Vagrant, a command-line tool for managing virtual machines, is either not installed on my system or not in my system's PATH. I need help in resolving this issue so that I can successfully run Vagrant commands on my system.The error message bash: vagrant: command not found means that the Vagrant command-line tool is not installed on your system, or it is not in your system's PATH.To install Vagrant, you need to follow these steps:Download the appropriate Vagrant installer for your operating system from the official Vagrant website: https://www.vagrantup.com/downloads.Run the installer and follow the instructions provided to complete the installation.After the installation is complete, open a new terminal window and try running the vagrant --version command again to verify that Vagrant is installed and working.If you have already installed Vagrant but are still getting the command not found error, it is possible that the Vagrant executable is not in your system's PATH. In that case, you need to add the directory where Vagrant is installed to your system's PATH.The specific steps for adding a directory to your system's PATH depend on your operating system.WindowsOpen the Start menu and search for Environment Variables.Click on Edit the system environment variables.Click on the Environment Variables button.Under System variables, scroll down until you find the Path variable and select it.Click on the Edit button.Click on the New button and enter the path to the directory where Vagrant is installed. The default path is C:\\HashiCorp\\Vagrant\\bin.Click OK to close all the windows.After you have added the directory to your system's PATH, you should be able to use the vagrant command in a new terminal window.macOSOpen Terminal.Type nano ~/.bash_profile and press Enter.Add the following line to the end of the file: export PATH=$PATH:/path/to/vagrant/bin (replace /path/to/vagrant/bin with the actual path to the Vagrant bin directory).Press Ctrl+O to save the file and Ctrl+X to exit nano.Type source ~/.bash_profile to apply the changes to your current Terminal session.After you have added the directory to your system's PATH, you should be able to use the vagrant command in a new terminal window.LinuxOpen Terminal.Type nano ~/.bashrc and press Enter.Add the following line to the end of the file: export PATH=$PATH:/path/to/vagrant/bin (replace /path/to/vagrant/bin with the actual path to the Vagrant bin directory).Press Ctrl+O to save the file and Ctrl+X to exit nano.Type source ~/.bashrc to apply the changes to your current Terminal session.After you have added the directory to your system's PATH, you should be able to use the vagrant command in a new terminal window."
+    ],
+    "titre": "\nHow to fix 'bash: vagrant: command not found' error when running 'vagrant --version' command?\n",
+    "number": "36/48"
+}{
+    "nombre de vues": "-1",
+    "type": [
+        "reactjsreact-routerreact-router-domcircular-referencenested-routes"
+    ],
+    "Pseudo": "Harry",
+    "github_score_time": [
+        "        asked 2 hours agoGift G.Gift G.5744 bronze badges"
+    ],
+    "href": "/questions/76139094/usenavigate-not-working-with-button-click-converting-circular-structure-to-jso",
+    "contenus": [
+        "I'm trying to create a desktop app using the electron-react boilerplate on GitHub and at the moment, I'm trying to create routes for the multiple pages I intend to use for the app. I looked up how to do so, and I saw that I could use useNavigate(), onClick for the button, and Routes, Router, and Route from React. However, it isn't working.I've attempted nesting the Route components so that the home page has the welcome page appended to it, which could get replaced with the login page on the button click, but that didn't work. Then, I tried listing the Route components instead, and that didn't work either. I tried looking up other posts about this issue, but nothing they had helped. I also tried switching out the useNavigate import to originate from react-router instead of react-router-dom, but that didn't work either.Here is the code I've been working with so far:import * as React from 'react';import { MemoryRouter as Router, Routes, Route } from 'react-router-dom'import { useNavigate } from 'react-router';import TitleBar from './COMPONENTS/title_bar.js'import perspective_grid from '../../assets/images/perspective_grid.jpg'import './App.css'import './CSS/Home.css'// grid background with overlaying gradientfunction Background() {  return (    <div id = background>      <img className = prevent-select prevent-drag absolute id = perspective-grid src={perspective_grid}></img>    </div>  )}// welcome page (with login and signup buttons)function Welcome() {  let navigate = useNavigate('/login')  return (    <div id = welcome>      <h1 className = prevent-select title>WTBDSB</h1>      <p  id = subtitle><i><b>w</b>ants <b>t</b>o <b>b</b>e <b>d</b>esmos <b>s</b>o <b>b</b>ad</i></p>      <button className = btn prevent-drag id = login onClick={navigate}>log in</button>      <button className = btn prevent-drag id = signup>sign up</button>    </div>  )}// login pagefunction Login() {  return (    <div id = LOGIN>testtesttest</div>  )}// signup pagefunction Signup() {  return (    <div id = SIGNUP></div>  )}// full routing for the above pages.export default function App() {  return (    <Router>            <Routes>        <Route path=/ element={<>          <TitleBar />          <Background />          <Welcome />        </>} />        <Route path=login element={<Login />} />        </Routes>    </Router>  )}And here is the error I'm getting (after I'm clicking the log in button):Any help would be really appreciated - this is my first time working with Routes in React, and I'd love to be able to get this working so I can make more progress."
+    ],
+    "titre": "\nuseNavigate not working with button click (\"Converting circular structure to JSON\" error)\n",
+    "number": "37/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "python-3.xplotlyplotly-pythonplotly-express"
+    ],
+    "Pseudo": "Sunnatbek Amirov",
+    "github_score_time": [
+        "        asked 2 hours agoBrie MerryWeatherBrie MerryWeather16522 silver badges1212 bronze badges",
+        "        answered 2 hours agoSaxtheowlSaxtheowl2,71344 gold badges2222 silver badges3131 bronze badges"
+    ],
+    "href": "/questions/76139093/line-chart-visualization-to-sunburst",
+    "contenus": [
+        "I have a dataframe which looks like this:id         date          API_changes    count    content134     2019-01-01           2           NaN      Nan134     2019-02-05          34           12       API deleted134     2019-02-12          18            8       Deprecation134     2019-03-10          56           29       Segmentation Error134     2019-05-12          75           40       Path deleted134     2019-07-01          25           10       Type required134     2019-10-09          137          55       API deprecated134     2019-12-31          32           18       Media type removed134     2020-01-03          150          99       Required param missingI want to visualize this data in the form of a sunburst, or any chart which can capture the proportion of count in API_changes. count specifies the number of breaking changes out of the API_changes for every commit_date.I earlier visualized this in the form of a scatter plot with traces(with date on x axis, API_changes on y axis, color as content column, and same for symbol as well), but that does not serve the purpose as I cannot see visually over the dates, how the changes differ in sizeOne option would be stacked-bar chart, but I was thinking are there more unique charts(preferably a sunburst) for this type of analysis?"

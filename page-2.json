@@ -1,0 +1,763 @@
+{
+    "nombre de vues": "0",
+    "type": [
+        "arraysswiftconsole-applicationascii-arttext-based"
+    ],
+    "Pseudo": "iyed ghodhbane",
+    "github_score_time": [
+        "        asked 54 mins agoStryfingBl4ckStryfingBl4ck1"
+    ],
+    "href": "/questions/76139277/how-can-i-generate-a-map-displaying-the-layout-of-a-house-of-a-text-based-game-a",
+    "contenus": [
+        "I want to design a text based game that has a house as a layout with Swift (coded in a Linux VM on Visual Studio Code).To achieve the house layout I have different 'Room' objects that have exits in each cardinal direction (North, East, South, West). When specifying which room has which exits, I also assign it the room the exit leads to with a dictionary structure.enum Direction:String {    /// 4 main cardinal points    case North, East, South, West}/// A rudimentary implementation of a room (location) within the game map, based on a name and exits to other rooms. The exits are labeled with a `Direction`.class Room {        /// The name of the room (does not need to be an identifier)    var name:String        /// The exit map (initially empty)    var exits = [Direction:Room]()        /// Initializer    init(name:String) {        self.name = name    }    /**     This function allows to retrieve a neighboring room based on its exit direction from inside the current room.          - Parameters:        - direction: A `Direction`     - Returns: The room through the exit in the next direction (if any)     */    func nextRoom(direction:Direction) -> Room? {        return exits[direction]    }    }/// Extension for the `CustomStringConvertible` protocol.extension Room:CustomStringConvertible {    /// The description includes the name of the room as well as all possible exit directions    var description: String {        return You are in \\(self.name)\\n\\nExits:\\n\\(self.exits.keys.map { - \\($0.rawValue) }.joined(separator: \\n))    }    }I currently have designed a layout of rooms that looks like the following:Diagram of the house's room layoutI already coded a textual representation of each room.The plan is to add different houses in the long run to introduce more levels, so I don't want to hardcode the map if possible.The problem I am trying to solve for quite some time now is printing out the correct positioning of the rooms.I think I could solve the issue by writing an algorithm that parses through the rooms one by one and positions them accordingly in a 2D array.Does anyone have any tips of solutions that could help me advance my code in some way?I very much appreciate any feedback given on my problem.I tried splitting the rooms horizontally and parsing through the first row of rooms one by one starting from the left most room and advancing to the right most room. I would then assign each room a x and y coordinate and continue to the next room. Once I reached the right most room, I would then proceed to the left most room one row beneath and repeat the process. I would do that with each row, but I noticed that printing out that version of the map will position the rooms in the wrong position (e.g. kitchen would be aligned with bathroom, etc. )I also tried expanding the house's layout with empty rooms that I put on the outside edges of the house thinking that this way, the positioning while parsing through would be different than before. It wasn't.I wasn't able to test much more since I didn't have many more ideas on how to fix this and searching the web didn't help much either since most results were linked to XCode and example code from other text-based games all had hard coded maps integrated."
+    ],
+    "titre": "\nHow can I generate a map displaying the layout of a house of a text-based game and print it out of the console?\n",
+    "number": "1/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "pythoncssdjangotemplates"
+    ],
+    "Pseudo": "vijay",
+    "github_score_time": [
+        "        asked 55 mins agoChristiaan EriksenChristiaan Eriksen2111 bronze badge",
+        "        answered 44 mins agoTech GamerzTech Gamerz1"
+    ],
+    "href": "/questions/76139276/how-to-solve-the-error-when-import-css-in-django",
+    "contenus": [
+        "I'm trying to import css from a static directory, but I'm getting the following error:Please help me as soon as possible.enter image description hereenter image description hereI'm trying to import css from a static directory, but I'm getting the following error:Please help me as soon as possible",
+        "If you are developing a Django project and are trying to import CSS files, you may encounter the error message ImportError: cannot import name CSS. This error can be frustrating and can prevent you from completing your project. In this post, you will learn how to fix this error and improve your Django development skills.learn more - https://hinditechbate.blogspot.com/2023/04/how-to-fix-importerror-cannot-import.html"
+    ],
+    "titre": "\nHow to solve the error when import css in Django\n",
+    "number": "2/48"
+}{
+    "nombre de vues": "9",
+    "type": [
+        "pythonpython-3.xtimeautomationpyautogui"
+    ],
+    "Pseudo": "StryfingBl4ck",
+    "github_score_time": [
+        "        asked 56 mins agoCoding  ProgrammingCoding  Programming1"
+    ],
+    "href": "/questions/76139274/having-problem-to-switch-between-opened-windows-by-using-pyautogui",
+    "contenus": [
+        "i am using pyautogui to switch between the windows which i had opened .program runs successfully but not switching the windows .here's my codeimport pyautoguiimport timepyautogui.keyDown('alt')pyautogui.press('tab')time.sleep(1)pyautogui.keyUp('alt')output:program finished with exit code [0]it runs but not switching the windows but when i did this manually it works."
+    ],
+    "titre": "\nhaving problem to switch between opened windows by using pyautogui\n",
+    "number": "3/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "pythonfortranf2py"
+    ],
+    "Pseudo": "Christiaan Eriksen",
+    "github_score_time": [
+        "        asked 58 mins agoChungjiChungji5955 bronze badges"
+    ],
+    "href": "/questions/76139269/f2py-failed-in-converting-to-c-fortran-array",
+    "contenus": [
+        "I tried to write a Fortran wrapper to Python and got failed in converting hidden c of test.wrap to C/Fortran array.   May I know how to fix it? Here is the python partimport testimport numpy as npA = np.random.random((5,5))B = np.random.random((5,5))C = np.zeros((5, 5))A = np.asfortranarray(A)B = np.asfortranarray(B)C = np.asfortranarray(C)test.wrap(A, B)print(C[0,0])here is the Fortran part, called test.f90. I used python -m numpy.f2py -c  --f90flags='-O3'  -m test test.f90.subroutine wrap(A, B, C)    implicit none    real, intent(in) :: A(:, :), B(:, :)    real, intent(out) :: C(:, :)    integer :: m, n, p    m = size(A, 1)    n = size(A, 2)    p = size(B, 2)        if (n /= size(B, 1)) then        print *, Error: Incompatible dimensions for matrix multiplication        return    end if    C = matmul(A, B)end "
+    ],
+    "titre": "\nf2py failed in converting to C/Fortran array\n",
+    "number": "4/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "phpmysqlmysqliprepared-statement"
+    ],
+    "Pseudo": "Coding  Programming",
+    "github_score_time": [
+        "edited 57 mins agolj1025",
+        "        asked 1 hour agolj1025lj1025111 bronze badge"
+    ],
+    "href": "/questions/76139268/php-prepared-statements-returning-no-results-using-mysql-views",
+    "contenus": [
+        "We have prepared statements in our code working with regular mysql tables like this$sql = SELECT count(*) FROM table1 ;    $stmt = $db->prepare($sql);  $stmt->execute();  $stmt->store_result();  $stmt->bind_result($count);   $stmt->fetch();  echoCount results: .$count;  This gives the correct count in the table;Also for this example I used a simple query that returns the count of rows found.Using table1 using prepared statement results in correct table countswitching the table used (table1) with a view (view1) using prepared statement in the above code snippet gave no results.Also note using the mysql cli the query works fine with view1 or table1.What am I doing wrong here?Using non-prepared statements the query works with views and tables."
+    ],
+    "titre": "\nphp prepared statements returning no results using mysql views\n",
+    "number": "5/48"
+}{
+    "nombre de vues": "8",
+    "type": [
+        "c++pointerssegmentation-fault"
+    ],
+    "Pseudo": "Chungji",
+    "github_score_time": [
+        "edited 52 mins agoanonymouslyAJ",
+        "        asked 1 hour agoanonymouslyAJanonymouslyAJ1922 bronze badges"
+    ],
+    "href": "/questions/76139267/segmentation-failure-with-structs",
+    "contenus": [
+        "Closed. This question needs debugging details. It is not currently accepting answers.                     Edit the question to include desired behavior, a specific problem or error, and the shortest code necessary to reproduce the problem. This will help others answer the question.Closed 33 mins ago.\r                        Improve this question\r                    So this is my first coding job so I'm sorry if my terminology isn't the best and the program is large so I'm only providing snippets that are important. Any help is appreciated! I'm trying to create a new variable, but as soon as I try to access it, I get a segmentation fault. I'm not sure what I'm doing wrong.struct resourcegroup_st {     RealF res_grazed;}void grazing_EndOfYear( void){    GrpIndex rg;    GroupType *g;    g = RGroup[rg] //already established struct             g->res_grazed = 1.0}I tried about everything I could think of, even stupid things like putting g.res_grazed instead. I tried turning it into a pointer and allocating memory to it. I'm also using Cygwin to run the program."
+    ],
+    "titre": "\nSegmentation Failure With Structs [closed]\n",
+    "number": "6/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        " azure-iot-edgeazure-iot-sdkazure-iot-centralazure-iot-hub-device-management"
+    ],
+    "Pseudo": "lj1025",
+    "github_score_time": [
+        "        asked 1 hour agocodehampstercodehampster133 bronze badges"
+    ],
+    "href": "/questions/76139262/how-to-generate-command-output-in-iot-central-azure-sdk-c",
+    "contenus": [
+        "I am using IoT Central and am able to successfully send command to the device as well as receive confirmation code. This is executed using the following line:azure_iot_send_command_response(azure_iot, command.request_id, response_code, AZ_SPAN_EMPTY);AZ_SPAN_EMPTY is the payload portion that can be replaces with the JSON formatted response.Most other actions have sub-routines defined to generate such response (such as: generate_telemetry_payload, generate_device_info_payload, generate_properties_update_response...etc).I cannot see out of the box generate_command_response.Am I missing something, can I reuse one of the existing routines or do I have to create my own? What is the common way of passing back payload on command execution?Tried using functions to generate az_span_from_string etc but they do not generate the whole payload.Tried formattign it usingstatic const az_span cmd = AZ_SPAN_LITERAL_FROM_STR(Hello world);but the error is always:Device XXXXXXX sent a response payload with a syntax error for method XXXXXXXXX in application XXXXXXXError code: 400.070.002.052 / s6p8v199hr.2The annoying part is that I cannot see the raw data to be able to figure out where the syntax problem is...hence my desire to use az_span standard method."
+    ],
+    "titre": "\nHow to generate command output in IoT Central Azure SDK C\n",
+    "number": "7/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "flutterimagedart"
+    ],
+    "Pseudo": "anonymouslyAJ",
+    "github_score_time": [
+        "        asked 1 hour agosft stdsft std111 bronze badge"
+    ],
+    "href": "/questions/76139261/unsupported-operation-namespace-while-using-directory-current-dart",
+    "contenus": [
+        "I want to save a network image in my local storage, so I need to get the path , but I got this error Unsupported operation: _Namespace`import 'dart:async';import 'dart:io';import 'dart:typed_data';import 'package:firebase_auth/firebase_auth.dart';import 'package:flutter/cupertino.dart';import 'package:flutter/cupertino.dart';import 'package:flutter/cupertino.dart';import 'package:flutter/material.dart';import 'package:flutter/services.dart';import 'package:pdf/pdf.dart';import 'package:pdf/widgets.dart' as pw;import 'package:firebase_storage/firebase_storage.dart';import 'package:cloud_firestore/cloud_firestore.dart';import 'package:adminsignin/style/colors.dart';import 'package:flutter/material.dart';import 'package:printing/printing.dart';import 'package:http/http.dart' as http;          try {            final response = await http.get(Uri.parse(link));            response;            // final file = File('ImageTest/my_image.jpg');            // await file.writeAsBytes(response.bodyBytes);            Directory pathh= Directory.current;            print('pathh: ${pathh.absolute}');          } catch (e) {            // Handle the error when http.get fails            print('Errorr: $e');          }`"
+    ],
+    "titre": "\nUnsupported operation: _Namespace while using Directory.current dart\n",
+    "number": "8/48"
+}{
+    "nombre de vues": "9",
+    "type": [
+        "dockerdockerfile"
+    ],
+    "Pseudo": "codehampster",
+    "github_score_time": [
+        "edited 28 mins agoeastwater",
+        "        asked 1 hour agoeastwatereastwater4,33477 gold badges4242 silver badges104104 bronze badges"
+    ],
+    "href": "/questions/76139260/dockerfile-build-image-using-a-dockerfile-inside-a-base-image",
+    "contenus": [
+        "Dockerfile: build image using a dockerfile inside a base image.DockerfileFROM image1:latest# image1 has a dockfile /usr/local/app/Dockerfiledocker -f /usr/local/app/DockerfileHow to use the Dockerfile inside the base image1 to build the rest of the image?Another way:docker copy image1:latest:/usr/local/app/Dockerfile /tmp/Dockerfiledocker build -f /tmp/Dockerfile .But docker do not have the copy command to copy files from an image out to host.or using the dockerfile inside an image directly:docker build -f image1:latest:/usr/local/app/Dockerfile .docker-compose.ymlservices:  web:    build:      context: .      dockerfile: image1:latest:/usr/local/app/Dockerfile"
+    ],
+    "titre": "\nDockerfile: build image using a dockerfile inside a base image\n",
+    "number": "9/48"
+}{
+    "nombre de vues": "2",
+    "type": [
+        " fluttergoogle-cloud-firestore"
+    ],
+    "Pseudo": "sft std",
+    "github_score_time": [
+        "edited 54 mins agoAbdel",
+        "        asked 1 hour agoAbdelAbdel2377 bronze badges"
+    ],
+    "href": "/questions/76139259/im-getting-the-null-check-operator-used-on-a-null-value-and-the-bad-state-f",
+    "contenus": [
+        "I'm writing a flutter app to collect the nearby ATMs and show the user in the app. So I first get the cuurent location of the user as seen in the code above then i tried to use geoflutterfire to query cloud firestore for nearby ATMs within  a certain radius. The code is as follows. When I comment the lineGeoFirePoint point = geo.point(latitude: position1!.latitude, longitude: position1!.longitude);the null safety error goesimport 'package:cloud_firestore_platform_interface/cloud_firestore_platform_interface.dart';import 'package:firebase_core/firebase_core.dart';import 'package:flutter/material.dart';import 'package:gab/pages/functions.dart';import 'package:geocoding/geocoding.dart';import 'package:geolocator/geolocator.dart';import 'package:permission_handler/permission_handler.dart';import 'package:geoflutterfire/geoflutterfire.dart';import 'package:cloud_firestore/cloud_firestore.dart';final geo = Geoflutterfire();final _firestore = FirebaseFirestore.instance;class Principal extends StatefulWidget {  const Principal({Key? key}) : super(key: key);  @override  State<Principal> createState() => _PrincipalState();}class _PrincipalState extends State<Principal> {  //To obatin positon  Position? position1;  getCurrentLocation() async {    Position position = await determinePosition();    setState(() {      position1 = position;    });  }  Future<Position> determinePosition() async {    LocationPermission permission;    permission = await Geolocator.checkPermission();    if (permission == LocationPermission.denied){      permission = await Geolocator.requestPermission();      if (permission == LocationPermission.denied){        return Future.error(Location permissions are denied);      }    }    return await Geolocator.getCurrentPosition();  } @override  Widget build(BuildContext context) {    getCurrentLocation();    GeoFirePoint point = geo.point(latitude: position1!.latitude, longitude: position1!.longitude);//There is an erro here. the null check operator used on a null value!     // GeoFirePoint point = geo.point(latitude: 4.0908151, longitude: 9.8037623);     // _firestore.collection('atms').add({'bank': 'test', 'isFunctioning': true,'position':point.data});    var collectionReference  = _firestore.collection('atms').where(isFunctioning, isEqualTo: true);    double radius = 1000;    String field = 'position';    Stream<List<DocumentSnapshot>> stream = geo        .collection(collectionRef: collectionReference)        .within(center: point, radius: radius, field: field, strictMode: true);    stream.listen((List<DocumentSnapshot> documentList) {      // print(Here);      // print(documentList[0].data());    });     return Scaffold(       //TRY Not Working       body: SafeArea(         child: StreamBuilder<List<DocumentSnapshot>>(           stream: stream,           builder: (context, AsyncSnapshot<List<DocumentSnapshot>> snapshot){             if(!snapshot.hasData){               return Container(                 child: Text(No data),               );             }             return Container(               child: ListView.builder(                   itemCount: snapshot.data!.length,                   itemBuilder: ((context, index){                 DocumentSnapshot data = snapshot.data![index];                 GeoPoint documentLocation = data.get('location');                 var distanceInMeters = Geolocator.distanceBetween(point.latitude, point.longitude,                     documentLocation.latitude, documentLocation.longitude);                 print('${distanceInMeters}');                 return ListTile(                   title: Text('${data.get('bank')}'),                   subtitle: Text('${distanceInMeters}'),                 );               })),             );           },         ),       ),     );  }}And then i get the errors as seen in the pictures. I also sho how I designed the cloud firestore"
+    ],
+    "titre": "\nI'm getting the \"null check operator used on a null value\" and the \"Bad state: field does not exist within the DocumentSnapshotPlatform\" at same time\n",
+    "number": "10/48"
+}{
+    "nombre de vues": "1",
+    "type": [
+        "javascriptreactjsreact-hooksantantd"
+    ],
+    "Pseudo": "eastwater",
+    "github_score_time": [
+        "edited 10 mins agoHaydenn Harper",
+        "        asked 1 hour agoHaydenn HarperHaydenn Harper111 bronze badge"
+    ],
+    "href": "/questions/76139258/ant-design-onchange-api-is-not-setting-react-hooks-in-file-directory-upload",
+    "contenus": [
+        "What I am Using: I am using the Upload component from Ant Design to upload a directory of files. I am using this in conjunction with the Progress component of Ant Design.Desired Outcome: I would like the Progress component to update while the files are being loaded to Upload Directory so the user can see the percentage of files that are being loaded in real time.What Is Happening: I am using React Hooks in the onChange API for the Upload Ant Design component. The percentageUploaded constant that I made works -- it correctly shows the percentage of files that have been uploaded in real time. But the setUploadProgress hook is not working. It only upates at the end when the percentageUploaded reaches 100% and the uploading process is done.What I would like to happen: In order for this component to work, I need to the setUploadProgress hook to work in real time, meaning, I need it setUploadProgress hook to store the live status of the percentageUploaded constant so the Progress component can show the live status of the upload progress.export const UploadDirectory: React.FC<UploadDirectoryProps> = () => {const [uploadProgress, setUploadProgress] = useState<number>(0);const handleChange = (data: any) => {  const totalFiles = filesInFolder; //filesInFolder is set from another function, it stores the total number of files being uploaded  setFilesInFolder(totalFiles);  setUploadingFilesCount((uploadingFilesCount += 1));  const percentageUploaded = Math.ceil(    (uploadingFilesCount / totalFiles) * 100  );  setUploadProgress(percentageUploaded); //this is the hook that I need to update while files are loading};return (<div>  <Form.Item    label=Upload Directory    name={uploadDirectory}  >    <UploadFolder     directory     onChange={handleChange}     fileList={fileList}     beforeUpload={beforeUpload}     name={uploadFolder}    >      <Button icon={<UploadOutlined />}>Upload Directory</Button>    </UploadFolder>  </Form.Item>  <Progress type=circle percent={uploadProgress} /></div>)}"
+    ],
+    "titre": "\nAnt Design \"onChange\" API is not setting React hooks in File/Directory upload\n",
+    "number": "11/48"
+}{
+    "nombre de vues": "14",
+    "type": [
+        "flutterdartclean-architecture"
+    ],
+    "Pseudo": "Abdel",
+    "github_score_time": [
+        "        asked 1 hour agodjalmafreestylerdjalmafreestyler1,53344 gold badges2121 silver badges4141 bronze badges"
+    ],
+    "href": "/questions/76139257/is-it-bad-practice-to-use-packages-in-the-domain-layer",
+    "contenus": [
+        "I have seen projects like ResoCoder's Clean Architecture approach using packages in domain layer like equatable:import 'package:equatable/equatable.dart';class UserEntity extends Equatable {  final String displayName;  final String photoUrl;  final String email;  UserEntity({    required this.displayName,    required this.photoUrl,    required this.email,});  @override  List<Object?> get props => [    displayName,    photoUrl,    email  ];}and dartz to use functional programming:class SignInUsecase implements Usecase<NoInput, UserEntity> {  final IAuthRepository repository;  SignInUsecase(this.repository);  @override  Future<Either<Failure, UserEntity>> call(NoInput param) async {    return await repository.signIn();  }}Is there a better approach to handle this, without need to use these packages in domain layer?"
+    ],
+    "titre": "\nis it bad practice to use packages in the domain layer?\n",
+    "number": "12/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "react-nativereact-navigationreact-navigation-bottom-tab"
+    ],
+    "Pseudo": "Haydenn Harper",
+    "github_score_time": [
+        "        asked 1 hour agoJohnathan SimerothJohnathan Simeroth1"
+    ],
+    "href": "/questions/76139256/react-navigation-tab-navigator-always-pass-the-same-route-params-when-pressing",
+    "contenus": [
+        "I'm new here! I'm working with react navigation, and I love it!... but... I've run into an issue that I figure is user error and not a bug.What are the details of your problemI made a minimal example in a snack here: https://snack.expo.dev/@jsimeroth/userprofilenavThe snack walks you through it interactively, but basically there's a navigation flow where my initial route params no longer get passed to the component on tab navigator presses/clicks. This happens when I have a tab navigator nested inside a stack navigator, and I navigate to a non-tab stack screen then back to a tab screen.platform: I've seen it on both web and ios, haven't tried others. For some reason, this snack doesn't run on ios though so try web.What can I do differently to get the desired behavior? I've tried adding a listener for tabPress unsuccessfully.What did you try?I tried adding an event listener, but am probably doing that wrong because I could never get it to fire even when using a basic console.logCode is a bit long to show the example, so check out the snack! But also adding it here just in case that's preferred.import * as React from 'react';import { Text, View, StyleSheet } from 'react-native';import Constants from 'expo-constants';import { Card, Button } from 'react-native-paper';import { NavigationContainer, useNavigation } from '@react-navigation/native';import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';import { createNativeStackNavigator } from '@react-navigation/native-stack';import Icon from 'react-native-vector-icons/MaterialCommunityIcons';// make navigator componentsconst Tab = createMaterialBottomTabNavigator();const Stack = createNativeStackNavigator();// basic iconfunction ColoredIcon(name, color) {  return <Icon name={name} color={color} size={20} />;}// SCREEN COMPONENTS// Tab navigator screensexport function Profile({navigation, route}) {const user = route.params.userId  return (    <View style={styles.container}>      <Text>This is user: {user}</Text>      {user === 1 ? (        <Text>          User 1 is the logged in user and I would like to see this user's profile page whenever I click the profile bottom tab. {'\\n\\n'}          However, navigate to the communities tab...        </Text>      ) : (        <Text>          So far so good, you're seeing the desired user's profile. But now there is no way to get back to the default/logged in/current user. {'\\n\\n'}          TLDR: how do I make it so that clicking the profile tab always sends the userId I provided in the initial params, while still allowing the profile component to render other users if navigated to in a different way?        </Text>      )}    </View>  )}export function CommunityList() {  const navigation = useNavigation();  return (    <View style={styles.container}>      <Button         onPress={() => {          navigation.navigate('Community', {community: 1})}        }        mode='contained'      >        See community 1      </Button>      <Text>        Select a community...      </Text>    </View>  )}// Stack screensexport function Community() {  const navigation = useNavigation();  return (    <View style={styles.container}>      <Button         onPress={() => {          navigation.navigate('Profile', {userId: 2})}        }        mode='contained'      >        See user 2 profile      </Button>      <Text>        This community has posts by different users. Click the above user to see their profile...      </Text>    </View>  )}// Tab navigator (primary stack screen)export function TabNav() {  const userId = 1;  return (    <Tab.Navigator>        <Tab.Screen          name='Profile'          component={Profile}          initialParams={{ userId: userId }}          options={{            tabBarLabel: 'Profile',            tabBarIcon: () => ColoredIcon('home', 'black'),          }}        />        <Tab.Screen          name='CommunityList'          component={CommunityList}          options={{            tabBarLabel: 'Communities',            tabBarIcon: () => ColoredIcon('account-group', 'black'),          }}        />      </Tab.Navigator>  );}// Stack navigatorexport default function App() {  return (    <NavigationContainer>      <Stack.Navigator>        <Stack.Screen name='TabNav' component={TabNav} />        <Stack.Screen name='Community' component={Community} />      </Stack.Navigator>    </NavigationContainer>  );}const styles = StyleSheet.create({  container: {    flex: 1,    justifyContent: 'center',    paddingTop: Constants.statusBarHeight,    backgroundColor: '#ecf0f1',    padding: 8,  },});"
+    ],
+    "titre": "\nReact navigation tab navigator - Always pass the same route params when pressing tab\n",
+    "number": "13/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "oracleapi"
+    ],
+    "Pseudo": "djalmafreestyler",
+    "github_score_time": [
+        "edited 22 mins agouser1781500",
+        "        asked 1 hour agouser1781500user17815001711010 bronze badges"
+    ],
+    "href": "/questions/76139255/storing-external-rest-api-urls-in-oracle",
+    "contenus": [
+        "The amount of third-party/external REST API's are starting to pile up in our Oracle packages/procedure. Right now the URL's are just hardcoded in the API calls without any real way to track them. I'd like to find a more organized/streamlined way to store them, along with things like HTTP Method, Wallet Location, Parameters, etc...My first thought is to store them in tables. Something like...=====================Parent TableIDServiceHOSTWALLET_LOCATION1Twitterhttps://api.twitter.com/path/to/twitter/wallet2Reddithttps://www.reddit.com//path/to/reddit/walletPath Child Table| ID      |Call               | Path                                | HTTP_METHOD      || --------|----------------   | ----------------------------        | --------------   || 1       |getBookmarksById   | /2/users/:id/bookmarks              | GET              || 2       |getPrefFriends     | /dev/api/#GET_prefs_friends         | GET              |Header Child TableIDParameters1Content-Type: application/json2Content-Type: application/jsonParamater Child TableIDParameter nameParameter Value1paraName1paraValue12paraName2paraValue2=========================But I'm not sure how to handle URL path variables (e.g., /2/users/:id/bookmarks). I could use Oracles REPLACE function? But that seems sloppy and prone to bugs. Perhaps I should just keep all this information inside a single JSON column and build utility functions around it to extract the data? Or is there another Oracle method / Pattern to handle this?"
+    ],
+    "titre": "\nStoring External REST API URLs in Oracle\n",
+    "number": "14/48"
+}{
+    "nombre de vues": "5",
+    "type": [
+        "swiftui"
+    ],
+    "Pseudo": "Johnathan Simeroth",
+    "github_score_time": [
+        "edited 1 hour agoprogramr",
+        "        asked 1 hour agoprogramrprogramr2166 bronze badges"
+    ],
+    "href": "/questions/76139252/swiftui-drawinggroup-deletes-part-of-image-outside-of-screen-width",
+    "contenus": [
+        "I have an image, most of which will be out of sight unless the user scrolls. To its right I will have quite a few views, so I'm forced to call .drawingGroup() for performance. However, everything that is outside the screen's bounds when the app loads disappears when calling the modifier, so the part of the image that was supposed to show when scrolling is not there.This seems to be the modifier's expected behavior. Is there a way to get around it?Example code:struct Example: View {    var body: some View {        VStack {            Spacer()            ScrollView(.horizontal) {                HStack(alignment: .center, spacing: 0) {                    Image(ExampleImage)                        .frame(width: 100, height: 100)                    Rectangle()                        .frame(width: 50, height: 50)                }                .drawingGroup()            }            Spacer()        }    }}"
+    ],
+    "titre": "\nSwiftUI - drawingGroup() deletes part of image outside of screen width\n",
+    "number": "15/48"
+}{
+    "nombre de vues": "1",
+    "type": [
+        " rggplot2overlaystacked-bar-chartgeom-point"
+    ],
+    "Pseudo": "user1781500",
+    "github_score_time": [
+        "edited 1 hour agobenson2313.6k88 gold badges1818 silver badges3636 bronze badges",
+        "        asked 1 hour agohnguyenhnguyen66266 silver badges1010 bronze badges",
+        "edited 53 mins ago",
+        "        answered 1 hour agobenson23benson2313.6k88 gold badges1818 silver badges3636 bronze badges"
+    ],
+    "href": "/questions/76139251/overlay-dots-on-a-stacked-bar-chart-and-include-a-legend-key-on-blank-background",
+    "contenus": [
+        "I need a stacked bar chart showing the diamonds by cut and clarity with count on the primary y-axis (left-hand-side) and the average price on the secondary x-axis (right-hand-side). How do I include a legend item for the dots? The desired plot should have another key for the dots: just a black dot on a white background and reads average price.A dummy df for the dotslibrary(dplyr)price.avg <- diamonds %>%   group_by(cut, color) %>%   summarise(price = mean(price))Main plot with double y-axeslibrary(ggplot2)diamonds %>%ggplot() +geom_bar(aes(x = cut, fill = clarity)) +facet_wrap(~ color, scale=free_y) +ylab(Count) +  xlab(Cut) +   geom_point(data = price.avg, aes(x = cut, y = price)) +    scale_y_continuous(sec.axis = sec_axis(~. * 1, name = price))Using geom_point(data = price.avg, aes(x = cut, y = price), show.legend = TRUE) put a dot in each of the legend keys, which I don't want to have.Thanks for stopping by.",
+        "You can include a dummy variable which has the same value in your price.avg dataframe, then use aes(color) on the dummy, and set scale_color_manual.library(dplyr)library(ggplot2)price.avg <- diamonds %>%  group_by(cut, color) %>%  summarise(price = mean(price), dummy = 1)diamonds %>%  ggplot() +  geom_bar(aes(x = cut, fill = clarity)) +  facet_wrap(~ color, scale=free_y) +  ylab(Count) +  xlab(Cut) +   geom_point(data = price.avg, aes(x = cut, y = price, col = dummy)) +  scale_y_continuous(sec.axis = sec_axis(~. * 1, name = price)) +  scale_color_manual(name = , label = Average price, values = black)Or simply add a fake aes(color = ) in geom_point, and set scale_color_manualdiamonds %>%  ggplot() +  geom_bar(aes(x = cut, fill = clarity)) +  facet_wrap(~ color, scale=free_y) +  ylab(Count) +  xlab(Cut) +   geom_point(data = price.avg, aes(x = cut, y = price, col = )) +  scale_y_continuous(sec.axis = sec_axis(~. * 1, name = price)) +   scale_color_manual(name = , label = Average price, values = black)Output"
+    ],
+    "titre": "\nOverlay dots on a stacked bar chart and include a legend key on blank background for the dots\n",
+    "number": "16/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "node.jsnext.jsuser-permissionsuser-roles"
+    ],
+    "Pseudo": "programr",
+    "github_score_time": [
+        "        asked 1 hour agoJoel FicksonJoel Fickson133 bronze badges"
+    ],
+    "href": "/questions/76139248/how-to-handle-frontend-user-permissions-in-reactjs-or-nextjs-apps",
+    "contenus": [
+        "I’m working on an application that will have multiple role based users.I wanted to understand how I can store permissions for the Frontend so I can display the right component.I have tried to store the permissions inside a JWT but as per some articles, that’s not recommended."
+    ],
+    "titre": "\nHow to handle Frontend User Permissions in ReactJs or NextJs apps\n",
+    "number": "17/48"
+}{
+    "nombre de vues": "9",
+    "type": [
+        "flutterflutter-dependenciessyncfusionsyncfusion-calendar"
+    ],
+    "Pseudo": "hnguyen",
+    "github_score_time": [
+        "        asked 1 hour agoGašper MelanšekGašper Melanšek322 bronze badges"
+    ],
+    "href": "/questions/76139247/how-to-show-the-tapped-appointment-details-on-another-page-in-the-flutter-calend",
+    "contenus": [
+        "So i have been working on a project and wanting to make a calendar app. I have been using flutter's plugin called Syncfusion Calendar. I have a problem where i have displayed an appointment(months view with agenda turned on) but i am unable to click on it but i want to make it functional so whenever i click on agenda's appointment it opens an info page about this appointment.So here is the code i have right nowimport 'package:calender_alarm/event_info.dart';import 'package:calender_alarm/event_provider.dart';import 'package:calender_alarm/event_view.dart';import 'package:flutter/material.dart';import 'package:provider/provider.dart';import 'package:syncfusion_flutter_calendar/calendar.dart';import 'event_editor.dart';class CalenderPage extends StatelessWidget {  const CalenderPage({super.key});  // This widget is the root of your application.  @override  Widget build(BuildContext context) {    final events = Provider.of<EventProvider>(context).events;    return Scaffold(      floatingActionButton: FloatingActionButton(        backgroundColor: const Color.fromARGB(255, 255, 115, 0),        onPressed: () => Navigator.of(context).push(          MaterialPageRoute(builder: (context) => const EventEditingPage()),        ),        child: const Icon(Icons.add),      ),      body: SfCalendar(          firstDayOfWeek: 1,          view: CalendarView.month,          showDatePickerButton: true,          allowedViews: const [            CalendarView.day,            CalendarView.month,          ],          dataSource: EventDataSource(events),          monthViewSettings: const MonthViewSettings(showAgenda: true),          minDate: DateTime.now(),          onTap: //unknown          ),    );  }}class EventDataSource extends CalendarDataSource {  EventDataSource(List<Event> appointments) {    this.appointments = appointments;  }  Event getEvent(int index) => appointments![index] as Event;  @override  DateTime getStartTime(int index) => getEvent(index).from;  @override  String getSubject(int index) => getEvent(index).title;  @override  Color getColor(int index) => getEvent(index).backgroundColor;}I just don't know what to put in onTap so it chooses the selected appointment.I went to some sites where were good answers but not form my example... I am expecting a bit of code that could help me open a new page with info from selected and clicked appointment."
+    ],
+    "titre": "\nHow to show the tapped appointment details on another page in the Flutter Calendar\n",
+    "number": "18/48"
+}{
+    "nombre de vues": "-1",
+    "type": [
+        "gogomail"
+    ],
+    "Pseudo": "Joel Fickson",
+    "github_score_time": [
+        "edited 35 mins agoZeke Lu2,6001313 silver badges2020 bronze badges",
+        "        asked 1 hour agoLawrence SegunLawrence Segun311 bronze badge"
+    ],
+    "href": "/questions/76139246/gomail-not-wokring",
+    "contenus": [
+        "I'm learning and trying to send emails in Go. I've tried several methods, I keep getting this 421 service unavailable. Below is my codefunc SendMail() {    m := gomail.NewMessage()    m.SetHeader(From, lawrencesegun025@outlook.com)    m.SetHeader(To, lawrencesegun025@mystgei.com)    m.SetHeader(Subject, Hello!)    m.SetBody(text/html, Hello <b>Bob</b> and <i>Cora</i>!)    d := gomail.NewDialer(smtp.gmail.com, 587, lawrencesegun025@gmail.com, lvjjgzsfnibfnqje)    if err := d.DialAndSend(m); err != nil {    fmt.Println(err)        return    }    fmt.Printf(Mail sent to %v successfully., emerald.lawrence.segun@gmail.com)}func main() {    SendMail()}"
+    ],
+    "titre": "\nGOmail not wokring\n",
+    "number": "19/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "phphtmlmysqldatabasephpmyadmin"
+    ],
+    "Pseudo": "Gašper Melanšek",
+    "github_score_time": [
+        "edited 1 hour agoMovilla",
+        "        asked 1 hour agoMovillaMovilla111 bronze badge",
+        "        answered 1 hour agomankowitzmankowitz1,83711 gold badge1414 silver badges3232 bronze badges"
+    ],
+    "href": "/questions/76139245/sqlstatehy093-invalid-parameter-number-number-of-bound-variables-does-not-ma",
+    "contenus": [
+        "right now I'm doing a project about a movie database. One action is create and add to the database a film and I tried a lot of things but I couldn't find my mistake. Here is the code.First set: html code. Here i take all the data.codigoNuevo is a attempt to work, but I am not using actively.<fieldset>    <legend> Datos de la película </legend>    <table>        <tr>            <td> <label>Nº - automático</label> </td>            <td> <input type=text name=codigoNuevo placeholder=/!\\ No introducir ningún dato. readonly value= size=50 maxlength=50 required> </input> </td>        </tr>        <tr>            <td> <label>Nombre</label> </td>            <td> <input type=text name=nombre value= size=50 maxlength=50 required> </input> </td>        </tr>        <tr>            <td> <label>Director</label> </td>            <td> <input type=text name=director value= size=50 maxlength=50 required> </input> </td>        </tr>        <tr>            <td> <label>Género</label> </td>            <td> <input type=text name=genero value= size=50 maxlength=50 required> </input> </td>        </tr>        <tr>            <td> <label>Póster</label> </td>            <td> <input type=file name=poster value=> </input> </td>        </tr>        <tr>            <td> <label>URL del tráiler</label> </td>            <td> <input type=text name=link value= size=50 maxlength=50 required> </input> </td>        </tr>    </table></fieldset>Second set: the controllerfunction ctlPeliInsertar() {    $nombre = $_POST['nombre'];    $director = $_POST['director'];    $genero = $_POST['genero'];    $imagen = $_FILES['poster']['name'];    $url = $_POST['link'];    $peliculas = ModeloUserDB::insertarPelicula($nombre, $director, $genero, $imagen, $url);    include_once 'plantilla/verpeliculas.php';    // necesito una funcion para subir fotos al (subirfichero)    // transportar desde tmp (fichero temporal) al app/img}Third set: the functionpublic static function insertarPelicula($nombre, $director, $genero, $imagen, $url) {    echo Nombre a introducir:   . $nombre . <br>;    echo Director a introducir:  . $director . <br>;    echo Género a introducir:  . $genero . <br>;    echo Imagen/enl. a introducir:  . $imagen . <br>;    echo URL a introducir:  . $url . <br>;    $stmt = self::$dbh->prepare(self::$insertarPelicula);    $stmt->bindValue(1, $nombre);    $stmt->bindValue(2, $director);    $stmt->bindValue(3, $genero);    $stmt->bindValue(4, $imagen);    $stmt->bindValue(5, $url);    $stmt->execute();}The error log shows the $stmt -> execute() is the problem. Here is the full log:Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\\xampp\\htdocs\\Pelisapp\\app\\modeloPeliDB.php:85 Stack trace: #0 C:\\xampp\\htdocs\\Pelisapp\\app\\modeloPeliDB.php(85): PDOStatement->execute() #1 C:\\xampp\\htdocs\\Pelisapp\\app\\controlerPeli.php(94): ModeloUserDB::insertarPelicula('Hola', 'Que', 'Tal', '', 'ggg') #2 C:\\xampp\\htdocs\\Pelisapp\\index.php(52): ctlPeliInsertar() #3 {main} thrown in C:\\xampp\\htdocs\\Pelisapp\\app\\modeloPeliDB.php on line 85Where is my mistake? Thanks in advance.Here is the phpmyadmin insert;INSERT INTO peliculas(codigo_pelicula, nombre, director, genero, imagen, url) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]')I tried to add new fields, other prepared sentences... I am frustrated because it is the last order I need to finish this.",
+        "In your phpmyadmin insert statement, you have six wildcards:INSERT INTO peliculas(codigo_pelicula, nombre, director, genero, imagen, url) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]')but in your prepare statement, you only have five    $stmt = self::$dbh->prepare(self::$insertarPelicula);    $stmt->bindValue(1, $nombre);    $stmt->bindValue(2, $director);    $stmt->bindValue(3, $genero);    $stmt->bindValue(4, $imagen);    $stmt->bindValue(5, $url);That's why you are getting a mismatch in the number of tokensSQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens"
+    ],
+    "titre": "\nSQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens (2)\n",
+    "number": "20/48"
+}{
+    "nombre de vues": "11",
+    "type": [
+        "c++c++11ostream"
+    ],
+    "Pseudo": "Lawrence Segun",
+    "github_score_time": [
+        "        asked 1 hour agoJakobJakob3566 bronze badges"
+    ],
+    "href": "/questions/76139243/is-there-a-way-to-redirect-string-output-in-c",
+    "contenus": [
+        "I am currently working on a C++ project and I have some functions that output some information to the console using std::cout. I also have a test function that calls these functions to check if they are working correctly. However, I find the output from these functions to be distracting when running the test function, and I would like to know if there is a way to redirect the output from these functions to a file or suppress it altogether.I tried using rdbuff, but that unfortunately redirected my output from my test function aswell.Is there a way to redirect or suppress the output from these functions, without modifying them? I am looking for a solution that can be implemented in C++11 or later. Any help would be greatly appreciated.Eventually what I want printed out is something along the lines of:Test1 PASSEDTEST2 PASSEDTEST3 FAILEDand so on...Here is my code:/** * @author Jakob B * @file main.cpp [Driver Code] * @note Driver code for lab4 *  * @brief This assigment focuses on using basic operations in a heap such as: *   - Insertion *   - Deletion *   - Peeking *  * Those operations were implemented using a Shelter class that includes a struct for Pets  */#include <vector>#include <iostream>#include <string>#include <stdexcept>#include <limits>#include <utility>#include <sstream>#include <unistd.h>#pragma message([ __FILE__]  Last compiled on [ __DATE__ ] at [ __TIME__])/** * @struct Pet *    - Defines the Pet object *    - Includes a constructor */struct Pet {    std::string name;    int arrival;    Pet(std::string name = , int arrival = 0) : name(name), arrival(arrival) {} //Constructor};int const PAUSE = 1000000; //usleep const/** * @class PetHeap *    - Defines the heap with appropriate methods */class PetHeap {  private:    std::vector<Pet*> petHeap;    void percolateUp(int index);    void percolateDown(int index);    void deleteMin();    Pet* peekMin();  public:    PetHeap();    bool destroyHeap();    void insert(Pet* pet);    void adoptOldestPet();    int numPets();    void displayPets();    std::vector<Pet*> massInsertion();    bool testDestroyHeap();    bool testInsert();     bool testAdoptOldestPet();    bool testNumPets();     bool testDisplayPets();     bool testPercolateUp();    bool testPercolateDown();    bool testDeleteMin();     bool testPeekMin();    void runTests();};/** CONSTRUCTOR: * @name PetHeap::PetHeap() * @brief Initializes an empty vector for the Pet pointers */PetHeap::PetHeap() {  petHeap = std::vector<Pet*> ();}/** DESTRUCTOR: * @name PetHeap::~PetHeap() * @brief Handles memory */bool PetHeap::destroyHeap() {  while(!petHeap.empty()){    Pet* value = petHeap[(int)petHeap.size()-1]; //Pet*    petHeap.pop_back(); //resize    delete value;  }  if(petHeap.empty()) {    return true;  }  return false;}/** * @name void PetHeap::percolateUp() * @brief Percolates up the element at the given index until the heap property is satisfied. * @param index The index of the element to be percolated up.*/void PetHeap::percolateUp(int index) {  /**   * Parent formula: (i-1)/2   *    * Find parent and compare it to the array  */ int parent = (index-1)/2; if(index == 0 || petHeap[index] > petHeap[parent]) {  return; }    //swap the values  std::swap(petHeap[index], petHeap[parent]);  percolateUp(parent);}/** * @name void PetHeap::insert() * @brief Inserts a new pet into the heap and maintains the heap property * @param pet The pet to be inserted */void PetHeap::insert(Pet* pet) {  /**   * Insert into the array   * Call percolateUp to maintain the heap  */ petHeap.push_back(pet); int index = petHeap.size() - 1; //track the index of the pet percolateUp((int)index);}/** * @name void PetHeap::percolateDown() * @brief Percolates down the pet heap from the given index to maintain the heap property * @param index The index from where to start percolating down */void PetHeap::percolateDown(int index) {  int leftChild = 2*index + 1;  int rightChild = 2*index + 2;  int largestNode = index;  /** @note bad values*/  if(index < 0 || index > petHeap.size()-1) {    return;  }  /** @note no children and it's a leaf node*/  if(leftChild > petHeap.size()-1 && rightChild > petHeap.size()-1) {    return;  }  /** @note node has a left child and the value of the current node is greater*/  if(rightChild >= petHeap.size()-1 && petHeap[index] >= petHeap[leftChild]) {    return;  }  /** @note node has two children and the value of the current node is greater than both children*/  if(petHeap[index] >= petHeap[leftChild] && petHeap[index] >= petHeap[rightChild]) {    return;  }  /** @note recursive case*/  if(petHeap[leftChild] > petHeap[index]) {    largestNode = leftChild;  }  if(rightChild < petHeap.size()-1 && petHeap[rightChild] > petHeap[largestNode]) {    largestNode = rightChild;  }  if(largestNode != index) {    std::swap(petHeap[index], petHeap[largestNode]);    percolateDown(largestNode);  }}/** * @name void PetHeap::deleteMin() * @brief Deletes the minimum element from the heap. * If the heap is empty, does nothing. Otherwise, deletes the root element (minimum element) * from the heap and reorders the heap using percolateDown() to maintain the heap property. */void PetHeap::deleteMin() {  if(petHeap[0] == nullptr) {    return;  }  int lastElementIndex = petHeap.size() - 1;  Pet* lastElement = petHeap[lastElementIndex];  std::swap(petHeap[0], petHeap[lastElementIndex]);  //now the last element is petHeap[0] and the first element is petHeap[lastElementIndex]  delete petHeap[lastElementIndex];  petHeap.resize(petHeap.size()-1);  percolateDown(0); //sort the heap using percolateDown()}/** * @name Pet* PetHeap::peekMin() * @brief Returns the minimum value of the heap without modifying the heap. * @return The minimum Pet object in the heap.*/Pet* PetHeap::peekMin() {  Pet* firstElement = petHeap[0]; //first element  return firstElement;}/** * @name void PetHeap::adoptOldestPet() * @brief Adopt the oldest pet in the shelter. * @return void*/void PetHeap::adoptOldestPet() {  if(petHeap.empty()) {    std::cout << \\n[Error: No Pets in the shelter]\\n;    return;  }  Pet* oldestPet = peekMin();  std::cout << \\n[Pet adopted]:\\n\\n;  std::cout << [name]:  << oldestPet -> name << std::endl;   std::cout << [arrival]:  << oldestPet -> arrival << std::endl;  std::cout << std::flush;  deleteMin();  return;}/** * @name int PetHeap::numPets() * @brief Returns the number of pets in the PetHeap. * @return The number of pets in the PetHeap as an integer.*/int PetHeap::numPets() {  std::cout << \\n[Number of Pets]:  << petHeap.size() << \\n\\n;  return petHeap.size();}/** * @name void PetHeap::displayPets()  * @brief Display all pets in the shelter */void PetHeap::displayPets() {  std::cout << \\n[Displaying Heap]:\\n\\n;  if(petHeap.size() == 0) {    std::cout << [Heap is empty]\\n;  }  for(Pet* iter : petHeap) {    std::cout << [name]:  << iter -> name << std::flush; //flush buffer    std::cout << \\t[arrival]: << iter -> arrival << std::endl;  }  return;}/** @name getName() * @brief Prompts the user to enter a name * @param name passed by reference * @return std::string name */std::string getName(std::string &name) {  std::cout << [Enter Name]: ;  while (true) {    try {      std::cin >> name;      if (std::cin.fail()) {        throw std::runtime_error([Invalid input. Please enter a valid name]);      }      return name;    } catch (const std::runtime_error& e) {      std::cerr << Error:  << e.what() << std::endl;      std::cin.clear();      std::cin.ignore(10000, '\\n');    }  }}/** @name getArrival() * @brief Prompts the user to enter the arrival time * @param arrival passed by reference * @return (int) arrival */int getArrival(int &arrival) {  std::cout << \\n[Enter Arrival]: ;  while (true) {    try {      std::cin >> arrival;      if (std::cin.fail() || arrival < 0) {        throw std::runtime_error([Invalid input. Please enter a positive integer]);      }      return arrival;    } catch (const std::runtime_error& e) {      std::cerr << Error:  << e.what() << std::endl;      std::cin.clear();      std::cin.ignore(10000, '\\n');      std::cout << \\n[Enter Arrival]: ;    }  }}/** * @name int getInput() * @brief gets the input for the switch statement * @return (int) input */int getInput() {  int const MIN = 1;  int const MAX = 7;  int choice = 0;  std::cout << \\n[Enter]: ;    while (true) {    try {      std::cin >> choice;      if (std::cin.fail()) { //std::cin.fail() if the input is not an intiger returns true        /// @link https://cplusplus.com/forum/beginner/2957/                std::cin.clear(); // clear error flags        std::cin.ignore(10000, '\\n'); // ignore up to 10000 characters or until a newline is encountered        throw std::invalid_argument([Invalid input]);      }      else if (choice < MIN || choice > MAX) {        throw std::out_of_range([Input out of range. Please enter an integer between 1 and 16]);      }      else {        return choice;      }    }    catch (const std::exception& error) {      std::cout << error.what() << std::endl;      std::cout << [Re-enter]: ;    }  }}/** @name goodbye() * @brief The function prompts the user goodbye * @remark Handles UI * @return void-type */void goodbye() {  std::cout << \\nGoodbye!\\n\\n;}/** * @brief Destroys the heap and prints a message to the console * @param heap A reference to the `PetHeap` object to be destroyed. */void isDestroyed(PetHeap &heap) {  bool dead = false;  bool retry = false;  dead = heap.destroyHeap();  if(dead) {    std::cout << \\n[Heap Destroyed]\\n;    goodbye();  } else {    std::cout << \\n[Something went wrong]\\n;    retry = heap.destroyHeap(); //try again      if(retry == false) {        std::cout << \\n[Program is leaking memory!]\\n;        std::cout << \\n[Force Exiting with code 1]\\n;        std::exit(EXIT_FAILURE);      }  }}/** * @name void menu() * @brief Prints the menu for the user */void menu() {  std::cout << \\n\\n            << [1]   Insert a Pet\\n            << [2]   Adopt a Pet\\n            << [3]   Number of Pets in the Heap\\n            << [4]   Display Heap\\n            << [5]   Run Tests\\n            << [6]   Exit\\n;  return;}/** @name printTitle() * @brief The function prints the title * @remark Handles UI * @return void-type */void printTitle() {  std::cout << \\n\\n*** Welcome to the Heap assigment *** \\n\\n;  std::cout << Please select one of the following?\\n;}/** * */std::vector<Pet*> PetHeap::massInsertion() {  PetHeap heap;  std::vector<std::string> namesInput = {F, G, E, A, B, K, L, Q, T, Y, O, M}; //12  std::vector<int> arrivalInput = {2, 6, 12, 3, 7, 18, 36, 6, 9, 11, 10, 29}; //12    std::vector<Pet*> inputValues; //vector with Pet pointers  inputValues.reserve(namesInput.size());  for(int i = 0; i < namesInput.size(); i++) {    inputValues.emplace_back(new Pet(namesInput[i], arrivalInput[i]));  }    return inputValues;}/** * */bool PetHeap::testDestroyHeap() {  //test destroying a heap with pets  std::vector<Pet*> pets = massInsertion();  bool done = destroyHeap();  std::cout << TEST1 FINISHED\\n << std::flush;  usleep(PAUSE);  return done && petHeap.empty();}bool PetHeap::testInsert() {  //inserting a single pet  Pet* pet1 = new Pet(Fido, 3);  insert(pet1);  bool result1 = peekMin() == pet1 && petHeap.size() == 1;  //inserting multiple pets  std::vector<std::pair<std::string, int>> newPets = {{Rufus, 6}, {Buddy, 2}};  for (auto pet : newPets) {    Pet* newPet = new Pet(pet.first, pet.second);    insert(newPet);  }  bool result2 = peekMin()->name == Buddy && petHeap.size() == 3;  std::cout << TEST2 FINISHED\\n << std::flush;  usleep(PAUSE);  return result1 && result2;}bool PetHeap::testAdoptOldestPet() {  //adopting the oldest pet from a heap with pets  std::vector<Pet*> pets = massInsertion();  Pet* oldestPet = pets[0];  bool result1 = false;  if (!pets.empty()) {    result1 = destroyHeap() && peekMin() != oldestPet && petHeap.size() == pets.size() - 1;  }  //adopting the oldest pet from an empty heap  destroyHeap();  adoptOldestPet();  bool result2 = petHeap.empty();  std::cout << TEST3 FINISHED\\n << std::flush;  usleep(PAUSE);  return result1 && result2;}bool PetHeap::testNumPets() {  //getting the number of pets in a heap with pets  std::vector<Pet*> pets = massInsertion();  bool result1 = false;  if (!pets.empty()) {    for (auto pet : pets) {      insert(pet);    }    result1 = numPets() == pets.size();  }  //getting the number of pets in an empty heap  destroyHeap();  bool result2 = numPets() == 0;  std::cout << TEST4 FINISHED\\n << std::flush;  usleep(PAUSE);  return result1 && result2;}bool PetHeap::testDisplayPets() {  //displaying the pets in a heap with pets  std::vector<Pet*> pets = massInsertion();  bool result1 = false;  std::ostringstream oss; //declare oss block  if (!pets.empty()) {    for (auto pet : pets) {      insert(pet);    }    displayPets();    //fix oss    result1 = oss.str() == A(2) B(7) E(12) F(2) G(6) K(18) L(36) M(29) O(10) Q(6) T(9) Y(11) ;  }  //displaying the pets in an empty heap  oss.str();  destroyHeap();  displayPets();  bool result2 = oss.str() == ;  std::cout << TEST5 FINISHED\\n << std::flush;  usleep(PAUSE);  return result1 && result2;}bool PetHeap::testPercolateUp() {  std::vector<Pet*> inputValues = massInsertion();  int index = inputValues.size() / 2;  int parentIndex = (index - 1) / 2;  //percolating up an element  Pet* pet = new Pet(Fido, 5);  petHeap[index] = pet;  percolateUp(index);  bool result1 = petHeap[parentIndex] == pet;  //percolating up an element that's already at the root  percolateUp(0);  bool result2 = true;  std::cout << TEST6 FINISHED\\n << std::flush;  usleep(PAUSE);  return result1 && result2;}bool PetHeap::testPercolateDown() {  std::vector<Pet*> inputValues = massInsertion();  int index = 0;  int leftChildIndex = 2 * index + 1;  int rightChildIndex = 2 * index + 2;  //percolating down an element  Pet* pet = new Pet(Fido, 5);  petHeap[index] = pet;  percolateDown(index);  bool result1 = petHeap[leftChildIndex] == pet;  //percolating down an element that's already a leaf  petHeap[leftChildIndex] = petHeap.back();  petHeap.pop_back();  percolateDown(leftChildIndex);  bool result2 = true;  std::cout << TEST7 FINISHED\\n << std::flush;  usleep(PAUSE);  return result1 && result2;}bool PetHeap::testDeleteMin() {  std::vector<Pet*> inputValues = massInsertion();  //deleting the minimum element  Pet* minPet = peekMin();  deleteMin();  bool result1 = peekMin() != minPet && petHeap.size() == inputValues.size() - 1;  //deleting the minimum element from an empty heap  destroyHeap();  deleteMin();  bool result2 = petHeap.empty();  std::cout << TEST8 FINISHED\\n << std::flush;  usleep(PAUSE);  return result1 && result2;}bool PetHeap::testPeekMin() {  std::vector<Pet*> inputValues = massInsertion();  //peeking at the minimum element  Pet* minPet = peekMin();  bool result1 = minPet != nullptr && minPet->arrival == 2;  //peeking at the minimum element of an empty heap  destroyHeap();  Pet* emptyMinPet = peekMin();  bool result2 = emptyMinPet == nullptr;  std::cout << TEST9 FINISHED\\n << std::flush;  usleep(PAUSE);  return result1 && result2;}/** * @name void runTests() * @brief Runs tests for all the functions */void PetHeap::runTests() {  std::vector<bool> testValues;  std::cout << \\n*** RUNNING ALL TESTS ***\\n\\n << std::flush;  usleep(PAUSE);  testValues.push_back(testDestroyHeap());  testValues.push_back(testInsert());   testValues.push_back(testAdoptOldestPet());  testValues.push_back(testNumPets());   testValues.push_back(testDisplayPets());   testValues.push_back(testPercolateUp());  testValues.push_back(testPercolateDown());  testValues.push_back(testDeleteMin());   testValues.push_back(testPeekMin());  for(auto i = 0; i < testValues.size(); i++) {    if(testValues[i] == true) {      std::cout << TEST  << i+1 <<  PASSED ***;    }else if(testValues[i] == false) {      std::cout << TEST  << i+1 <<  FAILED ###;    }  }}/** * @brief Main function of the program * @return EXIT_SUCESS upon succesful execution */int main() {  PetHeap heap;  std::string name = ;  int arrival = 0;  enum OP_ID {    ID_1 = 1,    ID_2,    ID_3,    ID_4,    ID_5,    ID_6,  };  printTitle();  while(true) {    menu();      switch(getInput()) {      case OP_ID::ID_1: {        heap.insert(new Pet(getName(name), getArrival(arrival)));        break;      }              case OP_ID::ID_2: {        heap.adoptOldestPet();        break;      }              case OP_ID::ID_3: {        heap.numPets();        break;      }              case OP_ID::ID_4: {        heap.displayPets();        break;      }              case OP_ID::ID_5: {        heap.runTests();        break;      }              case OP_ID::ID_6: {        isDestroyed(heap);        exit(EXIT_SUCCESS);        break;      }              default: {        /** @note do nothing*/      }      }  }  return EXIT_SUCCESS; }The code has some bugs and it's missing some documentation because I haven't finished the lab yet. I hope that doesn't present and issue but in case it does I am terribly sorry."
+    ],
+    "titre": "\nIs there a way to redirect string output in c++\n",
+    "number": "21/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "javascriptreactjsreact-hook-form"
+    ],
+    "Pseudo": "Movilla",
+    "github_score_time": [
+        "edited 56 mins agoErick Sutil",
+        "        asked 1 hour agoErick SutilErick Sutil922 bronze badges"
+    ],
+    "href": "/questions/76139238/react-hook-form-validation-doesnt-working-with-my-custom-input",
+    "contenus": [
+        "I have created a custom select component using an input element, which looks like this:// My custom select componentconst [optSelected, setOptSelected] = useState<string | null>(initOptSelected || null);const onOptionClicked = (position: number) => () => {  setOptSelected(optionsList[position]?.option);};//...<S.Input  defaultValue={optSelected || ''}  onChange={e => setOptSelected((e.target as HTMLInputElement).value)}  onClick={toggling}  onKeyDown={onKeyDown}  ref={ref}  name={name}/><List />The onClick and onKeyDown events use setState to update the optSelected state, which is then displayed as the selected value in the List component.However, I encountered a problem when using this component with react-hook-form. The library only sets the isValid flag after the second click on the component.For example, if I click on my component and select an option from the list, the form continues to be marked as isValid: false. But if I click on the component again and select another option, or the same option, react-hook-form updates isValid to true.Here is an example of how I'm using my custom component with react-hook-form in another screen:// My screen where I use my custom select together react-hook-formimport { useForm } from 'react-hook-form';const { register, handleSubmit, formState } = useForm({  mode: 'onChange',});const onFormSubmit = useCallback(data => {  console.log('data', data);}, []);//...<CustomInput  name=example  required  ref={register({    required: 'Required',  })}/><button type=submit disabled={!formState.isValid}>Send</button>//..."
+    ],
+    "titre": "\nreact-hook-form validation doesn't working with my custom input\n",
+    "number": "22/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "f#computation-expressionbolero"
+    ],
+    "Pseudo": "Jakob",
+    "github_score_time": [
+        "        asked 1 hour agorasxrasx5,24622 gold badges4545 silver badges6060 bronze badges"
+    ],
+    "href": "/questions/76139232/what-is-the-relationship-between-customoperationattribute-and-the-conventional",
+    "contenus": [
+        "The excellent ElementBuilder [GitHub] of Bolero inspires me to try to share/centralize certain HTML-DSL expressions for reuse. So, in almost total ignorance, I start with this:open Boleroopen Bolero.Buildersopen Bolero.Htmltype ElementBuilder with    [<CustomOperation bulmaStuff>]    member this.BulmaStuff(n: Node) =        div {            attr.``class`` [custom]            n        }and then I try this:section {    bulmaStuff span { text wrap me }}This does not compile. There is the error message:Error: input.fsx (2,5)-(2,15) typecheck error 'bulmaStuff' is used with an incorrect number of arguments. This is a custom operation in this query or computation expression. Expected 0 argument(s), but given 2.input.fsx (2,5)-(2,39) typecheck error No overloads match for method 'Yield'.And, finally, there is this very helpful message:Known type of argument: unitAvailable overloads:- member ElementBuilder.Yield: _comp: ComponentBuilder<#AspNetCore.Components.IComponent> -> Node // Argument '_comp' doesn't match- member ElementBuilder.Yield: attr: Attr -> Attr // Argument 'attr' doesn't match- member ElementBuilder.Yield: comp: ComponentBuilder -> Node // Argument 'comp' doesn't match- member ElementBuilder.Yield: comp: ComponentWithAttrsAndNoChildrenBuilder<#AspNetCore.Components.IComponent> -> Node // Argument 'comp' doesn't match- member ElementBuilder.Yield: comp: ComponentWithAttrsBuilder<#AspNetCore.Components.IComponent> -> Node // Argument 'comp' doesn't match- member ElementBuilder.Yield: eb: ElementBuilder -> Node // Argument 'eb' doesn't match- member ElementBuilder.Yield: fragment: AspNetCore.Components.RenderFragment -> Node // Argument 'fragment' doesn't match- member ElementBuilder.Yield: node: Node -> Node // Argument 'node' doesn't match- member ElementBuilder.Yield: ref: HtmlRef -> RefContent // Argument 'ref' doesn't match- member ElementBuilder.Yield: ref: RefContent -> RefContent // Argument 'ref' doesn't match- member ElementBuilder.Yield: text: string -> Node // Argument 'text' doesn't matchMy main question is, What is the relationship between CustomOperationAttribute and the conventional Yield member? The equally excellent Scott Wlaschin series on CEs does not cover CustomOperation.Should I use CustomOperation like this in the first place? Should I avoid the advanced complexity of ElementBuilder and just made a seperate CE only based on yielding Node (elevating ElementBuilder to Node)?"
+    ],
+    "titre": "\nwhat is the relationship between `CustomOperationAttribute` and the conventional CE Yield member?\n",
+    "number": "23/48"
+}{
+    "nombre de vues": "26",
+    "type": [
+        " firebasereact-nativefirebase-authenticationexpo"
+    ],
+    "Pseudo": "Erick Sutil",
+    "github_score_time": [
+        "        asked 1 hour agoPowerPower111 bronze badge"
+    ],
+    "href": "/questions/76139230/i-face-the-error-when-trying-to-login-to-firebase-using-expo-development-build-a",
+    "contenus": [
+        "when I create a development build in expo and install it on real android device, it opens normally but when i try to login or signup to firebase database, it shows me the error:pEntry.bundle?platform=android&dev=true&minify=false&app=com.power51214.AlRiaz&modulesOnly=false&runModule=true:18816 TypeError: Cannot read properties of undefined (reading 'Commands')This error is located at:in AnimatedLoader (created by Loader)in Loader (created by SignupScreen)in RCTView (created by View)in Viewin SafeAreaView (created by SignupScreen)in SignupScreen (created by SceneView)in StaticContainerin EnsureSingleNavigator (created by SceneView)in SceneView (created by CardContainer)in RCTView (created by View)in View (created by CardContainer)in RCTView (created by View)in View (created by CardContainer)in RCTView (created by View)in Viewin CardSheet (created by Card)in RCTView (created by View)in View (created by AnimatedComponent)in AnimatedComponentin AnimatedComponentWrapper (created by PanGestureHandler)in PanGestureHandler (created by PanGestureHandler)in PanGestureHandler (created by Card)in RCTView (created by View)in View (created by AnimatedComponent)in AnimatedComponentin AnimatedComponentWrapper (created by Card)in RCTView (created by View)in View (created by Card)in Card (created by CardContainer)in CardContainer (created by CardStack)in RNSScreen (created by AnimatedComponent)in AnimatedComponentin AnimatedComponentWrapper (created by Screen)in MaybeFreeze (created by Screen)in Screen (created by MaybeScreen)in MaybeScreen (created by CardStack)in RNSScreenContainer (created by ScreenContainer)in ScreenContainer (created by MaybeScreenContainer)in MaybeScreenContainer (created by CardStack)in RCTView (created by View)in View (created by Background)in Background (created by CardStack)in CardStack (created by HeaderShownContext)in RCTView (created by View)in View (created by SafeAreaInsetsContext)in SafeAreaProviderCompat (created by StackView)in RNGestureHandlerRootView (created by GestureHandlerRootView)in GestureHandlerRootView (created by StackView)in StackView (created by StackNavigator)in PreventRemoveProvider (created by NavigationContent)in NavigationContentin Unknown (created by StackNavigator)in StackNavigator (created by StackNavigator)in StackNavigator (created by App)in RNCSafeAreaProvider (created by SafeAreaProvider)in SafeAreaProvider (created by App)in ChildrenWrapper (created by Root)in _default (created by Root)in Root (created by RootSiblingParent)in RootSiblingParent (created by App)in EnsureSingleNavigatorin BaseNavigationContainerin ThemeProviderin NavigationContainerInner (created by App)in App (created by ExpoRoot)in ExpoRootin RCTView (created by View)in View (created by AppContainer)in ChildrenWrapper (created by Root)in _default (created by Root)in Root (created by AppContainer)in RCTView (created by View)in View (created by AppContainer)in AppContainerin main(RootComponent)rMy code of login is here:import { View, Text,TextInput, SafeAreaView,ImageBackground, TouchableOpacity,KeyboardAvoidingView,Platform, Alert } from 'react-native'import React,{useState} from 'react'import styles from './LoginScreenStyles';import { StatusBar } from 'expo-status-bar';import headerImage from '../../../assets/Images/largehead.png'import {LinearGradient} from 'expo-linear-gradient';import colors from '../../../assets/Colors/colors';import Ionicon from 'react-native-vector-icons/Ionicons'import { StackActions, useNavigation } from '@react-navigation/native';import Loader from '../../Components/Loader';import { auth, db } from '../../../Firebase/firebase';import { signInWithEmailAndPassword,sendPasswordResetEmail } from 'firebase/auth';import toast from '../../../assets/Functions/Toast';import { onSnapshot, collection,query ,where} from 'firebase/firestore';const LoginScreen = () => {    const navigation=useNavigation()    const [visible, setvisible] = useState(false)    const [email, setemail] = useState('');    const [password, setpassword] = useState('');    const [loading, setloading] = useState(false)// Login fubctionconst login= async ()=>{    if (email.length>0 && password.length>0) {        setloading(true);        await signInWithEmailAndPassword(auth,email,password)        .then( async userCred=>{            // get Authorization status          const q = query(collection(db, users), where(id, ==, userCred.user.uid))         await onSnapshot(q,(snapshot)=>{            snapshot.forEach(user=>{              if (user.data().authorization) {                setloading(false)                toast('User is LOGGED IN successfully!')                navigation.dispatch(StackActions.replace('DrawerNavigator'))              } else {                setloading(false)                Alert.alert('User is not Authorized to enter!')              }                           })                     },        (error)=>{            setloading(false);            toast(error.message)        })                }).catch(error=>{         setloading(false)         Alert.alert('ERROR',error.message)        })    } else {        Alert.alert('ALERT!','Please fill out all the fields')    }}the other code is:`// Import the functions you need from the SDKs you needimport { initializeApp } from firebase/app;import { getAuth } from firebase/auth;import { getFirestore } from firebase/firestore;import { getStorage } from firebase/storage;// import { getAnalytics } from firebase/analytics;// Your web app's Firebase configuration// For Firebase JS SDK v7.20.0 and later, measurementId is optionalconst firebaseConfig = {  ...};// Initialize Firebaseconst app = initializeApp(firebaseConfig);const auth = getAuth(app);const db = getFirestore(app);const storage = getStorage(app);// const analytics = getAnalytics(app);export  {app,auth,db,storage};`I searched a lot but i didn,t find any solution related to this. Please help me if you get any solution"
+    ],
+    "titre": "\nI face the error when trying to login to firebase using expo development build apkTypeError: Cannot read properties of undefined (reading 'Commands')\n",
+    "number": "24/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "javapdfhyperlink"
+    ],
+    "Pseudo": "rasx",
+    "github_score_time": [
+        "        asked 1 hour agojyothi appalajyothi appala1"
+    ],
+    "href": "/questions/76139224/break-hyperlink-into-new-line",
+    "contenus": [
+        "I have one pdf which we are trying to replace the hyperlink so problem is replaced hyperlink over lapping with other words i want to place the excess hyperlink in new line using java codeI tried breaking the hyperlink with \\n line separator but nothing worked"
+    ],
+    "titre": "\nBreak hyperlink into new line\n",
+    "number": "25/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "python"
+    ],
+    "Pseudo": "Power",
+    "github_score_time": [
+        "edited 1 hour agoInSync2,26866 silver badges2323 bronze badges",
+        "        asked 1 hour agoGabriel GilGabriel Gil322 bronze badges"
+    ],
+    "href": "/questions/76139223/how-do-i-scrape-data-from-a-website-using-selenium",
+    "contenus": [
+        "Hello  I am trying to scrape the data from, a table in this URL https://www.mlssoccer.com/stats/players/#season=2023&competition=mls-regular-season&club=all&statType=general&position=allThis is the code that I am usingfrom selenium import webdriverurl= 'https://www.mlssoccer.com/stats/players/#season=2023&competition=mls-regular-season&club=all&statType=general&position=all'browser = webdriver.Chrome(executable_path='<path-to-chrome>')browser.get(url)browser.find_element(xpath,'//*[@id=main-content]/section').click()And I am, getting thisDevTools listening on ws://127.0.0.1:58922/devtools/browser/33b52d7e-2f77-4350-8ee8-53dfd9b85314what does that mean ??"
+    ],
+    "titre": "\nhow do i scrape data from a website using selenium?\n",
+    "number": "26/48"
+}{
+    "nombre de vues": "5",
+    "type": [
+        "pythonpdftotextchatgpt-api"
+    ],
+    "Pseudo": "jyothi appala",
+    "github_score_time": [
+        "        asked 1 hour agoHOSSAMHOSSAM3577 bronze badges"
+    ],
+    "href": "/questions/76139222/textract-typeerror-expected-str-bytes-or-os-pathlike-object-not-nonetype",
+    "contenus": [
+        "I have been attempting to resolve this error or find replies to other similar questions but to no avail . This is part of a tutorial I am attempting.I am running:OS: Windows 11Python version: 3.9.16I have made sure that:The files exist in the given directoryThe declared variable is not a None typeHowever when running the following code, I get the above error:%%time# This step takes about 5 minutes# Initialise tokenizertokenizer = tiktoken.get_encoding(cl100k_base)# Process each PDF file and prepare for embeddingfor pdf_file in pdf_files:        pdf_path = os.path.join(data_dir,pdf_file)    print(pdf_path)            # Extract  the raw text from each PDF using textract    text = textract.process(pdf_path,  method='pdfminer')        # Chunk each document, embed the contents and load to Redis    handle_file_string((pdf_file,text.decode(utf-8)),tokenizer,redis_client,VECTOR_FIELD_NAME,INDEX_NAME)When I run pdf_path I get a correct path in string format, therefore I am sure that it is not a NoneType nor is it unacceptable.Any help is much appreciated.Full traceback:H:\\1- Educational\\3- ML Training\\Deep Learning\\ChatGPT\\openai-cookbook-main\\openai-cookbook-main\\apps\\chatbot-kickstarter\\data\\FIA Practice Directions - Competitor's Staff Registration System.pdf---------------------------------------------------------------------------OSError                                   Traceback (most recent call last)File ~\\.conda\\envs\\tensorflow\\lib\\site-packages\\textract\\parsers\\pdf_parser.py:54, in Parser.extract_pdfminer(self, filename, **kwargs)     53 try:---> 54     stdout, _ = self.run(['pdf2txt.py', filename])     55 except OSError:File ~\\.conda\\envs\\tensorflow\\lib\\site-packages\\textract\\parsers\\utils.py:87, in ShellParser.run(self, args)     86 try:---> 87     pipe = subprocess.Popen(     88         args,     89         stdout=subprocess.PIPE, stderr=subprocess.PIPE,     90     )     91 except OSError as e:File ~\\.conda\\envs\\tensorflow\\lib\\subprocess.py:951, in Popen.__init__(self, args, bufsize, executable, stdin, stdout, stderr, preexec_fn, close_fds, shell, cwd, env, universal_newlines, startupinfo, creationflags, restore_signals, start_new_session, pass_fds, user, group, extra_groups, encoding, errors, text, umask)    948             self.stderr = io.TextIOWrapper(self.stderr,    949                     encoding=encoding, errors=errors)--> 951     self._execute_child(args, executable, preexec_fn, close_fds,    952                         pass_fds, cwd, env,    953                         startupinfo, creationflags, shell,    954                         p2cread, p2cwrite,    955                         c2pread, c2pwrite,    956                         errread, errwrite,    957                         restore_signals,    958                         gid, gids, uid, umask,    959                         start_new_session)    960 except:    961     # Cleanup if the child failed starting.File ~\\.conda\\envs\\tensorflow\\lib\\subprocess.py:1420, in Popen._execute_child(self, args, executable, preexec_fn, close_fds, pass_fds, cwd, env, startupinfo, creationflags, shell, p2cread, p2cwrite, c2pread, c2pwrite, errread, errwrite, unused_restore_signals, unused_gid, unused_gids, unused_uid, unused_umask, unused_start_new_session)   1419 try:-> 1420     hp, ht, pid, tid = _winapi.CreateProcess(executable, args,   1421                              # no special security   1422                              None, None,   1423                              int(not close_fds),   1424                              creationflags,   1425                              env,   1426                              cwd,   1427                              startupinfo)   1428 finally:   1429     # Child is launched. Close the parent's copy of those pipe   1430     # handles that only the child should have open.  You need   (...)   1433     # pipe will not close when the child process exits and the   1434     # ReadFile will hang.OSError: [WinError 193] %1 is not a valid Win32 applicationDuring handling of the above exception, another exception occurred:TypeError                                 Traceback (most recent call last)File <timed exec>:14File ~\\.conda\\envs\\tensorflow\\lib\\site-packages\\textract\\parsers\\__init__.py:79, in process(filename, input_encoding, output_encoding, extension, **kwargs)     76 # do the extraction     78 parser = filetype_module.Parser()---> 79 return parser.process(filename, input_encoding, output_encoding, **kwargs)File ~\\.conda\\envs\\tensorflow\\lib\\site-packages\\textract\\parsers\\utils.py:46, in BaseParser.process(self, filename, input_encoding, output_encoding, **kwargs)     36 Process ``filename`` and encode byte-string with ``encoding``. This     37 method is called by :func:`textract.parsers.process` and wraps     38 the :meth:`.BaseParser.extract` method in `a delicious unicode     39 sandwich <http://nedbatchelder.com/text/unipain.html>`_.     40      41      42 # make a unicode sandwich to handle dealing with unknown     43 # input byte strings and converting them to a predictable     44 # output encoding     45 # http://nedbatchelder.com/text/unipain/unipain.html#35---> 46 byte_string = self.extract(filename, **kwargs)     47 unicode_string = self.decode(byte_string, input_encoding)     48 return self.encode(unicode_string, output_encoding)File ~\\.conda\\envs\\tensorflow\\lib\\site-packages\\textract\\parsers\\pdf_parser.py:32, in Parser.extract(self, filename, method, **kwargs)     29             raise ex     31 elif method == 'pdfminer':---> 32     return self.extract_pdfminer(filename, **kwargs)     33 elif method == 'tesseract':     34     return self.extract_tesseract(filename, **kwargs)File ~\\.conda\\envs\\tensorflow\\lib\\site-packages\\textract\\parsers\\pdf_parser.py:57, in Parser.extract_pdfminer(self, filename, **kwargs)     55 except OSError:     56     try:---> 57         stdout, _ = self.run(['python3',pdf2txt_path, filename])     58     except ShellError:     59         stdout, _ = self.run(['python2',pdf2txt_path, filename])File ~\\.conda\\envs\\tensorflow\\lib\\site-packages\\textract\\parsers\\utils.py:87, in ShellParser.run(self, args)     85 # run a subprocess and put the stdout and stderr on the pipe object     86 try:---> 87     pipe = subprocess.Popen(     88         args,     89         stdout=subprocess.PIPE, stderr=subprocess.PIPE,     90     )     91 except OSError as e:     92     if e.errno == errno.ENOENT:     93         # File not found.     94         # This is equivalent to getting exitcode 127 from shFile ~\\.conda\\envs\\tensorflow\\lib\\subprocess.py:951, in Popen.__init__(self, args, bufsize, executable, stdin, stdout, stderr, preexec_fn, close_fds, shell, cwd, env, universal_newlines, startupinfo, creationflags, restore_signals, start_new_session, pass_fds, user, group, extra_groups, encoding, errors, text, umask)    947         if self.text_mode:    948             self.stderr = io.TextIOWrapper(self.stderr,    949                     encoding=encoding, errors=errors)--> 951     self._execute_child(args, executable, preexec_fn, close_fds,    952                         pass_fds, cwd, env,    953                         startupinfo, creationflags, shell,    954                         p2cread, p2cwrite,    955                         c2pread, c2pwrite,    956                         errread, errwrite,    957                         restore_signals,    958                         gid, gids, uid, umask,    959                         start_new_session)    960 except:    961     # Cleanup if the child failed starting.    962     for f in filter(None, (self.stdin, self.stdout, self.stderr)):File ~\\.conda\\envs\\tensorflow\\lib\\subprocess.py:1360, in Popen._execute_child(self, args, executable, preexec_fn, close_fds, pass_fds, cwd, env, startupinfo, creationflags, shell, p2cread, p2cwrite, c2pread, c2pwrite, errread, errwrite, unused_restore_signals, unused_gid, unused_gids, unused_uid, unused_umask, unused_start_new_session)   1358     args = list2cmdline([args])   1359 else:-> 1360     args = list2cmdline(args)   1362 if executable is not None:   1363     executable = os.fsdecode(executable)File ~\\.conda\\envs\\tensorflow\\lib\\subprocess.py:565, in list2cmdline(seq)    563 result = []    564 needquote = False--> 565 for arg in map(os.fsdecode, seq):    566     bs_buf = []    568     # Add a space to separate this argument from the othersFile ~\\.conda\\envs\\tensorflow\\lib\\os.py:822, in _fscodec.<locals>.fsdecode(filename)    816 def fsdecode(filename):    817     Decode filename (an os.PathLike, bytes, or str) from the filesystem    818     encoding with 'surrogateescape' error handler, return str unchanged. On    819     Windows, use 'strict' error handler if the file system encoding is    820     'mbcs' (which is the default encoding).    821     --> 822     filename = fspath(filename)  # Does type-checking of `filename`.    823     if isinstance(filename, bytes):    824         return filename.decode(encoding, errors)TypeError: expected str, bytes or os.PathLike object, not NoneType"
+    ],
+    "titre": "\ntextract - TypeError: expected str, bytes or os.PathLike object, not NoneType\n",
+    "number": "27/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "pythonapi"
+    ],
+    "Pseudo": "Gabriel Gil",
+    "github_score_time": [
+        "edited 1 hour agouser21090678",
+        "        asked 1 hour agouser21090678user210906781322 bronze badges",
+        "        answered 1 hour agoAngYCAngYC2,49155 silver badges1818 bronze badges"
+    ],
+    "href": "/questions/76139220/youtube-api-reading-incorrect-times",
+    "contenus": [
+        "Has anyone had a situation where the Google API picking up upload time given you a result that isn't true?For example: 2023-04-29T21:10:04ZThis is the return from the API for today's video that was uploaded. The thing is, I'm in Missouri (Central Daylight Time) and it's currently 20:40. The originator is in Florida so we're dealing with a 1 hour difference.This individual releases videos around 3, maybe 5 at most. Technically, when I first ran my code, this video hasn't been released yet. So it's adding about 6 hours to the time.Can I assume it's using some odd timezone?",
+        "The timestamp returned by Google API is in UTC timezone (Denotes with the Z at the back of the string): 2023-04-29T21:10:04ZAfter a bit of conversion, this is equivalent to 2023-04-29 16:10:04 of your timezone (CT / UTC-5), which should match your expectation of the adding 6 hours to the time"
+    ],
+    "titre": "\nYoutube API reading incorrect times\n",
+    "number": "28/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "functiongoogle-apps-scriptargumentsparameter-passing"
+    ],
+    "Pseudo": "HOSSAM",
+    "github_score_time": [
+        "        asked 1 hour agoemnhaemnha38311 gold badge44 silver badges1414 bronze badges"
+    ],
+    "href": "/questions/76139219/google-spreadsheet-custom-menu-error-gas-script-function-not-found-sum1-2",
+    "contenus": [
+        "This is a minimum working example to illustrate a problem I'm facing. I'm just a beginner, so any help is appreciated.I received an error message that says Script function not found: sum(1,2). Can someone please tell me what's wrong with my code?function onOpen() {  var ui = SpreadsheetApp.getUi();  ui.createMenu('Sum of two numbers')      .addItem('Example 1', 'sum(1,2)')      .addItem('Example 2', 'sum(2,3)')      .addToUi();}function sum(a, b) {  var total = a + b;  return total;}"
+    ],
+    "titre": "\nGoogle spreadsheet custom menu error (GAS): Script function not found: sum(1,2)\n",
+    "number": "29/48"
+}{
+    "nombre de vues": "7",
+    "type": [
+        "angulartypescriptauthenticationjwtroles"
+    ],
+    "Pseudo": "user21090678",
+    "github_score_time": [
+        "        asked 1 hour agoLyrics MusicLyrics Music333 bronze badges"
+    ],
+    "href": "/questions/76139217/authentication-project-jwt-and-roles",
+    "contenus": [
+        "while working on and following a tutorial for an authentication project based on jwt and roles i got this error:login.component.ts:17  ERROR TypeError: Cannot read properties of undefined (reading 'roleName')    at Object.next (login.component.ts:24:41)    at ConsumerObserver.next (Subscriber.js:91:33)    at SafeSubscriber._next (Subscriber.js:60:26)    at SafeSubscriber.next (Subscriber.js:31:18)    at map.js:7:24    at OperatorSubscriber._next (OperatorSubscriber.js:13:21)    at OperatorSubscriber.next (Subscriber.js:31:18)    at filter.js:6:128    at OperatorSubscriber._next (OperatorSubscriber.js:13:21)    at OperatorSubscriber.next (Subscriber.js:31:18)this is the expeted result :expected resultand this is my code:import { Component, OnInit } from '@angular/core';import { NgForm } from '@angular/forms';import { Router } from '@angular/router';import { AgentService } from '../_services/agent.service';import { AgentAuthenService } from '../_services/agent-authen.service';@Component({  selector: 'app-login',  templateUrl: './login.component.html',  styleUrls: ['./login.component.css']})export class LoginComponent implements OnInit {  constructor(private agentSer: AgentService, private agentAuthenSer: AgentAuthenService, private router: Router){}    ngOnInit():void{}  connect(loginF:NgForm){  this.agentSer.login(loginF.value).subscribe(  (Response:any) =>  {       this.agentAuthenSer.setRole(Response.agents.role);   this.agentAuthenSer.setToken(Response.jwtToken);   console.log(Response);   const role = Response.agents.role[0].roleName;   if(role=== 'ChargeClient'){        this.router.navigate(['accueil/charge']);   }else{       if(role=== 'AnalysteCredit'){        this.router.navigate(['accueil/analyste']);}        else{        if (role=== 'ChefAgence'){          this.router.navigate(['accueil/chefA']);        }else{          this.router.navigate(['accueil/chefZ']);        }}}}     );   }  } i really need help yo guys as soon as possible and thanks."
+    ],
+    "titre": "\nauthentication project jwt and roles\n",
+    "number": "30/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "css"
+    ],
+    "Pseudo": "emnha",
+    "github_score_time": [
+        "        asked 1 hour agoDanDan111 bronze badge",
+        "        answered 1 hour agoAngYCAngYC2,49155 silver badges1818 bronze badges"
+    ],
+    "href": "/questions/76139216/how-to-reference-a-selector-with-special-characters-in-css",
+    "contenus": [
+        "I’m attempting to edit the Steam Deck virtual keyboard using CSS Editor. I’m able to change some individual keys, but not the keys with special characters in their selector.For example, in the original file, the style rule for the “(“ key is:.Spectrum .virtualkeyboard_KeyboardKey_2KhPX.KeyTheme_\\({color:#ffffff;background-color:#1B6E14}When I put that line in my CSS file, it doesn't read the ( as part of the selector, so none of my changes go through.I’ve tried removing the “\\”, which worked for the “` key but not the other keys. I've also tried replacing ( with the hex code, 28.",
+        "You need that additional \\ to escape the characters that are not standard in CSS class names.If you want to be exact sure, you can make use of CSS.escape method to find out the class names that is valid to be placed in your CSS stylesheets, for example: CSS.escape('KeyTheme_({color:#ffffff;background-color:#1B6E14})') (I have also added a JavaScript in the sample below to showcase this functionality)// Just to showcase the functionality of CSS.escape, doesn't need to be included in your codeconsole.log(CSS.escape('KeyTheme_({color:#ffffff;background-color:#1B6E14})'));.KeyTheme_\\(\\{color\\:\\#ffffff\\;background-color\\:\\#1B6E14\\}\\) {  color: red;}<div class=KeyTheme_({color:#ffffff;background-color:#1B6E14})>Hello World</div>"
+    ],
+    "titre": "\nHow to reference a selector with special characters in CSS\n",
+    "number": "31/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "cssshadow-domnative-web-component"
+    ],
+    "Pseudo": "Lyrics Music",
+    "github_score_time": [
+        "        asked 1 hour agoAxDAxD2,62033 gold badges2929 silver badges5050 bronze badges"
+    ],
+    "href": "/questions/76139211/how-can-i-restrict-styling-a-closed-shadow-dom-to-particular-outer-hosts",
+    "contenus": [
+        "I'd like to style an inner custom element's closed Shadow DOM from an outer custom element. – Outside the outer custom element, the inner Shadow DOM should not be stylable.So, in general, a particular parent element is supposed to style its children, but outside the parent element, nothing should be able to style these children.How would I do that?AFAIK, the part attribute cannot be restricted to particular hosts or a maximum nesting level.ExampleImagine a custom element night-sky that's supposed to contain hundreds of star-item custom elements:<night-sky>  <star-item/>  <star-item/>  <star-item/>  <star-item/>  ...</night-sky>The <night-sky> custom element's definition is supposed to set each <star-item> custom element's common CSS rules, e.g.: position: absolute; width: 8px; height: 8px; background-image: url(star.png);I don't want to apply these common CSS rules to each single <star-item> custom element itself as it would add an undesired burdon to the browser. So, I want the <night-sky> custom element to set the common CSS rules once for all its children. However, outside the <night-sky> custom element I don't want anything to be able to alter the <star-item> custom elements' style."
+    ],
+    "titre": "\nHow can I restrict styling a closed Shadow DOM to particular outer hosts?\n",
+    "number": "32/48"
+}{
+    "nombre de vues": "18",
+    "type": [
+        "javascripthtmlcssvariables"
+    ],
+    "Pseudo": "Dan",
+    "github_score_time": [
+        "edited 1 hour agoPointy402k5959 gold badges584584 silver badges614614 bronze badges",
+        "        asked 1 hour agoZoozooZoozoo1",
+        "edited 54 mins ago",
+        "        answered 1 hour agoThomas FrankThomas Frank13333 bronze badges",
+        "        answered 58 mins agocharlotte katakuricharlotte katakuri2711 silver badge44 bronze badges"
+    ],
+    "href": "/questions/76139210/cannot-change-variables-using-html-inputs",
+    "contenus": [
+        "The problem I am having is that I cannot change elements of a variable.I have tried many different ways, but I am struggling to take a input from HTML and changing a JS variable.What I am making will include a random character generator in the future so changing parts of the variable is key if this is the correct way of doing it.I have been using variables like this in Javascript:let Player = {  name: Alex,   age: 20,  Height: 190,};The problem I am having is that I cannot change elements of the variable. They way I have been trying is this:document.getElementById(PlayerNameInput).innerHTML = Player.nameAny alternatives and/or better ways to get the same result? Changing the variable properties multiple times is a needed part.",
+        "Read the value property of an input element and change the property of the object to its value.If you set the name of the input identical to a property in the object things will be very smooth:In your html:<body>  <input placeholder=First name type=text name=firstName><br>  <input placeholder=Last name type=text name=lastName><br>  <input placeholder=Hobby type=text name=hobby>  <script src=changeObjFromInput.js></script></body>In your script changeObjFromInputjs:let person = {  firstName: '',  lastName: '',  hobby: ''}document.addEventListener('keyup', e => {  let input = e.target.closest('input');  if (!input) { return; }  person[input.name] = input.value;  console.log(person);});Edit:Or did you mean the other way around, from object to input fields, we can do that too, value is both readable and writeable:let person = {  firstName: 'John',  lastName: 'Doe',  hobby: 'fishing'}for (let key in person) {  document.querySelector(`input[name=${key}]`).value = person[key];}document.addEventListener('keyup', e => {  let input = e.target.closest('input');  if (!input) { return; }  person[input.name] = input.value;  console.log(person);});",
+        "Maybe what you mean is like this. code innerHTML is used for set elements eg .innerHTML = <div>New Elm</div>let Player = {  name: Alex,   age: 20,  Height: 190,};// get value from `html`Player.name = document.getElementById(PlayerNameInput).value// set new value to `html`document.getElementById(PlayerNameInput).value = Player.nameconsole.log(Player)<input id=PlayerNameInput value=John>"
+    ],
+    "titre": "\nCannot change variables using html inputs\n",
+    "number": "33/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "pythonnumpytensorflowgaussiangaussian-process"
+    ],
+    "Pseudo": "AxD",
+    "github_score_time": [
+        "        asked 1 hour agoClaraClara322 bronze badges"
+    ],
+    "href": "/questions/76139209/how-to-change-a-tensor-object-from-gaussian-process-library-into-an-numpy-array",
+    "contenus": [
+        "I want to convert a tensor object, in this case predicted values obtained by using a gaussian process model, into a numpy array.I was writing this block of coding that goes as follows.# Predict using the validation setnum_samples = 10X_val_reshaped = np.ravel(X_val)samples = gp.sample(X_val_reshaped, num_samples)samples = tf.reshape(samples, [num_samples, -1, 1])pred_mean = tf.reduce_mean(samples, axis=0)pred_var = tf.math.reduce_variance(samples, axis=0)However, I got the samples in a tensor type. I want to convert it into a numpy array so that I can calculate the RMSE value. When I try to write samples.eval() or samples.numpy(), I got error messages, such as Tensor object has no attribute 'numpy' or the other message like, No default session is registered. Use with sess.as_default() or pass an explicit session to `eval(session=sess). And also, when I try to write these code lineswith tf.Session() as sess:    sess.run(tf.global_variables_initializer())    rmse_val = sess.run(samples)    print('samples:', samples)it is still not a numpy object. Is there any idea how to convert a tensor object, in this case the predicted values obtained by using a gaussian process model, into a numpy object?"
+    ],
+    "titre": "\nHow to change a tensor object from gaussian process library into an numpy array?\n",
+    "number": "34/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "pythonpython-pptx"
+    ],
+    "Pseudo": "Zoozoo",
+    "github_score_time": [
+        "        asked 1 hour agojenisdoejenisdoe2111 bronze badge"
+    ],
+    "href": "/questions/76139207/duplicating-slides-using-python-pptx",
+    "contenus": [
+        "I have a powerpoint table template with 9 rows on slide 1, while the data I want to populate on the table is about 30 rows, I tried to duplicate the slide in slide 1 to accommodate for the remaining rows in the data but my code is not working. I keep getting list index out of range error. Please helpI have tried this codedef add_table_slide(prs, index:int) -> None:    source = prs.slides[index]    duplicated_slide = prs.slides.add_slide(prs.slide_layouts[BLANK_SLIDE_LAYOUT_INDEX])    for shape in source.shapes:        new_el = copy.deepcopy(shape.element)        duplicated_slide.shapes._spTree.insert_element_before(new_el, 'p:extLst')def construct_pptx(template_dir: str, content: List[SheetData], output_dir: str) -> None:    def parse_data(sheet_data:Sheet Data, table_row_index: int, data_row_index:int) ->None:        data1, data2,data3, data4, data5, data6, data7 = sheet_dataformat_text(table.cell(table_row_index, 0), data1[data_row_index])format_text(table.cell(table_row_index, 1), data2[data_row_index])format_text(table.cell(table_row_index, 2), data3[data_row_index])format_text(table.cell(table_row_index, 3), data4[data_row_index])format_text(table.cell(table_row_index, 4), data5[data_row_index])format_text(table.cell(table_row_index, 5), data6[data_row_index])format_text(table.cell(table_row_index, 6), data7[data_row_index])    prs = Presentation(template_dir)    num_sheets = len(content)    slide_index = 0    MAX_ROWS = 10    for i in range(num_sheets):        slide_data = content[i]        remaining_rows = len(slide_data[0])        start_row = 0        while remaining_rows > 0:            slide = prs.slides[slide_index]            for shape in slide.shapes:                if shape.shape_type == MSO_SHAPE_TYPE.TABLE:                    table = shape.table                    for row in range(start_row, min(start_row + MAX_ROWS, len(slide_data[0]))):                        data_row_index = row                        table_row_index = OFFSET_ROW_INDEX + row - start_row                        parse_data(slide_data, table_row_index, data_row_index)                        remaining_rows -= 1            if remaining_rows > 0:                new_slide = add_table_slide(prs, slide)                slide_index += 1                start_row += MAX_ROWS            slide_index += 1    prs.save(output_dir)"
+    ],
+    "titre": "\nDuplicating Slides Using Python-pptx\n",
+    "number": "35/48"
+}{
+    "nombre de vues": "11",
+    "type": [
+        "ruby-on-railsrubyrails-activestorage"
+    ],
+    "Pseudo": "Clara",
+    "github_score_time": [
+        "        asked 1 hour agoTallboyTallboy12.7k1313 gold badges7878 silver badges172172 bronze badges"
+    ],
+    "href": "/questions/76139206/change-host-of-activestorage-gcs-redirect",
+    "contenus": [
+        "I'm using this ActiveStorage method:Rails.application.routes.url_helpers.rails_storage_proxy_url(object, host: ENV.fetch('BLOB_HOST'))My bucket is public on GCS.Most importantly, it has a CNAME from cdn.example.com, and for the redirect URL I want it to be cdn.example.com and not https://storage.googleapis.com/cdn.example.com/aaf3h8a73hfa33a9I cannot find any information on how to do this. The closest I've see is this:https://guides.rubyonrails.org/active_storage_overview.html#putting-a-cdn-in-front-of-active-storageBut this uses the proxy method."
+    ],
+    "titre": "\nChange host of ActiveStorage GCS redirect\n",
+    "number": "36/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "apiresponseopenai-apishort"
+    ],
+    "Pseudo": "jenisdoe",
+    "github_score_time": [
+        "        asked 1 hour agoJeff MJeff M36522 silver badges66 bronze badges"
+    ],
+    "href": "/questions/76139203/using-openai-to-call-openai-completion-create-the-response-is-shorter-than-what",
+    "contenus": [
+        "I have a paid account for chatgpt and using the latest 4 version, when I ask it to answer a question it send back a response that is like 4k characters.  When I use the api for same question, I get back a much shorter response that is about 1k characters.  I decided to ask  chatgpt what parameters to use in the api call to get back the same response and I pasted it below.   It used max tokens as 30 so I upped it to 4k, but the response is still too short. I then modified the engine to use davinci003 from 002 with no luck.Any ideas on what I can change, I spent about 2 hours researching and still can't get it to work.def generate_completion(prompt):    response = openai.Completion.create( engine=text-davinci-003, prompt=prompt, max_tokens=4000, n=1, stop=None, temperature=0.8, top_p=1, frequency_penalty=0, presence_penalty=0, )    generated_text = response.choices[0].text.strip() return generated_text```"
+    ],
+    "titre": "\nusing openai to call openai.Completion.create the response is shorter than what chatgpt returns\n",
+    "number": "37/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "bash"
+    ],
+    "Pseudo": "Tallboy",
+    "github_score_time": [
+        "edited 1 hour agouser14819803",
+        "        asked 1 hour agouser14819803user148198033622 bronze badges"
+    ],
+    "href": "/questions/76139192/bash-default-function-when-specifying-directory",
+    "contenus": [
+        "On my bash terminal if I type /etc/ it takes me to the directory using cd. How can I specify the default program used? Rather then cd I want to use my own program to change directory.$ /etc/cd -- /etc/"
+    ],
+    "titre": "\nBash - Default function when specifying directory\n",
+    "number": "38/48"
+}{
+    "nombre de vues": "17",
+    "type": [
+        "pythonpandasdataframeequality"
+    ],
+    "Pseudo": "Jeff M",
+    "github_score_time": [
+        "        asked 1 hour agoPro QPro Q4,21644 gold badges4040 silver badges8787 bronze badges",
+        "        answered 1 hour agoPro QPro Q4,21644 gold badges4040 silver badges8787 bronze badges",
+        "        answered 1 hour agoPanda KimPanda Kim4,98222 silver badges1212 bronze badges"
+    ],
+    "href": "/questions/76139185/how-to-compare-two-pandas-dataframes-with-text-numerical-and-none-values",
+    "contenus": [
+        "I have two dataframes df1 and df2 that both contain text and numerical data in addition to Nones as well. However, df1 has integer numbers, and df2 has float numbers.I've tried comparing their equality with df1.equals(df2), but this fails because of the type differences (integers vs. floats). I've also tried doing np.allclose(df1, df2, equal_nan=True) but this fails with TypeError: ufunc 'isfinite' not supported for the input types, and the inputs could not be safely coerced to any supported types according to the casting rule ''safe'' (I imagine this is because of the text data).How can I check to see if df1 and df2 have the same data?",
+        "Unfortunately, it doesn't seem like there's any easy function that will just check for equality in this scenario, so we'll have to build our own.In order to do the check, we'll split the columns based on whether it's text data ('object') or number data. Then, we can compare the number data to the text data. We'll also deal with the Nones by converting them to Nan so numpy can handle them better.Here's the code:def compare_mixed_dataframes(df1, df2) -> bool:    # (This code was written by GPT-4, but I've tested it and it works)    # Get the column names of numerical columns    num_cols = df1.select_dtypes(include=[np.number]).columns        # Convert numerical columns to float and replace None with NaN    df1_num = df1[num_cols].astype(float).fillna(np.nan)    df2_num = df2[num_cols].astype(float).fillna(np.nan)    # Compare numerical columns with a tolerance value using numpy.allclose()    num_comparison = np.allclose(df1_num, df2_num, rtol=1e-05, atol=1e-08, equal_nan=True)    # Compare sentence columns using pandas.DataFrame.equals()    string_cols = df1.select_dtypes(include=['object']).columns    str_comparison = df1[string_cols].equals(df2[string_cols])    # Combine the results of numerical and sentence columns comparisons    return num_comparison and str_comparisonIf you want to test the code for yourself, here's a quick script to test it:# Also written by GPT-4, but edited by me to contain a more advanced test case# I have also checked to make sure that this worksimport numpy as npimport pandas as pddef compare_mixed_dataframes(df1, df2):    # Get the column names of numerical columns    num_cols = df1.select_dtypes(include=[np.number]).columns        # Convert numerical columns to float and replace None with NaN    df1_num = df1[num_cols].astype(float).fillna(np.nan)    df2_num = df2[num_cols].astype(float).fillna(np.nan)    # Compare numerical columns with a tolerance value using numpy.allclose()    num_comparison = np.allclose(df1_num, df2_num, rtol=1e-05, atol=1e-08, equal_nan=True)    # Compare sentence columns using pandas.DataFrame.equals()    string_cols = df1.select_dtypes(include=['object']).columns    str_comparison = df1[string_cols].equals(df2[string_cols])    # Combine the results of numerical and sentence columns comparisons    return num_comparison and str_comparison# Create example DataFrames with mixed types (ints, floats, text, and Nones)data1 = {'text': ['hello', 'world', None],         'num': [None, 2, 3]}df1 = pd.DataFrame(data1)data2 = {'text': ['hello', 'world', None],         'num': [None, 2.0, 3.0]}df2 = pd.DataFrame(data2)# DataFrames with different numbersdata3 = {'text': ['hello', 'world', None],         'num': [None, 2, 4]}df3 = pd.DataFrame(data3)# Test the custom function with same and different DataFramesprint(compare_mixed_dataframes(df1, df2))  # Trueprint(compare_mixed_dataframes(df1, df3))  # False",
+        "Exampledata1 = {'text': ['hello', 'world', None],         'num': [None, 2, 3]}df1 = pd.DataFrame(data1)data2 = {'text': ['hello', 'world', None],         'num': [None, 2.0, 3.0]}df2 = pd.DataFrame(data2)Codedf1.equals(df2.astype(df1.dtypes))output:TrueIf you are concerned about errors occurring when converting dtypes, use the code below.df1.equals(df2.astype(df1.dtypes, errors='ignore'))If you can't change the dtype to be the same(when ignored), anyway they're not same"
+    ],
+    "titre": "\nHow to compare two Pandas Dataframes with text, numerical, and None values\n",
+    "number": "39/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "macosterminalocamlhomebrew"
+    ],
+    "Pseudo": "user14819803",
+    "github_score_time": [
+        "edited 1 hour agoPatrycja",
+        "        asked 1 hour agoPatrycjaPatrycja111 bronze badge"
+    ],
+    "href": "/questions/76139182/ocaml-setup-on-mac-terminal-issue",
+    "contenus": [
+        "I am trying to install Ocaml onto my mac device for my class. I am attempting to do it via homewbrew.After opam has been installed via the command:brew install opamThe following commands were instructed to activate everything:opam initeval $(opam env --switch=default)ocamlthen it should bring the terminal into a editor environmentand #quit;; to exitthenopam install ocaml-lsp-server merlinWhen I attempt this I get errors terminal screencaptureI have tried wiping my computer of both homebrew and opam and re installing but it did not change anything. What can I do? I use visual studio code, I need to run my OCaml code."
+    ],
+    "titre": "\nOCaml setup on mac terminal issue\n",
+    "number": "40/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "fluttershadergradienttransparencyopacity"
+    ],
+    "Pseudo": "Pro Q",
+    "github_score_time": [
+        "        asked 1 hour agojosue.0josue.076511 gold badge1010 silver badges2323 bronze badges",
+        "        answered 1 hour agojosue.0josue.076511 gold badge1010 silver badges2323 bronze badges"
+    ],
+    "href": "/questions/76139179/flutter-image-fade-out-at-the-four-edges-gradient",
+    "contenus": [
+        "I want to apply a gradient into transparency at the four edges of an image in flutter. So it ends up blending with the background like this: ",
+        "Here is a widget to do that:import 'package:flutter/material.dart';class FadedWidget extends StatelessWidget {  final Widget child;  final List<double> stops;  final List<Color> colorsForStops;  FadedWidget({    super.key,    required this.child,    this.stops = const [0.9, 0.95, 1.0],    List<double> opacities = const [1, 0.5, 0],  }) : colorsForStops = opacities            .map((double opacity) => Colors.black.withOpacity(opacity))            .toList();  @override  Widget build(BuildContext context) {    return ShaderMask(      shaderCallback: (rect) {        return LinearGradient(          begin: Alignment.bottomCenter,          end: Alignment.topCenter,          stops: stops,          colors: colorsForStops,        ).createShader(Rect.fromLTRB(0, 0, rect.width, rect.height));      },      blendMode: BlendMode.dstIn,      child: ShaderMask(        shaderCallback: (rect) {          return LinearGradient(            begin: Alignment.centerRight,            end: Alignment.centerLeft,            stops: stops,            colors: colorsForStops,          ).createShader(Rect.fromLTRB(0, 0, rect.width, rect.height));        },        blendMode: BlendMode.dstIn,        child: ShaderMask(          shaderCallback: (rect) {            return LinearGradient(              begin: Alignment.centerLeft,              end: Alignment.centerRight,              stops: stops,              colors: colorsForStops,            ).createShader(Rect.fromLTRB(0, 0, rect.width, rect.height));          },          blendMode: BlendMode.dstIn,          child: ShaderMask(            shaderCallback: (rect) {              return LinearGradient(                begin: Alignment.topCenter,                end: Alignment.bottomCenter,                stops: stops,                colors: colorsForStops,              ).createShader(Rect.fromLTRB(0, 0, rect.width, rect.height));            },            blendMode: BlendMode.dstIn,            child: child,          ),        ),      ),    );  }}You can use it like:FadedWidget(  child: Image.asset(    'assets/images/chosen_one.png',    width: 180,     height: 180,     fit: BoxFit.cover  ),)It would look like this over a blurred background:You can tune stops and opacities according to your needs."
+    ],
+    "titre": "\nFlutter Image fade out at the four edges (Gradient)\n",
+    "number": "41/48"
+}{
+    "nombre de vues": "6",
+    "type": [
+        "visual-studio-codevscode-extensions"
+    ],
+    "Pseudo": "Patrycja",
+    "github_score_time": [
+        "        asked 1 hour agoalwaysday1alwaysday11,65555 gold badges2020 silver badges3535 bronze badges"
+    ],
+    "href": "/questions/76139176/how-to-run-a-program-using-a-web-extensions-web-worker-as-a-compiler-in-visual",
+    "contenus": [
+        "I am currently working on a project where I need to run a program using Visual Studio Code with the help of a web extension. The compiler for this program is implemented within the web extension's web worker.Just wondering if any example for this? I mean, the debugger is not need by now, just run the program in a web version VS Code."
+    ],
+    "titre": "\nHow to run a program using a web extension's web worker as a compiler in Visual Studio Code?\n",
+    "number": "42/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "pythonpython-3.xvisual-studio-codedebugging"
+    ],
+    "Pseudo": "josue.0",
+    "github_score_time": [
+        "edited 1 hour ago温泽海",
+        "        asked 1 hour ago温泽海温泽海24733 silver badges1616 bronze badges"
+    ],
+    "href": "/questions/76139175/visual-studio-code-debug-python-redirecting-input-from-text-file-in-virtual-envi",
+    "contenus": [
+        "I am following the code mentioned in debugging a python file in vs code with input text file.To get my error:Create a new virtual pip virtual environment.Create a new folder called project.Inside project, create simple sort two numbers python file hello.py:line = input()a,b = line.split()a = int(a)b = int(b)if a <= b:    print(a)    print(b)else:    print(b)    print(a)(If possible, I prefer answers that do not modify this .py file because I am  actually working on problems like the ones in kattis.)As my goal is to redirect input from a text file, I create the following input.txt also in project:987 23By setting the python interpreter to be the virtual environment, we can see that hello.py runs in the virtual environment if the user gives numbers in the command line because green environment name shows up in the command line.Create folder .vscode in project, in which we create launch.json:{    version: 0.2.0,    configurations: [        {            name: PYTHON REDIRECT INPUT,            type: python,            request: launch,            program: ${workspaceFolder}/hello,            console: externalTerminal,            args: [                <,                ${workspaceFolder}/input.txt,            ]        }        ]}(In the program part, hello.py or hello yields exactly the same result. )Click on debug button on the left side of the screen, we indeed see that PYTHON REDIRECT INPUT shows up as an option. Click on debug, however, opens the following window:Where the buttons read open launch.json and cancel. The debugger does not read my text files. The same format of args entry will work when I am debugging C++ but it just is not working for python."
+    ],
+    "titre": "\nVisual Studio Code Debug Python Redirecting Input from Text File in Virtual Environment\n",
+    "number": "43/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "jsonloadingexternalhard-drive"
+    ],
+    "Pseudo": "alwaysday1",
+    "github_score_time": [
+        "        asked 1 hour agoAAsomb113AAsomb1136155 bronze badges",
+        "        answered 46 mins agoNick.McDermaidNick.McDermaid17.9k66 gold badges5757 silver badges8989 bronze badges"
+    ],
+    "href": "/questions/76139173/is-it-possible-to-have-an-html-and-json-file-stored-on-your-pc-and-have-html-lo",
+    "contenus": [
+        "I stumbled an issue where I'm working on an HTML file that would load a separate json file. The HTML file have JS code in the <script></script> tag and the json file contains an array with some objects. Both HTML and JSON are stored on my hard drive and my HTML will load using a file path to direct to a file on my PC, not a URL across the internet, to the json file, akin to img src tag using a relative path to an image on my PC.This video: https://www.youtube.com/watch?v=nx8E5BF0XuE told me that due to the CORS policy made the $.ajax to grab the file stored on his PC, a server is required.I originally tried doing this before being aware of that video:        (async () => {             const List = await (await fetch(FileWithObjects.json)).json()         })() And got a similar error:If I do not want to use a server as well as node.js, do I HAVE TO have the JSON data in the HTML file itself?",
+        "I couldn't find a useful answer online that I could believe so I tried it myselfInstead of a JSON file you need a javascript file that sets a javascript variable to the JSON.index.htmThe HTML file references a local javascript file via <script src<!DOCTYPE html><html>  <head>    <script src=script1.js></script>  </head>  <body>    <div id=mydiv></div>  <script>    console.log(j);    setTimeout(() =>         {            document.getElementById(mydiv).innerHTML=j.stuff[2];        } ,         5000      )  </script>  </body></html>script1.jsThis is in the same folder as index.htmNote this is a javascript file that sets javascript variable j to the JSON you want.j={    stuff: [0,1,2,3,4,5,6]}If you open the web page, you'll see a tiny 2 in the top left corner from the static json fileNote that you can only manipulate JSON (or do any non-presentation computational things) via javascript. You can't do anything with JSON with HTML alone.All methods such as get, fetch, ajax can only load data from a web service, which in turn requires a web server"
+    ],
+    "titre": "\nIs it possible to have an HTML and JSON file stored on your PC, and have HTML load the json data WITHOUT node.js or server?\n",
+    "number": "44/48"
+}{
+    "nombre de vues": "5",
+    "type": [
+        " pythonpython-3.xnosqlgoogle-cloud-datastoregoogle-cloud-sdk"
+    ],
+    "Pseudo": "温泽海",
+    "github_score_time": [
+        "        asked 1 hour agoEltoCodeEltoCode6344 bronze badges"
+    ],
+    "href": "/questions/76139172/unable-to-use-query-or-and-other-functions-in-google-cloud-datastore-sdk",
+    "contenus": [
+        "I was going thru the google cloud datastore docs. When I came across this code snippetquery_filter = query.Or(    [        query.PropertyFilter(starred, =, True),        query.And([query.PropertyFilter(done, =, False),                    query.PropertyFilter(priority, =, 4,),        ]        )       ])This would be incredibly useful in my current project. However when I tried using it I got the following error.AttributeError: 'Query' object has no attribute 'Or'At first, I assumed it was due to me having an outdated version, so I updated with pip. below is an excerpt from my requirements.txtgoogle-cloud-datastore>=2.15.1google-cloud-storage>=2.8.0No cigar, so I tried updating my sdk with gcloud components updateBut it still doesn't let me use query.Or(). Nor does it let me use other features like IN in query.add_filter('id', 'IN', 'id_list')I've tried, but I can't figure out what's wrong. All the other functions work as expected.Here's the code where I get the error. Am I calling on the wrong object?query = datastore_client.query()query.Or()"
+    ],
+    "titre": "\nUnable to use query.Or() and other functions in google cloud datastore sdk\n",
+    "number": "45/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "pythonsecurityflaskrestful-authentication"
+    ],
+    "Pseudo": "AAsomb113",
+    "github_score_time": [
+        "        asked 1 hour agoSyntaxNavigatorSyntaxNavigator13511 silver badge1010 bronze badges"
+    ],
+    "href": "/questions/76139171/secure-password-storage-in-flask-based-restful-api-using-python",
+    "contenus": [
+        "I am building a Flask-based RESTful API in Python, and I need to securely store and encrypt user passwords for authentication. Currently, I am using a simple hashing algorithm to hash passwords with a salt, but I'm not sure if this is secure enough.Here is an example of my current implementation for password hashing:import hashlibpassword = 'password123'salt = 'somesalt'hashed_password = hashlib.sha256((password + salt).encode('utf-8')).hexdigest()print(hashed_password)Can anyone suggest a more secure way to store and encrypt passwords for user authentication in a Flask-based API? Specifically, I would like to know which password hashing algorithm to use and how to use it in a Flask application. Any advice or suggestions would be greatly appreciated."
+    ],
+    "titre": "\nSecure Password Storage in Flask-based RESTful API using Python\n",
+    "number": "46/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "react-nativecarousel"
+    ],
+    "Pseudo": "EltoCode",
+    "github_score_time": [
+        "edited 1 hour agoDeFeis",
+        "        asked 1 hour agoDeFeisDeFeis111 bronze badge"
+    ],
+    "href": "/questions/76139170/react-native-snap-carousel-does-not-display-image-properly-depending-on-the-last",
+    "contenus": [
+        "I am new to RC and I am facing an issue with react-native-snap-carousel. I have the following code:import React, { useState } from 'react';import { Image, View, StyleSheet, TouchableWithoutFeedback, StatusBar, SafeAreaView, Text, TouchableHighlight } from 'react-native';import Carousel from 'react-native-snap-carousel';import { GestureHandlerRootView } from react-native-gesture-handler;import Constants from 'expo-constants';export default function App() {  const [useData1Bool, setUseData1Bool] = useState(true);  const data1 = [       {         img: require(./assets/pic1.png),       },       {         img: require(./assets/pic2.png)       }     ];  const data2 = [       {         img: require(./assets/pic3.png),       },     ];  const [index, setIndex] = React.useState(0);  const isCarousel = React.useRef(null);  const data = useData1Bool ? data1 : data2;  return (    <SafeAreaView style={styles.container}>      <StatusBar barStyle=light-content/>      <View style={styles.mainView}>      <GestureHandlerRootView>        <Carousel             layout={default}            data={data}            sliderWidth={100}            itemWidth={100}            renderItem={({ item, index }) => {              return (                <TouchableWithoutFeedback>                  <Image                     style={{ width: 100, height: 100 }}                    source={item.img}                  />                </TouchableWithoutFeedback>              );            }}            onSnapToItem={(index) => setIndex(index)}            ref={isCarousel}        />        <Text></Text>        <Text></Text>        <TouchableHighlight onPress={() => setUseData1Bool(true)}>          <Text>Use data1 carousel</Text>        </TouchableHighlight>        <Text></Text>        <Text></Text>        <TouchableHighlight onPress={() => setUseData1Bool(false)}>          <Text>Use data2 carousel</Text>        </TouchableHighlight>        </GestureHandlerRootView>      </View>    </SafeAreaView>  );}const styles = StyleSheet.create({    container: {        flex: 1,        backgroundColor: 'white',        justifyContent: 'center',    },    mainView: {        flexDirection: 'row',        justifyContent: 'center',    },});package.json:{  dependencies: {    expo-constants: ~14.0.2,    @expo/vector-icons: ^13.0.0,    react-native-paper: 4.9.2,    react-native-snap-carousel: 4.0.0-beta.6,    react-native-gesture-handler: ~2.8.0  }}This is available at: https://snack.expo.dev/@ndefeis/carousel?platform=androidI want to be able to switch between different sets of images (in this case, data1 and data2).If I switch to data2 by clicking at the option Use data2 carousel after snapping to the image at data1[0], it works fine (image at data2[0] is displayed).However, if I switch to data2 by clicking at the option Use data2 carousel after snapping to the image at data1[1], it does not work fine (image at data2[0] is NOT displayed). In this case, it seems that the correct image is there, but I need to click on it so that is displayed.Please, what am I doing wrong ?I want to be able to switch between different sets of images (in this case, data1 and data2).If I switch to data2 by clicking at the option Use data2 carousel after snapping to the image at data1[0], it works fine (image at data2[0] is displayed).However, if I switch to data2 by clicking at the option Use data2 carousel after snapping to the image at data1[1], it does not work fine (image at data2[0] is NOT displayed). In this case, it seems that the correct image is there, but I need to click on it so that is displayed.Please, what am I doing wrong ?"
+    ],
+    "titre": "\nReact-native-snap-carousel does not display image properly depending on the last index state\n",
+    "number": "47/48"
+}{
+    "nombre de vues": "9",
+    "type": [
+        "androidandroid-jetpack-compose"
+    ],
+    "Pseudo": "SyntaxNavigator",
+    "github_score_time": [
+        "        asked 1 hour agoPurpleBambooPurpleBamboo1111 bronze badge"
+    ],
+    "href": "/questions/76139169/why-does-the-now-in-android-app-use-the-niaappstate",
+    "contenus": [
+        "What is the point of the NiaAppState in the Now In android app?https://github.com/android/nowinandroidWhat is the benefit to storing the navcontroller that way? At what point should I use the appstate instead of just passing my navcontroller in my navigation graph through a parameter?"
+    ],
+    "titre": "\nWhy does the Now In Android app use the NiaAppState\n",
+    "number": "48/48"
+}

@@ -1,10 +1,7 @@
-from page import *
-
-
+from page import scrape
 
 def main():
-    scrape(0)
+    scrape()
 
 if __name__ == "__main__":
     main()
-

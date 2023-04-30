@@ -1,0 +1,750 @@
+{
+    "nombre de vues": "0",
+    "type": [
+        "wagtailwagtail-admin"
+    ],
+    "Pseudo": "Shi0oo",
+    "github_score_time": [
+        "        asked 46 secs agoEman YalpsidEman Yalpsid311 bronze badge"
+    ],
+    "href": "/questions/76139371/permission-restrictions-in-wagtail-for-reports-admin-menu-and-its-submenu-item",
+    "contenus": [
+        "Goal:In my Wagtail website, I want to deny permission for all regular users (i.e. not superuser, not a moderator/editor) from accessing the Reports admin menu as well as all its submenu items such as Locked Pages, Workflows, Site History, Aging Pages etc.I don't want to create any custom submenu item such as Pages with Unpublished Changes under Reports admin menu.I know how to hide the Reports admin menu completely from regular users. My goal is to deny permission, in addition to hiding.What I tried so far:Following https://github.com/wagtail/wagtail/issues/6014 I created these 2 files:views.py containing:from wagtail.admin.auth import permission_deniedfrom wagtail.admin.views.reports import ReportViewclass MyReport(ReportView):def dispatch(self, request, *args, **kwargs):if not self.request.user.is_superuser:return permission_denied(request)return super().dispatch(request, *args, **kwargs)wagtail_hooks.py containingfrom .views import MyReportDesired behavior:Regular users should get permission denied error if they access any Reports submenu such as http://127.0.0.1:8000/admin/reports/site-history/"
+    ],
+    "titre": "\nPermission restrictions in Wagtail for \"Reports\" admin menu and its submenu items\n",
+    "number": "1/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "javascriptajaxsupercustom-element"
+    ],
+    "Pseudo": "Sun Grecre",
+    "github_score_time": [
+        "        asked 1 min agocldtechcldtech1"
+    ],
+    "href": "/questions/76139370/access-a-method-from-outside-ajax-xmlhttprequest-with-custom-element",
+    "contenus": [
+        "I have this custom HTML element causing me trouble. Down in the StaffList connectedCallback() function, i have to call and outside function of the parrent but the super keyword for addStaff() is giving me an error. Uncaught SyntaxError: use of super property accesses only valid within methods or eval code within methods. How can i access something outside the request?get selected() {  return this.hasAttribute('selected');}set selected(val) {  // Reflect the value of the disabled property as an HTML attribute.  if (val) {    this.setAttribute('selected', '');  } else {    this.removeAttribute('selected');  }}constructor() {  // If you define a constructor, always call super() first!  // This is specific to CE and required by the spec.  super();  /* handle clicks */  for (const item of this.children) {    item.addEventListener('click', e => {      console.log(e);    });  }}connectedCallback() {  var xhttp = new XMLHttpRequest();  xhttp.onreadystatechange = function() {    if (this.readyState == 4 && this.status == 200) {      for (var item of JSON.parse(this.responseText)) {        console.log(item);        super.addStaff(item);      }    }  };  xhttp.open('GET', /api/get_staff);  xhttp.send();}}customElements.define('staff-list', StaffList);`class StaffList extends HTMLElement {// A getter/setter for a disabled property.get selected() {  return this.hasAttribute('selected');}set selected(val) {  // Reflect the value of the disabled property as an HTML attribute.  if (val) {    this.setAttribute('selected', '');  } else {    this.removeAttribute('selected');  }}constructor() {  // If you define a constructor, always call super() first!  // This is specific to CE and required by the spec.  super();  /* handle clicks */  for (const item of this.children) {    item.addEventListener('click', e => {      console.log(e);    });  }}connectedCallback() {  var xhttp = new XMLHttpRequest();  xhttp.onreadystatechange = function() {    if (this.readyState == 4 && this.status == 200) {      for (var item of JSON.parse(this.responseText)) {        console.log(item);        super().addStaff(item);      }    }  };  xhttp.open('GET', /api/get_staff);  xhttp.send();}}customElements.define('staff-list', StaffList);```I tried the keyword this but gives me the XML request object instead of my custom element."
+    ],
+    "titre": "\nAccess a method from outside AJAX XMLHttpRequest with custom element\n",
+    "number": "2/48"
+}{
+    "nombre de vues": "2",
+    "type": [
+        "c++cwindowskerneldriver"
+    ],
+    "Pseudo": "Eman Yalpsid",
+    "github_score_time": [
+        "        asked 2 mins agoIgnoreExeptionIgnoreExeption3544 bronze badges"
+    ],
+    "href": "/questions/76139369/unresolved-external-symbol-ftused",
+    "contenus": [
+        "I am working on creating a kernel driver for Windows 10 (x64) using Visual Studio 2019 with their KMDF template, but I ran into the following error.Severity    Code    Description Project File    Line    Suppression StateError   LNK1120 1 unresolved externals  Assisted    C:\\Users\\me\\source\\repos\\Assisted\\x64\\Release\\Assisted.sys  1   Error   LNK2001 unresolved external symbol _fltused Assisted    C:\\Users\\me\\source\\repos\\Assisted\\Driver.obj    1   After looking this up I found this on it Example but I am still not sure how to fix this. I have made drivers in the past with the same template, and I have never gotten this error before. I also found This regarding this issue but it was posted over a decade ago so I don't know how to use his 2010 Vs fix in the 2019 version or even know if it will even work."
+    ],
+    "titre": "\nUnresolved external symbol _ftused\n",
+    "number": "3/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "pythonabsl-py"
+    ],
+    "Pseudo": "cldtech",
+    "github_score_time": [
+        "        asked 5 mins agoWeiJie LiuWeiJie Liu111 bronze badge"
+    ],
+    "href": "/questions/76139362/how-does-function-flags-define-boolean-works",
+    "contenus": [
+        "I'm confused about the function flags.DEFINE_boolean when I'm using python's absl module. Below is my code, when I set the parameter default to True, I can no longer dynamically modify is_student to False via the command line.from absl import app, flagsmmap = flags.FLAGSflags.DEFINE_boolean(    name='is_student',    default=True,    help='Are you a student?',)def func(_):   # 'python test.py --is_student False' doesn't work    print(mmap.is_student)  # mmap.is_student is always Trueif __name__ == '__main__':    app.run(func)At the same time, I found that when setting the parameter default to False, as long as the is_student is mentioned on the command line, the is_student is triggered as True. Can I just set the default value of flags.DEFINE_boolean to False?"
+    ],
+    "titre": "\nHow does function `flags.DEFINE_boolean` works?\n",
+    "number": "4/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "next.jsdependencies"
+    ],
+    "Pseudo": "IgnoreExeption",
+    "github_score_time": [
+        "        asked 6 mins agoMichaelMichael1111 bronze badge"
+    ],
+    "href": "/questions/76139360/how-to-resolve-the-following-dependencies-for-my-next-js-project",
+    "contenus": [
+        "I've been trying to deploy my Next.js app to Vercel and I seem to be getting the following errors when running npm install:labber@Viacaelestis:~/route-roamer$ npm installnpm ERR! code ERESOLVEnpm ERR! ERESOLVE unable to resolve dependency treenpm ERR!npm ERR! While resolving: openai-quickstart-node@0.1.0npm ERR! Found: react@18.2.0npm ERR! node_modules/reactnpm ERR!   react@^18.2.0 from the root projectnpm ERR!   peer react@^18.2.0 from next@13.3.2npm ERR!   node_modules/nextnpm ERR!     next@^13.1.1 from the root projectnpm ERR!     peer next@>=2 from next-routes@1.4.2npm ERR!     node_modules/next-routesnpm ERR!       next-routes@^1.4.2 from the root projectnpm ERR!   1 more (react-dom)npm ERR!npm ERR! Could not resolve dependency:npm ERR! peer react@^15.4.2 || ^16 from next-routes@1.4.2npm ERR! node_modules/next-routesnpm ERR!   next-routes@^1.4.2 from the root projectnpm ERR!npm ERR! Fix the upstream dependency conflict, or retrynpm ERR! this command with --force, or --legacy-peer-depsnpm ERR! to accept an incorrect (and potentially broken) dependency resolution.npm ERR!npm ERR! See /home/labber/.npm/eresolve-report.txt for a full report.npm ERR! A complete log of this run can be found in:npm ERR!     /home/labber/.npm/_logs/2023-04-30T02_47_32_135Z-debug-0.logFor context, during development, we were able to get the app to work simply by using --force for all the npm installs (which we knew was not ideal, but for the sake of time, we did so anyways - this was for a bootcamp final project).I've tried a couple things like playing around with different versions of react-dates for example, but overall, I'm not sure what I'm doing or what's the best way to proceed. Any help on this would be greatly appreciated! Thanks.If it helps at all, here's the link to my Github repo for this project: https://github.com/michaelocenar/route-roamer"
+    ],
+    "titre": "\nHow to resolve the following dependencies for my Next.js project?\n",
+    "number": "5/48"
+}{
+    "nombre de vues": "2",
+    "type": [
+        " rhtml-tabler-markdown"
+    ],
+    "Pseudo": "WeiJie Liu",
+    "github_score_time": [
+        "        asked 7 mins agomelbezmelbez93811 gold badge1313 silver badges3535 bronze badges"
+    ],
+    "href": "/questions/76139359/remove-bold-type-from-significant-p-values-when-using-tab-model",
+    "contenus": [
+        "How do I remove the bold type from significant p-values when using tab_model()?This is an example table:This table was made using the following code. Sample data below.m1 <- lm(behavior_program ~ Consistent + Social_Norms_SOB + Egoistic_SOB + Altruistic_SOB + Dislike + Change_Values + Judge + Judge_Gap, df_treat)tab_model(m1, auto.label = TRUE, show.se = TRUE,       show.ci = 0.95, # 95% CI      p.threshold = c(0.05, 0.01, 0.001), #p values      p.style = scientific_stars,      title = Table A: , dv.labels = c(Outcome))Sample data:    structure(list(behavior_program = c(5, 5, 5, 3, 3, 5, 6, 7, 5, 6, 7, 3, 6, 4, 5, 6, 2, 4, 5, 5, 5, 6, 6, 2, 2, 5, 5, 5, 1, 5, 1, 5, 1, 4, 2, 6, 6, 7, 6, 5, 5, 6, 5, 1, 4, 1, 6, 7, 6, 6, 3, 4, 2, 6, 7, 6, 1, 1, 2, 2, 5, 4, 6, 3, 2, 5, 6, 1, 6, 2, 5, 3, 2, 3, 5, 1, 2, 1, 5, 4, 5, 3, 5, 5, 5, 5, 4, 6, 2, 7, 5, 2, 5, 4, 1, 7, 2, 2, 5, 6), Social_Norms_SOB = c(6.25, 4, 5.25, 2.75, 4.5, 4.25, 2.5, 6.25, 5, 6.5, 5.25, 2.25, 5.5, 4.5, 5.5, 5.75, 3, 4.5, 5.75, 6.5, 4.5, 5.25, 5, 4.25, 2, 3.75, 5.5, 4.5, 6.5, 7, 1, 4, 3, 4.25, 4, 5.25, 4.25, 4.75, 4.5, 3.75, 7, 2, 5.5, 4, 5.25, 7, 7, 3.5, 4, 4.75, 4.75, 3, 6.5, 4.25, 3, 5.25, 1.25, 4.25, 5.25, 4.5, 4.5, 2.75, 5.75, 4.5, 5, 4.75, 6.25, 5.75, 6.25, 6, 5, 5.75, 4.5, 5, 4.5, 3, 2.5, 2.75, 6, 4, 5, 5, 3.75, 5.75, 3.75, 4, 4.75, 5.75, 3, 5, 4.75, 6.5, 6.5, 4.75, 1.25, 4, 4.75, 5, 3.75, 5.25), Egoistic_SOB = c(3.5, 6, 6, 3.75, 4.75, 5.25, 7, 7, 4.75, 6.25, 5.5, 4, 5.5, 5, 3.75, 5.75, 3.5, 4.5, 6.75, 6.75, 4, 6.25, 7, 2.25, 2, 4.5, 7, 3.5, 2.25, 7, 1.75, 3.5, 4.75, 4.25, 3, 7, 6.5, 7, 7, 2.5, 7, 2, 6.5, 4, 4.5, 7, 7, 4, 5.75, 5, 5.75, 4, 6.25, 6.75, 4, 6, 1.5, 5.25, 5.25, 4.25, 5.75, 1, 6.5, 5, 6, 6.25, 6.25, 6.75, 6.75, 5.75, 6.75, 5.25, 4.25, 5, 4.5, 6, 4, 4.25, 5.25, 4, 5.25, 4.75, 2.5, 6, 6.75, 5, 5, 5.75, 5.75, 6, 4.25, 7, 7, 4.75, 5.5, 4.25, 2.75, 5, 4.25, 7), Altruistic_SOB = c(6.66666666666667, 6, 6.66666666666667, 3.33333333333333, 5.66666666666667, 4, 7, 7, 6, 6, 6.33333333333333, 3.33333333333333, 5, 4.66666666666667, 5.33333333333333, 6, 3.33333333333333, 4.33333333333333, 7, 7, 4.33333333333333, 6.66666666666667, 5.66666666666667, 3.33333333333333, 2, 5, 7, 4, 3.66666666666667, 7, 1.66666666666667, 4, 4.33333333333333, 5, 3.66666666666667, 7, 5.66666666666667, 7, 5, 3.33333333333333, 7, 2, 6.33333333333333, 4, 6.33333333333333, 7, 7, 4, 4.66666666666667, 6, 6, 4, 6, 5.66666666666667, 3.33333333333333, 6, 1, 4.33333333333333, 4.66666666666667, 5, 5.66666666666667, 1, 6.33333333333333, 5, 6, 6, 7, 5.33333333333333, 5.66666666666667, 6, 7, 5.66666666666667, 4.33333333333333, 5, 7, 5.33333333333333, 3.33333333333333, 3, 5, 4, 6.66666666666667, 5, 3.33333333333333, 6, 3.66666666666667, 5, 5.66666666666667, 5.66666666666667, 5.66666666666667, 6.66666666666667, 4.33333333333333, 7, 7, 3.66666666666667, 2.66666666666667, 4.33333333333333, 3.66666666666667, 5.33333333333333, 4.33333333333333, 7), Dislike = c(4.33333333333333, 5.33333333333333, 4.33333333333333, 2.66666666666667, 4, 2.66666666666667, 1.33333333333333, 2, 3, 3, 1.33333333333333, 4.66666666666667, 4, 4, 3.66666666666667, 5.33333333333333, 5.33333333333333, 4, 3, 2, 4, 1.33333333333333, 2.66666666666667, 6, 5, 2, 4, 5.33333333333333, 7, 2.66666666666667, 6, 2.66666666666667, 5.33333333333333, 4.33333333333333, 4.66666666666667, 1.33333333333333, 1.66666666666667, 2, 2.66666666666667, 4.33333333333333, 1, 6, 4.33333333333333, 5, 4.33333333333333, 5, 4, 3.33333333333333, 2, 2.33333333333333, 5.33333333333333, 4.66666666666667, 1.66666666666667, 2, 5, 2.33333333333333, 6, 3.33333333333333, 5.33333333333333, 3.66666666666667, 2, 7, 3, 3.66666666666667, 3.66666666666667, 2, 2.33333333333333, 7, 1.33333333333333, 2, 1.66666666666667, 3, 6, 3.33333333333333, 1.66666666666667, 3, 5, 6.33333333333333, 3.33333333333333, 2.33333333333333, 3, 3, 4.33333333333333, 2.33333333333333, 2.33333333333333, 2.66666666666667, 6, 3.66666666666667, 3, 1.33333333333333, 4.66666666666667, 1, 2, 4, 3, 1.33333333333333, 3.66666666666667, 4, 3.66666666666667, 2), Change_Values = c(3.5, 4, 5, 4.5, 4, 3.5, 4, 4, 5, 4.5, 3.5, 4, 4, 4, 3.5, 4, 4.5, 5.5, 5, 3.5, 4.5, 3.5, 3, 3, 4, 5, 5.5, 4, 4, 4, 3.5, 4, 4.5, 2, 4, 4, 4.5, 1, 4, 3, 1, 4, 4, 4, 3.5, 4, 3, 4, 2.5, 3, 3, 3.5, 4, 2.5, 3, 4, 5.5, 6, 3.5, 4, 3.5, 3.5, 2.5, 4, 4, 3.5, 4.5, 5.5, 4, 4, 4, 4.5, 2.5, 4, 3.5, 4, 3, 6, 4.5, 2.5, 4, 3.5, 3, 4, 2, 4.5, 5, 6, 3.5, 4, 4, 2.5, 3.5, 2.5, 4, 4.5, 4.5, 5, 3.5, 3.5), Judge = c(3, 5, 4, 4, 1, 5, 3, 3, 3, 5, 1, 3, 5, 4, 4, 6, 4, 4, 5, 2, 4, 2, 2, 4, 3, 5, 7, 3, 6, 3, 1, 3, 1, 3, 2, 1, 4, 1, 1, 3, 7, 4, 2, 1, 1, 7, 1, 1, 4, 2, 4, 2, 1, 2, 1, 4, 4, 6, 2, 2, 1, 1, 5, 2, 4, 5, 4, 6, 6, 1, 3, 4, 4, 4, 2, 4, 1, 1, 3, 1, 2, 4, 3, 5, 1, 2, 5, 5, 5, 4, 4, 4, 4, 1, 1, 3, 5, 6, 1, 1), Judge_Gap = c(4, 5, 2, 4, 4, 2, 4, 5, 5, 5, 4, 4, 2, 4, 3, 3, 4, 5, 5, 3, 4, 4, 4, 4, 4, 4, 6, 4, 5, 4, 4, 4, 4, 4, 4, 4, 5, 4, 3, 4, 7, 4, 4, 4, 4, 1, 4, 4, 4, 4, 4, 4, 7, 4, 4, 4, 4, 5, 4, 4, 4, 4, 6, 4, 4, 5, 5, 6, 5, 4, 4, 4, 4, 4, 6, 4, 4, 4, 5, 4, 5, 4, 4, 5, 4, 4, 4, 6, 5, 4, 4, 4, 4, 4, 4, 4, 5, 5, 4, 4)), row.names = c(NA, -100L), class = c(tbl_df, tbl, data.frame))Please ignore this part. The algorithm is telling me to add more details. I am going to see if adding this sentence allows it to be posted."
+    ],
+    "titre": "\nRemove bold type from significant p-values when using tab_model()\n",
+    "number": "6/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "c#arraysdictionary"
+    ],
+    "Pseudo": "Michael",
+    "github_score_time": [
+        "        asked 8 mins agoShakeer HussainShakeer Hussain2,14477 gold badges2727 silver badges5151 bronze badges"
+    ],
+    "href": "/questions/76139358/leetcode-problem-remove-duplicates-from-sorted-array",
+    "contenus": [
+        "I am wondering why my solution showing wrong answer in LeetCode? Can someone help what went wrong in my solution?public class Solution {    public int RemoveDuplicates(int[] arr) {          var dic = new Dictionary<int,int>();            for (int i = 0; i < arr.Length - 1; i++)            {                if (!dic.ContainsKey(arr[i]))                {                    dic.Add(arr[i], i);                }            }            if (!dic.ContainsKey(arr[arr.Length-1]))            {                dic.Add(arr[arr.Length - 1], dic.Count-1);            }            return dic.Count;    }}"
+    ],
+    "titre": "\nLeetCode problem-Remove Duplicates from Sorted Array\n",
+    "number": "7/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "pythonlinuxflaskflask-session"
+    ],
+    "Pseudo": "melbez",
+    "github_score_time": [
+        "edited 5 mins agoBax66",
+        "        asked 9 mins agoBax66Bax661"
+    ],
+    "href": "/questions/76139355/flask-object-has-no-attribute-session-cookie-name",
+    "contenus": [
+        "I keep getting the error 'Flask' object has no attribute 'session_cookie_name' right at initialization on an app that used to work.I built a smaller test app to test it and noticed that if I remove the line app.config[SESSION_TYPE] = filesystem the error goes away. Problem is I need to use sessions in my Flask app and, since it is for testing, I would prefer to use the filesystem to store session data. here is my mini program for testing... I don't know what I am missing, this used to work fine and code examples online do it exactly this way but I keep getting the same error.This is the error I receivefrom flask import Flask, render_template,redirect, url_for, request, sessionfrom flask_session import Sessionapp = Flask(__name__)app.config[SESSION_PERMANENT] = Falseapp.config[SESSION_TYPE] = filesystemSession(app)@app.route(/)def index():    session[test] = test    return render_template ('index.html')This worked before. It is all of the sudden not working. I have tried installing a different version of Flask_Session. I have tried adding the SESSION_COOKIE_NAME to app.config before Session(app) even though I understand its default is session. Nothing so far has worked or changed the error message."
+    ],
+    "titre": "\n'Flask' object has no attribute 'session_cookie_name'\n",
+    "number": "8/48"
+}{
+    "nombre de vues": "2",
+    "type": [
+        "cocoapods"
+    ],
+    "Pseudo": "Shakeer Hussain",
+    "github_score_time": [
+        "        asked 9 mins agojaydevjaydev1,60155 gold badges1717 silver badges3030 bronze badges"
+    ],
+    "href": "/questions/76139354/error-cant-find-ruby-library-file-or-shared-library-cocoapods",
+    "contenus": [
+        "getting this error.I am not able to run pod install command while I have a proper cocoa pod install in my system , but when I am run gem which cocapods then its not showing me version of cocoa pods version .may I know what we have to do."
+    ],
+    "titre": "\nERROR: Can't find Ruby library file or shared library cocoapods\n",
+    "number": "9/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "javaandroid-studiogradleandroid-gradle-pluginandroid-library"
+    ],
+    "Pseudo": "Bax66",
+    "github_score_time": [
+        "        asked 9 mins agoTechno WorldTechno World3344 bronze badges"
+    ],
+    "href": "/questions/76139353/after-android-studio-flamingo-update-old-existing-project-graphkit-library-have",
+    "contenus": [
+        "* Exception is:org.gradle.api.GradleScriptException: A problem occurred evaluating script.at org.gradle.groovy.scripts.internal.DefaultScriptRunnerFactory$ScriptRunnerImpl.run(DefaultScriptRunnerFactory.java:93)at org.gradle.configuration.DefaultScriptPluginFactory$ScriptPluginImpl.lambda$apply$0(DefaultScriptPluginFactory.java:133)at org.gradle.configuration.DefaultScriptTarget.addConfiguration(DefaultScriptTarget.java:74)at org.gradle.configuration.DefaultScriptPluginFactory$ScriptPluginImpl.apply(DefaultScriptPluginFactory.java:136)at org.gradle.configuration.BuildOperationScriptPlugin$1.run(BuildOperationScriptPlugin.java:65)at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:29)at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:26)at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:157)at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:47)at org.gradle.internal.operations.DefaultBuildOperationExecutor.run(DefaultBuildOperationExecutor.java:68)at org.gradle.configuration.BuildOperationScriptPlugin.lambda$apply$0(BuildOperationScriptPlugin.java:62)at org.gradle.configuration.internal.DefaultUserCodeApplicationContext.apply(DefaultUserCodeApplicationContext.java:44)at org.gradle.configuration.BuildOperationScriptPlugin.apply(BuildOperationScriptPlugin.java:62)at org.gradle.api.internal.plugins.DefaultObjectConfigurationAction.applyScript(DefaultObjectConfigurationAction.java:156)at org.gradle.api.internal.plugins.DefaultObjectConfigurationAction.access$000(DefaultObjectConfigurationAction.java:43)at org.gradle.api.internal.plugins.DefaultObjectConfigurationAction$1.run(DefaultObjectConfigurationAction.java:76)at org.gradle.api.internal.plugins.DefaultObjectConfigurationAction.execute(DefaultObjectConfigurationAction.java:190)at org.gradle.api.internal.project.AbstractPluginAware.apply(AbstractPluginAware.java:49)at org.gradle.api.internal.project.ProjectScript.apply(ProjectScript.java:37)at org.gradle.api.Script$apply.callCurrent(Unknown Source)at build_2a0etp7lsav106gx99nryquet.run(H:\\Mindnotix\\Vdeliverz\\vdeliverz_vendor\\graphkit\\build.gradle:63)After android studio Flamingo update old existing project graphkit library have issue"
+    ],
+    "titre": "\nAfter android studio Flamingo update old existing project graphkit library have issue\n",
+    "number": "10/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "phphtmlbmi"
+    ],
+    "Pseudo": "jaydev",
+    "github_score_time": [
+        "        asked 14 mins agoEpik ProdukminsEpik Produkmins1",
+        "        answered 3 mins agoMohammad Shahnewaz SarkerMohammad Shahnewaz Sarker53555 silver badges1717 bronze badges",
+        "edited 2 mins ago",
+        "        answered 8 mins agoDanilo FagundesDanilo Fagundes31177 bronze badges"
+    ],
+    "href": "/questions/76139350/php-bmi-calculator-showing-incorrect-message",
+    "contenus": [
+        "I'm creating a BMI calculator with PHP and have run into some difficulties while testing. When I get a BMI equal to 18.5 it says it's underweight when it's supposed to say normal weight. I've tried many things to get the correct result but nothing works.type here<!DOCTYPE html><html lang=en><head>    <title>BMI</title>    <meta charset=utf-8 /></head><body>    <h1>        <?php            $feet = $_GET['feet'];            $inches = $_GET['inches'];            $weight = $_GET['pounds'];            $height = (float) $feet * 12 + (float) $inches;            $bmi = ($weight/($height * $height)) * 703;            if ($bmi < 18.5)                $result = Underweight;            else if ($bmi >= 18.5 && $bmi <= 24.9)                $result = Normal weight;            else if ($bmi > 24.9 && $bmi <= 29.9)                $result = Overweight;            else                $result = Obese;            printf(Your Height: %u' %u\\<br>Your Weight: %u lb<br>Your BMI is %.1f you are %s,$feet,$inches,$weight,$bmi,$result);        ?>    </h1></body><style>    h1 {        text-align:center;}</style></html>I've tried changing the conditionals for an hour and nothing has changed. What am I doing wrong?",
+        "Wrong question. Code Seems okay. Please check. Here is the proof:",
+        "In the current condition, it is checking if the BMI is greater than or equal to 18.5 and less than or equal to 24.9, which includes the exact value of 18.5. To fix this, you can change the condition to check that BMI is strictly above 18.5 and below 25If I understand correctly, see if it solves your problem. If not, I try another approach.    <html lang=en>        <head>            <title>BMI</title>            <meta charset=utf-8 />        </head>        <body>            <h1>                <?php                    $feet = $_GET['feet'];                    $inches = $_GET['inches'];                    $weight = $_GET['pounds'];                    $height = (float) $feet * 12 + (float) $inches;                    $bmi = ($weight/($height * $height)) * 703;if ($bmi < 18.5)    $result = Underweight;else if ($bmi >= 18.5 && $bmi <= 24.99)    $result = Normal weight;else if ($bmi > 24.99 && $bmi <= 29.9)    $result = Overweight;else    $result = Obese;                    printf(Your Height: %u' %u\\<br>Your Weight: %u lb<br>Your BMI is %.1f you are %s,$feet,$inches,$weight,$bmi,$result);                ?>            </h1>        </body>        <style>            h1 {                text-align:center;        }        </style>        </html>"
+    ],
+    "titre": "\nPHP BMI calculator showing incorrect message\n",
+    "number": "11/48"
+}{
+    "nombre de vues": "2",
+    "type": [
+        "phplaravellaravel-blade"
+    ],
+    "Pseudo": "Techno World",
+    "github_score_time": [
+        "        asked 17 mins agoPhenoxPhenox4555 bronze badges"
+    ],
+    "href": "/questions/76139346/paginate-the-photos-of-an-photoalbums",
+    "contenus": [
+        "I have created a PhotosAlbum program in Laravel 10. The original concept was on youtube for a long time created by Traversy Media. I would like to paginate the photos. I have already paginated the albums.Here are the appropriate files:<?phpnamespace App\\Http\\Controllers;use Illuminate\\Http\\Request;use App\\Models\\Album;class AlbumsController extends Controller{public function index(){  $albums = Album::with('photos')->orderby('name','asc')->paginate(8);  return view('albums.index')->with('albums', $albums);}public function create(){  return view('albums.create');}public function store(Request $request){   $this->validate($request, [   'name' => 'required',  //|unique:albums|regex:/(^[A-Z]\\w)/',   'cover_image' => 'required|dimensions:max_width=140,max_height=210', ]); $filenamewithExt = $request->file('cover_image')->getClientOriginalName(); $filename = pathinfo($filenamewithExt, PATHINFO_FILENAME); $extension = $request->file('cover_image')->getClientOriginalExtension(); $filetostore = $filename.'_'.time().'.'.$extension; $path = $request->file('cover_image')->storeAs('public/album_covers', $filetostore);      //Create album       $album = new Album;       $album->name = $request->input('name');       $album->cover_image = $filetostore;       $album->save();       return redirect('/albums/');  }  public function show($id){     $album = Album::with('Photos')->find($id);     return view('albums.show')->with('album', $album);   } }<?phpnamespace App\\Models;use Illuminate\\Database\\Eloquent\\Factories\\HasFactory;use Illuminate\\Database\\Eloquent\\Model;class Album extends Model{//use HasFactory;protected $fillable = array('name','cover_image');//create relationshippublic function photos(){return $this->hasMany('App\\Models\\Photo');  }}PhotoController and Model:<?phpnamespace App\\Http\\Controllers;use Illuminate\\Http\\Request;use App\\Models\\Photo;use Illuminate\\Support\\Facades\\Storage;class PhotosController extends Controller{ public function create($album_id){    return view('photos.create')->with('album_id', $album_id); } public function store(Request $request){   $this->validate($request, [   'set'  =>  ['required', 'unique:photos','regex:/(^[Set-]\\d+)/'],   'photo' => ['required', 'dimensions:max_width=110,max_height=165'] ]);   $filenamewithExt = $request->file('photo')->getClientOriginalName();   $filename = pathinfo($filenamewithExt, PATHINFO_FILENAME);   $extension = $request->file('photo')->getClientOriginalExtension();   $filetostore = $filename.'_'.time().'.'.$extension;   $path = $request->file('photo')->storeAs('public/photos/'.$request->input('album_id'), $filetostore);         //upload photo     $photo = new Photo;     $photo->album_id = $request->input('album_id');     $photo->set = $request->input('set');     $photo->description = $request->input('description');     $photo->photo = $filetostore;          $photo->save();      //$request->session()->flash('status', 'Photo Uploaded');                return redirect('/albums/'.$request->input('album_id'));   } public function show($id){   $photo = Photo::find($id);   return view('photos.show')->with('photo', $photo);}<?phpnamespace App\\Models;use Illuminate\\Database\\Eloquent\\Factories\\HasFactory;use Illuminate\\Database\\Eloquent\\Model;class Photo extends Model{//use HasFactory;protected $fillable = array('photo','set','description','album_id');  public function album(){     return $this->belongsTo('App\\Models\\Album');  }     }The blade file that shows the photos is in /albums/show.blade.phpHere is the show.blade php@extends('layouts.app')@section('content')<div class=container lg-10><h2>{{$album->name}}</h2><a class=btn btn-secondary sm href=/albums>Back</a> <a class=btn btn-primary sm href=/photos/create/{{$album->id}}>Upload Image</a> <hr> @if(count($album->photos)>0)    <div class=row pt-2 >     @foreach($album->photos as $photo)<div class=card mb-4 border-primary ml-3 style=max-width: 320px;>    <div class=row g-0>   <div class=col-md-4 pt-2 pb-2 pr-3>     <img class=rounded mx-auto src=../storage/photos/{{$photo->album_id}}/{{$photo->photo}} alt=>   </div>      <div class=col-md-8>     <div class=card-body border-primary>       <h5 class=card-title ml-2>{{$photo->set}}</h5>           <small>Size: {{$photo->size}}</small><br>              <a href=../photos/{{$photo->id}}/edit>Edit</a>               <a href=../photos/{{$photo->id}}/show>Delete</a >             </div>          </div>         </div>         @endforeach      </div>    </div>    @else   <p>No Photos to Display</p> @endif@endsection Any ideas or help would be much appreciated, Thank you"
+    ],
+    "titre": "\nPaginate the photos of an PhotoAlbums\n",
+    "number": "12/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "c++linuxwindowsshell"
+    ],
+    "Pseudo": "Epik Produkmins",
+    "github_score_time": [
+        "        asked 19 mins agodevsandbandsdevsandbands1"
+    ],
+    "href": "/questions/76139343/c-windows-linux-launch-an-external-program-with-commandline-args-without",
+    "contenus": [
+        "I am building a shell with C++ (for both Windows and Linux), and I need to be able to launch a program (as you would in a shell like Bash or Fish etc) and pass arguments to it, but I don't want to use system() for the following reason:system() uses the System shell, so this wouldn't work if my shell is the system shelland according from another stackoverflow user:It is resource heavyIt defeats security -- you don't know you it's a valid command or does the same thing on every system, you could even start up programs you didn't intend to start up. The danger is that when you directly execute a program, it gets the same privileges as your program -- meaning that if, for example, you are running as system administrator then the malicious program you just inadvertently executed is also running as system administrator.Anti virus programs hate it, your program could get flagged as a virus.I heard about CreateProcessA() for windows, but the documentation is insanely confusing to me and I dont think you can even pass arguments to it.I tried system() only to realize it uses the system's default shell, so if my shell is the default shell, it wont work at allI tried CreateProcessA(), but the documentation was too confusing for me and it didnt look like I could pass args to the program it launches, and on top of that, I still have to find a function like that for Linux"
+    ],
+    "titre": "\nC++ (Windows & Linux): Launch an external program with commandline args without system() function\n",
+    "number": "13/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "visual-studiounity3dunityscript"
+    ],
+    "Pseudo": "Phenox",
+    "github_score_time": [
+        "        asked 24 mins agonuggetnugget533 bronze badges"
+    ],
+    "href": "/questions/76139338/i-have-bad-code-plz-hepl-me-my-code-is-very-bad-this-is-not-a-joke",
+    "contenus": [
+        "Closed. This question needs details or clarity. It is not currently accepting answers.                    Want to improve this question? Add details and clarify the problem by editing this post.Closed 18 mins ago.\r                        Improve this question\r                    im programming in unity and i'm making an animation system for my player. there are no errors, everything is working as it should, the problem is that my code is very inefficient. This is due to me having to do like 2 for loops each frame at least, because i first need to have an array of animations that need to not be playing for me to be able to play a certain animation, for instance with my idle animation i have to go through an array of animations {attack, walk, sheath sword, jump, fall} just to be able to play my idle animation if none of those animations are playing. the second for loop is that i have to go through an array of animations to set all of the animations i don't want to play to false, so for example if an animation is not in the array of animations that i want to check to be able to play my idle animation, like if i want to stop attacking if i go idle, i would have to loop through all the attack animations and set them to false.In summary, the first for loop is for checking animations aren't playing before playing a different one, and the second for loop is to set all animations i dont want to play while the current animation is playing to false."
+    ],
+    "titre": "\ni have bad code plz hepl me my code is very bad this is not a joke [closed]\n",
+    "number": "14/48"
+}{
+    "nombre de vues": "2",
+    "type": [
+        "egovernment"
+    ],
+    "Pseudo": "devsandbands",
+    "github_score_time": [
+        "        asked 24 mins agoAmir AL MuslimeenAmir AL Muslimeen111 bronze badge"
+    ],
+    "href": "/questions/76139337/how-do-you-resize-images-for-3d-website-banners",
+    "contenus": [
+        "The official webpage of the Islamic Sultanate of Qarsherskiy is being updated and I am being paid 2,000 USD to resize the image for the banner above the website. Only problem is, it is a 3D image and they want me to use tools to do it on the site.I tried everything but nothing seems to work."
+    ],
+    "titre": "\nHow do you resize images for 3D website banners?\n",
+    "number": "15/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "gosshremote-server"
+    ],
+    "Pseudo": "nugget",
+    "github_score_time": [
+        "        asked 24 mins agoHarmandeep DubbHarmandeep Dubb111 bronze badge"
+    ],
+    "href": "/questions/76139336/golang-ssh-how-to-run-multiple-commands-on-the-same-session-over-a-period-of-t",
+    "contenus": [
+        "I am trying to run multiple ssh commands using the ssh library in go over a period of time, meaning that I won't know the commands to run all at once, instead the user will input them when they see feedback of the previous command exactly like running a shell locally on terminal.As an initial attempt I tried keeping the session running in my code, and used session.run('command') to execute commands, but the session.run function has a limitation of only being able to run one command per session.Spinning up a new session every time will not work because I need the shell to remember the context that the previous command has invoked on the device that is being using to ssh into.Any guidance is much appreciated.Thanks in advance!"
+    ],
+    "titre": "\nGolang ssh - how to run multiple commands on the same session over a period of time?\n",
+    "number": "16/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "pythonpython-imaging-librarytiffsteganographyinvalid-argument"
+    ],
+    "Pseudo": "Amir AL Muslimeen",
+    "github_score_time": [
+        "        asked 26 mins agoAmiel MalicsiAmiel Malicsi1"
+    ],
+    "href": "/questions/76139334/compressing-tiff-and-bmp-images-oserror-errno-22-invalid-argument-image-ti",
+    "contenus": [
+        "Good day! I am currently working on a steganography project. I am testing the project using different file formats. The project works with JPG and PNG files but not with BMP and TIFF.I am using PIL particularly, Image.open() and save().Here's the error message:`Traceback (most recent call last):  File C:\\Users\\aaaaaa\\OneDrive\\Desktop\\st.py, line 532, in <module>    main()  File C:\\Users\\aaaaaa\\OneDrive\\Desktop\\st.py, line 475, in main    compressed.save(comp.tif)      File             C:\\Users\\aceam\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\\LocalCache\\l    ocal-packages\\Python310\\site-packages\\PIL\\Image.py, line 2429, in save    fp = builtins.open(filename, w+b)OSError: [Errno 22] Invalid argument: 'comp.tif'`I would like the program to save the TIFF/BMP file after hiding data. However, it seems that the TIFF/BMP is not read in the first place that's why the pixels aren't changing and the whole image can't be saved.I also tried tifffile but it is not working as well.Can somebody help me with this problem. I kept looking for solutions online but I can't find one that works. Thank you very much in advanced :)"
+    ],
+    "titre": "\nCompressing TIFF and BMP Images: OSError: [Errno 22] Invalid argument: 'image.tif'\n",
+    "number": "17/48"
+}{
+    "nombre de vues": "6",
+    "type": [
+        "python-3.x"
+    ],
+    "Pseudo": "Harmandeep Dubb",
+    "github_score_time": [
+        "edited 27 mins agobob charliepoo",
+        "        asked 28 mins agobob charliepoobob charliepoo322 bronze badges"
+    ],
+    "href": "/questions/76139332/how-to-teplace-each-iteration-of-a-pattern-within-a-string",
+    "contenus": [
+        "I want to replace each iteration of a pattern within a string with =REPLACED and done one at a time.replace.pyimport rea = http://www.blah.com/?=wah?=stuff.something # String being worked onb = = # Pattern to findz = a # Create a copy of ax = REPLACED # Thing to replace withif b not in z:    print(NOT FOUND)else:    start_indc = [m.start() for m in re.finditer('(?=' + b + ')', a)] # Find the location for each pattern found.    for m in range(len(start_indc)):        print(fA:{a})        print(fX:{x})        print(fB:{b})        print(fZ:{z})        z = re.sub(b, b + x, z) # Here is the replacement        print(fA:{a})        print(fX:{x})        print(fB:{b})        print(fZ:{z})        print(---------------------------------------------------------------)        del z # Flush z        z = a # Set z to a The expected result should be:http://www.blah.com/?=REPLACEDwah?=stuff.somethinghttp://www.blah.com/?=wah?=REPLACEDstuff.something"
+    ],
+    "titre": "\nHow to teplace each iteration of a pattern within a string?\n",
+    "number": "18/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "laravelflutterapi"
+    ],
+    "Pseudo": "Amiel Malicsi",
+    "github_score_time": [
+        "edited 18 mins agoLeslie Joe",
+        "        asked 28 mins agoLeslie JoeLeslie Joe25133 silver badges1616 bronze badges"
+    ],
+    "href": "/questions/76139331/bad-hostname-provided-notfoundhttpexception-thrown-in",
+    "contenus": [
+        "I got this error NotFoundHttpException raised with a message say Bad hostname provided even though it run locally when trying to save data from Flutter using Dio package but when used Postman, it worked fine no error raised. Have been workaround but no solution to this problem. Any idea why this error occurred?Code:public function store(StoreSaleRequest $request)    {$waybillNumber = GenerateUniqueId::create('sales', 'FMC', $request->customer_type === 'regular' ? 'R' : 'D', 7, true);                        $customer = $this->createOrUpdateCustomer($request);                $sale = Sale::create([                'customer_id' => $customer->id,                'waybill_number' => $waybillNumber,                'amount_paid' => $request->amount_paid,                'cod' => $request->cod,                'date' => $request->date ?? now(),                'total_price' => $request->total_price,                'delivery_fee' => $request->delivery_fee,                'subtotal' => $request->subtotal,                'transaction_id' => $request->transaction_id,                'customer_type' => $request->customer_type,                'discount' => $request->discount,                'payment_type' => $request->payment_type,            ]);                $sale->salesItems()->createMany($request->items);                $this->updateStock($customer->id, $request->items);                if ($sale->customer) {                SmsJob::dispatch(                    config('services.default_sms'),                    $sale->customer->phone,                    message,                )                    ->delay(now()->addSeconds(20));            }                $sale->load('salesItems');                return response()->json([                'status' => true,                'message' => 'Sale saved successfully',            ]);        }Error:message: Bad hostname provided., exception: Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException, file: /Users/okmans/Projects/FM Cosmetics/app/erp project/sports/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php, line: 414, trace: [{file: /Users/okmans/Projects/FM Cosmetics/app/erp project/sports/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php, line: 384, function: prepareException, class: Illuminate\\Foundation\\Exceptions\\Handler, type: ->}, {file: /Users/okmans/Projects/FM Cosmetics/app/erp project/sports/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php, line: 51, function: render, class: Illuminate\\Foundation\\Exceptions\\Handler, type: ->}, {file: /Users/okmans/Projects/FM Cosmetics/app/erp project/sports/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php, line: 185, function: handleException, class: Illuminate\\Routing\\Pipeline, type: ->}, {file: /Users/okmans/Projects/FM Cosmetics/app/erp project/sports/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php, line: 39, function: Illuminate\\Pipeline\\{closure}, class: Illuminate\\Pipeline\\Pipeline, type: ->}, {file: /Users/okmans/Projects/FM Cosmetics/app/erp project/sports/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php, line: 180, function: handle, class: Illuminate\\Http\\Middleware\\TrustProxies, type: ->}, {file: /Users/okmans/Projects/FM Cosmetics/app/erp project/sports/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php, line: 116, function: Illuminate\\Pipeline\\{closure}, class: Illuminate\\Pipeline\\Pipeline, type: ->}, {file: /Users/okmans/Projects/FM Cosmetics/app/erp project/sports/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php, line: 175, function: then, class: Illuminate\\Pipeline\\Pipeline, type: ->}, {file: /Users/okmans/Projects/FM Cosmetics/app/erp project/sports/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php, line: 144, function: sendRequestThroughRouter, class: Illuminate\\Foundation\\Http\\Kernel, type: ->}, {file: /Users/okmans/Projects/FM Cosmetics/app/erp project/sports/public/index.php, line: 51, function: handle, class: Illuminate\\Foundation\\Http\\Kernel, type: ->}, {file: /Users/okmans/Projects/FM Cosmetics/app/erp project/sports/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php, line: 16, function: require_once}]}"
+    ],
+    "titre": "\nBad Hostname provided - NotFoundHttpException thrown in\n",
+    "number": "19/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        " asp.netazureasp.net-coreazure-web-app-service"
+    ],
+    "Pseudo": "bob charliepoo",
+    "github_score_time": [
+        "        asked 29 mins agoEishan SharmsEishan Sharms166 bronze badges"
+    ],
+    "href": "/questions/76139330/is-it-possible-to-deploy-a-code-first-asp-net-core-web-api-to-azure-web-services",
+    "contenus": [
+        "I have created a code first web API project in Visual Studio for mac. For deployment i have selected azure app service but i am not able to find the option to run my code first migrations. Is it possible to execute the migrations through mac?I have already setup and deployed the API on the azure app service but am not able to find any documentation on how to run code first migrations."
+    ],
+    "titre": "\nIs it possible to deploy a code first ASP.NET CORE web API to azure web services on macbook?\n",
+    "number": "20/48"
+}{
+    "nombre de vues": "2",
+    "type": [
+        "mysqlsnapshotdebeziumdebezium-enginedebezium-server"
+    ],
+    "Pseudo": "Leslie Joe",
+    "github_score_time": [
+        "edited 22 mins agoarsenics",
+        "        asked 29 mins agoarsenicsarsenics1311 silver badge66 bronze badges"
+    ],
+    "href": "/questions/76139328/on-debezium-startup-initial-snapshot-excludes-existing-triggers-functions-and",
+    "contenus": [
+        "I created a database called dictionary as my master DB which has 2 tables(state and employees). In addition to the tables, I also added few functions, triggers, stored procedures, indexes. I am hoping to replicate everything to a slave. On debezium startup, it creates a snapshot of the 2 tables in the database. It copies both the tables and I can see any indexes created on these tables. But it excludes the triggers, stored procedures and functions. Surprisingly, any functions or triggers that get added after debezium start up I can see the change events captured and the data replicated. Any help on this is greatly appreciated.The connector config is:io.debezium.config.Configuration.create()                .with(name, my-sql-connector)                .with(connector.class, io.debezium.connector.mysql.MySqlConnector)                .with(offset.storage,com.cdc.util.CustomFileOffsetBackingStore)                .with(offset.storage.file.filename, offsetStorageFile.getAbsolutePath())                .with(time.precision.mode, connect)                .with(offset.flush.interval.ms, 0)                .with(database.hostname, masterDbHost)                .with(database.port, masterDbPort)                .with(database.user, masterDbUsername)                .with(database.password, masterDbPassword)                .with(topic.prefix, dictionary-db)                .with(include.schema.changes, true)                .with(database.server.id, 2)                .with(database.connectionTimeZone, America/New_York)                .with(server.id, 85744)                .with(server.name, dictionary-db1)                .with(schema.history.internal, io.debezium.storage.file.history.FileSchemaHistory)                .with(schema.history.internal.file.filename, schemaHistoryFile)                .build();Connector logs:2023-04-29 22:25:28.299  INFO 68241 --- [rce-coordinator] .d.r.RelationalSnapshotChangeEventSource : Snapshot step 1 - Preparing2023-04-29 22:25:28.300  INFO 68241 --- [rce-coordinator] .d.r.RelationalSnapshotChangeEventSource : Snapshot step 2 - Determining captured tables2023-04-29 22:25:28.300  INFO 68241 --- [rce-coordinator] i.d.c.m.MySqlSnapshotChangeEventSource   : Read list of available databases2023-04-29 22:25:28.302  INFO 68241 --- [rce-coordinator] i.d.c.m.MySqlSnapshotChangeEventSource   :     list of available databases is: [dictionary, information_schema, mysql, performance_schema, sys]2023-04-29 22:25:28.302  INFO 68241 --- [rce-coordinator] i.d.c.m.MySqlSnapshotChangeEventSource   : Read list of available tables in each database2023-04-29 22:25:28.313  INFO 68241 --- [rce-coordinator] i.d.c.m.MySqlSnapshotChangeEventSource   :    snapshot continuing with database(s): [dictionary, information_schema, performance_schema, mysql, sys]2023-04-29 22:25:28.314  INFO 68241 --- [rce-coordinator] .d.r.RelationalSnapshotChangeEventSource : Adding table dictionary.employees to the list of capture schema tables2023-04-29 22:25:28.314  INFO 68241 --- [rce-coordinator] .d.r.RelationalSnapshotChangeEventSource : Adding table dictionary.state to the list of capture schema tables2023-04-29 22:25:28.314  INFO 68241 --- [rce-coordinator] .d.r.RelationalSnapshotChangeEventSource : Snapshot step 3 - Locking captured tables [dictionary.employees, dictionary.state]2023-04-29 22:25:28.315  INFO 68241 --- [rce-coordinator] i.d.c.m.MySqlSnapshotChangeEventSource   : Flush and obtain global read lock to prevent writes to database2023-04-29 22:25:28.317  INFO 68241 --- [rce-coordinator] .d.r.RelationalSnapshotChangeEventSource : Snapshot step 4 - Determining snapshot offset2023-04-29 22:25:28.320  INFO 68241 --- [rce-coordinator] i.d.c.m.MySqlSnapshotChangeEventSource   : Read binlog position of MySQL primary server2023-04-29 22:25:28.321  INFO 68241 --- [rce-coordinator] i.d.c.m.MySqlSnapshotChangeEventSource   :     using binlog 'binlog.000005' at position '167491' and gtid ''2023-04-29 22:25:28.321  INFO 68241 --- [rce-coordinator] .d.r.RelationalSnapshotChangeEventSource : Snapshot step 5 - Reading structure of captured tables2023-04-29 22:25:28.321  INFO 68241 --- [rce-coordinator] i.d.c.m.MySqlSnapshotChangeEventSource   : All eligible tables schema should be captured, capturing: [dictionary.employees, dictionary.state]2023-04-29 22:25:28.544  INFO 68241 --- [rce-coordinator] i.d.c.m.MySqlSnapshotChangeEventSource   : Reading structure of database 'dictionary'2023-04-29 22:25:28.583  INFO 68241 --- [rce-coordinator] .d.r.RelationalSnapshotChangeEventSource : Snapshot step 6 - Persisting schema history2023-04-29 22:25:28.600  INFO 68241 --- [rce-coordinator] i.d.c.m.MySqlSnapshotChangeEventSource   : Releasing global read lock to enable MySQL writes2023-04-29 22:25:28.600  INFO 68241 --- [rce-coordinator] i.d.c.m.MySqlSnapshotChangeEventSource   : Writes to MySQL tables prevented for a total of 00:00:00.2832023-04-29 22:25:28.600  INFO 68241 --- [rce-coordinator] .d.r.RelationalSnapshotChangeEventSource : Snapshot step 7 - Snapshotting data2023-04-29 22:25:28.601  INFO 68241 --- [rce-coordinator] .d.r.RelationalSnapshotChangeEventSource : Snapshotting contents of 2 tables while still in transaction2023-04-29 22:25:28.601  INFO 68241 --- [rce-coordinator] .d.r.RelationalSnapshotChangeEventSource : Exporting data from table 'dictionary.employees' (1 of 2 tables)2023-04-29 22:25:28.601  INFO 68241 --- [rce-coordinator] .d.r.RelationalSnapshotChangeEventSource :     For table 'dictionary.employees' using select statement: 'SELECT `employee_id`, `first_name`, `last_name`, `date_of_birth`, `phone_number`, `junk` FROM `dictionary`.`employees`'2023-04-29 22:25:28.666  INFO 68241 --- [rce-coordinator] .d.r.RelationalSnapshotChangeEventSource :     Finished exporting 1004 records for table 'dictionary.employees'; total duration '00:00:00.065'2023-04-29 22:25:28.666  INFO 68241 --- [rce-coordinator] .d.r.RelationalSnapshotChangeEventSource : Exporting data from table 'dictionary.state' (2 of 2 tables)2023-04-29 22:25:28.666  INFO 68241 --- [rce-coordinator] .d.r.RelationalSnapshotChangeEventSource :     For table 'dictionary.state' using select statement: 'SELECT `id`, `name`, `description`, `capital`, `area_code` FROM `dictionary`.`state`'2023-04-29 22:25:28.671  INFO 68241 --- [rce-coordinator] .d.r.RelationalSnapshotChangeEventSource :     Finished exporting 3 records for table 'dictionary.state'; total duration '00:00:00.005'2023-04-29 22:25:28.672  INFO 68241 --- [rce-coordinator] .d.p.s.AbstractSnapshotChangeEventSource : Snapshot - Final stage2023-04-29 22:25:28.672  INFO 68241 --- [rce-coordinator] .d.p.s.AbstractSnapshotChangeEventSource : Snapshot completed"
+    ],
+    "titre": "\nOn Debezium startup, initial snapshot excludes existing triggers, functions and other object types\n",
+    "number": "21/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "unity3dcollision"
+    ],
+    "Pseudo": "Eishan Sharms",
+    "github_score_time": [
+        "        asked 29 mins agoAmoghUrsAmoghUrs111 bronze badge"
+    ],
+    "href": "/questions/76139326/in-my-unity-i-am-using-ontriggerenter2d-for-collision-for-a-bullet-and-plane-but",
+    "contenus": [
+        "In the following code,using System;using System.Collections;using System.Collections.Generic;using UnityEngine;using UnityEngine.UI;public class Bullet : MonoBehaviour{    public Rigidbody2D rb;    public int coins;    void Start()    {    }    // Update is called once per frame    void Update()    {        rb.velocity = new Vector2(0f, 8f);    }    private void OnTriggerEnter2D(Collider2D other)    {        if (other.gameObject.CompareTag(Plane))        {            coins += 5;        }    }}in the OnTriggerEnter2D function I compare the bullet and the plane but the coins only increase by 5 once. So if the bullet and the plane collides again it is still 5 and yes I have assigned the tags.I tried putting the same result to other objects like the plane and player but the same result occured."
+    ],
+    "titre": "\nIn my Unity I am using OnTriggerEnter2D for collision for a bullet and plane but the result I am inputing in the condition occurs once\n",
+    "number": "22/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "gogo-fiber"
+    ],
+    "Pseudo": "arsenics",
+    "github_score_time": [
+        "        asked 30 mins agox80486x804866,38955 gold badges4747 silver badges108108 bronze badges"
+    ],
+    "href": "/questions/76139324/fiber-handler-accepting-requests-for-the-wrong-content-type",
+    "contenus": [
+        "I'm building a simple RESTful API using Fiber 2.44.0 and Go 1.20. I'm currently testing if I can enforce the acceptable content for a given handler (something very common), but it looks like I'm doing something wrong, or fiber.Ctx.Accepts doesn't quite work the way I'm expecting.This is a very simple route I have defined. Notice the usage of ctx.Accepts...but it doesn't really matter what Accept HTTP header I use, all requests go through.// app.gofunc main() {    config := fiber.Config{        StrictRouting: true,    }    app := fiber.New(config)    app.Use(logger.New(), recover.New())    app.Get(/, handlers.RootHandler)    log.Fatal(app.Listen(:8080))}// ============================================================================// handlers/handlers.gofunc RootHandler(ctx *fiber.Ctx) error {    ctx.Accepts(fiber.MIMETextPlain, fiber.MIMETextPlainCharsetUTF8)    ctx.Set(fiber.HeaderContentType, ctx.GetReqHeaders()[fiber.HeaderAccept])    return ctx.Status(fiber.StatusOK).SendString(Hello, world!)}Is there a way to avoid such behavior and configure the handlers/routes properly?"
+    ],
+    "titre": "\nFiber handler accepting requests for the wrong content type\n",
+    "number": "23/48"
+}{
+    "nombre de vues": "4",
+    "type": [
+        "supabasefacebook-authentication"
+    ],
+    "Pseudo": "AmoghUrs",
+    "github_score_time": [
+        "        asked 30 mins agoRyan ClareRyan Clare4355 bronze badges",
+        "        answered 17 mins agoFarkhod AbdukodirovFarkhod Abdukodirov48522 silver badges1818 bronze badges"
+    ],
+    "href": "/questions/76139323/how-can-i-get-a-larger-profile-image-from-facebook",
+    "contenus": [
+        "I'm using Supabase in a React Native project with Expo.  I'm using the Facebook auth provider.  I can login and I get a JWT.  If I decode the JWT I see an avatar_url field with a url to the profile image, but it is only 50x50 pixels.  How can I get a larger image.  If I simply change the width and height in the returned url, it doesn't work.",
+        "By default avatar_url returns smal image 50x50 pixels. If you want larger image you should include picture field in your request to the Graph API as following:import{createClient} from '@supabase/supabase-js';const supabase = createClient('https://sample_url.supabase.co', 'supabase_key');const{user} = await supabase.auth.signInWithProvider({              provider: 'facebook');const{data: {url}} = await supabase.from('profiles').select(            'avatar_url, picture').eq('id', user.id).single();const avatarUrl = url.replace('50x50', '200x200');"
+    ],
+    "titre": "\nHow can I get a larger profile image from facebook\n",
+    "number": "24/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "pythonnumpyimage-processingrgb"
+    ],
+    "Pseudo": "x80486",
+    "github_score_time": [
+        "        asked 32 mins agosomeonesomeone10322 bronze badges"
+    ],
+    "href": "/questions/76139320/how-do-i-reshape-an-rgb-image-in-the-form-of-a-numpy-array-into-its-channels",
+    "contenus": [
+        "I have an RGB array of an image of the shape (x, y, 3).How do i separate it into it's separate RGB channels?for example, if i had the array (of shape (2, 2, 3)):[0 1 2] [3 4 5][6 7 8] [9 10 11]how do i turn it into the arrays:r = [0, 3, 6, 9]g = [1, 4, 7, 10]b = [2, 5 ,8, 11]i tried to do:array.reshape(3, x, y)r = array[0]g = array[1]b = array[2]but it puts the values in in the same order they were in before instead of the order i want. that would turn the array i used for the last example into the arrays:r = [0, 1, 2, 3]g = [4, 5, 6, 7]b = [8, 9, 10, 11]"
+    ],
+    "titre": "\nHow do i reshape an RGB image in the form of a numpy array into it's channels?\n",
+    "number": "25/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "javascripthtmlflaskmodal-dialogmodalviewcontroller"
+    ],
+    "Pseudo": "Ryan Clare",
+    "github_score_time": [
+        "        asked 32 mins agoTimoumiTimoumi2133 bronze badges"
+    ],
+    "href": "/questions/76139319/how-to-display-multiple-modals-based-on-unique-id",
+    "contenus": [
+        "I'm using flask and python for the backend to create a simple webpage and I'm trying to add a modal for each movie when clicking on watch later button but although I have included the Javascript file properly I get this error 'Uncaught ReferenceError: openModal is not defined    at HTMLButtonElement.onclick (trending:299:103)'trending.html`<div class=temp>            {% for row_grp in rows %}                <div class=newsection>                    {% for row in row_grp%}                        {% if loop.index0 % 3 == 0 %}                            <div>                                <p class=newsp>{{ row_grp[0].category }}</p>                            </div>                        {% endif %}                        <div class=subsec>                            <div class=imgcontainer>                                <img src={{ row.poster }}>                                <div class=descontainer>                                    <div>                                        <h3>{{ row.title }}</h3>                                    </div>                                    <div class=newsdet>                                        <p>Year: {{ row.year }} | Rating: {{row.rating}} </p>                                    </div>                                    <div class=newsdet>                                        <p>Duration: {{ row.duration }} mn</p>                                    </div>                                    <div class=newsdet>                                        <p>Class: {{ row.class }} </p>                                    </div>                                    <div class=wlbtn>                                        <button onclick=openModal('{{ row.trailer }}') class=watchtrbtn>Watch Trailer</button>                                    </div>                                </div>                            </div>                                                    </div>                    {% endfor %}                </div>            {% endfor %}                    {% for row_grp in rows %}                {% for row in row_grp%}                    <div id=modal-{{ row.trailer }} class=modal>                        <div class=modal-content>                            <span class=close onclick=closeModal('{{ row.trailer }}')>&times;</span>                            <iframe width=560 height=315 src=https://www.youtube.com/embed/{{ row.trailer }} frameborder=0 allow=accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture allowfullscreen></iframe>                        </div>                    </div>                {% endfor %}            {% endfor %}`trialModal.js`document.addEventListener('DOMContentLoaded', function signIn() // Thus, The DOMContentLoaded event is fired by the browser when the DOM tree has been constructed.// The addEventListener method is executed when the specified event (DOMContentLoaded) occurs.{    function openModal(id) {        document.getElementById(id).style.display = block;      }            function closeModal(id) {        document.getElementById(id).style.display = none;      }});`"
+    ],
+    "titre": "\nhow to display multiple modals based on unique id\n",
+    "number": "26/48"
+}{
+    "nombre de vues": "10",
+    "type": [
+        "cssreactjscss-positionpositioning"
+    ],
+    "Pseudo": "someone",
+    "github_score_time": [
+        "        asked 32 mins agoCoding CubedCoding Cubed111 bronze badge",
+        "        answered 3 mins agoAngYCAngYC2,49155 silver badges1818 bronze badges"
+    ],
+    "href": "/questions/76139318/error-with-css-position-relative-position-absolute-etc",
+    "contenus": [
+        "I am trying to make a portfolio website. However, there is a CSS positioning error that I am encountering. I was wondering, with keeping the image inside of the 'container', so i can center it, how I could scoot it down a little bit.import ./App.css;export default function App() {  return (    <div className=App>      <div className=container>        <div className=text-container>          <h1>Hey, I'm <span>Jaxson</span>.</h1>          <p>I am a <u>13 year old</u> front-end developer. I am top of my class in computer programming. I am know: JavaScript, HTML, CSS, Java, and Python. I am learning React JS and Kotlin. I also have joined the lego robotics team, and coded my Stem Tank (Science Fair) project using an Arduino Uno.</p>        </div>        <div className=image-container>          <img src=https://mail.google.com/mail/u/1?ui=2&ik=417fae867b&attid=0.1.1&permmsgid=msg-f:1764564355309681295&th=187cfdee9d8cba8f&view=fimg&fur=ip&sz=s0-l75-ft&attbid=ANGjdJ8XCKr1gjbLPb5wVB7i2eN66jk6W7ZrdvifuuNWQcPW9ndJ7taOUyxM0YTgBK33mWCfVe2RGtiz7rLlUC_-pxRp5MuDFZzBykhX6bv7f_oGtA3BD1UK5HAmSN8&disp=emb></img>        </div>      </div>    </div>  )}@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Quicksand&display=swap');html {     min-height: 100%;}body {     height: 100%;     width: 100%;     background-color: #191a1d;}h1 {     color: #f6f5ff;     font-family: Quicksand;}p {     color: rgb(212, 212, 212);     font-family: Poppins;     font-weight: 200;}h1, p {     width: 450px;}.container {     position: absolute;     left: 50%;     top: 50%;     transform: translate(-50%, -50%);}span {     background-image: linear-gradient(to right, #dd5e89, #f7bb97);     background-clip: text;     -webkit-text-fill-color: transparent;}img {     height: 250px;     border-radius: 10px;     position: relative;}.text-container, .image-container {     display: inline-block;     border: 1px dashed red;}.image-container {     }<3I was trying to give it some extra margin or padding but that didn't work. Help!",
+        "You might want to refer to this StackOverflow answer of using flexbox to center your element: https://stackoverflow.com/a/19461564/8888888The general idea is you need to have your parent element set to flexbox with display: flex, then you can align the children with the other flexbox properties.@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Quicksand&display=swap');.App {  min-height: 100vh;  display: flex;  align-items: center;  justify-content: center;}.container {  display: flex;  align-items: center;  justify-content: center;}/* Other existing CSS below */html {  height: 100%;}body {  min-height: 100%;  width: 100%;  background-color: #191a1d;  margin: 0;}h1 {  color: #f6f5ff;  font-family: Quicksand;}p {  color: rgb(212, 212, 212);  font-family: Poppins;  font-weight: 200;}h1,p {  width: 450px;}span {  background-image: linear-gradient(to right, #dd5e89, #f7bb97);  -webkit-background-clip: text;  background-clip: text;  -webkit-text-fill-color: transparent;}img {  height: 250px;  border-radius: 10px;  position: relative;}<div class=App>  <div class=container>    <div class=text-container>      <h1>Hey, I'm <span>Jaxson</span>.</h1>      <p>I am a <u>13 year old</u> front-end developer. I am top of my class in computer programming. I am know: JavaScript, HTML, CSS, Java, and Python. I am learning React JS and Kotlin. I also have joined the lego robotics team, and coded my Stem Tank        (Science Fair) project using an Arduino Uno.</p>    </div>    <div class=image-container>      <img src=https://placekitten.com/250/250 />    </div>  </div></div>"
+    ],
+    "titre": "\nError with CSS position: relative, position: absolute, etc\n",
+    "number": "27/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "nginxhaproxy"
+    ],
+    "Pseudo": "Timoumi",
+    "github_score_time": [
+        "        asked 39 mins agobarnyard9barnyard9111 bronze badge"
+    ],
+    "href": "/questions/76139310/how-do-i-create-a-nginx-server-in-centos",
+    "contenus": [
+        "https://www.centlinux.com/2018/08/haproxy-configure-http-load-balancer-centos-7.htmlI'm trying to follow this tutorial and wondering how could I create a server in centos like they mention in that tutorial.I've tried reading the article time and again."
+    ],
+    "titre": "\nHow do I create a nginx server in centos?\n",
+    "number": "28/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "netlifynetlify-function"
+    ],
+    "Pseudo": "Coding Cubed",
+    "github_score_time": [
+        "        asked 40 mins agoDuy HungDuy Hung111 bronze badge"
+    ],
+    "href": "/questions/76139309/error-incorrect-name-functions-when-deploy-to-netlify",
+    "contenus": [
+        "I was deploy my project to Netlify but always got issue: Incorrect function names. Name should consist of only alphanumeric characters, hyphen & underscores. I checked all of functions that i wrote but cannot found any problems at the function's name. Is there any function that i can't find?Here are my source code: https://github.com/DuyHung03/e-shop"
+    ],
+    "titre": "\nError incorrect name functions when deploy to Netlify\n",
+    "number": "29/48"
+}{
+    "nombre de vues": "10",
+    "type": [
+        "c#wpfxaml"
+    ],
+    "Pseudo": "barnyard9",
+    "github_score_time": [
+        "edited 39 mins agokc99",
+        "        asked 40 mins agokc99kc99355 bronze badges"
+    ],
+    "href": "/questions/76139308/why-is-xname-inaccesible-in-my-code-wpf",
+    "contenus": [
+        "Like for real, I do not get it, I have x:Name parameter in my StackPanel, but for whatever reason it's inaccesible in xaml.csHere is XAML:<ListView x:Name=LV2 Background=#484848                          BorderBrush=Transparent                          ItemsSource={Binding Lessons}                       ScrollViewer.VerticalScrollBarVisibility=Hidden                       ScrollViewer.HorizontalScrollBarVisibility=Disabled                      SizeChanged=LV2_SizeChanged>                    <ListView.ItemTemplate>                    <DataTemplate>                        <ScrollViewer VerticalScrollBarVisibility=Hidden Height=Auto Width=Auto Margin=0,0,20,0>                            <StackPanel x:Name=SP SizeChanged=SP_SizeChanged>                                <TextBlock Width=Auto FontSize=24 Foreground=Black TextWrapping=Wrap>                            <Run Text={Binding LessonText}/>                                </TextBlock>                                <Image Source={Binding LessonImage}/>                            </StackPanel>                        </ScrollViewer>                    </DataTemplate>                    </ListView.ItemTemplate>                </ListView>And xaml.csnamespace ApkaJezykowa.MVVM.View{  /// <summary>  /// Logika interakcji dla klasy FrenchLessonView.xaml  /// </summary>  public partial class FrenchLessonView : UserControl  {    public FrenchLessonView()    {      InitializeComponent();    }    private void SP_SizeChanged(object sender, SizeChangedEventArgs e)    {        SP.Height = HeightModel.Instance.Height;        //That one doesn't work    }    private void LV2_SizeChanged(object sender, SizeChangedEventArgs e)    {        LV2.Height = HeightModel.Instance.Height;    }  }}What is even the reason? I tried to do that with Scrollviewer too, result was the same, even removing other x:Name parameter (which works as it should)."
+    ],
+    "titre": "\nWhy is x:name inaccesible in my code (WPF)?\n",
+    "number": "30/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "apache-sparkhive"
+    ],
+    "Pseudo": "Duy Hung",
+    "github_score_time": [
+        "edited 33 mins agoSAUMYA",
+        "        asked 40 mins agoSAUMYASAUMYA122 bronze badges"
+    ],
+    "href": "/questions/76139307/query-not-running-properly-in-spark-submit-but-working-fine-in-hive",
+    "contenus": [
+        "Query running fine in  hive but while running the  same hive query from spark submit command it's not able to populate all column and giving null data instead of actual record.Not able to load data in few columnsinsert into tab2 select co1,col2,col3 from tab1.Result:Select * from tab2;Null,Null,Actual_record"
+    ],
+    "titre": "\nQuery not running properly in Spark submit but working fine in hive\n",
+    "number": "31/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "python-3.xweb-scraping"
+    ],
+    "Pseudo": "kc99",
+    "github_score_time": [
+        "        asked 40 mins agoSpencer FriedmanSpencer Friedman1"
+    ],
+    "href": "/questions/76139306/scraping-google-business-phone-numbers-with-python",
+    "contenus": [
+        "I am trying to build an executable app that scrapes business phone numbers for a number of business (50-100) every day that are in a pandas df. Since I want to make an executable, I want to write the code in python without using selenium web driver, but am unable to figure out any other way to get the phone number values. An example query is: https://www.google.com/search?q=THE+ICE+PALACE+1+MAIN+WALK+CHERRY+GROVE+NY+phone&client=safari&rls=en&hotel_occupancy=2&sxsrf=APwXEdeeern3D6cq4vuQI9grx6ZAj_V9bA%3A1682819400747&ei=SMlNZKuKLYue5NoPwJSr2A8&ved=0ahUKEwirzujkvtD-AhULD1kFHUDKCvsQ4dUDCA8&uact=5&oq=THE+ICE+PALACE+1+MAIN+WALK+CHERRY+GROVE+NY+phone&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIFCAAQogQyBQgAEKIEMgUIABCiBDIFCAAQogQyCAgAEIkFEKIEOgoIABBHENYEELADSgQIQRgAUOACWOACYN4KaAJwAXgAgAFuiAFukgEDMC4xmAEAoAEByAEIwAEB&sclient=gws-wiz-serpAnd the xpath that I would want to retrieve is: //*[@id=rso]/div[1]/div/div/div/div/div/div[1]/div/div[1]/a/spanAny help is greatly appreciated :)I have tried using the lxml tree function, which has not resulted in returning any values. I know that the xpath is correct and works because it returns the right value when using chromedriver, but would like to do it without chromedriver. Could it possibly be an issue of the fact that the page does not load fully and therefore there is no html returned?"
+    ],
+    "titre": "\nScraping Google Business Phone Numbers with Python\n",
+    "number": "32/48"
+}{
+    "nombre de vues": "4",
+    "type": [
+        "swiftswiftui"
+    ],
+    "Pseudo": "SAUMYA",
+    "github_score_time": [
+        "        asked 41 mins agoBerry BlueBerry Blue15.1k1818 gold badges6060 silver badges106106 bronze badges"
+    ],
+    "href": "/questions/76139305/cant-dismiss-a-sheet-with-the-state-is-a-published-property",
+    "contenus": [
+        "I've encountered a problem where I can't dismiss two sheets at the same time when the state is stored as published property on an observable objects versus when both states are stored as state variables directly on the view.Here is an example of the presented states being stored as published properties on observable object. This will dismiss the detail sheet but not the main sheet.class ModelData: ObservableObject {    @Published var showMainSheet = false    @Published var showDetailSheet = false}struct ContentView: View {    @StateObject var model = ModelData()    var body: some View {        VStack {            Button(Show Main Sheet) {                model.showMainSheet = true            }        }        .sheet(isPresented: $model.showMainSheet) {            Button(Show Detail Sheet) {                model.showDetailSheet = true            }            .presentationDetents([.medium])            .fullScreenCover(isPresented: $model.showDetailSheet) {                Button(Dismiss All) {                    model.showDetailSheet = false                    model.showMainSheet = false                }            }        }    }}This second example works where the presented states are stored directly on the view as state variables.struct ContentView: View {    @State var showMainSheet = false    @State var showDetailSheet = false    var body: some View {        VStack {            Button(Show Main Sheet) {                showMainSheet = true            }        }        .sheet(isPresented: $showMainSheet) {            Button(Show Detail Sheet) {                showDetailSheet = true            }            .presentationDetents([.medium])            .fullScreenCover(isPresented: $showDetailSheet) {                Button(Dismiss All) {                    showDetailSheet = false                    showMainSheet = false                }            }        }    }}Why doesn't it dismiss both sheets when these state variables are stored as published properties on the ModelData observable object?"
+    ],
+    "titre": "\nCan't dismiss a sheet with the state is a published property\n",
+    "number": "33/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "xcodecocoapodskotlin-multiplatform"
+    ],
+    "Pseudo": "Spencer Friedman",
+    "github_score_time": [
+        "        asked 41 mins ago19lmyers19lmyers33711 silver badge1616 bronze badges"
+    ],
+    "href": "/questions/76139303/conflicting-deployment-targets-both-macosx-deployment-target-and-iphoneos-de",
+    "contenus": [
+        "I have a KMM project that uses CocoaPods and two targets, one for macOS, one for iOS.For some reason, running a build for the macOS target causes all subsequent builds of the iOS target to fail with the following message:conflicting deployment targets, both 'MACOSX_DEPLOYMENT_TARGET' and 'IPHONEOS_DEPLOYMENT_TARGET' are present in environmentRemoving the macOS target, deleting the shared module build directory, deleting Xcode DerivedData, and deleting the Pods and reinstalling does not fix this."
+    ],
+    "titre": "\nConflicting deployment targets, both 'MACOSX_DEPLOYMENT_TARGET' and 'IPHONEOS_DEPLOYMENT_TARGET' are present in environment\n",
+    "number": "34/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "javascripthtmlcarouselbootstrap-5swiper.js"
+    ],
+    "Pseudo": "Berry Blue",
+    "github_score_time": [
+        "        asked 41 mins agoDhenhiceDhenhice2744 bronze badges"
+    ],
+    "href": "/questions/76139302/carousel-container-has-the-same-value",
+    "contenus": [
+        "I have two files: Index.html and Script.jsInstead of having an output of Title 1, Title 2, Title 3 that slides individually. I have an output of all title1, title2, title3 in one container and they slide with the same content.Index.html:        <div class=container>          <div class=px-3 mb-5>            <h3 class=fw-bold></h3>          </div>          <div class=container px-5 px-md-3 data-aos=zoom-in>            <div              class=testimonials-slider swiper py-2              data-aos=fade-up              data-aos-delay=100            >              <div class=swiper-wrapper featured>                <div class=swiper-slide mx-2></div>              </div>            </div>          </div>          <div class=p-3 text-end>            <a href=>See more</a>          </div>        </div>Script.js  function display(item) {    const itemContainer= $(.featured .swiper-slide);      const carouselContainer = `        <div class=carousel-container border rounded>            <div class=row mx-3 my-4>              <div class=col-md-6>                <div class=carousel-header-item>                  <h3 class=fs-1 fw-bold>Title 1</h3>              </div>            </div>          </div>         </div>          <div class=carousel-container border rounded>            <div class=row mx-3 my-4>              <div class=col-md-6>                <div class=carousel-header-item>                  <h3 class=fs-1 fw-bold>Title 2</h3>              </div>            </div>          </div>         </div>         <div class=carousel-container border rounded>            <div class=row mx-3 my-4>              <div class=col-md-6>                <div class=carousel-header-item>                  <h3 class=fs-1 fw-bold>Title 3</h3>              </div>            </div>          </div>         </div>        `;      itemContainer.html(carouselContainer);  }How do I fix this?"
+    ],
+    "titre": "\nCarousel Container has the same value\n",
+    "number": "35/48"
+}{
+    "nombre de vues": "3",
+    "type": [
+        "javascripthtmlcssanimationhover"
+    ],
+    "Pseudo": "19lmyers",
+    "github_score_time": [
+        "        asked 44 mins agoJane SmithJane Smith1311 bronze badge",
+        "edited 29 mins ago",
+        "        answered 34 mins agonuggetnugget533 bronze badges"
+    ],
+    "href": "/questions/76139299/image-vibrating-and-animations-not-working-css",
+    "contenus": [
+        "<!DOCTYPE html><html lang=en><head>    <meta charset=UTF-8>    <meta http-equiv=X-UA-Compatible content=IE=edge>    <meta name=viewport content=width=device-width, initial-scale=1.0>    <link rel=stylesheet href=home.css>    <title>Sushi</title></head><body>    <div class=nav-bar class=nav-bar-anim class=nav-bar-anim>        <div class=logo>            <img src=img/logo.webp alt=>        </div>        <div class=nav-items>            <a href=>Contact</a>            <a href=>Order</a>            <a href=>About</a>        </div>    </div>    <div class=main-section>                                   <div class=blur></div>            <div class=line class=first-line></div>            <a href=tel:747-272-2997>Order Now</a>            <div class=line></div>    </div>    <div class=second-section>        <h1>Check Out Our Menu</h1>        <a class=color-change href=>Menu</a>    </div>    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis inventore aspernatur animi veritatis id eius illo, doloremque enim itaque pariatur, nostrum molestiae dolorum beatae delectus rem perspiciatis, deserunt vitae repellendus assumenda atque ipsam libero sequi ut consequatur. Laboriosam libero recusandae reiciendis ipsum, harum deleniti itaque doloremque officia praesentium voluptatibus similique dolores? In facilis impedit officia obcaecati ex tempore, quod laboriosam dicta voluptatibus? Qui quasi eius debitis! Neque minus maiores voluptates, quas architecto laboriosam perspiciatis explicabo vel quis, voluptas ipsam nemo omnis ipsum nesciunt? A incidunt amet cupiditate odio consectetur aperiam ex animi eum corrupti minus dolorum, doloremque cum perspiciatis ad velit quas veritatis labore nisi qu    </body><script src=home.js></script></html>@import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');body{        background-color: rgb(255, 255, 255);    margin: 0px;    box-sizing: border-box;    font-family: 'Tilt Neon', cursive;}.nav-bar{    width: 100%;               position: fixed;    z-index: 1;        display: flex;    align-items: center;    justify-content: space-between;    background-color: rgb(255, 255, 255);    border-bottom: black 5px solid;    transition: 2s;            }.nav-bar-anim{     height: 12vh;     transition: 2s;}.nav-bar-fixed{    height: 8vh;    transition: 2s;    }.logo{    width: 110px;                        }.logo img{    width: 100%;                object-fit: cover;        }.nav-items{    display: flex;    justify-content: space-between;    gap: 20px;                margin-right: 5%;            }.nav-items a{        font-size: 5vw;    text-decoration: none;    color: black;                }/* main-sector  */.main-section{    background-image: url(img/famous-japanese-food-sushi.jpg);    height: 300px;    width: 100%;    padding-top: 80px;    background-size: cover;    backdrop-filter: blur(5px);                position: relative;   } .main-section .blur{    width: 100%;    height: 100%;        backdrop-filter: blur(2px);               } .main-section a{    position: absolute;    top: 70%;  left: 50%;  transform: translate(-50%, -50%);  -ms-transform: translate(-50%, -50%);  font-size: 4vw;        padding: 20px;  text-decoration: none;  color: rgb(0, 0, 0);    background: rgb(255, 255, 255);  border: 2px solid rgb(0, 0, 0);    }.main-section .line {    position: absolute;    top: 75%;  left: 50%;  transform: translate(-50%, -50%);  -ms-transform: translate(-50%, -50%);      height: .5%;        background-color: rgb(150, 29, 29);    animation: expandline 5s forwards;    }.second-section{    display: flex;    flex-direction: column;    justify-content: center;    align-items: center;    width: 100%;    height: 40vh;    border-top: 4px solid black;;    border-bottom: 4px solid black;    gap: 40px;    }.second-section a{    text-decoration: none;        font-size: 2em;    border:2px solid black;    padding: 10px 20px;}.color-change{    color: black;    transition: 2s;}@media (min-width: 800px) {    .nav-bar{        height: 16vh;    }    .nav-bar-fixed{    height: 12vh;    transition: 2s;    }   .logo{    width: 10%;                   }        .nav-items{        gap: 30px;    }        .nav-items a{        font-size: 2em;        }    .main-section{                height: 80vh;        width: 100%;}    }.nav-items a:hover{            color: red;    transition: 1s;}@keyframes expandline {  from{    width: 0%;  }      to{        width: 20%;  }        }document.addEventListener('scroll', function () {        const navbar = document.querySelector(.nav-bar);    const navbarHeight = 10;     const distanceFromTop = Math.abs(    document.body.getBoundingClientRect().top  );  if (distanceFromTop >= navbarHeight) navbar.classList.add(nav-bar-fixed);  else navbar.classList.remove(nav-bar-fixed);});I am trying to build a sushi website but my main-section image keeps vibrating when scrolling down in Fullscreen desktop. My nav bar also doesn't work in mobile version when scrolling down the navbar doesn't collapse to be more smaller like in desktop. I am also having issues with making my animations not load when on the website for the first time.",
+        "i'd say the mobile version with the navbar not collapsing is because the javascript event listener is not recieving the scroll event, maybe it's named as a different event on mobile, or maybe it isn't ever a certain amount of space from the top on mobile? to test this i suggest doing a console.log(space from top or whatever) in the scroll event listener. as for the vibrating maybe try proccess of elimination and just delete random stuff from ur css until it works? as for the animation, idrk."
+    ],
+    "titre": "\nImage Vibrating and animations not working css\n",
+    "number": "36/48"
+}{
+    "nombre de vues": "-1",
+    "type": [
+        " rggplot2annotationsgeom-text"
+    ],
+    "Pseudo": "Dhenhice",
+    "github_score_time": [
+        "edited 40 mins agohnguyen",
+        "        asked 45 mins agohnguyenhnguyen66266 silver badges1010 bronze badges",
+        "        answered 39 mins agobenson23benson2313.6k88 gold badges1818 silver badges3636 bronze badges"
+    ],
+    "href": "/questions/76139298/muddled-annotated-text-on-ggplot-with-facet",
+    "contenus": [
+        "I want to add A for Fair and Good, B for Very good and Premium, and C for Ideal diamonds, but my texts are muddled.library(dplyr; ggplot2)Text for annotationann_text <- expand.grid(  x  = c(1.5, 3.5, 5),  y     = 6000,  label = c(A, B, C),  clarity = c(I1, SI2, SI1, VS2, VS1, VVS2, VVS1, IF),  cut = LETTERS[4:10])) dummy df for the dotsprice.avg <- diamonds %>%  group_by(cut, color) %>%  summarise(price = mean(price))main plotdiamonds %>%ggplot() +geom_bar(aes(x = cut, fill = clarity)) +facet_wrap(~ color) +ylab(Count) +  xlab(Cut) +   geom_point(data = price.avg, aes(x = cut, y = price, col = )) +    scale_y_continuous(sec.axis = sec_axis(~. * 1, name = price)) +    geom_vline(xintercept=c(2, 4) + .5, lwd=.5, colour=black) +  geom_text(data = ann_text, aes(x = x, y = y, label = label))  +  scale_color_manual(name = , label = Average price, values = black) Thanks for any leads.",
+        "For an annotation dataframe, I guess you don't need to do expand.grid, just one row per label is fine. Therefore I used ann_text2 for label annotation. In the future if you want to avoid overlapping labels, use geom_text(check_overlap = TRUE).library(dplyr)library(ggplot2)ann_text2 <- data.frame(x = c(1.5, 3.5, 5),                        y = 6000,                        label = LETTERS[1:3])price.avg <- diamonds %>%  group_by(cut, color) %>%  summarise(price = mean(price))diamonds %>%  ggplot() +  geom_bar(aes(x = cut, fill = clarity)) +  facet_wrap(~ color) +  ylab(Count) +  xlab(Cut) +   geom_point(data = price.avg, aes(x = cut, y = price, col = )) +  scale_y_continuous(sec.axis = sec_axis(~. * 1, name = price)) +  geom_vline(xintercept=c(2, 4) + .5, lwd=.5, colour=black) +  geom_text(data = ann_text2, aes(x = x, y = y, label = label), check_overlap = T)  +  scale_color_manual(name = , label = Average price, values = black) "
+    ],
+    "titre": "\nmuddled annotated text on ggplot with facet\n",
+    "number": "37/48"
+}{
+    "nombre de vues": "2",
+    "type": [
+        "pythonpytorchnlphuggingface-datasetsbleu"
+    ],
+    "Pseudo": "Jane Smith",
+    "github_score_time": [
+        "        asked 45 mins agoparth sarthiparth sarthi1122 bronze badges"
+    ],
+    "href": "/questions/76139297/rouge-score-averaged-across-documents-or-per-question",
+    "contenus": [
+        "I am evaluating a model on NarritiveQA story task, and the metrics that were given are Rouge, BLEU-1/4, METEOR ?. What is the standard practice of evaluating on datasets ? Do I average the rouge score across the documents or per question.evaluator = RougeL(multiref=best, alpha=0.5)evaluator.update(([predicted_response], [references]))I'm using this right now and updating after every quesioton, the metric is imported from Pytorch-ignite."
+    ],
+    "titre": "\nRouge Score averaged across documents or per question\n",
+    "number": "38/48"
+}{
+    "nombre de vues": "9",
+    "type": [
+        "javascripthtmlcssslideshow"
+    ],
+    "Pseudo": "hnguyen",
+    "github_score_time": [
+        "        asked 46 mins agopistipisti5966 bronze badges",
+        "edited 8 mins ago",
+        "        answered 18 mins agoThomas FrankThomas Frank13333 bronze badges"
+    ],
+    "href": "/questions/76139294/how-to-force-reload-background-image-in-div-using-css-and-javascript",
+    "contenus": [
+        "i would like to build a very simple webpage slide show showing a new photo every few seconds using HTML, CSS and javascript.   i managed to get it running locally on my linux box with firefox but as soon as i run the show via my linux Apache VPS things break down and the photo image is not updated in firefox or chrome although the html page gets reloaded as expected.  the URL for the image ./slsh.jpg sits on my apache server and is actually a randomly though periodically updated symbolic link to one of many photos stored there.as you see below, i inherted an example code from the web to get the pictures displayed fullsize within the browser window using some CSS tricks within div a.  This setup seems to work fine except that i can't get that unique URL + timestamp approach operational with javascript.  i most likely don't know how to update that URL string of the background image as i may have screwed up my javascript lines or the ID reference such as a.as soon as i use the javascript line starting with document.getElement... the script seems to just crash, the HTML page is not reloaded anymore, nor is the new image displayed - except when i manually force-reload it with ctrl-shift-r in Chrome for example.<script>  var timestamp = new Date().getTime();  document.getElementById(a).style.backgroundImage = url(./slsh.jpg?t= + timestamp + );  window.setInterval('refresh()', 3000);  function refresh() {      location.reload();</script><style>  body, html {      height: 100%;      margin: 0;  }  .bg {      background-image: url('./slsh.jpg');      height: 100%;       background-position: center;      background-repeat: no-repeat;      background-size: contain;      background-color: rgb(10,10,10);  }</style><!DOCTYPE html><html><head><!--- here sits my CSS code ---><!--- here sits my javascript code ---></head><body id=body>  <div class=bg id=a></div></body></html>what is wrong here ?  what needs to adjusted or added in order to make this photo slide show run smoothly ?  i saw many suggestions on the web - but my particular scenario differs somewhat as i use div with that backgroundImage solution which shows my photos the way i want it.",
+        "You don't have to reload the whole html page in order to change the image, in fact you can pre-cache the images if you don't, leading to a smoother slideshow. Here's an example.Note: Change the listOfImageUrls which I'm lazy and auto-generate to your own array of urls to different images.slideshow.html<!DOCTYPE html><html lang=en><head>  <meta charset=UTF-8>  <meta http-equiv=X-UA-Compatible content=IE=edge>  <meta name=viewport content=width=device-width, initial-scale=1.0>  <title>Slideshow</title>  <link rel=stylesheet href=slideshow.css></head><body>  <script src=slideshow.js></script></body></html>slideshow.cssbody {  background-color: black;  background-size: cover;  background-attachment: fixed;}slidehow.js// How many seconds before shifting imageconst secondsBetweenSlides = 5;// An array of image urls - just generating from unsplash for nowconst listOfImageUrls = [...new Array(15)].map(() =>  `https://source.unsplash.com/random/?food&nocache=${Math.random()}`);// Sleep for a number of msconst sleep = ms => new Promise(res => setTimeout(res, ms));// Run the showconst slideShow = async () => {  while (true) {    let imageToShow = listOfImageUrls.shift();    listOfImageUrls.push(imageToShow)    document.body.style.backgroundImage = `url(${imageToShow})`;    await sleep(secondsBetweenSlides * 1000);  }}slideShow();"
+    ],
+    "titre": "\nhow to force-reload background image in <div> using CSS and javascript\n",
+    "number": "39/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "androidssl-certificatetrust"
+    ],
+    "Pseudo": "parth sarthi",
+    "github_score_time": [
+        "        asked 47 mins agoSunnyCoderSunnyCoder1"
+    ],
+    "href": "/questions/76139293/android-error-java-security-cert-certpathvalidatorexception-trust-anchor-for",
+    "contenus": [
+        "So I've been stuck on this for a while. The call worked and then it didn't after a week. Makes me wonder whats going on. I got the certificate (also tried the chain, from the site - PEM format) but this error persists.Below is my code public static HttpsURLConnection setUpHttpsConnection(String urlString, Context ctx)     {         try         {             CertificateFactory cf = CertificateFactory.getInstance(X.509);             InputStream caInput = new BufferedInputStream(ctx.getAssets().open(servercert.pem));             Certificate ca = cf.generateCertificate(caInput);             System.out.println(ca= + ((X509Certificate) ca).getSubjectDN());             // Create a KeyStore containing our trusted CAs             String keyStoreType = KeyStore.getDefaultType();             KeyStore keyStore = KeyStore.getInstance(keyStoreType);             keyStore.load(null, null);             keyStore.setCertificateEntry(ca, ca);             // Create a TrustManager that trusts the CAs in our KeyStore             String tmfAlgorithm = TrustManagerFactory.getDefaultAlgorithm();             TrustManagerFactory tmf = TrustManagerFactory.getInstance(tmfAlgorithm);             tmf.init(keyStore);                          // Create a TrustManager that trusts the CAs in our KeyStore             String tmfAlgorithm = TrustManagerFactory.getDefaultAlgorithm();             TrustManagerFactory tmf = TrustManagerFactory.getInstance(tmfAlgorithm);             tmf.init(keyStore);             // Create an SSLContext that uses our TrustManager             SSLContext context = SSLContext.getInstance(TLS);             context.init(null, tmf.getTrustManagers(), null);                          // Tell the URLConnection to use a SocketFactory from our SSLContext             URL url = new URL(urlString);             URLEncoder.encode(url.toString(), UTF-8);             HttpsURLConnection urlConnection = (HttpsURLConnection)url.openConnection();             urlConnection.setSSLSocketFactory(context.getSocketFactory());             return urlConnection;         }         catch (Exception ex)         {             Log.e(TAG, Failed to establish SSL connection to server:  + ex.toString());             return null;         }    }and in a task called from MainActivity, I haveHttpsURLConnection myConnection = setUpHttpsConnection(endpoint.toString(), ctx);//end point is - www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=NVDA&datatype=json&apikey=U89XCI9ILUCICTP1//fails on the line below if (myConnection.getResponseCode() == 200) {                InputStream responseBody = myConnection.getInputStream();It fails on  if (myConnection.getResponseCode() == 200) {with the stacktraceW/System.err: javax.net.ssl.SSLHandshakeException: java.security.cert.CertPathValidatorException: Trust anchor for certification path not found.W/System.err:     at com.android.org.conscrypt.SSLUtils.toSSLHandshakeException(SSLUtils.java:362)W/System.err:     at com.android.org.conscrypt.ConscryptEngine.convertException(ConscryptEngine.java:1134)W/System.err:     at com.android.org.conscrypt.ConscryptEngine.readPlaintextData(ConscryptEngine.java:1089)W/System.err:     at com.android.org.conscrypt.ConscryptEngine.unwrap(ConscryptEngine.java:876)W/System.err:     at com.android.org.conscrypt.ConscryptEngine.unwrap(ConscryptEngine.java:747)W/System.err:     at com.android.org.conscrypt.ConscryptEngine.unwrap(ConscryptEngine.java:712)W/System.err:     at com.android.org.conscrypt.ConscryptEngineSocket$SSLInputStream.processDataFromSocket(ConscryptEngineSocket.java:849)W/System.err:     at com.android.org.conscrypt.ConscryptEngineSocket$SSLInputStream.access$100(ConscryptEngineSocket.java:722)W/System.err:     at com.android.org.conscrypt.ConscryptEngineSocket.doHandshake(ConscryptEngineSocket.java:238)I have set the networkconfig.xml to point to the certificate and also set up the manifest file.ThanksKeep getting the same error."
+    ],
+    "titre": "\nAndroid Error - java.security.cert.CertPathValidatorException: Trust anchor for certification path not found\n",
+    "number": "40/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "pythonlinuxsyntax-error"
+    ],
+    "Pseudo": "pisti",
+    "github_score_time": [
+        "        asked 47 mins agojea0pjea0p1111 bronze badge"
+    ],
+    "href": "/questions/76139291/please-help-to-fix-it-instagram-private-api-errors-clienterror-not-found",
+    "contenus": [
+        "I recently runn the tools of Osintgram, and getting error at last log these.instagram_private_api.errors.ClientError: Not Foundinstagram_private_api.errors.ClientError: Not Found"
+    ],
+    "titre": "\nplease help to fix it (instagram_private_api.errors.ClientError: Not Found\n",
+    "number": "41/48"
+}{
+    "nombre de vues": "4",
+    "type": [
+        "scrapyscrapy-request"
+    ],
+    "Pseudo": "SunnyCoder",
+    "github_score_time": [
+        "edited 37 mins agoDaniel",
+        "        asked 48 mins agoDanielDaniel122 bronze badges"
+    ],
+    "href": "/questions/76139290/my-callback-function-is-not-responding-can-anyone-help-out-here-im-really-stuc",
+    "contenus": [
+        "I tried running this code several times using pycharm but it just won't work. The scrapy Request callback function is not responding, nothing gets printed out.Does anyone have an idea on what's causing the bug??import scrapyclass HemnetSpider(scrapy.Spider):    name = hemnet    allowed_domains = [hemnet.se/]    start_urls = [https://www.hemnet.se/bostader?location_ids%5B%5D=17759]    def parse(self, response):        for links in response.css('ul.normal-results > li.normal-results__hit > a::attr(href)'):            yield scrapy.Request(url=links.get(), callback=self.parseInnerPage)    def parseInnerPage(self, response):        print(response.text)"
+    ],
+    "titre": "\nMy callback function is not responding, can anyone help out here i'm really stuck\n",
+    "number": "42/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "typescriptvue.jsnuxt.jspinia"
+    ],
+    "Pseudo": "jea0p",
+    "github_score_time": [
+        "edited 33 mins agoPedro Souza",
+        "        asked 50 mins agoPedro SouzaPedro Souza3355 bronze badges"
+    ],
+    "href": "/questions/76139287/pinia-cant-import-the-named-export-computed-from-non-ecmascript-module-only",
+    "contenus": [
+        "i cant use Pinia in nuxt 2.15.8 and Vue 2.7.10 with Typescript, i tried many methods and installed many dependencies, but it just dont work, i tried so many things that i had to restart my main folders on githu; i installed this dependencies @pinia/nuxt: ^0.4.9, vue-server-renderer: ^2.7.10,  vue-template-compiler: ^2.7.10  modules: [    // https://go.nuxtjs.dev/axios    '@nuxtjs/axios',    '@pinia/nuxt'  ],in build modules i try to use Pinia, but it dont work so now its empty:  buildModules: [    // https://go.nuxtjs.dev/typescript    '@nuxtjs/fontawesome',    '@nuxt/typescript-build',    '@nuxtjs/tailwindcss',  ],this error Can't import the named export 'computed' from non EcmaScript module (only default export is available) keeps showingi solved this error one time, but then the nuxt didnt find the Pinia module, so i dont know what to do, i tried many ways but Pinia just dont run, someone was some idea? i converted my Nuxt to ts so my nuxt.config is .js not .ts, if it may interfere with this? im also using npm, im also getting this error sometimes: WARN  Module pinia is disabled due to incompatibility issues:                                                                                11:38:23 PM - [bridge] Nuxt bridge is required"
+    ],
+    "titre": "\nPinia: Can't import the named export 'computed' from non EcmaScript module (only default export is available)\n",
+    "number": "43/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "expresshttpnginxroutesreverse-proxy"
+    ],
+    "Pseudo": "Daniel",
+    "github_score_time": [
+        "edited 12 mins agoThugsy49",
+        "        asked 51 mins agoThugsy49Thugsy49533 bronze badges"
+    ],
+    "href": "/questions/76139286/why-is-nginx-not-sending-my-get-request-to-my-express-server",
+    "contenus": [
+        "Im currently in the last stages of setting up my website and I cant get nginx to work and its killing meI have a very simple crud app, react front end, express backend, and obviously im using nginx as a reverse proxyAll routes in the server looks likeapp.get('/GetProfile', (req, res) => {...})standard stuffand it works on local hostand whats even weirder is the app can make a get request to a single route called  /GetAllProfiles but none of the others despite being setup the exact same wayhttp {    include       mime.types;    default_type application/json;    sendfile        on;    #tcp_nopush     on;    #keepalive_timeout  0;    keepalive_timeout  65;    #gzip  on;    server {        listen       80  default_server;    listen 443 ssl default_server;    listen [::]:80 default_server;        server_name  musiclovers.studio;            add_header 'Access-Control-Allow-Credentials' 'true';        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';    ssl_certificate C:\\Users\\Administrator\\musiclovers\\sslcert\\cert.pem; # REPLACE HERE        ssl_certificate_key C:\\Users\\Administrator\\musiclovers\\sslcert\\privkey.pem; # REPLACE HERE    try_files $uri $uri/ /index.html =404;        location / {            proxy_set_header X-Real-IP $remote_addr;            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;        proxy_set_header Host $http_host;             proxy_set_header X-NginX-Proxy true;            proxy_set_header Upgrade $http_upgrade;            proxy_set_header Connection 'upgrade';            proxy_pass http://localhost:888/;        proxy_set_header content-type application/json;            proxy_ssl_session_reuse off;            proxy_pass_header Server;            proxy_cache_bypass $http_upgrade;                }        }}and whats even weirder is that all the requests im making log properly    72.230.78.122 - - [30/Apr/2023:01:56:04 +0000] GET /GetAllProfiles?ID=2 HTTP/1.1 304 0 http://localhost:3000/ Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.3672.230.78.122 - - [30/Apr/2023:01:56:08 +0000] GET /GetProfile?id=1 HTTP/1.1 304 0 http://localhost:3000/ Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.3672.230.78.122 - - [30/Apr/2023:01:56:08 +0000] GET /GetSong/?audioId= HTTP/1.1 304 0 http://localhost:3000/ Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36(the mismatched ID casing is proper because im bad at consistancy but even then id still get a debug about a request being made because I console.log in every route, get song might be a little different but right now im just hyperfocused on getting /GetProfile setup, which on all ends - frontend and backend - are setup almost identically so I should be at the very least seeing some kind of debugging in the console)Im super annoyed, this reverse proxy thing has been a thorn in my side for about a week and i just want to move on. I dont get it. Why does the one request work but none of the others?Nginx is clearly recieving the requests because it logs itbut itsjust.not.working.EDIT: heres some of the server codeconst express = require('express')const cors = require('cors')const mysql = require('mysql')const multer = require('multer')const path = require('path')const fs = require('fs');const { parseArgs } = require('util')const https = require('https');var http = require('http');var privateKey  = fs.readFileSync('./sslcert/privkey.pem', 'utf8');var certificate = fs.readFileSync('./sslcert/cert.pem', 'utf8');var credentials = {key: privateKey, cert: certificate};const app = express()var httpServer = http.createServer(app);var httpsServer = https.createServer(credentials , app);var corsOptions = {    origin: '*',    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204  }let uploadlocation = '';const storage = multer.diskStorage({    destination: (req, file, cb) => {        cb(null, './Uploads')    },     filename: (req, file, cb) => {         console.log(file)        uploadlocation = Date.now() + path.extname(file.originalname)        cb(null, uploadlocation)    },});const upload = multer({storage: storage});app.use(cors(corsOptions))app.use(express.json())app.use(express.static(path.join(__dirname, 'build')));const db = mysql.createConnection({    user: 'root',    password: 'password',    database: 'musicsystem',}); app.get('/GetAllProfiles', (req, res) => {    const id = req.query.ID;     console.log(User , id,  Has requested a list of all users)    db.query(SELECT * FROM musicpost WHERE id != ?, id ,(err,result) => {        if(err)        {            console.log(err);        } else {            res.send(result);        }    })})app.get('/*' , (req, res) => {    res.sendFile(__dirname + '\\\\build\\\\index.html');})app.get('/GetProfile', (req, res) => {     const ID = req.query.id;    console.log(Getting profile , ID);    db.query(SELECT * FROM musicpost WHERE id = ?;, [ID], (err,result) =>    {        if(err)        {            console.log(err);        } else {            res.send(result);        }    });})app.get('/GetSong', (req, res) => {    const fileName = req.query.audioId;    const filepath = ./Uploads/ + fileName;    const stat = fs.statSync(filepath);    console.log(filepath);    console.log(stat);    const header = 'attachment; filename=' + fileName;    res.sendFile(fileName , {root: './Uploads/'});    })httpServer.listen(888, 127.0.0.1);httpsServer.listen(889, 127.0.0.1, () => {    console.log(Server is running on port 3001)} )"
+    ],
+    "titre": "\nWhy is NGINX not sending my get request to my express server?\n",
+    "number": "44/48"
+}{
+    "nombre de vues": "11",
+    "type": [
+        "pythonmatplotlib"
+    ],
+    "Pseudo": "Pedro Souza",
+    "github_score_time": [
+        "        asked 51 mins agoJackJack2633 bronze badges"
+    ],
+    "href": "/questions/76139284/matplotlib-unfilled-marker-with-dashed-linestyle-produces-fine-solid-lines-conne",
+    "contenus": [
+        "Python 3.9.12 and matplotlib 3.7.1import matplotlibmatplotlib.use('pdf')import matplotlib.pyplot as pltfig, ax = plt.subplots()ax.scatter(3.0, 4.0, s=20000.0, marker='_', linestyle='--')fig.savefig('dmp_test.pdf')This code produces a dashed line with an extremely fine connecting solid line in the pdf output, visible when zoomed in. The image below is a cropped screenshot of the pdf zoomed in to the marker.I expected a dashed line marker without any fine solid line.I get the same result for other unfilled markers. But filled markers with no fill colour work as expected, with no fine solid line.Messing with face colour or edge colour doesn't seem to do anything.There is no connecting line for eps output, neither for png."
+    ],
+    "titre": "\nmatplotlib unfilled marker with dashed linestyle produces fine solid lines connecting the dashes in pdf output\n",
+    "number": "45/48"
+}{
+    "nombre de vues": "-3",
+    "type": [
+        "androidkotlinandroid-jetpack-compose"
+    ],
+    "Pseudo": "Thugsy49",
+    "github_score_time": [
+        "        asked 53 mins agokttnkttn1,1371010 silver badges1616 bronze badges"
+    ],
+    "href": "/questions/76139283/originaltotransformed-keeps-on-looping-when-when-i-implemented-visualtransformat",
+    "contenus": [
+        "I'm trying to implement a custom VisualTransformation for TextField in Jetpack compose. While debugging I found that originalToTransformed of OffsetMapping keeps on calling. Is this an intended behavior or any fix is available for this? I have tested multiple codes even from other GitHub repos, all behave the same."
+    ],
+    "titre": "\noriginalToTransformed keeps on looping when when I implemented VisualTransformation for TextField in jetpack compose\n",
+    "number": "46/48"
+}{
+    "nombre de vues": "0",
+    "type": [
+        "developer-tools"
+    ],
+    "Pseudo": "Jack",
+    "github_score_time": [
+        "        asked 53 mins agobbijnbbijn1",
+        "        answered 37 mins agoYusuf GiovannoYusuf Giovanno7299 bronze badges"
+    ],
+    "href": "/questions/76139282/software-deployment-connect-to-domain",
+    "contenus": [
+        "Closed. This question is not about programming or software development. It is not currently accepting answers.                     This question does not appear to be about a specific programming problem, a software algorithm, or software tools primarily used by programmers. If you believe the question would be on-topic on another Stack Exchange site, you can leave a comment to explain where the question may be able to be answered.Closed 8 mins ago.\r                        Improve this question\r                    I hired a developer on fiver to build me a custom software he delivered the files to me . but now im not sure what to do next someone else told me i need to deploy the software with a host so i found hostinger online but im not sure what's next or how to hire another developer, can some please point me into the right direction the original developer is not answering me so im not sure he delivered a good product.i was expecting for the software to be connected to a domain but its not its just files and codes i need a site that's user friendly, I wanted the software to be cloud based ana SaaS so it can be accessed anywhere.",
+        "First of all, try the code the dev sent you. If it works well, you can choose many platform to make it accessible by everyone through the internet. There’s a wide range of variety to make it happen, it you’re new to this, you can use a shared hosting, it’s the simplest way so far, you will get a file hosting and a domain also. Make sure the shared hosting specification meets your software’s requirement. Or you can simply hire another developer or a DevOps."
+    ],
+    "titre": "\nsoftware deployment & connect to domain [closed]\n",
+    "number": "47/48"
+}{
+    "nombre de vues": "16",
+    "type": [
+        "flutterdartclean-architectureuse-case"
+    ],
+    "Pseudo": "kttn",
+    "github_score_time": [
+        "        asked 54 mins agodjalmafreestylerdjalmafreestyler1,53344 gold badges2121 silver badges4141 bronze badges"
+    ],
+    "href": "/questions/76139281/is-it-good-approach-to-have-an-interface-for-usecases",
+    "contenus": [
+        "I've created an interface for my use cases that returns a Future, Is it good approach to have an interface for all use cases?What if I need a Usecase to return Streams instead of a single return (Future), for example listen to snapshots from Firebase Cloud Firestore collection, should I have two interfaces?import 'package:equatable/equatable.dart';import '../errors/failure.dart';import 'package:dartz/dartz.dart';abstract class Usecase<Input, Output> {  Future<Either<Failure, Output>> call(Input input);}class Input<T> extends Equatable {  final T parameter;  Input(this.parameter);  @override  List<Object?> get props => [parameter];}class NoInput extends Equatable {  @override  List<Object?> get props => [];}"
+    ],
+    "titre": "\nIs it good approach to have an interface for Usecases?\n",
+    "number": "48/48"
+}
